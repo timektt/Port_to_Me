@@ -2,10 +2,11 @@ import React from "react";
 
 const ProfileInfo = () => {
   return (
-    <div className="flex items-center gap-3">
-      <img src="/spm.png" alt="Profile" className="w-40 h-15 rounded-full" />
-      <h1 className="text-2xl font-bold">
-        Supermhee <span className="text-xl font-normal text-gray-300">| Your Course | Your Post</span>
+    <div className="flex items-center gap-2">
+      <img src="/spm2.jpg" alt="Profile" className="w-30 h-12 rounded-full" />
+      <h1 className="text-3xl font-bold flex items-center gap-5">
+        Supermhee 
+        <span className="text-xl text-gray-300 hidden md:inline">Course | Post</span>
       </h1>
     </div>
   );
