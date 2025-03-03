@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+
+/* ตั้งค่าพื้นหลังของทุกองค์ประกอบหลัก */
+body {
+  background-color: #4a4a4a; /* สีเทา */
+  color: white;
+}
+
+/* พื้นหลังของ Navbar */
+.navbar {
+  background-color: #333;
+}
+
+/* พื้นหลังของวิดีโอ */
+.video-grid-container {
+  background-color: #4a4a4a;
+}
+
+.video-card {
+  background: linear-gradient(to bottom, #5a5a5a, #333);
+}
