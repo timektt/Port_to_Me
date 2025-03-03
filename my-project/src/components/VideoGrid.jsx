@@ -1,5 +1,6 @@
 import React from "react";
 import LatestUpdates from "./LatestUpdates";
+import PopularTags from "./PopularTags"; // ✅ นำเข้า PopularTags
 
 const videos = [
   { id: "dQw4w9WgXcQ", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
@@ -31,8 +32,15 @@ const VideoGrid = () => {
           </div>
         ))}
       </div>
+
+      {/* ✅ แสดง `LatestUpdates` ถัดจากวิดีโอ */}
       <div className="w-full">
         <LatestUpdates />
+      </div>
+
+      {/* ✅ เพิ่ม `PopularTags` ถัดจาก `LatestUpdates` */}
+      <div className="w-full">
+        <PopularTags />
       </div>
     </div>
   );
