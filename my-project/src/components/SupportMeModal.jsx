@@ -16,7 +16,7 @@ const SupportMeModal = ({ closeModal }) => {
         exit={{ opacity: 0 }}
         onClick={closeModal} // ปิด Modal เมื่อคลิกด้านนอก
       >
-        {/* ✅ ปรับความกว้างเล็กลง และเพิ่มความสูงขององค์ประกอบ */}
+        {/* ✅ ปรับขนาดให้เล็กลงและสูงขึ้นเล็กน้อย */}
         <motion.div
           className="bg-white p-3 rounded-lg shadow-lg w-64 relative"
           initial={{ y: 50, opacity: 0 }}
@@ -47,21 +47,29 @@ const SupportMeModal = ({ closeModal }) => {
             Buy a Coffee for Supermhee
           </h2>
 
-          {/* ไอคอนกาแฟ & จำนวน */}
+          {/* ✅ ปรับปุ่ม + - และทำให้ดูเหมือนในภาพ */}
           <div className="flex items-center justify-center mt-3">
-            <FaCoffee size={30} className="text-gray-700" />
+            <FaCoffee size={22} className="text-gray-700 mr-3" />
+
+            {/* ปุ่มลดจำนวน */}
             <button
-              className="bg-gray-500 px-3 py-1 mx-2 rounded-md hover:bg-gray-800"
+              className="w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full border border-gray-400 hover:bg-gray-300 transition"
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
             >
-              <FaMinus size={16} />
+              <FaMinus size={14} />
             </button>
-            <span className="text-sm font-semibold">{quantity}</span>
+
+            {/* จำนวนโดเนท */}
+            <span className="w-10 h-8 flex items-center justify-center text-sm font-semibold bg-white border border-gray-400 rounded-full mx-2">
+              {quantity}
+            </span>
+
+            {/* ปุ่มเพิ่มจำนวน */}
             <button
-              className="bg-gray-500 px-3 py-1 mx-2 rounded-md hover:bg-gray-800"
+              className="w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full border border-gray-400 hover:bg-gray-300 transition"
               onClick={() => setQuantity(quantity + 1)}
             >
-              <FaPlus size={16} />
+              <FaPlus size={14} />
             </button>
           </div>
 
@@ -70,15 +78,16 @@ const SupportMeModal = ({ closeModal }) => {
             ฿ {total}
           </div>
 
-          {/* Input ช่องชื่อและข้อความ */}
+          {/* ✅ ปรับสีของ Placeholder ให้มองเห็นได้ */}
           <input
             type="text"
-            placeholder="Your name"
-            className="w-full p-2 mt-3 border border-gray-300 rounded-md text-xs"
+            placeholder="Your name or nickname"
+            className="w-full p-2 mt-3 border border-gray-300 rounded-md text-sm placeholder-gray-600"
           />
+
           <textarea
             placeholder="Your message"
-            className="w-full p-2 mt-2 border border-gray-300 rounded-md text-xs"
+            className="w-full p-2 mt-2 border border-gray-300 rounded-md text-sm placeholder-gray-600"
             rows="3"
           ></textarea>
 
