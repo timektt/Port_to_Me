@@ -16,7 +16,6 @@ const SupportMeModal = ({ closeModal }) => {
         exit={{ opacity: 0 }}
         onClick={closeModal} // ปิด Modal เมื่อคลิกด้านนอก
       >
-        {/* ✅ ปรับขนาดให้เล็กลงและสูงขึ้นเล็กน้อย */}
         <motion.div
           className="bg-white p-3 rounded-lg shadow-lg w-64 relative"
           initial={{ y: 50, opacity: 0 }}
@@ -47,7 +46,7 @@ const SupportMeModal = ({ closeModal }) => {
             Buy a Coffee for Supermhee
           </h2>
 
-          {/* ✅ ปรับปุ่ม + - และทำให้ดูเหมือนในภาพ */}
+          {/* ปุ่ม + - และจำนวน */}
           <div className="flex items-center justify-center mt-3">
             <FaCoffee size={22} className="text-gray-700 mr-3" />
 
@@ -59,8 +58,8 @@ const SupportMeModal = ({ closeModal }) => {
               <FaMinus size={14} />
             </button>
 
-            {/* จำนวนโดเนท */}
-            <span className="w-10 h-8 flex items-center justify-center text-sm font-semibold bg-white border border-gray-400 rounded-full mx-2">
+            {/* จำนวน (เปลี่ยนเป็นสีดำ) */}
+            <span className="w-10 h-8 flex items-center justify-center text-sm font-semibold bg-white border border-gray-400 rounded-full mx-2 text-black">
               {quantity}
             </span>
 
@@ -73,21 +72,21 @@ const SupportMeModal = ({ closeModal }) => {
             </button>
           </div>
 
-          {/* ราคาทั้งหมด */}
-          <div className="bg-gray-300 p-3 mt-3 rounded-lg text-center text-sm font-semibold text-gray-800">
+          {/* ราคาทั้งหมด (เปลี่ยนเป็นสีดำ) */}
+          <div className="bg-gray-300 p-3 mt-3 rounded-lg text-center text-sm font-semibold text-black">
             ฿ {total}
           </div>
 
-          {/* ✅ ปรับสีของ Placeholder ให้มองเห็นได้ */}
+          {/* ช่องใส่ชื่อและข้อความ (เปลี่ยนเป็นสีดำ) */}
           <input
             type="text"
             placeholder="Your name or nickname"
-            className="w-full p-2 mt-3 border border-gray-300 rounded-md text-sm placeholder-gray-600"
+            className="w-full p-2 mt-3 border border-gray-300 rounded-md text-sm placeholder-gray-600 text-black"
           />
 
           <textarea
             placeholder="Your message"
-            className="w-full p-2 mt-2 border border-gray-300 rounded-md text-sm placeholder-gray-600"
+            className="w-full p-2 mt-2 border border-gray-300 rounded-md text-sm placeholder-gray-600 text-black"
             rows="3"
           ></textarea>
 

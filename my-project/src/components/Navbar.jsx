@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ ใช้ useNavigate() นำทาง
 import ProfileInfo from "./ProfileInfo";
 import { FaYoutube, FaFacebook, FaGithub, FaBars, FaTimes, FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate(); // ✅ ใช้ navigate()
 
   // **📌 ปิดเมนูอัตโนมัติเมื่อหน้าจอขยายเกิน 988px**
   useEffect(() => {
@@ -24,7 +26,9 @@ const Navbar = () => {
         <button className="md:hidden text-white text-3xl" onClick={() => setMenuOpen(true)}>
           <FaBars />
         </button>
-        <ProfileInfo />
+
+        {/* ✅ ProfileInfo (เพิ่ม navigate ไปที่ Courses) */}
+        <ProfileInfo navigate={navigate} />
       </div>
 
       {/* **Right: Social Links + Search Box (แสดงเฉพาะจอใหญ่)** */}
@@ -38,7 +42,7 @@ const Navbar = () => {
         <a href="https://github.com" target="_blank" rel="noopener noreferrer">
           <FaGithub className="text-2xl md:text-3xl hover:text-gray-500" />
         </a>
-        <div className="relative w-32 md:w-48">
+        <div className="relative w-30 md:w-48">
           <input
             type="text"
             placeholder="Search..."
@@ -51,7 +55,7 @@ const Navbar = () => {
       {/* **📌 Fullscreen Sidebar Menu (เมื่อ Hamburger เปิด) ** */}
       {menuOpen && (
         <>
-          {/* **📌 Sidebar Container (เฉพาะ Sidebar เท่านั้นที่ทึบ)** */}
+          {/* **📌 Sidebar Container** */}
           <div className="fixed top-0 left-0 w-64 h-full bg-gray-900 text-white shadow-lg z-50 p-6">
             {/* **📌 ปุ่มปิดเมนู** */}
             <button className="self-end text-3xl absolute right-4 top-4" onClick={() => setMenuOpen(false)}>
@@ -60,8 +64,16 @@ const Navbar = () => {
 
             {/* **📌 Menu Links** */}
             <div className="mt-6 flex flex-col gap-6 text-lg">
-              <a href="#" className="hover:text-gray-400">Courses</a>
-              <a href="#" className="hover:text-gray-400">Posts</a>
+              {/* ✅ Courses (ใช้ navigate("/") และปิดเมนู) */}
+              <button 
+                onClick={() => {
+                  navigate("/");  // ✅ กลับไปหน้า Home
+                  setMenuOpen(false);
+                }} 
+                className="hover:text-gray-400 text-left"
+              >
+                Courses
+              </button>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
                 Youtube
               </a>
@@ -74,7 +86,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* **📌 Overlay คลุมเฉพาะ Sidebar เท่านั้น (ทำให้เมนูเด่นขึ้นแต่ไม่บังเนื้อหา)** */}
+          {/* **📌 Overlay คลุมเฉพาะ Sidebar เท่านั้น** */}
           <div
             className="fixed inset-0 backdrop-blur-sm bg-black/20 z-40"
             onClick={() => setMenuOpen(false)}

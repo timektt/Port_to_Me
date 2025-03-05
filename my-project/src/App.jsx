@@ -1,17 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import VideoGrid from "./components/VideoGrid";
+import CourseGrid from "./components/CourseGrid";
+import PythonSeries from "./pages/courses/PythonSeries"; // ✅ Import หน้าคอร์ส
 import SupportMeButton from "./components/SupportMeButton";
-import Footer from "./components/Footer"; // 🔹 Import Footer
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="bg-gray-900 min-h-screen text-white flex flex-col">
-      <Navbar />
-      <VideoGrid />
-      <SupportMeButton />
-      <Footer /> {/* 🔹 เพิ่ม Footer ที่ด้านล่าง */}
-    </div>
+    <Router>
+      <div className="bg-gray-900 min-h-screen text-white flex flex-col">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<CourseGrid />} />
+          <Route path="/courses/python-series" element={<PythonSeries />} /> 
+          {/* ✅ เพิ่มเส้นทางไปยังหน้า Python Series */}
+        </Routes>
+        <SupportMeButton />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
