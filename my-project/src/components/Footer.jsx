@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white text-center py-4 w-full relative bottom-0">
+    <footer className="bg-gray-800 text-white text-center py-4 w-full relative z-20">
       <p>Copyright © 2025 Supermhee.</p>
     </footer>
   );
