@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
+import Footer from "./Footer";
 
 const sidebarItems = [
   { id: "101", title: "Basic Python" },
@@ -55,6 +56,7 @@ const Sidebar = ({ theme, activeCourse, sidebarOpen, setSidebarOpen }) => {
         </ul>
       </aside>
     </>
+    
   );
 };
 

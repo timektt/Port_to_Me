@@ -12,7 +12,7 @@ const ProfileInfo = ({ navigate }) => {
         >
            Courses
         </button>
-        <span className="text-xl text-dark hidden md:inline relative top-1"> |  Post</span>
+        <span className="text-xl text- hidden md:inline relative top-1"> |  Post</span>
       </h1>
     </div>
   );
