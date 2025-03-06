@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHome, FaAngleRight } from "react-icons/fa";
-import Sidebar from "../../components/Sidebar"; // ✅ ใช้ Sidebar เป็น Component
-import SupportMeButton from "../../components/SupportMeButton"; // ✅ Footer เอาออก
+import Sidebar from "../../components/Sidebar";
+import SupportMeButton from "../../components/SupportMeButton";
 
 const lessons = [
   {
@@ -19,43 +19,57 @@ const lessons = [
   },
 ];
 
-const PythonSeries = () => {
+const PythonSeries = ({ theme }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gray-900 min-h-screen flex">
-      {/* ✅ Sidebar (ทำให้ Sidebar ไม่หาย) */}
-      <Sidebar activeCourse="Python Series" />
+    <div
+      className={`min-h-screen flex ${
+        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+      }`}
+    >
+      <Sidebar activeCourse="Python Series" theme={theme} />
 
-      {/* ✅ Main Content */}
       <main className="flex-1 p-6">
         <div className="max-w-3xl mx-auto">
-          {/* ✅ Breadcrumb + Home Button */}
           <div className="flex items-center gap-2 mb-4">
             <button
-              className="bg-gray-700 text-white p-2 rounded-md hover:bg-gray-600 transition"
+              className={`p-2 rounded-md transition ${
+                theme === "dark"
+                  ? "bg-gray-700 text-white hover:bg-gray-600"
+                  : "bg-gray-300 text-black hover:bg-gray-400"
+              }`}
               onClick={() => navigate("/")}
             >
               <FaHome size={18} />
             </button>
             <FaAngleRight className="text-gray-400" />
-            <span className="bg-gray-700 px-3 py-1 rounded-md text-white font-semibold">
+            <span
+              className={`px-3 py-1 rounded-md font-semibold ${
+                theme === "dark" ? "bg-gray-700 text-white" : "bg-gray-300 text-black"
+              }`}
+            >
               Python Series
             </span>
           </div>
 
-          {/* ✅ หัวข้อหลัก */}
           <h1 className="text-4xl font-bold text-left mt-4">Python Series</h1>
 
-          {/* ✅ Warning Box */}
-          <div className="bg-yellow-600 text-black p-3 rounded-md mt-4">
+          <div
+            className={`p-3 rounded-md mt-4 ${
+              theme === "dark" ? "bg-yellow-600 text-black" : "bg-yellow-300 text-black"
+            }`}
+          >
             ⚠ WARNING: เอกสารนี้อาจมีการเปลี่ยนแปลงตามเนื้อหาของหลักสูตร
           </div>
 
-          {/* ✅ Table */}
           <div className="mt-6">
-            <table className="w-full border border-gray-700 text-left rounded-lg shadow-lg overflow-hidden">
-              <thead className="bg-gray-800">
+            <table
+              className={`w-full border text-left rounded-lg shadow-lg overflow-hidden ${
+                theme === "dark" ? "border-gray-700" : "border-gray-300"
+              }`}
+            >
+              <thead className={`${theme === "dark" ? "bg-gray-800" : "bg-gray-200"}`}>
                 <tr>
                   <th className="p-2">ตอน</th>
                   <th className="p-2">หัวข้อ</th>
@@ -65,7 +79,12 @@ const PythonSeries = () => {
               </thead>
               <tbody>
                 {lessons.map((lesson) => (
-                  <tr key={lesson.id} className="border-t border-gray-700">
+                  <tr
+                    key={lesson.id}
+                    className={`border-t ${
+                      theme === "dark" ? "border-gray-700" : "border-gray-300"
+                    }`}
+                  >
                     <td className="p-2 text-center">{lesson.id}</td>
                     <td className="p-2">{lesson.title}</td>
                     <td className="p-2 text-center">
@@ -76,7 +95,10 @@ const PythonSeries = () => {
                       />
                     </td>
                     <td className="p-2 text-center">
-                      <a href={lesson.docLink} className="text-green-400 hover:underline">
+                      <a
+                        href={lesson.docLink}
+                        className="text-green-400 hover:underline"
+                      >
                         อ่าน
                       </a>
                     </td>
@@ -88,9 +110,6 @@ const PythonSeries = () => {
         </div>
       </main>
 
-      {/* ✅ เอา Footer ออกไป ใช้ที่ `App.jsx` แทน */}
-
-      {/* ✅ ปุ่ม SupportMe */}
       <SupportMeButton />
     </div>
   );

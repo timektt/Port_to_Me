@@ -3,7 +3,7 @@ import { FaYoutube, FaFacebook, FaGithub, FaSearch } from "react-icons/fa";
 
 const SocialLinks = () => {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 ">
       <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
         <FaYoutube className="text-3xl hover:text-red-500" />
       </a>

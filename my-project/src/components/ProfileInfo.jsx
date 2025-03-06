@@ -8,11 +8,11 @@ const ProfileInfo = ({ navigate }) => {
         Supermhee 
         <button 
           onClick={() => navigate("/")} // ✅ คลิกแล้วกลับไป Home
-          className="text-xl text-gray-300 hidden md:inline relative top-1 hover:text-white transition"
+          className="text-xl text-dark hidden md:inline relative top-1 hover:text-white transition"
         >
            Courses
         </button>
-        <span className="text-xl text-gray-300 hidden md:inline relative top-1"> |  Post</span>
+        <span className="text-xl text-dark hidden md:inline relative top-1"> |  Post</span>
       </h1>
     </div>
   );
