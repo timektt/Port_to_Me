@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import CourseGrid from "./components/CourseGrid";
+import Navbar from "./components/common/Navbar";
+import CourseGrid from "./home/CourseGrid";
 import PythonSeries from "./pages/courses/PythonSeries";
-import SupportMeButton from "./components/SupportMeButton";
-import Footer from "./components/Footer";
+import SupportMeButton from "./components/common/SupportMeButton";
+import Footer from "./components/common/Footer";
 
 function App() {
   // ✅ โหลดธีมจาก localStorage อย่างปลอดภัย

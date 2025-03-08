@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import ProfileInfo from "./ProfileInfo";
+import { useNavigate, useLocation } from "react-router-dom"; // ✅ ใช้ useLocation เพื่อตรวจสอบ path ปัจจุบัน
+import ProfileInfo from "../ProfileInfo";
 import { FaYoutube, FaFacebook, FaGithub, FaBars, FaTimes, FaSearch, FaSun, FaMoon } from "react-icons/fa";
+import MainMobileMenu from "../MainMobileMenu"; // ✅ ใช้สำหรับหน้า Home
+import PythonMobileMenu from "../PythonMobileMenu"; // ✅ ใช้สำหรับหน้า PythonSeries
 
 const Navbar = ({ theme, setTheme, onMenuToggle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // ✅ ตรวจสอบ path ปัจจุบัน
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 988) {
         setMenuOpen(false);
+        setMobileMenuOpen(false);
       }
     };
     window.addEventListener("resize", handleResize);
@@ -25,7 +30,7 @@ const Navbar = ({ theme, setTheme, onMenuToggle }) => {
     <nav className={`navbar px-4 py-2 flex justify-between items-center text-base md:text-lg relative ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"}`}>
       {/* ✅ Left Section: Profile + Hamburger Menu */}
       <div className="flex items-center gap-3">
-        <button className="md:hidden text-3xl" onClick={() => { setMenuOpen(!menuOpen); onMenuToggle && onMenuToggle(); }}>
+        <button className="md:hidden text-3xl" onClick={() => setMobileMenuOpen(true)}>
           <FaBars />
         </button>
         <button onClick={() => navigate("/")} className="flex items-center">
@@ -57,33 +62,15 @@ const Navbar = ({ theme, setTheme, onMenuToggle }) => {
         </div>
       </div>
 
-      {/* ✅ Hamburger Sidebar Menu */}
-      {menuOpen && (
-        <>
-          <div className="fixed top-0 left-0 w-64 h-full bg-gray-900 text-white shadow-lg z-50 p-6">
-            <button className="self-end text-3xl absolute right-4 top-4" onClick={() => setMenuOpen(false)}>
-              <FaTimes />
-            </button>
-
-            <div className="mt-6 flex flex-col gap-6 text-lg">
-              <button onClick={() => { navigate("/"); setMenuOpen(false); }} className="hover:text-gray-400 text-left">
-                Courses
-              </button>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-                Youtube
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-                Facebook
-              </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-                Github
-              </a>
-            </div>
-          </div>
-
-          {/* ✅ Overlay ปิด Sidebar เมื่อคลิกที่พื้นหลัง */}
-          <div className="fixed inset-0 backdrop-blur-sm bg-black/20 z-40" onClick={() => setMenuOpen(false)}></div>
-        </>
+      {/* ✅ Mobile Menu (ตรวจสอบ path ว่าควรใช้ Main หรือ Python) */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+          {location.pathname.startsWith("/courses/python-series") ? (
+            <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : (
+            <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          )}
+        </div>
       )}
     </nav>
   );
