@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
 import { FaYoutube, FaFacebook, FaGithub, FaBars, FaTimes, FaSearch, FaSun, FaMoon } from "react-icons/fa";
 
-const Navbar = ({ theme, setTheme }) => {
+const Navbar = ({ theme, setTheme, onMenuToggle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const Navbar = ({ theme, setTheme }) => {
     <nav className={`navbar px-4 py-2 flex justify-between items-center text-base md:text-lg relative ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"}`}>
       {/* ✅ Left Section: Profile + Hamburger Menu */}
       <div className="flex items-center gap-3">
-        <button className="md:hidden text-3xl" onClick={() => setMenuOpen(true)}>
+        <button className="md:hidden text-3xl" onClick={() => { setMenuOpen(!menuOpen); onMenuToggle && onMenuToggle(); }}>
           <FaBars />
         </button>
         <button onClick={() => navigate("/")} className="flex items-center">

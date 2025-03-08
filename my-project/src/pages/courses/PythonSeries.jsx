@@ -6,6 +6,7 @@ import Sidebar from "../../components/Sidebar";
 import SupportMeButton from "../../components/SupportMeButton";
 import Comments from "../../components/Comments";
 import Footer from "../../components/Footer";
+import MobileMenu from "../../components/MobileMenu"; // ✅ เพิ่ม MobileMenu
 
 const lessons = [
   { id: "101", title: "Python Introduction", image: "/images/python-101.jpg", docLink: "#" },
@@ -15,21 +16,29 @@ const lessons = [
 const PythonSeries = ({ theme, setTheme }) => {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // ✅ เพิ่ม state ควบคุม Mobile Sidebar
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
       {/* ✅ Sticky Navbar */}
       <div className="fixed top-0 left-0 w-full z-50">
-        <Navbar theme={theme} setTheme={setTheme} />
+        <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)} />
       </div>
 
-      {/* ✅ Sidebar (Fixed) */}
-      <div className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-gray-800 text-white overflow-y-auto z-40">
+      {/* ✅ Sidebar (Fixed) - แสดงเฉพาะจอใหญ่ */}
+      <div className="hidden md:block fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-gray-800 text-white overflow-y-auto z-40">
         <Sidebar activeCourse="Python Series" theme={theme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       </div>
 
+      {/* ✅ Mobile Sidebar (แสดงเมื่อกด Hamburger Menu) */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+          <MobileMenu onClose={() => setMobileMenuOpen(false)} />
+        </div>
+      )}
+
       {/* ✅ Main Content */}
-      <main className="flex-1 ml-64 p-4 md:p-6 overflow-y-auto pt-20">
+      <main className="flex-1 md:ml-64 p-4 md:p-6 overflow-y-auto pt-20">
         <div className="max-w-3xl mx-auto">
           {/* ✅ เปลี่ยน "Home" เป็นไอคอนบ้านที่สวยงาม */}
           <div className="flex items-center gap-2 mb-4">
@@ -86,8 +95,8 @@ const PythonSeries = ({ theme, setTheme }) => {
         </div>
       </main>
 
-        <SupportMeButton />
-      </div>
+      <SupportMeButton />
+    </div>
   );
 };
 
