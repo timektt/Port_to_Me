@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHome, FaAngleRight } from "react-icons/fa"; // ✅ ใช้ไอคอนบ้าน
 import Navbar from "../../components/Navbar";
@@ -18,6 +18,18 @@ const PythonSeries = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // ✅ เพิ่ม state ควบคุม Mobile Sidebar
 
+  // ✅ ปิด Sidebar อัตโนมัติเมื่อขยายหน้าจอกลับเป็น Desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
       {/* ✅ Sticky Navbar */}
@@ -26,14 +38,16 @@ const PythonSeries = ({ theme, setTheme }) => {
       </div>
 
       {/* ✅ Sidebar (Fixed) - แสดงเฉพาะจอใหญ่ */}
-      <div className="hidden md:block fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-gray-800 text-white overflow-y-auto z-40">
-        <Sidebar activeCourse="Python Series" theme={theme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <div className="hidden md:block fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 z-40">
+        {/* ✅ ส่ง `theme` และ `setTheme` ไปที่ Sidebar */}
+        <Sidebar activeCourse="Python Series" theme={theme} setTheme={setTheme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       </div>
 
       {/* ✅ Mobile Sidebar (แสดงเมื่อกด Hamburger Menu) */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-          <MobileMenu onClose={() => setMobileMenuOpen(false)} />
+          {/* ✅ ส่ง `theme` และ `setTheme` ให้ MobileMenu */}
+          <MobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
         </div>
       )}
 

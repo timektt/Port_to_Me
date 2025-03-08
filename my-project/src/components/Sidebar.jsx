@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import Footer from "./Footer";
 
@@ -12,6 +12,26 @@ const sidebarItems = [
 ];
 
 const Sidebar = ({ theme, activeCourse, sidebarOpen, setSidebarOpen }) => {
+  // ✅ ใช้ useState เพื่อให้ Sidebar เปลี่ยนธีมทันที
+  const [currentTheme, setCurrentTheme] = useState(theme);
+
+  // ✅ ใช้ useEffect เพื่อให้ Sidebar อัปเดตธีมทุกครั้งที่ `theme` เปลี่ยน
+  useEffect(() => {
+    setCurrentTheme(theme);
+  }, [theme]);
+
+  // ✅ ตรวจจับขนาดหน้าจอ และปิด Sidebar อัตโนมัติเมื่อกลับเป็น Desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setSidebarOpen(false); // ปิด Sidebar เมื่อหน้าจอขยายใหญ่ขึ้น
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       {sidebarOpen && (
@@ -22,9 +42,9 @@ const Sidebar = ({ theme, activeCourse, sidebarOpen, setSidebarOpen }) => {
       )}
 
       <aside
-        className={`fixed top-16 left-0 w-64 h-[calc(100vh-64px)] overflow-y-auto z-40 p-6 
+        className={`fixed top-16 left-0 w-64 h-[calc(100vh-64px)] overflow-y-auto z-40 p-6
         transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0
-        ${theme === "dark" ? "bg-gray-900 text-white border-gray-700" : "bg-white text-black border-gray-200"} border-r shadow-lg`}
+        ${currentTheme === "dark" ? "bg-gray-900 text-white border-gray-700" : "bg-white text-black border-gray-200"} border-r shadow-lg`}
       >
         {/* Close button สำหรับมือถือ */}
         <button
@@ -36,7 +56,7 @@ const Sidebar = ({ theme, activeCourse, sidebarOpen, setSidebarOpen }) => {
 
         {/* Header */}
         <h2 className="text-xl font-bold mb-4">
-          <span className={`inline-block px-3 py-1 rounded-md ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
+          <span className={`inline-block px-3 py-1 rounded-md ${currentTheme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
             {activeCourse}
           </span>
         </h2>
@@ -47,7 +67,9 @@ const Sidebar = ({ theme, activeCourse, sidebarOpen, setSidebarOpen }) => {
             <li
               key={item.id}
               className={`p-2 rounded-lg cursor-pointer transition ${
-                theme === "dark" ? "hover:bg-gray-700 hover:text-white" : "hover:bg-gray-300 hover:text-black"
+                currentTheme === "dark"
+                  ? "bg-gray-800 text-white hover:bg-gray-700"
+                  : "bg-gray-100 text-black hover:bg-gray-300"
               }`}
             >
               {item.title}
@@ -56,7 +78,6 @@ const Sidebar = ({ theme, activeCourse, sidebarOpen, setSidebarOpen }) => {
         </ul>
       </aside>
     </>
-    
   );
 };
 

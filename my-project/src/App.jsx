@@ -8,18 +8,27 @@ import Footer from "./components/Footer";
 
 function App() {
   // ✅ โหลดธีมจาก localStorage อย่างปลอดภัย
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
 
-  // ✅ ใช้ useEffect เพื่ออัปเดตค่าใน <html>
+  // ✅ ใช้ useEffect เพื่ออัปเดตค่าใน <html> และ localStorage
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+    console.log("🌓 Theme changed to:", theme);
   }, [theme]);
+
+  // ✅ ฟัง event `storage` เพื่อให้ธีมเปลี่ยนในทุกแท็บที่เปิดอยู่
+  useEffect(() => {
+    const syncTheme = (event) => {
+      if (event.key === "theme") {
+        setTheme(event.newValue);
+      }
+    };
+    window.addEventListener("storage", syncTheme);
+    return () => window.removeEventListener("storage", syncTheme);
+  }, []);
 
   return (
     <Router>
