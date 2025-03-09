@@ -12,17 +12,22 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
 
   return (
     <div className={`fixed top-0 left-0 w-64 h-full ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"} p-4 z-50 shadow-lg`}>
-      {/* ปุ่มปิดเมนู */}
-      <button className="text-white text-2xl absolute right-4 top-4" onClick={onClose}>
+      
+      {/* ✅ ปุ่มปิดเมนู (X) ที่เปลี่ยนสีตามธีม */}
+      <button 
+        className={`absolute right-4 top-4 text-2xl transition-colors duration-200 
+          ${theme === "dark" ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"}`}
+        onClick={onClose}
+      >
         <FaTimes />
       </button>
 
-      {/* ปุ่มเปลี่ยนธีม */}
+      {/* ✅ ปุ่มเปลี่ยนธีม */}
       <button className="cursor-pointer mt-4" onClick={toggleTheme}>
         {theme === "dark" ? <FaSun className="text-yellow-400 text-xl" /> : <FaMoon className="text-blue-400 text-xl" />}
       </button>
 
-      {/* เมนูหลัก */}
+      {/* ✅ เมนูหลัก */}
       <ul className="mt-4 space-y-3">
         <li>
           <button onClick={() => { navigate("/courses"); onClose(); }} className="w-full text-left hover:text-gray-300">

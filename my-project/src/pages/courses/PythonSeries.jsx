@@ -12,21 +12,21 @@ const lessons = [
   {
     id: "101",
     title: "Python Introduction",
-    image: "/images/python-101.jpg",
+    image: "/py1.png",
     docLink: "#",
     videoLink: "#",
   },
   {
     id: "201",
     title: "Basic Data",
-    image: "/images/python-201.jpg",
+    image: "/py2.jpg",
     docLink: "#",
     videoLink: "#",
   },
   {
     id: "202",
     title: "Visualization",
-    image: "/images/python-202.jpg",
+    image: "/py3.jpg",
     docLink: "#",
     videoLink: "#",
   },
@@ -82,7 +82,7 @@ const PythonSeries = ({ theme, setTheme }) => {
             <p>เอกสารฉบับนี้ยังอยู่ในระหว่างการทำ Series ของ Python...</p>
             <p>
               สามารถติดตามผ่านทาง Youtube: 
-              <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">mikelopster</a>
+              <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">supermhee</a>
             </p>
           </div>
 
@@ -106,7 +106,11 @@ const PythonSeries = ({ theme, setTheme }) => {
                     <td className="p-4 border-b text-lg">{lesson.title}</td>
                     <td className="p-4 border-b text-center">
                       <a href={lesson.videoLink} target="_blank" rel="noopener noreferrer">
-                        <img src={lesson.image} className="w-40 mx-auto rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105" alt={lesson.title} />
+                        <img 
+                          src={lesson.image} 
+                          className="w-64 h-48 mx-auto rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105 object-cover" 
+                          alt={lesson.title} 
+                        />
                         <span className="block mt-2 text-green-400 hover:underline">ดู video</span>
                       </a>
                     </td>
