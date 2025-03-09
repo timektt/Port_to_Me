@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
 import PythonSidebar from "../../components/PythonSidebar";
-import SupportMeButton from "../../components/common/SupportMeButton";
+import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/Comments";
 import Footer from "../../components/common/Footer";
 import PythonMobileMenu from "../../components/PythonMobileMenu";
@@ -106,11 +106,12 @@ const PythonSeries = ({ theme, setTheme }) => {
                     <td className="p-4 border-b text-lg">{lesson.title}</td>
                     <td className="p-4 border-b text-center">
                       <a href={lesson.videoLink} target="_blank" rel="noopener noreferrer">
-                        <img 
-                          src={lesson.image} 
-                          className="w-64 h-48 mx-auto rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105 object-cover" 
-                          alt={lesson.title} 
-                        />
+                      <img 
+                        src={lesson.image} 
+                        className="w-80 h-60 mx-auto rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105 hover:shadow-xl object-cover" 
+                        alt={lesson.title} 
+                          />
+
                         <span className="block mt-2 text-green-400 hover:underline">ดู video</span>
                       </a>
                     </td>

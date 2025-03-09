@@ -38,16 +38,17 @@ const CourseGrid = ({ theme }) => {
             <a className="text-green-500 hover:underline">อ่าน documents</a>
           </div>
         ))}
+      </div>
 
-        {/* ✅ การ์ดลูกศรไปยังหน้ารวมคอร์ส (เลื่อนไปมุมขวา) */}
-        <div 
-          className={`p-6 flex justify-between items-center rounded-lg shadow-lg cursor-pointer transition transform hover:scale-110
+      {/* ✅ ปุ่ม "ดูคอร์สทั้งหมด" ไปอยู่ฝั่งขวา */}
+      <div className="w-full flex justify-end mt-6">
+        <button 
+          className={`flex items-center gap-3 px-6 py-3 rounded-lg shadow-lg text-lg font-semibold transition transform hover:scale-110
             ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-100 text-black hover:bg-gray-200"}`}
           onClick={() => navigate("/courses")}
         >
-          <span className="text-lg font-semibold">ดูคอร์สทั้งหมด</span>
-          <FaArrowRight className="text-3xl ml-2 transition-transform transform hover:scale-125" />
-        </div>
+          ดูคอร์สทั้งหมด <FaArrowRight className="text-2xl" />
+        </button>
       </div>
 
       <LatestUpdates theme={theme} />

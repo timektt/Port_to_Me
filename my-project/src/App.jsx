@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import CourseGrid from "./home/CourseGrid";
 import PythonSeries from "./pages/courses/PythonSeries";
-import SupportMeButton from "./components/common/SupportMeButton";
+import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
+
 
 function App() {
   // ✅ โหลดธีมจาก localStorage อย่างปลอดภัย

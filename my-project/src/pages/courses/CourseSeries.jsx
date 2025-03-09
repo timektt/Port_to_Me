@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHome, FaAngleRight } from "react-icons/fa";
 import Navbar from "../../components/common/Navbar";
-import SupportMeButton from "../../components/common/SupportMeButton";
+import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/Comments";
 import Footer from "../../components/common/Footer";
 
