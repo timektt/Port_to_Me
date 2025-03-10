@@ -1,7 +1,8 @@
+import React from "react";
 import { FaTimes, FaChevronRight, FaArrowLeft, FaSun, FaMoon } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const MainMobileMenu = ({ onClose, theme, setTheme }) => {
+const WebDevMobileMenu = ({ onClose, theme, setTheme }) => {
   const navigate = useNavigate();
 
   const toggleTheme = () => {
@@ -14,7 +15,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
     <div className={`fixed top-0 left-0 w-64 h-full p-4 z-50 shadow-lg transition-all duration-300 
       ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
 
-      {/* ปุ่มปิดเมนู */}
+      {/* ปุ่มปิดเมนู (X) */}
       <button 
         className={`absolute right-4 top-4 text-2xl transition-colors duration-200 
           ${theme === "dark" ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"}`}
@@ -33,30 +34,38 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
         </button>
       </div>
 
-      {/* ปุ่ม Back */}
+      {/* ปุ่ม Back to main menu */}
       <button 
         className="flex items-center text-sm text-gray-400 hover:text-gray-300 mb-3 transition"
         onClick={onClose}
       >
-        <FaArrowLeft className="mr-2" /> กลับไปที่เมนูหลัก
+        <FaArrowLeft className="mr-2" /> Back to main menu
       </button>
 
-      {/* รายการเมนู */}
+      {/* รายการบทเรียน */}
       <ul className="mt-3 space-y-3">
         <li>
           <button 
-            onClick={() => { navigate("/courses"); onClose(); }} 
+            onClick={() => { navigate("/courses/web-development/101"); onClose(); }} 
             className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
           >
-            📚 Courses <FaChevronRight />
+            101: Introduction to Web Dev <FaChevronRight />
           </button>
         </li>
         <li>
           <button 
-            onClick={() => { navigate("/about"); onClose(); }} 
+            onClick={() => { navigate("/courses/web-development/201"); onClose(); }} 
             className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
           >
-            ℹ️ Contact us <FaChevronRight />
+            201: HTML & CSS Basics <FaChevronRight />
+          </button>
+        </li>
+        <li>
+          <button 
+            onClick={() => { navigate("/courses/web-development/202"); onClose(); }} 
+            className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
+          >
+            202: JavaScript for Web <FaChevronRight />
           </button>
         </li>
       </ul>
@@ -64,4 +73,4 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
   );
 };
 
-export default MainMobileMenu;
+export default WebDevMobileMenu;

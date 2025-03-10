@@ -7,8 +7,8 @@ import PopularTags from "../pages/courses/PopularTags";
 const courses = [
   { id: "python-series", image: "/Python.jpg", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
   { id: "nodejs-series", image: "/nodejs.jpg", title: "Node.js Series", description: "เรียนรู้การพัฒนา Backend ด้วย Node.js" }, // ✅ แก้ id ให้ตรงกับเส้นทาง
-  { id: "goapi-essential", image: "/Api.jpg", title: "GoAPI Essential", description: "คอร์สนี้เหมาะสำหรับทุกคนที่อยากเข้าใจ API และ Backend ผ่าน Go" },
-  { id: "react-series", image: "/react.png", title: "React.js Series", description: "คอร์สสอนสร้างโปรเจกต์ด้วย React " },
+  { id: "restful-api-graphql-series", image: "/Api.jpg", title: "RESTful API &  GraphQL", description: "คอร์สนี้เหมาะสำหรับทุกคนที่อยากเข้าใจ API และแนวคิดขึ้นสูง" },
+  { id: "reactjs-series", image: "/react.png", title: "React.js Series", description: "คอร์สสอนสร้างโปรเจกต์ด้วย React " },
   { id: "web-development", image: "/Web.jpg", title: "Web Development 101", description: "คอร์สเรียนพื้นฐานสำหรับเริ่มต้นสร้างเว็บไซต์" },
   { id: "basic-programming", image: "/Basic.jpg", title: "Basic Programming", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
 ];
