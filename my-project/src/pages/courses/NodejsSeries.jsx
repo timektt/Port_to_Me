@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
-import PythonSidebar from "../../menu/PythonSidebar";
 import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/common/Comments";
-import PythonMobileMenu from "../../menu/PythonMobileMenu";
-import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Breadcrumb
+import Breadcrumb from "../../components/common/Breadcrumb";
+
+// ✅ ตรวจสอบว่าไฟล์ NodeSidebar และ NodeMobileMenu มีอยู่จริง
+import NodeSidebar from "../../menu/NodeJsSidebar"; 
+import NodeMobileMenu from "../../menu/NodeMobileMenu"; 
 
 const lessons = [
-  { id: "101", title: "Python Introduction", image: "/py1.png", docLink: "#", videoLink: "#" },
-  { id: "201", title: "Basic Data", image: "/py2.jpg", docLink: "#", videoLink: "#" },
-  { id: "202", title: "Visualization", image: "/py3.jpg", docLink: "#", videoLink: "#" },
+  { id: "101", title: "Introduction to Node.js", image: "/node1.png", docLink: "#", videoLink: "#" },
+  { id: "201", title: "Event Loop & Async", image: "/node2.jpg", docLink: "#", videoLink: "#" },
+  { id: "202", title: "Building REST API", image: "/node3.jpg", docLink: "#", videoLink: "#" },
 ];
 
-const PythonSeries = ({ theme, setTheme }) => {
+const NodeSeries = ({ theme, setTheme }) => {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    console.log("🚀 NodeSeries Loaded"); // ✅ Debug ว่า Component โหลดไหม
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setSidebarOpen(false);
         setMobileMenuOpen(false);
       }
     };
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -38,28 +42,28 @@ const PythonSeries = ({ theme, setTheme }) => {
 
       {/* ✅ Sidebar (เลื่อนลงให้ไม่ทับ Navbar) */}
       <div className="hidden md:block fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 z-40">
-        <PythonSidebar theme={theme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        {NodeSidebar && <NodeSidebar theme={theme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />}
       </div>
 
       {/* ✅ Mobile Sidebar */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-          <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          {NodeMobileMenu && <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />}
         </div>
       )}
 
       {/* ✅ Main Content */}
-      <main className="flex-1 md:ml-64 p-4 md:p-6 mt-16 relative z-10"> {/* ✅ เพิ่ม mt-16 */}
+      <main className="flex-1 md:ml-64 p-4 md:p-6 mt-16 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* ✅ Breadcrumb Navigation */}
-          <Breadcrumb courseName="Python Series" theme={theme} />
+          <Breadcrumb courseName="Node.js Series" theme={theme} />
 
-          <h1 className="text-3xl md:text-4xl font-bold mt-4">Python Series</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mt-4">Node.js Series</h1>
 
           {/* ✅ Warning Box */}
           <div className={`p-4 mt-4 rounded-md shadow-md flex flex-col gap-2 ${theme === "dark" ? "bg-yellow-700 text-white" : "bg-yellow-300 text-black"}`}>
             <strong className="text-lg flex items-center gap-2">⚠ WARNING</strong>
-            <p>เอกสารฉบับนี้ยังอยู่ในระหว่างการทำ Series ของ Python...</p>
+            <p>เอกสารฉบับนี้ยังอยู่ในระหว่างการทำ Series ของ Node.js...</p>
             <p>สามารถติดตามผ่านทาง Youtube: <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">supermhee</a></p>
           </div>
 
@@ -104,4 +108,4 @@ const PythonSeries = ({ theme, setTheme }) => {
   );
 };
 
-export default PythonSeries;
+export default NodeSeries;

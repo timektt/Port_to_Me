@@ -6,24 +6,22 @@ import {
   FaFacebook,
   FaGithub,
   FaBars,
-  FaTimes,
-  FaSearch,
   FaSun,
   FaMoon,
+  FaSearch,  // ✅ เพิ่มไอคอนค้นหา
 } from "react-icons/fa";
 import MainMobileMenu from "../../menu/MainMobileMenu";
 import PythonMobileMenu from "../../menu/PythonMobileMenu";
 
-const Navbar = ({ theme, setTheme, onMenuToggle }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = ({ theme, setTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // ✅ เก็บค่าค้นหา
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 988) {
-        setMenuOpen(false);
         setMobileMenuOpen(false);
       }
     };
@@ -37,49 +35,29 @@ const Navbar = ({ theme, setTheme, onMenuToggle }) => {
 
   return (
     <nav
-      className={`navbar px-4 py-2 flex justify-between items-center text-base md:text-lg relative ${
+      className={`navbar px-4 py-2 h-16 flex justify-between items-center text-base md:text-lg fixed top-0 w-full z-50 ${
         theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"
       }`}
     >
       {/* ✅ Left Section: Hamburger Menu + Profile */}
       <div className="flex items-center gap-3">
-        <button
-          className="md:hidden text-3xl"
-          onClick={() => setMobileMenuOpen(true)}
-        >
+        <button className="md:hidden text-3xl" onClick={() => setMobileMenuOpen(true)}>
           <FaBars />
         </button>
 
-        {/* ✅ ใช้ <div> แทน <button> เพื่อลดปัญหา Nested <button> */}
-        <div className="cursor-pointer" onClick={() => navigate("/")}>
-          <ProfileInfo />
-        </div>
+        {/* ✅ ProfileInfo คลิกกลับ Home + กด "Courses" ไปที่หน้าคอร์สทั้งหมด */}
+        <ProfileInfo navigate={navigate} />
       </div>
 
-      {/* ✅ Right Section: Social Links + Dark Mode Toggle + Search */}
+      {/* ✅ Right Section: Social Links + Dark Mode Toggle + Search Box */}
       <div className="hidden md:flex items-center gap-6">
-        <a
-          href="https://youtube.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-red-500"
-        >
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-red-500">
           <FaYoutube className="text-2xl" />
         </a>
-        <a
-          href="https://facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-500"
-        >
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
           <FaFacebook className="text-2xl" />
         </a>
-        <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-gray-500"
-        >
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">
           <FaGithub className="text-2xl" />
         </a>
 
@@ -95,18 +73,20 @@ const Navbar = ({ theme, setTheme, onMenuToggle }) => {
           )}
         </button>
 
-        {/* ✅ Search Box */}
-        <div className="relative w-30 md:w-48">
+        {/* ✅ Search Box (ขวาสุด) */}
+        <div className="relative w-48">
           <input
             type="text"
             placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className={`p-2 pl-8 w-full rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               theme === "dark"
                 ? "bg-gray-700 text-white border-gray-600"
                 : "bg-gray-200 text-gray-900 border-gray-400"
             }`}
           />
-          <FaSearch className="absolute left-2 top-2.5 text-gray-400" />
+          <FaSearch className="absolute left-2 top-3 text-gray-400" />
         </div>
       </div>
 
@@ -114,17 +94,9 @@ const Navbar = ({ theme, setTheme, onMenuToggle }) => {
       {mobileMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
           {location.pathname.startsWith("/courses/python-series") ? (
-            <PythonMobileMenu
-              onClose={() => setMobileMenuOpen(false)}
-              theme={theme}
-              setTheme={setTheme}
-            />
+            <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
           ) : (
-            <MainMobileMenu
-              onClose={() => setMobileMenuOpen(false)}
-              theme={theme}
-              setTheme={setTheme}
-            />
+            <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
           )}
         </div>
       )}

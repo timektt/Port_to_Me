@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import CourseGrid from "./home/CourseGrid";
 import PythonSeries from "./pages/courses/PythonSeries";
+import NodeSeries from "./pages/courses/NodejsSeries"; // ✅ Import Node.js Series
+import AllCourses from "./pages/courses/AllCourses"; // ✅ Import AllCourses.jsx
 import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
-
 
 function App() {
   // ✅ โหลดธีมจาก localStorage อย่างปลอดภัย
@@ -40,9 +41,17 @@ function App() {
         {/* ✅ Layout ของ Content */}
         <div className="flex-1">
           <Routes>
-            {/* ✅ ส่ง `theme` และ `setTheme` ไปยัง PythonSeries */}
+            {/* ✅ หน้าแรก - แสดงคอร์สล่าสุด */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
+
+            {/* ✅ หน้าคอร์สทั้งหมด */}
+            <Route path="/courses" element={<AllCourses theme={theme} setTheme={setTheme} />} />
+
+            {/* ✅ หน้ารายละเอียดของคอร์ส Python Series */}
             <Route path="/courses/python-series" element={<PythonSeries theme={theme} setTheme={setTheme} />} />
+
+            {/* ✅ หน้ารายละเอียดของคอร์ส Node.js Series */}
+            <Route path="/courses/nodejs-series" element={<NodeSeries theme={theme} setTheme={setTheme} />} /> 
           </Routes>
         </div>
 

@@ -1,21 +1,19 @@
 import React from "react";
 
 const tags = [
-  { name: "vue", count: 78 },
-  { name: "c++", count: 48 },
-  { name: "data structure", count: 48 },
-  { name: "algorithm", count: 48 },
-  { name: "backend", count: 43 },
-  { name: "go", count: 41 },
-  { name: "firebase", count: 38 },
-  { name: "vue component", count: 31 },
-  { name: "vue multi component", count: 26 },
-  { name: "cloud firestore", count: 15 },
-  { name: "cloud function", count: 14 },
-  { name: "docker", count: 10 },
-  { name: "python", count: 10 },
-  { name: "css", count: 8 },
-  { name: "javascript", count: 7 },
+  { name: "React", count: 4 },
+  { name: "Node.js", count: 10},
+  { name: "C++", count: 7 },
+  { name: "data structure", count: 10 },
+  { name: "Algorithm", count: 12 },
+  { name: "Backend", count: 14 },
+  { name: "SQL", count: 12 },
+  { name: "React component", count: 11 },
+  { name: "React multi component", count: 26 },
+  { name: "Docker", count: 10 },
+  { name: "Python", count: 10 },
+  { name: "CSS", count: 8 },
+  { name: "Javascript", count: 7 },
 ];
 
 const PopularTags = () => {

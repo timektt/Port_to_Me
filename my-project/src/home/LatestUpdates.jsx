@@ -1,12 +1,12 @@
 import React from "react";
 
 const latestUpdates = [
-  { category: "python-series", level: "201: Data", title: "ทำความรู้จักกับ Data", date: "08/10/2567" },
-  { category: "python-series", level: "201: Data", title: "ทำความรู้จักกับ Numpy", date: "08/10/2567" },
-  { category: "python-series", level: "201: Data", title: "การอ่านไฟล์", date: "08/10/2567" },
-  { category: "python-series", level: "201: Data", title: "ทำความรู้จักกับ Pandas", date: "08/10/2567" },
-  { category: "python-series", level: "201: Data", title: "Jupyter", date: "08/10/2567" },
-  { category: "python-series", level: "101: Basic Python", title: "แนะนำ Python", date: "26/08/2567" },
+  { category: "python-series", level: "101: Basic", title: "ทำความรู้จักกับ Python เบื้องต้น", date: "08/10/2567" },
+  { category: "node.js-series", level: "101:Basic ", title: "ทำความรู้จักกับ Node.js เบื้องต้น", date: "08/10/2567" },
+  { category: "react-series", level: "101: Basic", title: "ทำความรู้จักกับ React.js เบื้องต้น", date: "08/10/2567" },
+  { category: "c++-series", level: "101: Basic", title: "ทำความรู้จักกับ C++ เบื้องต้น", date: "08/10/2567" },
+  { category: "docker-series", level: "101: Basic", title: "ทำความรู้จักกับ Docker เบื้องต้น", date: "08/10/2567" },
+  { category: "api-series", level: "101: Basic ", title: "ทำความรู้จักกับ API เบื้องต้น", date: "26/08/2567" },
 ];
 
 const LatestUpdates = ({ theme }) => {
@@ -37,6 +37,10 @@ const LatestUpdates = ({ theme }) => {
           </div>
         ))}
       </div>
+
+      {/* 🔹 เส้นแบ่งระหว่าง LatestUpdates และ PopularTags 🔹 */}
+      <hr className="my-6 border-t-4 border-gray-300 dark:border-gray-600 " />
+      
     </div>
   );
 };

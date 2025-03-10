@@ -8,17 +8,22 @@ const ProfileInfo = ({ navigate }) => {
         src="/spm2.jpg" 
         alt="Profile" 
         className="w-30 h-12 rounded-full cursor-pointer" 
-        onClick={() => navigate("/")} // ✅ ย้ายการคลิกกลับหน้า Home มาไว้ที่โลโก้
+        onClick={() => navigate("/")} // ✅ กลับหน้า Home
       />
 
-      {/* ✅ แสดงชื่อเว็บ */}
+      {/* ✅ ชื่อเว็บ & Navigation */}
       <h1 className="text-3xl font-bold flex items-center gap-5 relative -top-1.5"> 
         Supermhee 
 
-        {/* ❌ เอาฟังก์ชัน navigate ออกจาก "Courses" (ทำให้เป็นข้อความธรรมดา) */}
-        <span className="text-xl text-gray-400 hidden md:inline relative top-1">Courses</span>
+        {/* ✅ กด "Courses" จะไปที่หน้ารวมคอร์ส */}
+        <span 
+          className="text-xl text-gray-400 hidden md:inline relative top-1 cursor-pointer hover:text-gray-600"
+          onClick={() => navigate("/courses")}
+        >
+          Courses
+        </span>
 
-        {/* ❌ เอาฟังก์ชัน navigate ออกจาก "| Post" (ทำให้เป็นข้อความธรรมดา) */}
+        {/* ❌ "Post" เป็นข้อความธรรมดา (ไม่สามารถกดได้) */}
         <span className="text-xl text-gray-400 hidden md:inline relative top-1"> |  Post</span>
       </h1>
     </div>
