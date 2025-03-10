@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa"; // ✅ ใช้ไอคอนลูกศร
 import LatestUpdates from "./LatestUpdates";
-import PopularTags from "./PopularTags";
+import PopularTags from "../pages/courses/PopularTags";
 
 const courses = [
   { id: "python-series", image: "/Python.jpg", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },

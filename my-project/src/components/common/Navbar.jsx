@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import ProfileInfo from "../ProfileInfo";
+import ProfileInfo from "../../profile/ProfileInfo";
 import {
   FaYoutube,
   FaFacebook,
@@ -11,8 +11,8 @@ import {
   FaSun,
   FaMoon,
 } from "react-icons/fa";
-import MainMobileMenu from "../MainMobileMenu";
-import PythonMobileMenu from "../PythonMobileMenu";
+import MainMobileMenu from "../../menu/MainMobileMenu";
+import PythonMobileMenu from "../../menu/PythonMobileMenu";
 
 const Navbar = ({ theme, setTheme, onMenuToggle }) => {
   const [menuOpen, setMenuOpen] = useState(false);

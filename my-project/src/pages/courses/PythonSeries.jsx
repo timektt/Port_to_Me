@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
-import PythonSidebar from "../../components/PythonSidebar";
+import PythonSidebar from "../../menu/PythonSidebar";
 import SupportMeButton from "../../support/SupportMeButton";
-import Comments from "../../components/Comments";
+import Comments from "../../components/common/Comments";
 import Footer from "../../components/common/Footer";
-import PythonMobileMenu from "../../components/PythonMobileMenu";
+import PythonMobileMenu from "../../menu/PythonMobileMenu";
 import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Breadcrumb
 
 const lessons = [
