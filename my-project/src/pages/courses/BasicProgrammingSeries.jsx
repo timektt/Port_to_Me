@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
-import BasicProgrammingSidebar from "../../menu/BasicProgrammingSidebar"; // ✅ Import Sidebar ของ Basic Programming
+import BasicProgrammingSidebar from "../../components/common/sidebar/BasicProgrammingSidebar"; // ✅ Import Sidebar ของ Basic Programming
 import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/common/Comments";
-import BasicProgrammingMobileMenu from "../../menu/BasicProgrammingMobileMenu"; // ✅ Import Mobile Menu ของ Basic Programming
+import BasicProgrammingMobileMenu from "../../components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu"; // ✅ Import Mobile Menu ของ Basic Programming
 import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Breadcrumb
 
 const lessons = [

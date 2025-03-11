@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
-import WebDevSidebar from "../../menu/WebDevSidebar"; // ✅ ใช้ Sidebar ของ Web Development
+import WebDevSidebar from "../../components/common/sidebar/WebDevSidebar"; // ✅ ใช้ Sidebar ของ Web Development
 import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/common/Comments";
-import WebDevMobileMenu from "../../menu/WebDevMobileMenu"; // ✅ ใช้ Mobile Menu ของ Web Development
+import WebDevMobileMenu from "../../components/common/sidebar/MobileMenus/WebDevMobileMenu"; // ✅ ใช้ Mobile Menu ของ Web Development
 import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Breadcrumb
 
 const lessons = [

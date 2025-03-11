@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
-import ReactJsSidebar from "../../menu/ReactJsSidebar";
+import ReactJsSidebar from "../../components/common/sidebar/ReactJsSidebar";
 import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/common/Comments";
-import ReactJsMobileMenu from "../../menu/ReactJsMobileMenu";
+import ReactJsMobileMenu from "../../components/common/sidebar/MobileMenus/ReactJsMobileMenu";
 import Breadcrumb from "../../components/common/Breadcrumb";
 
 const lessons = [

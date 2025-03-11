@@ -8,10 +8,11 @@ import {
   FaBars,
   FaSun,
   FaMoon,
-  FaSearch,  // ✅ เพิ่มไอคอนค้นหา
+  FaSearch, // ✅ เพิ่มไอคอนค้นหา
 } from "react-icons/fa";
 import MainMobileMenu from "../../menu/MainMobileMenu";
-import PythonMobileMenu from "../../menu/PythonMobileMenu";
+import PythonMobileMenu from "./sidebar/MobileMenus/PythonMobileMenu";
+import BasicProgrammingMobileMenu from "./sidebar/MobileMenus/BasicProgrammingMobileMenu";
 
 const Navbar = ({ theme, setTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -95,6 +96,8 @@ const Navbar = ({ theme, setTheme }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
           {location.pathname.startsWith("/courses/python-series") ? (
             <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : location.pathname.startsWith("/courses/basic-programming") ? (
+            <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
           ) : (
             <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
           )}

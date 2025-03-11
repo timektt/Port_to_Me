@@ -6,8 +6,8 @@ import Comments from "../../components/common/Comments";
 import Breadcrumb from "../../components/common/Breadcrumb";
 
 // ✅ ตรวจสอบว่าไฟล์ NodeSidebar และ NodeMobileMenu มีอยู่จริง
-import NodeSidebar from "../../menu/NodeJsSidebar"; 
-import NodeMobileMenu from "../../menu/NodeMobileMenu"; 
+import NodeSidebar from "../../components/common/sidebar/NodeJsSidebar"; 
+import NodeMobileMenu from "../../components/common/sidebar/MobileMenus/NodeMobileMenu"; 
 
 const lessons = [
   { id: "101", title: "Introduction to Node.js", image: "/node1.png", docLink: "#", videoLink: "#" },

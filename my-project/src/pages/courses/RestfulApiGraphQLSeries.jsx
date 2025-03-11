@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
-import RestfulApiGraphQLSidebar from "../../menu/RestfulApiGraphQLSidebar"; // ✅ Sidebar ใหม่
+import RestfulApiGraphQLSidebar from "../../components/common/sidebar/RestfulApiGraphQLSidebar"; // ✅ Sidebar ใหม่
 import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/common/Comments";
-import RestfulApiGraphQLMobileMenu from "../../menu/RestfulApiGraphQLMobileMenu"; // ✅ Mobile Menu ใหม่
+import RestfulApiGraphQLMobileMenu from "../../components/common/sidebar/MobileMenus/RestfulApiGraphQLMobileMenu"; // ✅ Mobile Menu ใหม่
 import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Breadcrumb
 
 const lessons = [
