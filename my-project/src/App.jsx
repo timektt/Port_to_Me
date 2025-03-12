@@ -11,35 +11,20 @@ import BasicProgrammingSeries from "./pages/courses/BasicProgrammingSeries";
 import AllCourses from "./pages/courses/AllCourses";
 import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
-import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu"; // ✅ Import Mobile Menu
+import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu";
 
-// ✅ Import ไฟล์หัวข้อย่อยของแต่ละคอร์ส
+// ✅ Import Python Subtopics
 import PythonIntro from "./pages/courses/topics/python/PythonIntro";
 import PythonVariables from "./pages/courses/topics/python/PythonVariables";
 import PythonControlStructure from "./pages/courses/topics/python/PythonControlStructure";
 import PythonInputFunction from "./pages/courses/topics/python/PythonInputFunction";
 import PythonLeetcode from "./pages/courses/topics/python/PythonLeetcode";
 
-import NodeIntro from "./pages/courses/topics/nodejs/NodeIntro";
-import NodeAsync from "./pages/courses/topics/nodejs/NodeAsync";
-import NodeRestApi from "./pages/courses/topics/nodejs/NodeRestApi";
-
-import ReactIntro from "./pages/courses/topics/reactjs/ReactIntro";
-import ReactComponents from "./pages/courses/topics/reactjs/ReactComponents";
-import ReactState from "./pages/courses/topics/reactjs/ReactState";
-import ReactHooks from "./pages/courses/topics/reactjs/ReactHooks";
-
-import WebHtmlBasics from "./pages/courses/topics/webdev/WebHtmlBasics";
-import WebCssBasics from "./pages/courses/topics/webdev/WebCssBasics";
-import WebJsBasics from "./pages/courses/topics/webdev/WebJsBasics";
-
-import BasicProgrammingIntro from "./pages/courses/topics/basic-programming/BasicProgrammingIntro";
-import Algorithms from "./pages/courses/topics/basic-programming/Algorithms";
-import DataStructures from "./pages/courses/topics/basic-programming/DataStructures";
+import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // ✅ State ควบคุมเมนู Mobile
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); 
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -49,10 +34,8 @@ function App() {
   return (
     <Router>
       <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
-        {/* ✅ ส่ง `onMenuToggle` ไปที่ Navbar เพื่อให้กดเปิดเมนู Mobile ได้ */}
         <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(true)} />
 
-        {/* ✅ แสดง Mobile Menu เมื่อ `mobileMenuOpen === true` */}
         {mobileMenuOpen && (
           <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
         )}
@@ -65,41 +48,22 @@ function App() {
             {/* ✅ หน้าคอร์สทั้งหมด */}
             <Route path="/courses" element={<AllCourses theme={theme} setTheme={setTheme} />} />
 
-            {/* ✅ หน้าหลักของแต่ละคอร์ส */}
-            <Route path="/courses/python-series" element={<PythonSeries theme={theme} setTheme={setTheme} />} />
+            {/* ✅ ใช้ PythonSeries เป็น Layout หลัก และกำหนด Subtopics ภายใน */}
+            <Route path="/courses/python-series/*" element={<PythonSeries theme={theme} setTheme={setTheme} />}>
+              <Route index element={<Outlet />} /> {/* ✅ แสดงตารางบทเรียนเริ่มต้น */}
+              <Route path="intro" element={<PythonIntro />} />
+              <Route path="variables" element={<PythonVariables />} />
+              <Route path="control-structure" element={<PythonControlStructure />} />
+              <Route path="input-function" element={<PythonInputFunction />} />
+              <Route path="leetcode" element={<PythonLeetcode />} />
+            </Route>
+
+            {/* ✅ คอร์สอื่น ๆ */}
             <Route path="/courses/nodejs-series" element={<NodeSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/web-development" element={<WebDevSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/basic-programming" element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/restful-api-graphql-series" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />} />
-
-            {/* ✅ Python Subtopics */}
-            <Route path="/courses/python-series/intro" element={<PythonIntro />} />
-            <Route path="/courses/python-series/variables" element={<PythonVariables />} />
-            <Route path="/courses/python-series/control-structure" element={<PythonControlStructure />} />
-            <Route path="/courses/python-series/input-function" element={<PythonInputFunction />} />
-            <Route path="/courses/python-series/leetcode" element={<PythonLeetcode />} />
-
-            {/* ✅ Node.js Subtopics */}
-            <Route path="/courses/nodejs-series/intro" element={<NodeIntro />} />
-            <Route path="/courses/nodejs-series/async" element={<NodeAsync />} />
-            <Route path="/courses/nodejs-series/rest-api" element={<NodeRestApi />} />
-
-            {/* ✅ React.js Subtopics */}
-            <Route path="/courses/reactjs-series/intro" element={<ReactIntro />} />
-            <Route path="/courses/reactjs-series/components" element={<ReactComponents />} />
-            <Route path="/courses/reactjs-series/state" element={<ReactState />} />
-            <Route path="/courses/reactjs-series/hooks" element={<ReactHooks />} />
-
-            {/* ✅ Web Development Subtopics */}
-            <Route path="/courses/web-development/html-basics" element={<WebHtmlBasics />} />
-            <Route path="/courses/web-development/css-basics" element={<WebCssBasics />} />
-            <Route path="/courses/web-development/javascript-basics" element={<WebJsBasics />} />
-
-            {/* ✅ Basic Programming Subtopics */}
-            <Route path="/courses/basic-programming/intro" element={<BasicProgrammingIntro />} />
-            <Route path="/courses/basic-programming/algorithms" element={<Algorithms />} />
-            <Route path="/courses/basic-programming/data-structures" element={<DataStructures />} />
           </Routes>
         </div>
 
