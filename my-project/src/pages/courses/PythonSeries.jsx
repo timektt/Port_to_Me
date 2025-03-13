@@ -14,6 +14,16 @@ import PythonControlStructure from "./topics/python/101_basic_python/PythonContr
 import PythonInputFunction from "./topics/python/101_basic_python/PythonInputFunction";
 import PythonLeetcode from "./topics/python/101_basic_python/PythonLeetcode";
 
+import ListsTuples from "./topics/python/201_data/ListsTuples";
+import Dictionaries from "./topics/python/201_data/Dictionaries";
+import SetsFrozenset from "./topics/python/201_data/SetFrozenset";
+import PandasData from "./topics/python/201_data/PandasData";
+
+
+import MatplotlibBasics from "./topics/python/202_visualization/MatplotlibBasics";
+import SeabornDataVisualization from "./topics/python/202_visualization/SeabornDataVisualization";
+import PlotlyInteractiveGraphs from "./topics/python/202_visualization/PlotlyInteractiveGraphs";
+
 const lessons = [
   { id: "101", title: "Python Introduction", image: "/py1.png", docLink: "#", videoLink: "#" },
   { id: "201", title: "Basic Data", image: "/py2.jpg", docLink: "#", videoLink: "#" },

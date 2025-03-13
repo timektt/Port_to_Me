@@ -23,7 +23,12 @@ import PythonLeetcode from "./pages/courses/topics/python/101_basic_python/Pytho
 import ListsTuples from "./pages/courses/topics/python/201_data/ListsTuples";
 import Dictionaries from "./pages/courses/topics/python/201_data/Dictionaries";
 import SetsFrozenset from "./pages/courses/topics/python/201_data/SetFrozenset";
-import Pandas from "./pages/courses/topics/python/201_data/PandasData";
+import PandasData from "./pages/courses/topics/python/201_data/PandasData";
+
+import MatplotlibBasics from "./pages/courses/topics/python/202_visualization/MatplotlibBasics";
+import SeabornDataVisualization from "./pages/courses/topics/python/202_visualization/SeabornDataVisualization";
+import PlotlyInteractiveGraphs from "./pages/courses/topics/python/202_visualization/PlotlyInteractiveGraphs";
+
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
@@ -53,13 +58,27 @@ function App() {
 
             {/* ✅ หน้าคอร์สทั้งหมด */}
             <Route path="/courses/python-series/*" element={<PythonSeries theme={theme} setTheme={setTheme} />}>
-  <Route index element={<PythonIntro />} /> {/* ✅ หน้า default เมื่อเข้า /courses/python-series */}
-  <Route path="intro" element={<PythonIntro />} />
-  <Route path="variables" element={<PythonVariables />} />
-  <Route path="control-structure" element={<PythonControlStructure />} />
-  <Route path="input-function" element={<PythonInputFunction />} />
-  <Route path="leetcode" element={<PythonLeetcode />} />
-</Route>
+                        <Route index element={<PythonIntro />} /> {/* ✅ หน้า default เมื่อเข้า /courses/python-series */}
+                        <Route path="intro" element={<PythonIntro />} />
+                        <Route path="variables" element={<PythonVariables />} />
+                        <Route path="control-structure" element={<PythonControlStructure />} />
+                        <Route path="input-function" element={<PythonInputFunction />} />
+                        <Route path="leetcode" element={<PythonLeetcode />} />
+
+
+                        {/*data201*/}
+                        <Route path="data" element={<ListsTuples />} />
+                        <Route path="dictionaries" element={<Dictionaries />} />
+                        <Route path="set" element={<SetsFrozenset />} />
+                        <Route path="pandas" element={<PandasData />} />
+
+
+                        {/*visualization202*/}
+                        <Route path="matplotlib" element={<MatplotlibBasics />} />
+                        <Route path="seaborn" element={<SeabornDataVisualization />} />
+                        <Route path="plotly" element={<PlotlyInteractiveGraphs />} />
+
+                </Route>
  
 
             {/* ✅ คอร์สอื่น ๆ */}
