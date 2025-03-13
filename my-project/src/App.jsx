@@ -13,12 +13,17 @@ import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
 import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu";
 
-// ✅ Import Python Subtopics
-import PythonIntro from "./pages/courses/topics/python/PythonIntro";
-import PythonVariables from "./pages/courses/topics/python/PythonVariables";
-import PythonControlStructure from "./pages/courses/topics/python/PythonControlStructure";
-import PythonInputFunction from "./pages/courses/topics/python/PythonInputFunction";
-import PythonLeetcode from "./pages/courses/topics/python/PythonLeetcode";
+// ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
+import PythonIntro from "./pages/courses/topics/python/101_basic_python/PythonIntro";
+import PythonVariables from "./pages/courses/topics/python/101_basic_python/PythonVariables";
+import PythonControlStructure from "./pages/courses/topics/python/101_basic_python/PythonControlStructure";
+import PythonInputFunction from "./pages/courses/topics/python/101_basic_python/PythonInputFunction";
+import PythonLeetcode from "./pages/courses/topics/python/101_basic_python/PythonLeetcode";
+
+import ListsTuples from "./pages/courses/topics/python/201_data/ListsTuples";
+import Dictionaries from "./pages/courses/topics/python/201_data/Dictionaries";
+import SetsFrozenset from "./pages/courses/topics/python/201_data/SetFrozenset";
+import Pandas from "./pages/courses/topics/python/201_data/PandasData";
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
@@ -44,19 +49,18 @@ function App() {
           <Routes>
             {/* ✅ หน้าแรก */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
+            <Route path="/courses" element={<AllCourses theme={theme} />} />
 
             {/* ✅ หน้าคอร์สทั้งหมด */}
-            <Route path="/courses" element={<AllCourses theme={theme} setTheme={setTheme} />} />
-
-            {/* ✅ ใช้ PythonSeries เป็น Layout หลัก และกำหนด Subtopics ภายใน */}
             <Route path="/courses/python-series/*" element={<PythonSeries theme={theme} setTheme={setTheme} />}>
-              <Route index element={<Outlet />} /> {/* ✅ แสดงตารางบทเรียนเริ่มต้น */}
-              <Route path="intro" element={<PythonIntro />} />
-              <Route path="variables" element={<PythonVariables />} />
-              <Route path="control-structure" element={<PythonControlStructure />} />
-              <Route path="input-function" element={<PythonInputFunction />} />
-              <Route path="leetcode" element={<PythonLeetcode />} />
-            </Route>
+  <Route index element={<PythonIntro />} /> {/* ✅ หน้า default เมื่อเข้า /courses/python-series */}
+  <Route path="intro" element={<PythonIntro />} />
+  <Route path="variables" element={<PythonVariables />} />
+  <Route path="control-structure" element={<PythonControlStructure />} />
+  <Route path="input-function" element={<PythonInputFunction />} />
+  <Route path="leetcode" element={<PythonLeetcode />} />
+</Route>
+ 
 
             {/* ✅ คอร์สอื่น ๆ */}
             <Route path="/courses/nodejs-series" element={<NodeSeries theme={theme} setTheme={setTheme} />} />

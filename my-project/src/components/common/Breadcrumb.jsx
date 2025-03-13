@@ -4,11 +4,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // ✅ Mapping หัวข้อหลักของแต่ละคอร์ส
 const topicToMainCategory = {
   python: {
-    intro: "101",
-    variables: "101",
-    "control-structure": "101",
-    "input-function": "101",
-    leetcode: "101",
+    "101_basic_python/intro": "101",
+    "101_basic_python/variables": "101",
+    "101_basic_python/control-structure": "101",
+    "101_basic_python/input-function": "101",
+    "101_basic_python/leetcode": "101",
     data: "201",
     dictionaries: "201",
     set: "201",
@@ -69,7 +69,7 @@ const topicToMainCategory = {
   },
 };
 
-// ✅ Mapping คอร์สหลักที่จะแสดงใน Breadcrumb
+// ✅ Mapping หัวข้อหลักที่จะแสดงใน Breadcrumb
 const mainTopics = {
   python: {
     "101": "Basic Python 101",
@@ -104,11 +104,18 @@ const mainTopics = {
 const Breadcrumb = ({ courseName, theme }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x); // ✅ แยก path ออกจาก URL
+  const pathnames = location.pathname.split("/").filter((x) => x);
 
   // ✅ หาชื่อคอร์สหลักจาก URL (เช่น python, nodejs, reactjs)
   const courseKey = pathnames.length >= 2 ? pathnames[1].replace("-series", "") : null;
-  const subTopic = pathnames.length >= 3 ? pathnames[2] : null;
+
+  // ✅ รองรับโฟลเดอร์ใหม่ เช่น `/topics/python/101_basic_python/intro`
+  let subTopic = null;
+  if (pathnames.length >= 4) {
+    subTopic = pathnames[3]; // กรณีมีโฟลเดอร์แยก 101, 201
+  } else if (pathnames.length >= 3) {
+    subTopic = pathnames[2]; // กรณีไม่มีโฟลเดอร์แยก
+  }
 
   // ✅ หาหัวข้อหลักของหัวข้อย่อย ถ้ามี
   const mainTopicKey =
@@ -136,7 +143,7 @@ const Breadcrumb = ({ courseName, theme }) => {
 
       <FaAngleRight className="text-gray-400" />
 
-      {/* ✅ ชื่อคอร์สหลัก (เช่น Python Series) */}
+      {/* ✅ แสดงชื่อคอร์สหลัก (Python Series, Node.js Series) */}
       <span
         className={`px-4 py-2 rounded-md text-lg md:text-xl font-semibold border-2 border-green-500 ${
           theme === "dark" ? "bg-green-700 text-white" : "bg-green-300 text-black"

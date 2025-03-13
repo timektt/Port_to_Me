@@ -7,6 +7,13 @@ import Comments from "../../components/common/Comments";
 import PythonMobileMenu from "../../components/common/sidebar/MobileMenus/PythonMobileMenu";
 import Breadcrumb from "../../components/common/Breadcrumb";
 
+// ✅ เปลี่ยนเส้นทางของการ import หลังจากแยกโฟลเดอร์ใหม่
+import PythonIntro from "./topics/python/101_basic_python/PythonIntro";
+import PythonVariables from "./topics/python/101_basic_python/PythonVariables";
+import PythonControlStructure from "./topics/python/101_basic_python/PythonControlStructure";
+import PythonInputFunction from "./topics/python/101_basic_python/PythonInputFunction";
+import PythonLeetcode from "./topics/python/101_basic_python/PythonLeetcode";
+
 const lessons = [
   { id: "101", title: "Python Introduction", image: "/py1.png", docLink: "#", videoLink: "#" },
   { id: "201", title: "Basic Data", image: "/py2.jpg", docLink: "#", videoLink: "#" },
