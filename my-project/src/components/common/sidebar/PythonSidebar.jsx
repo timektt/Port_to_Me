@@ -44,20 +44,20 @@ const defaultSidebarItems = [
   },
   {
     id: "204",
-    title: "204: Statistic Analysis",
-    subItems: [
-      { id: "204-1", title: "สถิติพื้นฐาน", path: "/courses/python-series/basic-statistics" },
-      { id: "204-2", title: "Probability & Distribution", path: "/courses/python-series/probability" },
-      { id: "204-3", title: "Hypothesis Testing", path: "/courses/python-series/hypothesis-testing" },
+  title: "204: Statistic Analysis",
+  subItems: [
+    { id: "204-1", title: "สถิติพื้นฐาน", path: "/courses/python-series/basic-statistics" },
+    { id: "204-2", title: "Probability & Distribution", path: "/courses/python-series/probability" },
+    { id: "204-3", title: "Hypothesis Testing", path: "/courses/python-series/hypothesis-testing" },
     ],
   },
   {
     id: "205",
-    title: "205: Statistic Learning",
-    subItems: [
-      { id: "205-1", title: "Regression Analysis", path: "/courses/python-series/regression" },
-      { id: "205-2", title: "Clustering Methods", path: "/courses/python-series/clustering" },
-      { id: "205-3", title: "Deep Learning Basics", path: "/courses/python-series/deep-learning" },
+  title: "205: Statistic Learning",
+  subItems: [
+    { id: "205-1", title: "Regression Analysis", path: "/courses/python-series/regression" },
+    { id: "205-2", title: "Clustering Methods", path: "/courses/python-series/clustering" },
+    { id: "205-3", title: "Deep Learning Basics", path: "/courses/python-series/deep-learning" },
     ],
   },
 ];

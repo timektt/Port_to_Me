@@ -6,6 +6,7 @@ import SupportMeButton from "../../support/SupportMeButton";
 import Comments from "../../components/common/Comments";
 import PythonMobileMenu from "../../components/common/sidebar/MobileMenus/PythonMobileMenu";
 import Breadcrumb from "../../components/common/Breadcrumb";
+import CourseTags from "../../components/common/CourseTags";
 
 // ✅ เปลี่ยนเส้นทางของการ import หลังจากแยกโฟลเดอร์ใหม่
 import PythonIntro from "./topics/python/101_basic_python/PythonIntro";
@@ -35,6 +36,38 @@ const PythonSeries = ({ theme, setTheme }) => {
   const { "*": subPage } = useParams(); // ✅ เช็คว่าตอนนี้อยู่ในหัวข้อย่อยอะไร
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  
+
+  const topics = [
+    { path: "intro", title: "แนะนำ Python" },
+    { path: "variables", title: "Variable & Data Type" },
+    { path: "control-structure", title: "Control Structure" },
+    { path: "input-function", title: "การรับ input & function" },
+    { path: "leetcode", title: "LeetCode Challenge" },
+    { path: "data", title: "Lists & Tuples" },
+    { path: "dictionaries", title: "Dictionaries" },
+    { path: "set", title: "Set & Frozenset" },
+    { path: "pandas", title: "การจัดการข้อมูลด้วย Pandas" },
+    { path: "matplotlib", title: "Matplotlib Basics" },
+    { path: "seaborn", title: "Seaborn: Data Visualization" },
+    { path: "plotly", title: "Plotly: Interactive Graphs" },
+    { path: "data-cleaning", title: "การล้างข้อมูล" },
+    { path: "data-transformation", title: "การแปลงข้อมูล" },
+    { path: "data-formatting", title: "การจัดรูปแบบข้อมูล" },
+    { path: "basic-statistics", title: "สถิติพื้นฐาน" },
+    { path: "probability", title: "Probability & Distribution" },
+    { path: "hypothesis-testing", title: "Hypothesis Testing" },
+    { path: "regression", title: "Regression Analysis" },
+    { path: "clustering", title: "Clustering Methods" },
+    { path: "deep-learning", title: "Deep Learning Basics" },
+  ];
+
+    // ✅ หา index ของหัวข้อปัจจุบัน
+    const currentIndex = topics.findIndex((topic) => topic.path === subPage);
+    const prevTopic = currentIndex > 0 ? topics[currentIndex - 1] : null;
+    const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : null;
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -143,10 +176,52 @@ const PythonSeries = ({ theme, setTheme }) => {
               </div>
             </>
           )}
+          
 
           {/* ✅ Comments Section */}
           <Comments theme={theme} />
         </div>
+{/* ✅ Tags อยู่ในช่วงกรอบสีแดง */}
+{/* ✅ ใช้ flex + max-w-5xl mx-auto เพื่อให้ Tags ตรงกับปุ่ม Next */}
+<div className="flex justify-between items-center max-w-5xl mx-auto px-4 mt-4">
+  <div className="flex items-center">
+    <span className="text-lg font-bold">Tags:</span>
+    <button
+      onClick={() => navigate("/tags/python")}
+      className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
+    >
+      python
+    </button>
+  </div>
+</div>
+
+{/* ✅ ปุ่ม Previous & Next */}
+<div className="mt-8 flex justify-between items-center max-w-5xl mx-auto px-4 gap-4">
+  {prevTopic ? (
+    <button
+      className="flex flex-col items-start justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
+      onClick={() => navigate(`/courses/python-series/${prevTopic.path}`)}
+    >
+      <span className="text-sm text-gray-400">Previous</span>
+      <span className="text-lg">« {prevTopic.title}</span>
+    </button>
+  ) : (
+    <div className="w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px]"></div>
+  )}
+
+  {nextTopic ? (
+    <button
+      className="flex flex-col items-end justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
+      onClick={() => navigate(`/courses/python-series/${nextTopic.path}`)}
+    >
+      <span className="text-sm text-gray-400">Next</span>
+      <span className="text-lg">{nextTopic.title} »</span>
+    </button>
+  ) : (
+    <div className="w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px]"></div>
+  )}
+</div>
+
       </main>
 
       <SupportMeButton />

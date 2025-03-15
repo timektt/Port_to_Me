@@ -12,6 +12,7 @@ import AllCourses from "./pages/courses/AllCourses";
 import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
 import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu";
+import CourseTags from "./components/common/CourseTags"; // ✅ Import Component ใหม่
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -35,6 +36,18 @@ import PlotlyInteractiveGraphs from "./pages/courses/topics/python/202_visualiza
 import DataCleaning from "./pages/courses/topics/python/203_data_wrangling_transform/DataCleaning";
 import DataTransformation from "./pages/courses/topics/python/203_data_wrangling_transform/DataTransformation";
 import DataFormatting from "./pages/courses/topics/python/203_data_wrangling_transform/DataFormatting";
+
+
+// Python 204
+import BasicStatistics from "./pages/courses/topics/python/204_statistic_analysis/BasicStatistics";
+import ProbabilityDistribution from "./pages/courses/topics/python/204_statistic_analysis/ProbabilityDistribution";
+import HypothesisTesting from "./pages/courses/topics/python/204_statistic_analysis/HypothesisTesting";
+
+
+// Python 205
+import RegressionAnalysis from "./pages/courses/topics/python/205_statistic_learning/RegressionAnalysis";
+import ClusteringMethods from "./pages/courses/topics/python/205_statistic_learning/ClusteringMethods";
+import DeepLearningBasics from "./pages/courses/topics/python/205_statistic_learning/DeepLearningBasics";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -62,6 +75,9 @@ function App() {
             {/* ✅ หน้าแรก */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
             <Route path="/courses" element={<AllCourses theme={theme} />} />
+            {/* ✅ ใช้ CourseTags ในหน้า All Courses */}
+            <Route path="/courses/all-courses" element={<AllCourses theme={theme} />} />
+            <Route path="/courses/tags" element={<CourseTags />} /> {/* ✅ Route ใหม่สำหรับ Tag Page */}
 
             {/* ✅ หน้าคอร์สทั้งหมด */}
             <Route path="/courses/python-series/*" element={<PythonSeries theme={theme} setTheme={setTheme} />}>
@@ -85,10 +101,20 @@ function App() {
                         <Route path="seaborn" element={<SeabornDataVisualization />} />
                         <Route path="plotly" element={<PlotlyInteractiveGraphs />} />
 
-
+                        {/*data203*/}
                         <Route path="data-cleaning" element={<DataCleaning />} />
                         <Route path="data-transformation" element={<DataTransformation />} />
                         <Route path="data-formatting" element={<DataFormatting />} />
+
+                        {/*statistic204*/}
+                        <Route path="basic-statistics" element={<BasicStatistics />} />
+                        <Route path="probability" element={<ProbabilityDistribution />} />
+                        <Route path="hypothesis-testing" element={<HypothesisTesting />} />
+
+                        {/*statistic205*/}
+                        <Route path="regression" element={<RegressionAnalysis />} />
+                        <Route path="clustering" element={<ClusteringMethods />} />
+                        <Route path="deep-learning" element={<DeepLearningBasics />} />
 
                 </Route>
  
