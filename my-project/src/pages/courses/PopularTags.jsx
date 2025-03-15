@@ -3,7 +3,6 @@ import React from "react";
 const tags = [
   { name: "React", count: 4 },
   { name: "Node.js", count: 10},
-  { name: "C++", count: 7 },
   { name: "data structure", count: 10 },
   { name: "Algorithm", count: 12 },
   { name: "Backend", count: 14 },
