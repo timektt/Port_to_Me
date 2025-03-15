@@ -14,20 +14,27 @@ import Footer from "./components/common/Footer";
 import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu";
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
+// Python 101
 import PythonIntro from "./pages/courses/topics/python/101_basic_python/PythonIntro";
 import PythonVariables from "./pages/courses/topics/python/101_basic_python/PythonVariables";
 import PythonControlStructure from "./pages/courses/topics/python/101_basic_python/PythonControlStructure";
 import PythonInputFunction from "./pages/courses/topics/python/101_basic_python/PythonInputFunction";
 import PythonLeetcode from "./pages/courses/topics/python/101_basic_python/PythonLeetcode";
-
+// Python 201
 import ListsTuples from "./pages/courses/topics/python/201_data/ListsTuples";
 import Dictionaries from "./pages/courses/topics/python/201_data/Dictionaries";
 import SetsFrozenset from "./pages/courses/topics/python/201_data/SetFrozenset";
 import PandasData from "./pages/courses/topics/python/201_data/PandasData";
 
+// Python 202
 import MatplotlibBasics from "./pages/courses/topics/python/202_visualization/MatplotlibBasics";
 import SeabornDataVisualization from "./pages/courses/topics/python/202_visualization/SeabornDataVisualization";
 import PlotlyInteractiveGraphs from "./pages/courses/topics/python/202_visualization/PlotlyInteractiveGraphs";
+
+// Python 203
+import DataCleaning from "./pages/courses/topics/python/203_data_wrangling_transform/DataCleaning";
+import DataTransformation from "./pages/courses/topics/python/203_data_wrangling_transform/DataTransformation";
+import DataFormatting from "./pages/courses/topics/python/203_data_wrangling_transform/DataFormatting";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -77,6 +84,11 @@ function App() {
                         <Route path="matplotlib" element={<MatplotlibBasics />} />
                         <Route path="seaborn" element={<SeabornDataVisualization />} />
                         <Route path="plotly" element={<PlotlyInteractiveGraphs />} />
+
+
+                        <Route path="data-cleaning" element={<DataCleaning />} />
+                        <Route path="data-transformation" element={<DataTransformation />} />
+                        <Route path="data-formatting" element={<DataFormatting />} />
 
                 </Route>
  

@@ -35,11 +35,11 @@ const defaultSidebarItems = [
   },
   {
     id: "203",
-    title: "203: Data Wrangling & Transform",
-    subItems: [
-      { id: "203-1", title: "การล้างข้อมูล", path: "/courses/python-series/data-cleaning" },
-      { id: "203-2", title: "การแปลงข้อมูล", path: "/courses/python-series/data-transformation" },
-      { id: "203-3", title: "การจัดรูปแบบข้อมูล", path: "/courses/python-series/data-formatting" },
+  title: "203: Data Wrangling & Transform",
+  subItems: [
+    { id: "203-1", title: "การล้างข้อมูล", path: "/courses/python-series/data-cleaning" },
+    { id: "203-2", title: "การแปลงข้อมูล", path: "/courses/python-series/data-transformation" },
+    { id: "203-3", title: "การจัดรูปแบบข้อมูล", path: "/courses/python-series/data-formatting" },
     ],
   },
   {
