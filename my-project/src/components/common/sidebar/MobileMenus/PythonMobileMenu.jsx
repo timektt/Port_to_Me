@@ -67,17 +67,17 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
   const location = useLocation();
   const [expandedSections, setExpandedSections] = useState({});
 
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
   const toggleSection = (id) => {
     setExpandedSections((prev) => ({
       ...prev,
       [id]: !prev[id],
     }));
-  };
-
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
   };
 
   return (
@@ -93,29 +93,31 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
         <FaTimes />
       </button>
 
-      {/* ✅ โลโก้ + ปุ่ม Dark/Light Mode */}
-      <div className="mt-6 flex items-center justify-between mb-3">
-        <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
-          Supermhee
-        </span>
-        <button className="cursor-pointer transition-transform transform hover:scale-110" onClick={toggleTheme}>
-          {theme === "dark" ? <FaSun className="text-yellow-400 text-xl" /> : <FaMoon className="text-blue-400 text-xl" />}
-        </button>
+      {/* ✅ โลโก้ + Supermhee + ปุ่ม Dark/Light Mode */}
+      <div className="mt-6 flex items-center mb-3">
+        <img src="/spm2.jpg" alt="Logo" className="w-8 h-8 mr-2 object-cover rounded-full" />
+        <div className="flex items-center space-x-2">
+          <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
+            Supermhee
+          </span>
+          <button className="cursor-pointer transition-transform transform hover:scale-110" onClick={toggleTheme}>
+            {theme === "dark" ? <FaSun className="text-yellow-400 text-2xl" /> : <FaMoon className="text-blue-400 text-2xl" />}
+          </button>
+        </div>
       </div>
 
-      {/* ✅ ปุ่ม Back to Main Menu */}
+      {/* ✅ ปุ่ม Back ไปเมนูหลัก */}
       <button 
         className="flex items-center text-sm text-gray-400 hover:text-gray-300 mb-3 transition"
         onClick={onClose}
       >
-        <FaArrowLeft className="mr-2" /> Back to main menu
+        <FaArrowLeft className="mr-2" /> กลับไปที่เมนูหลัก
       </button>
 
       {/* ✅ รายการบทเรียน (Dropdown) */}
       <ul className="space-y-2 mt-4">
         {sidebarItems.map((item) => (
           <li key={item.id} className="border-b border-gray-700">
-            {/* ปุ่มกดขยายหมวดหมู่ */}
             <button
               className="flex items-center justify-between w-full p-3 rounded-lg transition duration-300 ease-in-out
                 hover:bg-gray-700 hover:shadow-lg text-left"
@@ -125,7 +127,6 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
               {expandedSections[item.id] ? <FaChevronDown /> : <FaChevronRight />}
             </button>
 
-            {/* ✅ แสดงหมวดหมู่ย่อย */}
             {expandedSections[item.id] && (
               <ul className="pl-5 space-y-2 mt-2">
                 {item.subItems.map((subItem) => (

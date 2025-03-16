@@ -10,9 +10,9 @@ import NodeSidebar from "../../components/common/sidebar/NodeJsSidebar";
 import NodeMobileMenu from "../../components/common/sidebar/MobileMenus/NodeMobileMenu"; 
 
 const lessons = [
-  { id: "101", title: "Introduction to Node.js", image: "/node1.png", docLink: "#", videoLink: "#" },
-  { id: "201", title: "Event Loop & Async", image: "/node2.jpg", docLink: "#", videoLink: "#" },
-  { id: "202", title: "Building REST API", image: "/node3.jpg", docLink: "#", videoLink: "#" },
+  { id: "101", title: " Basic Node.js", image: "/node1.png", docLink: "#", videoLink: "#" },
+  { id: "201", title: "Asynchronous JavaScript", image: "/node2.jpg", docLink: "#", videoLink: "#" },
+  { id: "202", title: "Event Loop & Async", image: "/node3.jpg", docLink: "#", videoLink: "#" },
 ];
 
 const NodeSeries = ({ theme, setTheme }) => {

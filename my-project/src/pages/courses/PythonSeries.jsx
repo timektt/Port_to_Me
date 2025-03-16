@@ -26,9 +26,12 @@ import SeabornDataVisualization from "./topics/python/202_visualization/SeabornD
 import PlotlyInteractiveGraphs from "./topics/python/202_visualization/PlotlyInteractiveGraphs";
 
 const lessons = [
-  { id: "101", title: "Python Introduction", image: "/py1.png", docLink: "#", videoLink: "#" },
-  { id: "201", title: "Basic Data", image: "/py2.jpg", docLink: "#", videoLink: "#" },
-  { id: "202", title: "Visualization", image: "/py3.jpg", docLink: "#", videoLink: "#" },
+  { id: "101", title: "Python Introduction", image: "/py1.png", path: "/courses/python-series/intro" },
+  { id: "201", title: "Basic Data", image: "/py2.jpg", path: "/courses/python-series/data" },
+  { id: "202", title: "Visualization", image: "/py3.jpg", path: "/courses/python-series/matplotlib" },
+  { id: "203", title: "Data Wrangling & Transform", image: "/py1.png", path: "/courses/python-series/data-cleaning" },
+  { id: "204", title: "Static Analysis", image: "/py2.jpg", path: "/courses/python-series/basic-statistics" },
+  { id: "205", title: "Static learning", image: "/py3.jpg", path: "/courses/python-series/regression" },
 ];
 
 const PythonSeries = ({ theme, setTheme }) => {
@@ -151,11 +154,14 @@ const PythonSeries = ({ theme, setTheme }) => {
                             <span className="block mt-2 text-green-400 hover:underline">ดู video</span>
                           </a>
                         </td>
-                        <td className="p-4 border-b text-center">
-                          <a href={lesson.docLink} target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">
-                            อ่าน
-                          </a>
-                        </td>
+                              <td className="p-4 border-b text-center">
+                                <button
+                                  onClick={() => navigate(lesson.path)}
+                                  className="text-green-400 hover:underline hover:text-green-500"
+                                >
+                                  อ่าน
+                                </button>
+                              </td>
                       </tr>
                     ))}
                   </tbody>
@@ -164,21 +170,40 @@ const PythonSeries = ({ theme, setTheme }) => {
 
               {/* ✅ Responsive Section (Mobile) */}
               <div className="sm:hidden mt-6 space-y-4">
-                {lessons.map((lesson) => (
-                  <div key={lesson.id} className={`p-4 border rounded-lg shadow-md ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
-                    <h2 className="text-xl font-semibold">{lesson.title}</h2>
-                    <img src={lesson.image} className="w-full h-40 mt-2 rounded-lg shadow-md object-cover" alt={lesson.title} />
-                    <div className="mt-4 flex justify-between">
-                      <a href={lesson.videoLink} target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">
-                        ดู video
-                      </a>
-                      <a href={lesson.docLink} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-                        อ่านเอกสาร
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
+  {lessons.map((lesson) => (
+    <div 
+      key={lesson.id} 
+      className={`p-4 border rounded-lg shadow-md ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"}`}
+    >
+      <h2 className="text-xl font-semibold">{lesson.title}</h2>
+      <img 
+        src={lesson.image} 
+        className="w-full h-40 mt-2 rounded-lg shadow-md object-cover" 
+        alt={lesson.title} 
+      />
+
+      {/* ✅ ปุ่ม "ดู Video" (ซ้าย) และ "อ่าน Document" (ขวา) */}
+      <div className="mt-4 flex justify-between items-center">
+        <a 
+          href={lesson.videoLink} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+           ดู Video
+        </a>
+
+        <button 
+          onClick={() => navigate(lesson.path)}
+          className="text-green-500 hover:underline"
+        >
+           อ่าน Document
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
             </>
           )}
           
