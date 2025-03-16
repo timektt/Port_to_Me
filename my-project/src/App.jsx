@@ -13,6 +13,8 @@ import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
 import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu";
 import CourseTags from "./components/common/CourseTags"; // ✅ Import Component ใหม่
+import TagsPage from "./pages/TagsPage";
+import PopularTags from "./pages/courses/PopularTags";
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -78,6 +80,8 @@ function App() {
             {/* ✅ ใช้ CourseTags ในหน้า All Courses */}
             <Route path="/courses/all-courses" element={<AllCourses theme={theme} />} />
             <Route path="/courses/tags" element={<CourseTags />} /> {/* ✅ Route ใหม่สำหรับ Tag Page */}
+            <Route path="/tags" element={<TagsPage />} /> {/* ✅ เส้นทางไปที่ TagsPage */}
+            <Route path="/popular-tags" element={<PopularTags />} /> {/* ✅ เส้นทางไปที่ PopularTags */}
 
             {/* ✅ หน้าคอร์สทั้งหมด */}
             <Route path="/courses/python-series/*" element={<PythonSeries theme={theme} setTheme={setTheme} />}>
@@ -120,11 +124,13 @@ function App() {
  
 
             {/* ✅ คอร์สอื่น ๆ */}
+            <Route path="/tags" element={<TagsPage theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/nodejs-series" element={<NodeSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/web-development" element={<WebDevSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/basic-programming" element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />} />
-            <Route path="/courses/restful-api-graphql-series" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />} />
+            <Route path="/courses/restful-api-graphql-series" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />} 
+            />
           </Routes>
         </div>
 
