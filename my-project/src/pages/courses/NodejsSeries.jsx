@@ -10,9 +10,12 @@ import NodeSidebar from "../../components/common/sidebar/NodeJsSidebar";
 import NodeMobileMenu from "../../components/common/sidebar/MobileMenus/NodeMobileMenu"; 
 
 const lessons = [
-  { id: "101", title: " Basic Node.js", image: "/node1.png", docLink: "#", videoLink: "#" },
+  { id: "101", title: " Basic Node.js", image: "/node1.jpg", docLink: "#", videoLink: "#" },
   { id: "201", title: "Asynchronous JavaScript", image: "/node2.jpg", docLink: "#", videoLink: "#" },
-  { id: "202", title: "Event Loop & Async", image: "/node3.jpg", docLink: "#", videoLink: "#" },
+  { id: "202", title: "Event Loop & Async", image: "/node3.webp", docLink: "#", videoLink: "#" },
+  { id: "203", title: "API Development", image: "/node1.jpg", docLink: "#", videoLink: "#" },
+  { id: "204", title: "Express.js", image: "/node2.jpg", docLink: "#", videoLink: "#" },
+  { id: "205", title: "Database", image: "/node3.webp", docLink: "#", videoLink: "#" },
 ];
 
 const NodeSeries = ({ theme, setTheme }) => {
@@ -73,8 +76,8 @@ const NodeSeries = ({ theme, setTheme }) => {
                 <p>สามารถติดตามผ่านทาง Youtube: <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">supermhee</a></p>
               </div>
 
-              {/* ✅ Table Section */}
-              <div className="overflow-x-auto mt-6">
+              {/* ✅ Table Section (Desktop) */}
+              <div className="hidden sm:block overflow-x-auto mt-6">
                 <table className={`w-full border rounded-lg shadow-lg ${theme === "dark" ? "border-gray-700" : "border-gray-300"}`}>
                   <thead className={`${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-300 text-black"} text-lg`}>
                     <tr>
@@ -102,6 +105,20 @@ const NodeSeries = ({ theme, setTheme }) => {
                     ))}
                   </tbody>
                 </table>
+              </div>
+
+              {/* ✅ Responsive (Mobile) */}
+              <div className="sm:hidden mt-6 space-y-4">
+                {lessons.map((lesson) => (
+                  <div key={lesson.id} className={`p-4 border rounded-lg shadow-md ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
+                    <h2 className="text-xl font-semibold">{lesson.title}</h2>
+                    <img src={lesson.image} className="w-full h-40 mt-2 rounded-lg shadow-md object-cover" alt={lesson.title} />
+                    <div className="mt-4 flex justify-between">
+                      <a href={lesson.videoLink} target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">ดู video</a>
+                      <a href={lesson.docLink} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">อ่านเอกสาร</a>
+                    </div>
+                  </div>
+                ))}
               </div>
             </>
           )}

@@ -10,6 +10,8 @@ const sidebarItems = [
       { id: "101-1", title: "Introduction to Node.js", path: "/courses/nodejs-series/intro" },
       { id: "101-2", title: "Setting Up Node.js", path: "/courses/nodejs-series/setup" },
       { id: "101-3", title: "Running JavaScript in Node.js", path: "/courses/nodejs-series/running-js" },
+      { id: "101-4", title: "Understanding Modules & require()", path: "/courses/nodejs-series/modules" },
+      { id: "101-5", title: "Node.js Global Objects & Process", path: "/courses/nodejs-series/global-objects" },
     ],
   },
   {
@@ -18,6 +20,8 @@ const sidebarItems = [
     subItems: [
       { id: "201-1", title: "Understanding Async & Callbacks", path: "/courses/nodejs-series/async" },
       { id: "201-2", title: "Promises & Async/Await", path: "/courses/nodejs-series/promises" },
+      { id: "201-3", title: "Handling Errors in Async Code", path: "/courses/nodejs-series/async-error-handling" },
+      { id: "201-4", title: "Working with Files Asynchronously", path: "/courses/nodejs-series/async-file" },
     ],
   },
   {
@@ -26,6 +30,8 @@ const sidebarItems = [
     subItems: [
       { id: "202-1", title: "Understanding the Event Loop", path: "/courses/nodejs-series/event-loop" },
       { id: "202-2", title: "Working with Timers & I/O", path: "/courses/nodejs-series/io-operations" },
+      { id: "202-3", title: "Event Emitters & Listeners", path: "/courses/nodejs-series/event-emitters" },
+      { id: "202-4", title: "Handling Streams in Node.js", path: "/courses/nodejs-series/node-streams" },
     ],
   },
   {
@@ -34,6 +40,9 @@ const sidebarItems = [
     subItems: [
       { id: "203-1", title: "Building RESTful APIs", path: "/courses/nodejs-series/rest-api" },
       { id: "203-2", title: "Handling HTTP Requests", path: "/courses/nodejs-series/http-requests" },
+      { id: "203-3", title: "Working with Middleware", path: "/courses/nodejs-series/middleware" },
+      { id: "203-4", title: "Data Validation & Error Handling", path: "/courses/nodejs-series/api-validation" },
+      { id: "203-5", title: "Implementing Authentication", path: "/courses/nodejs-series/api-authentication" },
     ],
   },
   {
@@ -42,6 +51,9 @@ const sidebarItems = [
     subItems: [
       { id: "204-1", title: "Introduction to Express.js", path: "/courses/nodejs-series/express-intro" },
       { id: "204-2", title: "Routing in Express.js", path: "/courses/nodejs-series/express-routing" },
+      { id: "204-3", title: "Handling Middleware in Express", path: "/courses/nodejs-series/express-middleware" },
+      { id: "204-4", title: "Serving Static Files", path: "/courses/nodejs-series/express-static-files" },
+      { id: "204-5", title: "Express.js & CORS", path: "/courses/nodejs-series/express-cors" },
     ],
   },
   {
@@ -50,9 +62,12 @@ const sidebarItems = [
     subItems: [
       { id: "205-1", title: "Connecting to MongoDB", path: "/courses/nodejs-series/mongodb" },
       { id: "205-2", title: "Using PostgreSQL with Node.js", path: "/courses/nodejs-series/postgresql" },
+      { id: "205-3", title: "Working with Mongoose", path: "/courses/nodejs-series/mongoose" },
+      { id: "205-4", title: "Sequelize for SQL Databases", path: "/courses/nodejs-series/sequelize" },
     ],
   },
 ];
+
 
 const NodeJsSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
   const navigate = useNavigate();
