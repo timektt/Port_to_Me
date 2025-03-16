@@ -55,7 +55,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
             onClick={() => { navigate("/courses"); onClose(); }} 
             className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
           >
-            📚 Courses <FaChevronRight />
+            Courses <FaChevronRight />
           </button>
         </li>
         <li>
@@ -63,7 +63,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
             onClick={() => { navigate("/about"); onClose(); }} 
             className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
           >
-            ℹ️ Contact us <FaChevronRight />
+            Contact us <FaChevronRight />
           </button>
         </li>
       </ul>
