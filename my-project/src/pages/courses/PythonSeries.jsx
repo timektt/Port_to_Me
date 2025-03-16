@@ -105,6 +105,11 @@ const PythonSeries = ({ theme, setTheme }) => {
           {/* ✅ Breadcrumb Navigation */}
           <Breadcrumb courseName="Python Series" theme={theme} />
 
+           {/* ✅ เพิ่ม max-height และ scroll bar ถ้าข้อมูลยาวเกิน */}
+    <div className="max-h-[75vh] overflow-y-auto  bg-gray-900 rounded-lg">
+     {/* ✅ แสดงเนื้อหาหัวข้อย่อย (ProbabilityDistribution.jsx) */}
+      </div>
+
           {/* ✅ เช็คว่ามีหัวข้อย่อยใน URL หรือไม่ */}
           {subPage ? (
             <Outlet /> // ✅ แสดงเนื้อหาหัวข้อย่อยที่เลือก

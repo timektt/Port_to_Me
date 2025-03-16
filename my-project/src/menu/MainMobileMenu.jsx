@@ -21,17 +21,23 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
           ${theme === "dark" ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"}`}
         onClick={onClose}
       >
-        <FaTimes /> {/* ✅ ใช้งานได้แน่นอนแล้ว! */}
+        <FaTimes />
       </button>
 
-      {/* ✅ โลโก้ + ปุ่ม Dark/Light Mode */}
-      <div className="mt-6 flex items-center justify-between mb-3">
-        <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
-          Supermhee
-        </span>
-        <button className="cursor-pointer transition-transform transform hover:scale-110" onClick={toggleTheme}>
-          {theme === "dark" ? <FaSun className="text-yellow-400 text-xl" /> : <FaMoon className="text-blue-400 text-xl" />}
-        </button>
+      {/* ✅ โลโก้ + Supermhee + ปุ่ม Dark/Light Mode */}
+      <div className="mt-6 flex items-center mb-3">
+        {/* ✅ โลโก้ */}
+        <img src="/spm2.jpg" alt="Logo" className="w-8 h-8 mr-2 object-cover rounded-full" />
+
+        {/* ✅ Supermhee + ปุ่ม Dark/Light Mode ชิดกัน */}
+        <div className="flex items-center space-x-1">
+          <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
+            Supermhee
+          </span>
+          <button className="cursor-pointer transition-transform transform hover:scale-110" onClick={toggleTheme}>
+            {theme === "dark" ? <FaSun className="text-yellow-400 text-2xl" /> : <FaMoon className="text-blue-400 text-2xl" />}
+          </button>
+        </div>
       </div>
 
       {/* ✅ ปุ่ม Back ไปเมนูหลัก */}
