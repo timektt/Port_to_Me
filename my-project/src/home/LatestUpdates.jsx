@@ -24,12 +24,12 @@ const LatestUpdates = ({ theme }) => {
         {latestUpdates.map((update, index) => (
           <div
             key={index}
-            className={`p-4 rounded-lg shadow-lg flex items-center justify-between w-full ${
+            className={`p-4 rounded-lg shadow-lg flex flex-col sm:flex-row items-start sm:items-center w-full ${
               theme === "dark" ? "bg-gray-700" : "bg-gray-200"
-            } sm:flex-row flex-col`}
+            }`}
           >
             {/* ✅ Tags & Level */}
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap sm:flex-nowrap items-center space-x-2">
               <span className="bg-green-600 text-white px-2 py-1 rounded text-sm cursor-pointer hover:bg-green-700">
                 {update.category}
               </span>
@@ -38,8 +38,8 @@ const LatestUpdates = ({ theme }) => {
               </span>
             </div>
 
-            {/* ✅ Title + อ่าน (คลิกแล้วไปหน้าหัวข้อ Python) */}
-            <div className="flex-1 text-left ml-4">
+            {/* ✅ Title + อ่าน (ชิดซ้ายในจอเล็ก แต่ไม่ดัน Tags ในจอใหญ่) */}
+            <div className="w-auto sm:w-auto text-left mt-2 sm:mt-0">
               <h3 className={`font-semibold text-md break-words ${theme === "dark" ? "text-white" : "text-black"}`}>
                 {update.title}{" "}
                 <button 
@@ -51,8 +51,8 @@ const LatestUpdates = ({ theme }) => {
               </h3>
             </div>
 
-            {/* ✅ Date (อยู่ชิดขวาสุด) */}
-            <div className="text-sm sm:text-right text-left sm:w-auto w-full sm:mt-0 mt-2">
+            {/* ✅ Date (ขยับไปฝั่งขวาสุดในจอใหญ่) */}
+            <div className="text-sm text-left sm:text-right sm:w-auto w-full sm:ml-auto mt-2 sm:mt-0">
               <span className={`${theme === "dark" ? "text-gray-400" : "text-gray-700"}`}>{update.date}</span>
             </div>
           </div>
