@@ -52,6 +52,44 @@ import ClusteringMethods from "./pages/courses/topics/python/205_statistic_learn
 import DeepLearningBasics from "./pages/courses/topics/python/205_statistic_learning/DeepLearningBasics";
 
 
+import NodeIntro from "./pages/courses/topics/nodejs/101_node_basics/NodeIntro";
+import NodeJsRunCode from "./pages/courses/topics/nodejs/101_node_basics/NodeJsRunCode";
+import NodeModules from "./pages/courses/topics/nodejs/101_node_basics/NodeModules";
+import NodePackageManager from "./pages/courses/topics/nodejs/101_node_basics/NodePackageManager";
+import NodeSetup from "./pages/courses/topics/nodejs/101_node_basics/NodeSetup";
+
+
+// Node.js 201
+import AsyncCallbacks from "./pages/courses/topics/nodejs/201_async_js/AsyncCallbacks";
+import PromisesAsyncAwait from "./pages/courses/topics/nodejs/201_async_js/PromisesAsyncAwait";
+import EventEmitter from "./pages/courses/topics/nodejs/201_async_js/EventEmitter";
+import StreamsBuffer from "./pages/courses/topics/nodejs/201_async_js/StreamsBuffer";
+
+// Node.js 202
+import EventLoop from "./pages/courses/topics/nodejs/202_event_loop/EventLoop";
+import TimersIO from "./pages/courses/topics/nodejs/202_event_loop/TimersIO";
+import ProcessNextTick from "./pages/courses/topics/nodejs/202_event_loop/ProcessNextTick";
+
+
+// Node.js 203
+import RestApiBasics from "./pages/courses/topics/nodejs/203_api_development/RestApiBasics";
+import HandlingHttpRequests from "./pages/courses/topics/nodejs/203_api_development/HandlingHttpRequests";
+import MiddlewareConcepts from "./pages/courses/topics/nodejs/203_api_development/MiddlewareConcepts";
+
+
+// Node.js 204
+import ExpressIntro from "./pages/courses/topics/nodejs/204_express/ExpressIntro";
+import ExpressRouting from "./pages/courses/topics/nodejs/204_express/ExpressRouting";
+import ExpressMiddleware from "./pages/courses/topics/nodejs/204_express/ExpressMiddleware";
+// Node.js 205
+import MongoDBIntegration from "./pages/courses/topics/nodejs/205_database/MongoDBIntegration";
+import PostgreSQLIntegration from "./pages/courses/topics/nodejs/205_database/PostgreSQLIntegration";
+import MongooseORM from "./pages/courses/topics/nodejs/205_database/MongooseORM";
+import KnexJSPostgreSQL from "./pages/courses/topics/nodejs/205_database/KnexJSPostgreSQL";
+
+
+
+
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
 function App() {
@@ -73,7 +111,7 @@ function App() {
         )}
 
         <div className="flex-1">
-          <Routes>
+        <Routes>
             {/* ✅ หน้าแรก */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
             <Route path="/courses" element={<AllCourses theme={theme} />} />
@@ -92,13 +130,11 @@ function App() {
                         <Route path="input-function" element={<PythonInputFunction />} />
                         <Route path="leetcode" element={<PythonLeetcode />} />
 
-
                         {/*data201*/}
                         <Route path="data" element={<ListsTuples />} />
                         <Route path="dictionaries" element={<Dictionaries />} />
                         <Route path="set" element={<SetsFrozenset />} />
                         <Route path="pandas" element={<PandasData />} />
-
 
                         {/*visualization202*/}
                         <Route path="matplotlib" element={<MatplotlibBasics />} />
@@ -119,19 +155,52 @@ function App() {
                         <Route path="regression" element={<RegressionAnalysis />} />
                         <Route path="clustering" element={<ClusteringMethods />} />
                         <Route path="deep-learning" element={<DeepLearningBasics />} />
+            </Route>
 
-                </Route>
- 
+            {/* ✅ Node.js Series */}
+            <Route path="/courses/nodejs-series/*" element={<NodeSeries theme={theme} setTheme={setTheme} />}>
+                <Route index element={<NodeIntro />} />
+                <Route path="node-intro" element={<NodeIntro />} />
+                <Route path="node-run-code" element={<NodeJsRunCode />} />
+                <Route path="node-modules" element={<NodeModules />} />
+                <Route path="node-package-manager" element={<NodePackageManager />} />
+                <Route path="node-setup" element={<NodeSetup />} />
+
+                {/* ✅ Asynchronous JavaScript */}
+                <Route path="async-callbacks" element={<AsyncCallbacks />} />
+                <Route path="promises-async-await" element={<PromisesAsyncAwait />} />
+                <Route path="event-emitter" element={<EventEmitter />} />
+                <Route path="streams-buffer" element={<StreamsBuffer />} />
+
+                {/* ✅ Event Loop & Async Operations */}
+                <Route path="event-loop" element={<EventLoop />} />
+                <Route path="timers-io" element={<TimersIO />} />
+                <Route path="process-next-tick" element={<ProcessNextTick />} />
+
+                {/* ✅ API Development */}
+                <Route path="rest-api-basics" element={<RestApiBasics />} />
+                <Route path="handling-http-requests" element={<HandlingHttpRequests />} />
+                <Route path="middleware-concepts" element={<MiddlewareConcepts />} />
+
+                {/* ✅ Express.js Framework */}
+                <Route path="express-intro" element={<ExpressIntro />} />
+                <Route path="express-routing" element={<ExpressRouting />} />
+                <Route path="express-middleware" element={<ExpressMiddleware />} />
+
+                {/* ✅ Database Integration */}
+                <Route path="mongodb-integration" element={<MongoDBIntegration />} />
+                <Route path="postgresql-integration" element={<PostgreSQLIntegration />} />
+                <Route path="mongoose-orm" element={<MongooseORM />} />
+                <Route path="knexjs-postgresql" element={<KnexJSPostgreSQL />} />
+            </Route>
 
             {/* ✅ คอร์สอื่น ๆ */}
-            <Route path="/tags" element={<TagsPage theme={theme} setTheme={setTheme} />} />
-            <Route path="/courses/nodejs-series" element={<NodeSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/web-development" element={<WebDevSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/basic-programming" element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />} />
-            <Route path="/courses/restful-api-graphql-series" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />} 
-            />
-          </Routes>
+            <Route path="/courses/restful-api-graphql-series" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />} />
+        </Routes>
+
         </div>
 
         <Footer />

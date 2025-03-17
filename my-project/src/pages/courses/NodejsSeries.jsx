@@ -9,14 +9,47 @@ import Breadcrumb from "../../components/common/Breadcrumb";
 import NodeSidebar from "../../components/common/sidebar/NodeJsSidebar"; 
 import NodeMobileMenu from "../../components/common/sidebar/MobileMenus/NodeMobileMenu"; 
 
+import NodeIntro from "./topics/nodejs/101_node_basics/NodeIntro.jsx";
+import NodeSetup from "./topics/nodejs/101_node_basics/NodeSetup.jsx";
+import NodeJsRunCode from "./topics/nodejs/101_node_basics/NodeJsRunCode.jsx";
+import NodeModules from "./topics/nodejs/101_node_basics/NodeModules.jsx";
+
+// Node.js 201
+import AsyncCallbacks from "./topics/nodejs/201_async_js/AsyncCallbacks.jsx";
+import PromisesAsyncAwait from "./topics/nodejs/201_async_js/PromisesAsyncAwait.jsx";
+import EventEmitter from "./topics/nodejs/201_async_js/EventEmitter.jsx";
+import StreamsBuffer from "./topics/nodejs/201_async_js/StreamsBuffer.jsx";
+
+// Node.js 202
+import EventLoop from "./topics/nodejs/202_event_loop/EventLoop.jsx";
+import TimersIO from "./topics/nodejs/202_event_loop/TimersIO.jsx";
+import ProcessNextTick from "./topics/nodejs/202_event_loop/ProcessNextTick.jsx";
+
+// Node.js 203
+import RestApiBasics from "./topics/nodejs/203_api_development/RestApiBasics.jsx";
+import HandlingHttpRequests from "./topics/nodejs/203_api_development/HandlingHttpRequests.jsx";
+import MiddlewareConcepts from "./topics/nodejs/203_api_development/MiddlewareConcepts.jsx";
+
+// Node.js 204
+import ExpressIntro from "./topics/nodejs/204_express/ExpressIntro.jsx";
+import ExpressRouting from "./topics/nodejs/204_express/ExpressRouting.jsx";
+import ExpressMiddleware from "./topics/nodejs/204_express/ExpressMiddleware.jsx";
+
+// Node.js 205
+import MongoDBIntegration from "./topics/nodejs/205_database/MongoDBIntegration.jsx";
+import PostgreSQLIntegration from "./topics/nodejs/205_database/PostgreSQLIntegration.jsx";
+import MongooseORM from "./topics/nodejs/205_database/MongooseORM.jsx";
+import KnexJSPostgreSQL from "./topics/nodejs/205_database/KnexJSPostgreSQL.jsx";
+
 const lessons = [
-  { id: "101", title: " Basic Node.js", image: "/node1.jpg", docLink: "#", videoLink: "#" },
-  { id: "201", title: "Asynchronous JavaScript", image: "/node2.jpg", docLink: "#", videoLink: "#" },
-  { id: "202", title: "Event Loop & Async", image: "/node3.webp", docLink: "#", videoLink: "#" },
-  { id: "203", title: "API Development", image: "/node1.jpg", docLink: "#", videoLink: "#" },
-  { id: "204", title: "Express.js", image: "/node2.jpg", docLink: "#", videoLink: "#" },
-  { id: "205", title: "Database", image: "/node3.webp", docLink: "#", videoLink: "#" },
+  { id: "101", title: "Basic Node.js", image: "/node1.jpg", docLink: "/courses/nodejs-series/node-intro", videoLink: "#" },
+  { id: "201", title: "Asynchronous JavaScript", image: "/node2.jpg", docLink: "/courses/nodejs-series/async-callbacks", videoLink: "#" },
+  { id: "202", title: "Event Loop & Async", image: "/node3.webp", docLink: "/courses/nodejs-series/event-loop", videoLink: "#" },
+  { id: "203", title: "API Development", image: "/node1.jpg", docLink: "/courses/nodejs-series/rest-api-basics", videoLink: "#" },
+  { id: "204", title: "Express.js", image: "/node2.jpg", docLink: "/courses/nodejs-series/express-intro", videoLink: "#" },
+  { id: "205", title: "Database", image: "/node3.webp", docLink: "/courses/nodejs-series/mongodb-integration", videoLink: "#" },
 ];
+
 
 const NodeSeries = ({ theme, setTheme }) => {
   const navigate = useNavigate();
@@ -49,14 +82,16 @@ const NodeSeries = ({ theme, setTheme }) => {
         {NodeSidebar && <NodeSidebar theme={theme} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />}
       </div>
 
-      {/* ✅ Mobile Sidebar */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-          {NodeMobileMenu && <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />}
-        </div>
-      )}
 
-      {/* ✅ Main Content */}
+                {/* ✅ Mobile Sidebar */}
+            {mobileMenuOpen && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+                <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+              </div>
+            )}
+
+
+      {/* ✅ Main Content */}ฆ
       <main className="flex-1 md:ml-64 p-4 md:p-6 mt-16 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* ✅ Breadcrumb Navigation */}
@@ -99,8 +134,13 @@ const NodeSeries = ({ theme, setTheme }) => {
                           </a>
                         </td>
                         <td className="p-4 border-b text-center">
-                          <a href={lesson.docLink} target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">อ่าน</a>
-                        </td>
+                        <button 
+                          onClick={() => navigate(lesson.docLink)}
+                          className="text-green-400 hover:underline hover:text-green-500"
+                        >
+                          อ่าน
+                        </button>
+                      </td>
                       </tr>
                     ))}
                   </tbody>
