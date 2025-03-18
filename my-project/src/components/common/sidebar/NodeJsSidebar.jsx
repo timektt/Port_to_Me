@@ -20,8 +20,9 @@ const sidebarItems = [
     subItems: [
       { id: "201-1", title: "Understanding Async & Callbacks", path: "/courses/nodejs-series/async-callbacks" },
       { id: "201-2", title: "Promises & Async/Await", path: "/courses/nodejs-series/promises-async-await" },
-      { id: "201-3", title: "Handling Errors in Async Code", path: "/courses/nodejs-series/async-error-handling" },
-      { id: "201-4", title: "Working with Files Asynchronously", path: "/courses/nodejs-series/async-file" },
+      { id: "201-3", title: "Event Emitter in Node.js", path: "/courses/nodejs-series/event-emitter" },
+      { id: "201-4", title: "Stream & Buffer", path: "/courses/nodejs-series/streams-buffer" },
+      { id: "201-5", title: "Using fs.promises for File System", path: "/courses/nodejs-series/fs-promises" },
     ],
   },
   {
@@ -30,8 +31,9 @@ const sidebarItems = [
     subItems: [
       { id: "202-1", title: "Understanding the Event Loop", path: "/courses/nodejs-series/event-loop" },
       { id: "202-2", title: "Working with Timers & I/O", path: "/courses/nodejs-series/timers-io" },
-      { id: "202-3", title: "Event Emitters & Listeners", path: "/courses/nodejs-series/event-emitter" },
-      { id: "202-4", title: "Handling Streams & Buffers", path: "/courses/nodejs-series/streams-buffer" },
+      { id: "202-3", title: "Handling Asynchronous Errors", path: "/courses/nodejs-series/async-error-handling" },
+      { id: "202-4", title: "Using Process & Next Tick", path: "/courses/nodejs-series/process-next-tick" },
+      { id: "202-5", title: "Working with Child Processes", path: "/courses/nodejs-series/child-processes" },
     ],
   },
   {
@@ -42,7 +44,7 @@ const sidebarItems = [
       { id: "203-2", title: "Handling HTTP Requests", path: "/courses/nodejs-series/handling-http-requests" },
       { id: "203-3", title: "Working with Middleware", path: "/courses/nodejs-series/middleware-concepts" },
       { id: "203-4", title: "Data Validation & Error Handling", path: "/courses/nodejs-series/error-handling" },
-      { id: "203-5", title: "Implementing Authentication", path: "/courses/nodejs-series/api-authentication" },
+      { id: "203-5", title: "Implementing Authentication & JWT", path: "/courses/nodejs-series/api-authentication" },
     ],
   },
   {
@@ -52,7 +54,7 @@ const sidebarItems = [
       { id: "204-1", title: "Introduction to Express.js", path: "/courses/nodejs-series/express-intro" },
       { id: "204-2", title: "Routing in Express.js", path: "/courses/nodejs-series/express-routing" },
       { id: "204-3", title: "Handling Middleware in Express", path: "/courses/nodejs-series/express-middleware" },
-      { id: "204-4", title: "Serving Static Files", path: "/courses/nodejs-series/express-static-files" },
+      { id: "204-4", title: "Serving Static Files", path: "/courses/nodejs-series/express-error-handling" },
       { id: "204-5", title: "Express.js & CORS", path: "/courses/nodejs-series/express-cors" },
     ],
   },
@@ -64,6 +66,7 @@ const sidebarItems = [
       { id: "205-2", title: "Using PostgreSQL with Node.js", path: "/courses/nodejs-series/postgresql-integration" },
       { id: "205-3", title: "Working with Mongoose", path: "/courses/nodejs-series/mongoose-orm" },
       { id: "205-4", title: "Using Knex.js for SQL Databases", path: "/courses/nodejs-series/knexjs-postgresql" },
+      { id: "205-5", title: "Using Redis for Caching", path: "/courses/nodejs-series/redis-integration" },
     ],
   },
 ];

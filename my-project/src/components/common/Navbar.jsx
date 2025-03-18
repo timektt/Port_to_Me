@@ -13,8 +13,10 @@ import {
 import MainMobileMenu from "../../menu/MainMobileMenu";
 import PythonMobileMenu from "./sidebar/MobileMenus/PythonMobileMenu";
 import BasicProgrammingMobileMenu from "./sidebar/MobileMenus/BasicProgrammingMobileMenu";
-
+import NodeMobileMenu from "./sidebar/MobileMenus/NodeMobileMenu";
 const Navbar = ({ theme, setTheme }) => {
+  console.log("🛠 Navbar Menu Clicked!");
+  
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState(""); // ✅ เก็บค่าค้นหา
   const navigate = useNavigate();
@@ -91,18 +93,21 @@ const Navbar = ({ theme, setTheme }) => {
         </div>
       </div>
 
-      {/* ✅ Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-          {location.pathname.startsWith("/courses/python-series") ? (
-            <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : location.pathname.startsWith("/courses/basic-programming") ? (
-            <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : (
-            <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          )}
-        </div>
-      )}
+  {/* ✅ Mobile Menu */}
+{mobileMenuOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+    {location.pathname.startsWith("/courses/python-series") ? (
+      <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.startsWith("/courses/nodejs-series") ? ( // ✅ เพิ่มเงื่อนไขของ Node.js Series
+      <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.startsWith("/courses/basic-programming") ? (
+      <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : (
+      <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    )}
+  </div>
+)}
+
     </nav>
   );
 };

@@ -38,6 +38,7 @@ import PlotlyInteractiveGraphs from "./pages/courses/topics/python/202_visualiza
 import DataCleaning from "./pages/courses/topics/python/203_data_wrangling_transform/DataCleaning";
 import DataTransformation from "./pages/courses/topics/python/203_data_wrangling_transform/DataTransformation";
 import DataFormatting from "./pages/courses/topics/python/203_data_wrangling_transform/DataFormatting";
+import ErrorHandling from "./pages/courses/topics/nodejs/203_api_development/ErrorHandling"; 
 
 
 // Python 204
@@ -64,29 +65,36 @@ import AsyncCallbacks from "./pages/courses/topics/nodejs/201_async_js/AsyncCall
 import PromisesAsyncAwait from "./pages/courses/topics/nodejs/201_async_js/PromisesAsyncAwait";
 import EventEmitter from "./pages/courses/topics/nodejs/201_async_js/EventEmitter";
 import StreamsBuffer from "./pages/courses/topics/nodejs/201_async_js/StreamsBuffer";
+import FsPromises from "./pages/courses/topics/nodejs/201_async_js/FsPromises";
 
 // Node.js 202
 import EventLoop from "./pages/courses/topics/nodejs/202_event_loop/EventLoop";
 import TimersIO from "./pages/courses/topics/nodejs/202_event_loop/TimersIO";
 import ProcessNextTick from "./pages/courses/topics/nodejs/202_event_loop/ProcessNextTick";
-
+import AsyncErrors from "./pages/courses/topics/nodejs/202_event_loop/AsyncErrors";
+import ChildProcesses from "./pages/courses/topics/nodejs/202_event_loop/ChildProcesses";
 
 // Node.js 203
 import RestApiBasics from "./pages/courses/topics/nodejs/203_api_development/RestApiBasics";
 import HandlingHttpRequests from "./pages/courses/topics/nodejs/203_api_development/HandlingHttpRequests";
 import MiddlewareConcepts from "./pages/courses/topics/nodejs/203_api_development/MiddlewareConcepts";
+import ValidationErrorHandling from "./pages/courses/topics/nodejs/203_api_development/AuthenticationJWT";
+import AuthenticationJWT from "./pages/courses/topics/nodejs/203_api_development/AuthenticationJWT";
 
 
 // Node.js 204
 import ExpressIntro from "./pages/courses/topics/nodejs/204_express/ExpressIntro";
 import ExpressRouting from "./pages/courses/topics/nodejs/204_express/ExpressRouting";
 import ExpressMiddleware from "./pages/courses/topics/nodejs/204_express/ExpressMiddleware";
+import ExpressCORS from "./pages/courses/topics/nodejs/204_express/ExpressCORS";
+import ExpressErrorHandling from "./pages/courses/topics/nodejs/204_express/ExpressErrorHandling";
+
 // Node.js 205
 import MongoDBIntegration from "./pages/courses/topics/nodejs/205_database/MongoDBIntegration";
 import PostgreSQLIntegration from "./pages/courses/topics/nodejs/205_database/PostgreSQLIntegration";
 import MongooseORM from "./pages/courses/topics/nodejs/205_database/MongooseORM";
 import KnexJSPostgreSQL from "./pages/courses/topics/nodejs/205_database/KnexJSPostgreSQL";
-
+import RedisIntegration from "./pages/courses/topics/nodejs/205_database/RedisIntegration";
 
 
 
@@ -163,7 +171,7 @@ function App() {
                 <Route path="node-intro" element={<NodeIntro />} />
                 <Route path="node-run-code" element={<NodeJsRunCode />} />
                 <Route path="node-modules" element={<NodeModules />} />
-                <Route path="node-package-manager" element={<NodePackageManager />} />
+                <Route path="node-npm-yarn" element={<NodePackageManager />} />
                 <Route path="node-setup" element={<NodeSetup />} />
 
                 {/* ✅ Asynchronous JavaScript */}
@@ -171,27 +179,37 @@ function App() {
                 <Route path="promises-async-await" element={<PromisesAsyncAwait />} />
                 <Route path="event-emitter" element={<EventEmitter />} />
                 <Route path="streams-buffer" element={<StreamsBuffer />} />
+                <Route path="fs-promises" element={<FsPromises />} />
 
                 {/* ✅ Event Loop & Async Operations */}
                 <Route path="event-loop" element={<EventLoop />} />
                 <Route path="timers-io" element={<TimersIO />} />
                 <Route path="process-next-tick" element={<ProcessNextTick />} />
+                <Route path="async-error-handling" element={<AsyncErrors />} />
+                <Route path="child-processes" element={<ChildProcesses />} />
 
                 {/* ✅ API Development */}
                 <Route path="rest-api-basics" element={<RestApiBasics />} />
                 <Route path="handling-http-requests" element={<HandlingHttpRequests />} />
                 <Route path="middleware-concepts" element={<MiddlewareConcepts />} />
+                <Route path="error-handling" element={<ValidationErrorHandling />} />
+                <Route path="api-authentication" element={<AuthenticationJWT />} />
+
+        
 
                 {/* ✅ Express.js Framework */}
                 <Route path="express-intro" element={<ExpressIntro />} />
                 <Route path="express-routing" element={<ExpressRouting />} />
                 <Route path="express-middleware" element={<ExpressMiddleware />} />
+                <Route path="express-cors" element={<ExpressCORS />} />
+                <Route path="express-error-handling" element={<ExpressErrorHandling />} />
 
                 {/* ✅ Database Integration */}
                 <Route path="mongodb-integration" element={<MongoDBIntegration />} />
                 <Route path="postgresql-integration" element={<PostgreSQLIntegration />} />
                 <Route path="mongoose-orm" element={<MongooseORM />} />
                 <Route path="knexjs-postgresql" element={<KnexJSPostgreSQL />} />
+                <Route path="redis-integration" element={<RedisIntegration />} />
             </Route>
 
             {/* ✅ คอร์สอื่น ๆ */}

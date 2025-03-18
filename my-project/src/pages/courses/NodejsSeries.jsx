@@ -7,12 +7,14 @@ import Breadcrumb from "../../components/common/Breadcrumb";
 
 // ✅ ตรวจสอบว่าไฟล์ NodeSidebar และ NodeMobileMenu มีอยู่จริง
 import NodeSidebar from "../../components/common/sidebar/NodeJsSidebar"; 
-import NodeMobileMenu from "../../components/common/sidebar/MobileMenus/NodeMobileMenu"; 
+import NodeMobileMenu from "../../components/common/sidebar/MobileMenus/NodeMobileMenu";
+
 
 import NodeIntro from "./topics/nodejs/101_node_basics/NodeIntro.jsx";
 import NodeSetup from "./topics/nodejs/101_node_basics/NodeSetup.jsx";
 import NodeJsRunCode from "./topics/nodejs/101_node_basics/NodeJsRunCode.jsx";
 import NodeModules from "./topics/nodejs/101_node_basics/NodeModules.jsx";
+import NodePackageManager from "./topics/nodejs/101_node_basics/NodePackageManager.jsx";
 
 // Node.js 201
 import AsyncCallbacks from "./topics/nodejs/201_async_js/AsyncCallbacks.jsx";
@@ -58,7 +60,6 @@ const NodeSeries = ({ theme, setTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    console.log("🚀 NodeSeries Loaded"); // ✅ Debug ว่า Component โหลดไหม
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setSidebarOpen(false);
@@ -84,11 +85,12 @@ const NodeSeries = ({ theme, setTheme }) => {
 
 
                 {/* ✅ Mobile Sidebar */}
-            {mobileMenuOpen && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-                <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-              </div>
-            )}
+                {mobileMenuOpen && (
+                  <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+                    {console.log("✅ NodeMobileMenu Rendered!")}
+                    <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+                  </div>
+                )}
 
 
       {/* ✅ Main Content */}ฆ
@@ -160,6 +162,7 @@ const NodeSeries = ({ theme, setTheme }) => {
                   </div>
                 ))}
               </div>
+            
             </>
           )}
 
@@ -171,6 +174,8 @@ const NodeSeries = ({ theme, setTheme }) => {
       <SupportMeButton />
     </div>
   );
+  
 };
+
 
 export default NodeSeries;
