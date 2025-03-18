@@ -16,6 +16,7 @@ import CourseTags from "./components/common/CourseTags"; // ✅ Import Component
 import TagsPage from "./pages/TagsPage";
 import PopularTags from "./pages/courses/PopularTags";
 
+
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
 import PythonIntro from "./pages/courses/topics/python/101_basic_python/PythonIntro";
@@ -96,7 +97,42 @@ import MongooseORM from "./pages/courses/topics/nodejs/205_database/MongooseORM"
 import KnexJSPostgreSQL from "./pages/courses/topics/nodejs/205_database/KnexJSPostgreSQL";
 import RedisIntegration from "./pages/courses/topics/nodejs/205_database/RedisIntegration";
 
+// restful-api-graphql-series 101
+import ApiIntro from "./pages/courses/topics/restful-api-graphql-series/101_intro/ApiIntro";
+import RestVsGraphQL from "./pages/courses/topics/restful-api-graphql-series/101_intro/RestVsGraphQL";
+import HowApisWork from "./pages/courses/topics/restful-api-graphql-series/101_intro/HowApisWork";
+import ApiTypes from "./pages/courses/topics/restful-api-graphql-series/101_intro/ApiTypes";
+import ApiDocumentation from "./pages/courses/topics/restful-api-graphql-series/101_intro/ApiDocumentation";
 
+
+// ✅ Import RESTful API 201
+import RestBasics from "./pages/courses/topics/restful-api-graphql-series/201_restful_api/RestBasics";
+import RestNodejs from "./pages/courses/topics/restful-api-graphql-series/201_restful_api/RestNodejs";
+import RestCrud from "./pages/courses/topics/restful-api-graphql-series/201_restful_api/RestCrud";
+import RestErrorHandling from "./pages/courses/topics/restful-api-graphql-series/201_restful_api/RestErrorHandling";
+import RestVersioning from "./pages/courses/topics/restful-api-graphql-series/201_restful_api/RestVersioning";
+
+
+// ✅ Import GraphQL 202
+import GraphQLBasics from "./pages/courses/topics/restful-api-graphql-series/202_graphql/GraphQLBasics";
+import BuildingGraphQLApi from "./pages/courses/topics/restful-api-graphql-series/202_graphql/BuildingGraphQLApi";
+import QueriesMutations from "./pages/courses/topics/restful-api-graphql-series/202_graphql/QueriesMutations";
+import GraphQLSchemaResolvers from "./pages/courses/topics/restful-api-graphql-series/202_graphql/GraphQLSchemaResolvers";
+import GraphQLVsRest from "./pages/courses/topics/restful-api-graphql-series/202_graphql/GraphQLVsRest";
+
+// ✅ Import API Security 203
+import ApiAuthentication from "./pages/courses/topics/restful-api-graphql-series/203_api_security/ApiAuthentication";
+import RateLimitingCORS from "./pages/courses/topics/restful-api-graphql-series/203_api_security/RateLimitingCORS";
+import OAuthApiKeys from "./pages/courses/topics/restful-api-graphql-series/203_api_security/OAuthApiKeys";
+import JwtSessionManagement from "./pages/courses/topics/restful-api-graphql-series/203_api_security/JwtSessionManagement";
+import ApiSecurityBestPractices from "./pages/courses/topics/restful-api-graphql-series/203_api_security/ApiSecurityBestPractices";
+
+// ✅ Import Advanced API Concepts 204
+import ApiGatewaysMicroservices from "./pages/courses/topics/restful-api-graphql-series/204_advanced_api/ApiGatewaysMicroservices";
+import GraphQLSubscriptions from "./pages/courses/topics/restful-api-graphql-series/204_advanced_api/GraphQLSubscriptions";
+import ApiPerformanceOptimization from "./pages/courses/topics/restful-api-graphql-series/204_advanced_api/ApiPerformanceOptimization";
+import ApiTestingMonitoring from "./pages/courses/topics/restful-api-graphql-series/204_advanced_api/ApiTestingMonitoring";
+import ApiDeploymentScaling from "./pages/courses/topics/restful-api-graphql-series/204_advanced_api/ApiDeploymentScaling";
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
@@ -210,13 +246,52 @@ function App() {
                 <Route path="mongoose-orm" element={<MongooseORM />} />
                 <Route path="knexjs-postgresql" element={<KnexJSPostgreSQL />} />
                 <Route path="redis-integration" element={<RedisIntegration />} />
-            </Route>
+
+
+                </Route>
+
+                {/* ✅ GraphQL API */}
+                {/* ✅ GraphQL API */}
+                  <Route path="/courses/restful-api-graphql-series/*" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />}>
+                    <Route index element={<ApiIntro />} />  {/* ✅ หน้าแรกเมื่อเข้า /courses/restful-api-graphql-series */}
+                    <Route path="intro" element={<ApiIntro />} />
+                    <Route path="rest-vs-graphql" element={<RestVsGraphQL />} />
+                    <Route path="how-apis-work" element={<HowApisWork />} />
+                    <Route path="api-types" element={<ApiTypes />} />
+                    <Route path="api-documentation" element={<ApiDocumentation />} />
+
+
+                    <Route path="rest-basics" element={<RestBasics />} />
+                    <Route path="rest-nodejs" element={<RestNodejs />} />
+                    <Route path="rest-crud" element={<RestCrud />} />
+                    <Route path="rest-error-handling" element={<RestErrorHandling />} />
+                    <Route path="rest-versioning" element={<RestVersioning />} />
+
+                    <Route path="graphql-basics" element={<GraphQLBasics />} />
+                    <Route path="graphql-api" element={<BuildingGraphQLApi />} />
+                    <Route path="graphql-queries-mutations" element={<QueriesMutations />} />
+                    <Route path="graphql-schema-resolvers" element={<GraphQLSchemaResolvers />} />
+                    <Route path="graphql-vs-rest" element={<GraphQLVsRest />} />
+
+                    {/* ✅ API Security 203 */}
+                    <Route path="api-security" element={<ApiAuthentication />} />
+                    <Route path="rate-limiting" element={<RateLimitingCORS />} />
+                    <Route path="oauth-api-keys" element={<OAuthApiKeys />} />
+                    <Route path="jwt-session" element={<JwtSessionManagement />} />
+                    <Route path="api-security-best-practices" element={<ApiSecurityBestPractices />} />
+
+                    {/* ✅ Advanced API Concepts 204 */}
+                    <Route path="api-gateways-microservices" element={<ApiGatewaysMicroservices />} />
+                    <Route path="graphql-subscriptions" element={<GraphQLSubscriptions />} />
+                    <Route path="api-performance" element={<ApiPerformanceOptimization />} />
+                    <Route path="api-testing-monitoring" element={<ApiTestingMonitoring />} />
+                    <Route path="api-deployment-scaling" element={<ApiDeploymentScaling />} />
+                  </Route>
 
             {/* ✅ คอร์สอื่น ๆ */}
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/web-development" element={<WebDevSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/basic-programming" element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />} />
-            <Route path="/courses/restful-api-graphql-series" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />} />
         </Routes>
 
         </div>

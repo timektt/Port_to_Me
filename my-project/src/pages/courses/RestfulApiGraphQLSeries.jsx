@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
@@ -32,6 +33,49 @@ const RestfulApiGraphQLSeries = ({ theme, setTheme }) => {
   const { "*": subPage } = useParams(); // ✅ เช็คว่าตอนนี้อยู่ในหัวข้อย่อยอะไร
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const topics = [
+    // ✅ 101: Introduction to API
+    { path: "intro", title: "What is an API?" },
+    { path: "rest-vs-graphql", title: "REST vs GraphQL" },
+    { path: "how-apis-work", title: "How APIs Work" },
+    { path: "api-types", title: "Types of APIs (Public, Private, Partner, Composite)" },
+    { path: "api-documentation", title: "API Documentation & Tools" },
+
+    // ✅ 201: RESTful API
+    { path: "rest-basics", title: "RESTful API Basics" },
+    { path: "rest-nodejs", title: "Building RESTful API with Node.js" },
+    { path: "rest-crud", title: "CRUD Operations in REST" },
+    { path: "rest-error-handling", title: "Handling Errors in REST API" },
+    { path: "rest-versioning", title: "Versioning in REST API" },
+
+    // ✅ 202: GraphQL
+    { path: "graphql-basics", title: "GraphQL Basics" },
+    { path: "graphql-api", title: "Building GraphQL API" },
+    { path: "graphql-queries-mutations", title: "Queries and Mutations" },
+    { path: "graphql-schema-resolvers", title: "GraphQL Schema & Resolvers" },
+    { path: "graphql-vs-rest", title: "GraphQL vs REST: Pros & Cons" },
+
+    // ✅ 203: API Security
+    { path: "api-security", title: "Authentication & Authorization" },
+    { path: "rate-limiting", title: "Rate Limiting & CORS" },
+    { path: "oauth-api-keys", title: "OAuth & API Keys" },
+    { path: "jwt-session", title: "JWT & Session Management" },
+    { path: "api-security-best-practices", title: "Best Practices for API Security" },
+
+    // ✅ 204: Advanced API Concepts
+    { path: "api-gateways-microservices", title: "API Gateways & Microservices" },
+    { path: "graphql-subscriptions", title: "GraphQL Subscriptions (Real-time API)" },
+    { path: "api-performance", title: "API Performance Optimization" },
+    { path: "api-testing-monitoring", title: "Testing & Monitoring APIs" },
+    { path: "api-deployment-scaling", title: "Deploying & Scaling APIs" },
+];
+
+// ✅ หา index ของหัวข้อปัจจุบัน
+const currentIndex = topics.findIndex((topic) => topic.path === subPage);
+const prevTopic = currentIndex > 0 ? topics[currentIndex - 1] : null;
+const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : null;
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -78,7 +122,7 @@ const RestfulApiGraphQLSeries = ({ theme, setTheme }) => {
             <Outlet /> // ✅ โหลดเนื้อหาหัวข้อย่อยที่เลือก
           ) : (
             <>
-              <h1 className="text-3xl md:text-4xl font-bold mt-4">Node.js Series</h1>
+              <h1 className="text-3xl md:text-4xl font-bold mt-4">RestfulApiGraphQLSeries</h1>
 
               {/* ✅ Warning Box */}
               <div className={`p-4 mt-4 rounded-md shadow-md flex flex-col gap-2 ${theme === "dark" ? "bg-yellow-700 text-white" : "bg-yellow-300 text-black"}`}>
@@ -143,8 +187,47 @@ const RestfulApiGraphQLSeries = ({ theme, setTheme }) => {
           {/* ✅ Comments Section */}
           <Comments theme={theme} />
         </div>
-      </main>
+            {/* ✅ Tags อยู่ในช่วงกรอบสีแดง */}
+{/* ✅ ใช้ flex + max-w-5xl mx-auto เพื่อให้ Tags ตรงกับปุ่ม Next */}
+<div className="flex justify-between items-center max-w-5xl mx-auto px-4 mt-4">
+  <div className="flex items-center">
+    <span className="text-lg font-bold">Tags:</span>
+    <button
+      onClick={() => navigate("/tags/RestfulApiGraphQL")}
+      className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
+    >
+      RestfulApiGraphQL
+    </button>
+  </div>
+</div>
 
+{/* ✅ ปุ่ม Previous & Next */}
+<div className="mt-8 flex justify-between items-center max-w-5xl mx-auto px-4 gap-4">
+  {prevTopic ? (
+    <button
+      className="flex flex-col items-start justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
+      onClick={() => navigate(`/courses/restful-api-graphql-series/${prevTopic.path}`)}
+    >
+      <span className="text-sm text-gray-400">Previous</span>
+      <span className="text-lg">« {prevTopic.title}</span>
+    </button>
+  ) : (
+    <div className="w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px]"></div>
+  )}
+
+  {nextTopic ? (
+    <button
+      className="flex flex-col items-end justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
+      onClick={() => navigate(`/courses/restful-api-graphql-series/${nextTopic.path}`)}
+    >
+      <span className="text-sm text-gray-400">Next</span>
+      <span className="text-lg">{nextTopic.title} »</span>
+    </button>
+  ) : (
+    <div className="w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px]"></div>
+  )}
+   </div>     
+      </main>
       <SupportMeButton />
     </div>
   );
