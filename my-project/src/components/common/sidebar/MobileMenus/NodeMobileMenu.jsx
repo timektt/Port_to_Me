@@ -91,7 +91,7 @@ const NodeMobileMenu = ({ onClose, theme, setTheme }) => {
 
   
     return (
-      <div className={`fixed top-0 left-0 w-64 h-full p-4 z-50 shadow-lg transition-all duration-300 
+      <div className={`fixed top-0 left-0 w-64 h-[calc(100vh)] p-4 z-50 shadow-lg transition-all duration-300 
         ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
   
         {/* ✅ ปุ่มปิดเมนู (X) */}
