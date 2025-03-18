@@ -89,23 +89,23 @@ const NodeJsSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
       {sidebarOpen && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden" onClick={() => setSidebarOpen(false)} />
       )}
-
+  
       <aside
-        className={`fixed top-16 left-0 w-64 h-[calc(100vh-64px)] overflow-y-auto z-50 p-4 transition-transform duration-300 ease-in-out
+        className={`fixed top-16 left-0 w-64 h-[calc(100vh-70px)] overflow-y-auto z-50 p-4 transition-transform duration-300 ease-in-out
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0
-          ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"} shadow-lg`}
+          ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"} shadow-lg pb-20`} // ✅ เพิ่ม pb-20
       >
         <button className="md:hidden absolute top-4 right-4 text-xl" onClick={() => setSidebarOpen(false)}>
           <FaTimes />
         </button>
-
+  
         <h2 className="text-xl font-bold mb-4">
           <span className={`inline-block px-3 py-1 rounded-md ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
             Node.js Series
           </span>
         </h2>
-
-        <ul className="space-y-2 mt-4">
+  
+        <ul className="space-y-2 mt-4 mb-24">  {/* ✅ เพิ่ม mb-24 เพื่อให้ Scroll ได้ */}
           {sidebarItems.map((item) => (
             <li key={item.id} className="border-b border-gray-700">
               <button
@@ -116,7 +116,7 @@ const NodeJsSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
                 {item.title}
                 {expandedSections[item.id] ? <FaChevronDown /> : <FaChevronRight />}
               </button>
-
+  
               {expandedSections[item.id] && (
                 <ul className="pl-5 space-y-2 mt-2">
                   {item.subItems.map((subItem) => (
@@ -138,6 +138,7 @@ const NodeJsSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
       </aside>
     </>
   );
+  
 };
 
 export default NodeJsSidebar;
