@@ -59,6 +59,50 @@ const NodeSeries = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const topics = [
+    { path: "node-intro", title: "Introduction to Node.js" },
+    { path: "node-setup", title: "Setting Up Node.js" },
+    { path: "node-run-code", title: "Running JavaScript in Node.js" },
+    { path: "node-modules", title: "Understanding Modules & require()" },
+    { path: "node-npm-yarn", title: "Node Package Manager (NPM & Yarn)" },
+    
+    { path: "async-callbacks", title: "Understanding Async & Callbacks" },
+    { path: "promises-async-await", title: "Promises & Async/Await" },
+    { path: "event-emitter", title: "Event Emitter in Node.js" },
+    { path: "streams-buffer", title: "Stream & Buffer" },
+    { path: "fs-promises", title: "Using fs.promises for File System" },
+  
+    { path: "event-loop", title: "Understanding the Event Loop" },
+    { path: "timers-io", title: "Working with Timers & I/O" },
+    { path: "async-error-handling", title: "Handling Asynchronous Errors" },
+    { path: "process-next-tick", title: "Using Process & Next Tick" },
+    { path: "child-processes", title: "Working with Child Processes" },
+  
+    { path: "rest-api-basics", title: "Building RESTful APIs" },
+    { path: "handling-http-requests", title: "Handling HTTP Requests" },
+    { path: "middleware-concepts", title: "Working with Middleware" },
+    { path: "error-handling", title: "Data Validation & Error Handling" },
+    { path: "api-authentication", title: "Implementing Authentication & JWT" },
+  
+    { path: "express-intro", title: "Introduction to Express.js" },
+    { path: "express-routing", title: "Routing in Express.js" },
+    { path: "express-middleware", title: "Handling Middleware in Express" },
+    { path: "express-static-files", title: "Serving Static Files" },
+    { path: "express-cors", title: "Express.js & CORS" },
+  
+    { path: "mongodb-integration", title: "Connecting to MongoDB" },
+    { path: "postgresql-integration", title: "Using PostgreSQL with Node.js" },
+    { path: "mongoose-orm", title: "Working with Mongoose" },
+    { path: "knexjs-postgresql", title: "Using Knex.js for SQL Databases" },
+    { path: "redis-integration", title: "Using Redis for Caching" },
+  ];
+  
+  // ✅ หา index ของหัวข้อปัจจุบัน
+  const currentIndex = topics.findIndex((topic) => topic.path === subPage);
+  const prevTopic = currentIndex > 0 ? topics[currentIndex - 1] : null;
+  const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : null;
+  
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -169,6 +213,46 @@ const NodeSeries = ({ theme, setTheme }) => {
           {/* ✅ Comments Section */}
           <Comments theme={theme} />
         </div>
+        {/* ✅ Tags อยู่ในช่วงกรอบสีแดง */}
+{/* ✅ ใช้ flex + max-w-5xl mx-auto เพื่อให้ Tags ตรงกับปุ่ม Next */}
+<div className="flex justify-between items-center max-w-5xl mx-auto px-4 mt-4">
+  <div className="flex items-center">
+    <span className="text-lg font-bold">Tags:</span>
+    <button
+      onClick={() => navigate("/tags/nodejs")}
+      className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
+    >
+      nodejs
+    </button>
+  </div>
+</div>
+
+{/* ✅ ปุ่ม Previous & Next */}
+<div className="mt-8 flex justify-between items-center max-w-5xl mx-auto px-4 gap-4">
+  {prevTopic ? (
+    <button
+      className="flex flex-col items-start justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
+      onClick={() => navigate(`/courses/nodejs-series/${prevTopic.path}`)}
+    >
+      <span className="text-sm text-gray-400">Previous</span>
+      <span className="text-lg">« {prevTopic.title}</span>
+    </button>
+  ) : (
+    <div className="w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px]"></div>
+  )}
+
+  {nextTopic ? (
+    <button
+      className="flex flex-col items-end justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
+      onClick={() => navigate(`/courses/nodejs-series/${nextTopic.path}`)}
+    >
+      <span className="text-sm text-gray-400">Next</span>
+      <span className="text-lg">{nextTopic.title} »</span>
+    </button>
+  ) : (
+    <div className="w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px]"></div>
+  )}
+</div>
       </main>
 
       <SupportMeButton />

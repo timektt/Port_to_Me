@@ -14,6 +14,8 @@ import MainMobileMenu from "../../menu/MainMobileMenu";
 import PythonMobileMenu from "./sidebar/MobileMenus/PythonMobileMenu";
 import BasicProgrammingMobileMenu from "./sidebar/MobileMenus/BasicProgrammingMobileMenu";
 import NodeMobileMenu from "./sidebar/MobileMenus/NodeMobileMenu";
+import RestfulApiGraphQLMobileMenu from "./sidebar/MobileMenus/RestfulApiGraphQLMobileMenu";
+
 const Navbar = ({ theme, setTheme }) => {
   console.log("🛠 Navbar Menu Clicked!");
   
@@ -94,12 +96,14 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
 
   {/* ✅ Mobile Menu */}
-{mobileMenuOpen && (
+  {mobileMenuOpen && (
   <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
     {location.pathname.startsWith("/courses/python-series") ? (
       <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/nodejs-series") ? ( // ✅ เพิ่มเงื่อนไขของ Node.js Series
+    ) : location.pathname.startsWith("/courses/nodejs-series") ? ( // ✅ Node.js Series
       <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.startsWith("/courses/restful-api-graphql-series") ? ( // ✅ Restful API & GraphQL Series
+      <RestfulApiGraphQLMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : location.pathname.startsWith("/courses/basic-programming") ? (
       <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : (
@@ -107,6 +111,7 @@ const Navbar = ({ theme, setTheme }) => {
     )}
   </div>
 )}
+
 
     </nav>
   );
