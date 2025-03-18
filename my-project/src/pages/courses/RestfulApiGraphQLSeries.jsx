@@ -196,7 +196,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
       onClick={() => navigate("/tags/RestfulApiGraphQL")}
       className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
     >
-      RestfulApiGraphQL
+      restfulapi&graphql
     </button>
   </div>
 </div>
