@@ -16,6 +16,7 @@ import BasicProgrammingMobileMenu from "./sidebar/MobileMenus/BasicProgrammingMo
 import NodeMobileMenu from "./sidebar/MobileMenus/NodeMobileMenu";
 import RestfulApiGraphQLMobileMenu from "./sidebar/MobileMenus/RestfulApiGraphQLMobileMenu";
 import ReactJsMobileMenu from "./sidebar/MobileMenus/ReactJsMobileMenu";
+import WebDevMobileMenu from "./sidebar/MobileMenus/WebDevMobileMenu";
 
 const Navbar = ({ theme, setTheme }) => {
   
@@ -104,8 +105,10 @@ const Navbar = ({ theme, setTheme }) => {
       <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : location.pathname.startsWith("/courses/restful-api-graphql-series") ? (
       <RestfulApiGraphQLMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/reactjs-series") ? ( // ✅ React.js Series
+    ) : location.pathname.startsWith("/courses/reactjs-series") ? ( 
       <ReactJsMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.startsWith("/courses/web-development") ? ( // ✅ Web Development Series
+      <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : location.pathname.startsWith("/courses/basic-programming") ? (
       <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : (
