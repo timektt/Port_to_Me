@@ -182,7 +182,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
   <div className="flex items-center">
     <span className="text-lg font-bold">Tags:</span>
     <button
-      onClick={() => navigate("/tags/RestfulApiGraphQL")}
+      onClick={() => navigate("/tags/reactjs-series")}
       className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
     >
       react.js
@@ -195,7 +195,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
   {prevTopic ? (
     <button
       className="flex flex-col items-start justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
-      onClick={() => navigate(`/courses/restful-api-graphql-series/${prevTopic.path}`)}
+      onClick={() => navigate(`/courses/reactjs-series/${prevTopic.path}`)}
     >
       <span className="text-sm text-gray-400">Previous</span>
       <span className="text-lg">« {prevTopic.title}</span>
@@ -207,7 +207,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
   {nextTopic ? (
     <button
       className="flex flex-col items-end justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
-      onClick={() => navigate(`/courses/restful-api-graphql-series/${nextTopic.path}`)}
+      onClick={() => navigate(`/courses/reactjs-series/${nextTopic.path}`)}
     >
       <span className="text-sm text-gray-400">Next</span>
       <span className="text-lg">{nextTopic.title} »</span>
