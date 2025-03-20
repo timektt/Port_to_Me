@@ -107,7 +107,7 @@ const Navbar = ({ theme, setTheme }) => {
       <RestfulApiGraphQLMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : location.pathname.startsWith("/courses/reactjs-series") ? ( 
       <ReactJsMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/web-development") ? ( // ✅ Web Development Series
+    ) : location.pathname.startsWith("/courses/web-development") ? (
       <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : location.pathname.startsWith("/courses/basic-programming") ? (
       <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
@@ -116,6 +116,7 @@ const Navbar = ({ theme, setTheme }) => {
     )}
   </div>
 )}
+
 
 
 
