@@ -24,32 +24,48 @@ const WebDevelopmentSeries = ({ theme, setTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const topics = [
-    // 101: Web Development Basics
-    { path: "intro", title: "Introduction to Web Development" },
-    { path: "frontend-backend", title: "Frontend vs Backend" },
+  // 101: Web Development Basics
+{ path: "intro", title: "Introduction to Web Development" },
+{ path: "frontend-backend", title: "Frontend vs Backend" },
+{ path: "how-web-works", title: "How the Web Works" },
+{ path: "client-server", title: "Client vs Server" },
+{ path: "web-dev-tools", title: "Essential Web Development Tools" },
 
-    // 201: HTML & CSS
-    { path: "html-basics", title: "HTML Basics" },
-    { path: "css-basics", title: "CSS Basics" },
-    { path: "responsive-design", title: "Responsive Design" },
+// 201: HTML & CSS
+{ path: "html-basics", title: "HTML Basics" },
+{ path: "css-basics", title: "CSS Basics" },
+{ path: "responsive-design", title: "Responsive Design" },
+{ path: "css-grid-flexbox", title: "CSS Grid & Flexbox" },
+{ path: "css-preprocessors", title: "CSS Preprocessors (SASS & LESS)" },
 
-    // 202: JavaScript for Web
-    { path: "javascript-basics", title: "JavaScript Basics" },
-    { path: "dom-manipulation", title: "DOM Manipulation" },
+// 202: JavaScript for Web
+{ path: "javascript-basics", title: "JavaScript Basics" },
+{ path: "dom-manipulation", title: "DOM Manipulation" },
+{ path: "es6-modern-js", title: "ES6+ Modern JavaScript" },
+{ path: "event-handling", title: "Event Handling" },
+{ path: "async-js", title: "Asynchronous JavaScript (Promises & Async/Await)" },
 
-    // 203: Frontend Frameworks
-    { path: "react-intro", title: "Introduction to React" },
-    { path: "vue-intro", title: "Vue.js Basics" },
-    { path: "angular-intro", title: "Angular Basics" },
+// 203: Frontend Frameworks
+{ path: "react-intro", title: "Introduction to React" },
+{ path: "vue-intro", title: "Vue.js Basics" },
+{ path: "angular-intro", title: "Angular Basics" },
+{ path: "state-management", title: "State Management (Redux, Vuex, Pinia, NgRx)" },
+{ path: "ssr-vs-csr", title: "SSR vs CSR" },
 
-    // 204: Backend Development
-    { path: "node-express", title: "Node.js & Express" },
-    { path: "api-development", title: "API Development" },
+// 204: Backend Development
+{ path: "node-express", title: "Node.js & Express" },
+{ path: "api-development", title: "API Development" },
+{ path: "authentication", title: "Authentication & Authorization" },
+{ path: "file-upload", title: "File Upload & Image Processing" },
+{ path: "websockets", title: "WebSockets & Real-time Applications" },
 
-    // 205: Databases & APIs
-    { path: "mongodb", title: "MongoDB Basics" },
-    { path: "sql-basics", title: "SQL Fundamentals" },
-    { path: "rest-graphql", title: "REST & GraphQL APIs" },
+// 205: Databases & APIs
+{ path: "mongodb", title: "MongoDB Basics" },
+{ path: "sql-basics", title: "SQL Fundamentals" },
+{ path: "rest-graphql", title: "REST & GraphQL APIs" },
+{ path: "caching-strategies", title: "Caching Strategies (Redis, Memcached)" },
+{ path: "db-optimization", title: "Database Optimization & Indexing" },
+
 ];
 
 const currentIndex = topics.findIndex((topic) => topic.path === subPage);
@@ -172,7 +188,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
   <div className="flex items-center">
     <span className="text-lg font-bold">Tags:</span>
     <button
-      onClick={() => navigate("/tags/RestfulApiGraphQL")}
+      onClick={() => navigate("/tags/web-development")}
       className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
     >
       webdev
@@ -185,7 +201,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
   {prevTopic ? (
     <button
       className="flex flex-col items-start justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
-      onClick={() => navigate(`/courses/restful-api-graphql-series/${prevTopic.path}`)}
+      onClick={() => navigate(`/courses/web-development/${prevTopic.path}`)}
     >
       <span className="text-sm text-gray-400">Previous</span>
       <span className="text-lg">« {prevTopic.title}</span>
@@ -197,7 +213,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
   {nextTopic ? (
     <button
       className="flex flex-col items-end justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
-      onClick={() => navigate(`/courses/restful-api-graphql-series/${nextTopic.path}`)}
+      onClick={() => navigate(`/courses/web-development/${nextTopic.path}`)}
     >
       <span className="text-sm text-gray-400">Next</span>
       <span className="text-lg">{nextTopic.title} »</span>
