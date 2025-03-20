@@ -13,7 +13,7 @@ const ProfileInfo = ({ navigate }) => {
 
       {/* ✅ ชื่อเว็บ & Navigation */}
       <h1 className="text-3xl font-bold flex items-center gap-5 relative -top-1.5"> 
-        Supermhee 
+        Superbear 
 
         {/* ✅ กด "Courses" จะไปที่หน้ารวมคอร์ส */}
         <span 

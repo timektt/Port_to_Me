@@ -23,7 +23,7 @@
            
 //             <div className="flex items-center mt-6 gap-3 mb-4">
 //                 <img src="/spm2.jpg" alt="Logo" className="w-8 h-8 rounded-full" />
-//                 <span className="text-lg font-bold">Supermhee</span>
+//                 <span className="text-lg font-bold">Superbear</span>
 //                 <button className="cursor-pointer ml-auto" onClick={toggleTheme}>
 //                     {theme === "dark" ? <FaSun className="text-yellow-400 text-xl" /> : <FaMoon className="text-blue-400 text-xl" />}
 //                 </button>

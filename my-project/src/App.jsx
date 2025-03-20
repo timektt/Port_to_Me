@@ -180,6 +180,52 @@ import GraphQLIntegration from "./pages/courses/topics/reactjs/205_fetching_data
 import CachingAndOptimizingAPICalls from "./pages/courses/topics/reactjs/205_fetching_data/CachingAndOptimizingAPICalls";
 
 
+// WebDev101
+import IntroductionToWebDevelopment from "./pages/courses/topics/webdev/101_web_dev_basics/IntroductionToWebDevelopment";
+import FrontendVsBackend from "./pages/courses/topics/webdev/101_web_dev_basics/FrontendVsBackend";
+import HowTheWebWorks from "./pages/courses/topics/webdev/101_web_dev_basics/HowTheWebWorks";
+import ClientVsServer from "./pages/courses/topics/webdev/101_web_dev_basics/ClientVsServer";
+import EssentialWebDevTools from "./pages/courses/topics/webdev/101_web_dev_basics/EssentialWebDevTools";
+
+// ✅ Import Web Dev 201 Topics
+import HTMLBasics from "./pages/courses/topics/webdev/201_html_css_basics/HTMLBasics";
+import CSSBasics from "./pages/courses/topics/webdev/201_html_css_basics/CSSBasics";
+import ResponsiveDesign from "./pages/courses/topics/webdev/201_html_css_basics/ResponsiveDesign";
+import CSSGridFlexbox from "./pages/courses/topics/webdev/201_html_css_basics/CSSGridFlexbox";
+import CSSPreprocessors from "./pages/courses/topics/webdev/201_html_css_basics/CSSPreprocessors";
+
+// ✅ Import Web Dev 202 Topics
+import JavaScriptBasics from "./pages/courses/topics/webdev/202_javascript_for_web/JavaScriptBasics";
+import DOMManipulation from "./pages/courses/topics/webdev/202_javascript_for_web/DOMManipulation";
+import ES6ModernJS from "./pages/courses/topics/webdev/202_javascript_for_web/ES6ModernJS";
+import EventHandling from "./pages/courses/topics/webdev/202_javascript_for_web/EventHandling";
+import AsyncJS from "./pages/courses/topics/webdev/202_javascript_for_web/AsyncJS";
+
+
+// ✅ Import Web Dev 203 Topics
+import ReactIntroWebdev from "./pages/courses/topics/webdev/203_frontend_frameworks/ReactIntroWebdev";
+import VueIntro from "./pages/courses/topics/webdev/203_frontend_frameworks/VueIntro";
+import AngularIntro from "./pages/courses/topics/webdev/203_frontend_frameworks/AngularIntro";
+import StateManagement from "./pages/courses/topics/webdev/203_frontend_frameworks/StateManagement";
+import SSRvsCSR from "./pages/courses/topics/webdev/203_frontend_frameworks/SSRvsCSR";
+
+// ✅ Import Web Dev 204 Topics
+import NodeExpress from "./pages/courses/topics/webdev/204_backend_development/NodeExpress";
+import APIDevelopment from "./pages/courses/topics/webdev/204_backend_development/APIDevelopment";
+import Authentication from "./pages/courses/topics/webdev/204_backend_development/Authentication";
+import FileUpload from "./pages/courses/topics/webdev/204_backend_development/FileUpload";
+import WebSockets from "./pages/courses/topics/webdev/204_backend_development/WebSockets";
+
+// ✅ Import Web Dev 205 Topics
+import MongoDBBasics from "./pages/courses/topics/webdev/205_databases_apis/MongoDBBasics";
+import SQLFundamentals from "./pages/courses/topics/webdev/205_databases_apis/SQLFundamentals";
+import RestGraphQL from "./pages/courses/topics/webdev/205_databases_apis/RestGraphQL";
+import CachingStrategies from "./pages/courses/topics/webdev/205_databases_apis/CachingStrategies";
+import DatabaseOptimization from "./pages/courses/topics/webdev/205_databases_apis/DatabaseOptimization";
+
+
+
+
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
@@ -376,6 +422,51 @@ function App() {
                       <Route path="caching-api" element={<CachingAndOptimizingAPICalls />} />
 
                       </Route>
+
+                      {/* ✅ Web Development Series */}
+                      <Route path="/courses/web-development/*" element={<WebDevSeries theme={theme} setTheme={setTheme} />}>
+                      <Route index element={<IntroductionToWebDevelopment />} />
+                      <Route path="intro" element={<IntroductionToWebDevelopment />} />
+                      <Route path="frontend-backend" element={<FrontendVsBackend />} />
+                      <Route path="how-web-works" element={<HowTheWebWorks />} />
+                      <Route path="client-server" element={<ClientVsServer />} />
+                      <Route path="web-dev-tools" element={<EssentialWebDevTools />} />
+
+                                {/* ✅ Web Dev 201 */}
+                      <Route path="html-basics" element={<HTMLBasics />} />
+                      <Route path="css-basics" element={<CSSBasics />} />
+                      <Route path="responsive-design" element={<ResponsiveDesign />} />
+                      <Route path="css-grid-flexbox" element={<CSSGridFlexbox />} />
+                      <Route path="css-preprocessors" element={<CSSPreprocessors />} />
+
+                        {/* ✅ Web Dev 202 */}
+                      <Route path="javascript-basics" element={<JavaScriptBasics />} />
+                      <Route path="dom-manipulation" element={<DOMManipulation />} />
+                      <Route path="es6-modern-js" element={<ES6ModernJS />} />
+                      <Route path="event-handling" element={<EventHandling />} />
+                      <Route path="async-js" element={<AsyncJS />} />
+
+                                {/* ✅ Web Dev 203 */}
+                      <Route path="react-intro" element={<ReactIntroWebdev />} />
+                      <Route path="vue-intro" element={<VueIntro />} />
+                      <Route path="angular-intro" element={<AngularIntro />} />
+                      <Route path="state-management" element={<StateManagement />} />
+                      <Route path="ssr-vs-csr" element={<SSRvsCSR />} />
+
+                       {/* ✅ Web Dev 204 */}
+                      <Route path="node-express" element={<NodeExpress />} />
+                      <Route path="api-development" element={<APIDevelopment />} />
+                      <Route path="authentication" element={<Authentication />} />
+                      <Route path="file-upload" element={<FileUpload />} />
+                      <Route path="websockets" element={<WebSockets />} />
+
+                       {/* ✅ Web Dev 205 */}
+                      <Route path="mongodb" element={<MongoDBBasics />} />
+                      <Route path="sql-basics" element={<SQLFundamentals />} />
+                      <Route path="rest-graphql" element={<RestGraphQL />} />
+                      <Route path="caching-strategies" element={<CachingStrategies />} />
+                      <Route path="db-optimization" element={<DatabaseOptimization />} />
+                    </Route>
 
             {/* ✅ คอร์สอื่น ๆ */}
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />

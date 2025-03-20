@@ -18,7 +18,7 @@ myEmitter.on('greet', (name) => {
   console.log(\`Hello, \${name}!\`);
 });
 
-myEmitter.emit('greet', 'Supermhee');`}</code>
+myEmitter.emit('greet', 'Superbear');`}</code>
       </pre>
 
       <p className="mt-4">

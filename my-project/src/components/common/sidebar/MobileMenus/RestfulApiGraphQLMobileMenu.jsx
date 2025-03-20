@@ -91,12 +91,12 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
          <FaTimes />
        </button>
  
-       {/* ✅ โลโก้ + Supermhee + ปุ่ม Dark/Light Mode */}
+       {/* ✅ โลโก้ + Superbear + ปุ่ม Dark/Light Mode */}
        <div className="mt-6 flex items-center mb-3">
          <img src="/spm2.jpg" alt="Logo" className="w-8 h-8 mr-2 object-cover rounded-full" />
          <div className="flex items-center space-x-2">
            <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
-             Supermhee
+             Superbear
            </span>
            <button className="cursor-pointer transition-transform transform hover:scale-110" onClick={toggleTheme}>
              {theme === "dark" ? <FaSun className="text-yellow-400 text-2xl" /> : <FaMoon className="text-blue-400 text-2xl" />}

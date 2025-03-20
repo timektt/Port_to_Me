@@ -63,7 +63,7 @@ const Navbar = ({ theme, setTheme }) => {
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
           <FaFacebook className="text-2xl" />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">
+        <a href="https://github.com/timektt" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">
           <FaGithub className="text-2xl" />
         </a>
 

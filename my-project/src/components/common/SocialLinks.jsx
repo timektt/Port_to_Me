@@ -10,7 +10,7 @@ const SocialLinks = () => {
       <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
         <FaFacebook className="text-3xl hover:text-blue-500" />
       </a>
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/timektt" target="_blank" rel="noopener noreferrer">
         <FaGithub className="text-3xl hover:text-gray-500" />
       </a>
 

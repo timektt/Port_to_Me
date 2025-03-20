@@ -128,7 +128,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
               <div className={`p-4 mt-4 rounded-md shadow-md flex flex-col gap-2 ${theme === "dark" ? "bg-yellow-700 text-white" : "bg-yellow-300 text-black"}`}>
                 <strong className="text-lg flex items-center gap-2">⚠ WARNING</strong>
                 <p>เอกสารฉบับนี้ยังอยู่ในระหว่างการทำ Series ของ Node.js...</p>
-                <p>สามารถติดตามผ่านทาง Youtube: <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">supermhee</a></p>
+                <p>สามารถติดตามผ่านทาง Youtube: <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">Superbear</a></p>
               </div>
 
               {/* ✅ Table Section (Desktop) */}

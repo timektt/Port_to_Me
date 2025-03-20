@@ -127,7 +127,7 @@ const PythonSeries = ({ theme, setTheme }) => {
                 <p>
                   สามารถติดตามผ่านทาง Youtube:{" "}
                   <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">
-                    supermhee
+                    Superbear
                   </a>
                 </p>
               </div>

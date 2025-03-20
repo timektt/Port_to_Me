@@ -43,7 +43,7 @@ const SupportMeModal = ({ closeModal }) => {
 
           {/* หัวข้อ */}
           <h2 className="text-sm font-semibold text-center mt-3 text-gray-700">
-            Buy a Coffee for Supermhee
+            Buy a Coffee for Superbear
           </h2>
 
           {/* ปุ่ม + - และจำนวน */}
@@ -97,7 +97,7 @@ const SupportMeModal = ({ closeModal }) => {
 
           {/* คำอธิบาย */}
           <p className="text-xs text-gray-500 text-center mt-2">
-            Payments go directly to Supermhee
+            Payments go directly to Superbear
           </p>
         </motion.div>
       </motion.div>
