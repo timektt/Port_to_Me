@@ -8,12 +8,12 @@ import WebDevMobileMenu from "../../components/common/sidebar/MobileMenus/WebDev
 import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Breadcrumb
 
 const lessons = [
-  { id: "101", title: "Introduction to Web Development", image: "/web1.jpg", docLink: "#", videoLink: "#" },
-  { id: "201", title: "HTML & CSS Basics", image: "/webdev2.jpg", docLink: "#", videoLink: "#" },
-  { id: "202", title: "JavaScript for Web", image: "/webdev3.jpg", docLink: "#", videoLink: "#" },
-  { id: "203", title: "Frontend Frameworks", image: "/web1.jpg", docLink: "#", videoLink: "#" },
-  { id: "204", title: "Backend Development", image: "/webdev2.jpg", docLink: "#", videoLink: "#" },
-  { id: "205", title: "Databases & APIs", image: "/webdev3.jpg", docLink: "#", videoLink: "#" },
+  { id: "101", title: "Introduction to Web Development", image: "/web1.jpg", docLink: "/courses/web-development/intro", videoLink: "#" },
+  { id: "201", title: "HTML & CSS Basics", image: "/webdev2.jpg", docLink: "/courses/web-development/html-basics", videoLink: "#" },
+  { id: "202", title: "JavaScript for Web", image: "/webdev3.jpg", docLink: "/courses/web-development/javascript-basics", videoLink: "#" },
+  { id: "203", title: "Frontend Frameworks", image: "/web1.jpg", docLink: "/courses/web-development/react-intro", videoLink: "#" },
+  { id: "204", title: "Backend Development", image: "/webdev2.jpg", docLink: "/courses/web-development/node-express", videoLink: "#" },
+  { id: "205", title: "Databases & APIs", image: "/webdev3.jpg", docLink: "/courses/web-development/mongodb", videoLink: "#" },
 ];
 
 

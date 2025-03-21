@@ -7,45 +7,65 @@ const ListsTuples = () => {
       <p className="mt-4">
         Lists และ Tuples เป็นโครงสร้างข้อมูลพื้นฐานที่ใช้เก็บค่าหลายค่าภายในตัวแปรเดียวใน Python
       </p>
-      
+
       <h2 className="text-2xl font-semibold mt-6">1. ความแตกต่างระหว่าง Lists และ Tuples</h2>
       <ul className="list-disc ml-5 mt-2">
-        <li><strong>Lists:</strong> เปลี่ยนแปลงค่าได้ (Mutable), มีลำดับแน่นอน และสามารถเพิ่ม, ลบ หรือแก้ไขค่าได้</li>
-        <li><strong>Tuples:</strong> เปลี่ยนแปลงค่าไม่ได้ (Immutable), มีลำดับแน่นอน และมีประสิทธิภาพสูงกว่า Lists เมื่อใช้กับข้อมูลที่ไม่ต้องเปลี่ยนค่า</li>
+        <li><strong>Lists:</strong> เปลี่ยนแปลงค่าได้ (Mutable)</li>
+        <li><strong>Tuples:</strong> เปลี่ยนแปลงค่าไม่ได้ (Immutable)</li>
       </ul>
-      
-      <h2 className="text-2xl font-semibold mt-6">2. ตัวอย่างการใช้งาน Lists และ Tuples</h2>
-      <p className="mt-4">การสร้าง Lists และ Tuples:</p>
+
+      <h2 className="text-2xl font-semibold mt-6">2. ตัวอย่างการสร้าง List และ Tuple</h2>
       <pre className="bg-gray-800 text-white p-4 rounded-lg">
-        {`my_list = [1, 2, 3, 4]
+{`my_list = [1, 2, 3, 4]
 my_tuple = (1, 2, 3, 4)
+
 print(my_list)
 print(my_tuple)`}
       </pre>
-      
-      <h2 className="text-2xl font-semibold mt-6">3. การเข้าถึงค่าภายใน Lists และ Tuples</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
-        {`print(my_list[0])  # Output: 1
-print(my_tuple[1])  # Output: 2`}
-      </pre>
-      
-      <h2 className="text-2xl font-semibold mt-6">4. การแก้ไข Lists และข้อจำกัดของ Tuples</h2>
-      <p className="mt-4">Lists สามารถเปลี่ยนแปลงค่าได้ แต่ Tuples ไม่สามารถเปลี่ยนแปลงได้:</p>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
-        {`my_list[0] = 10  # เปลี่ยนค่าใน List ได้
-print(my_list)  # Output: [10, 2, 3, 4]
 
-my_tuple[0] = 10  # ❌ Error! ไม่สามารถเปลี่ยนค่าใน Tuple ได้`}
-      </pre>
-      
-      <h2 className="text-2xl font-semibold mt-6">5. การวนลูปผ่าน Lists และ Tuples</h2>
+      <h2 className="text-2xl font-semibold mt-6">3. การเข้าถึงข้อมูล</h2>
       <pre className="bg-gray-800 text-white p-4 rounded-lg">
-        {`for item in my_list:
-    print(item)  # แสดงค่าทั้งหมดใน List
+{`print(my_list[0])   # 1
+print(my_tuple[2])  # 3`}
+      </pre>
+
+      <h2 className="text-2xl font-semibold mt-6">4. การเปลี่ยนค่า (List เท่านั้น)</h2>
+      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+{`my_list[1] = 10
+print(my_list)  # [1, 10, 3, 4]
+
+my_tuple[1] = 10  # ❌ Error: Tuples are immutable`}
+      </pre>
+
+      <h2 className="text-2xl font-semibold mt-6">5. การวนลูป</h2>
+      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+{`for item in my_list:
+    print(item)
 
 for item in my_tuple:
-    print(item)  # แสดงค่าทั้งหมดใน Tuple`}
+    print(item)`}
       </pre>
+
+      <h2 className="text-2xl font-semibold mt-6">6. เมธอดที่ใช้กับ List</h2>
+      <p className="mt-2">List มีเมธอดหลายแบบ เช่น append(), remove(), sort()</p>
+      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+{`my_list.append(5)
+my_list.remove(2)
+my_list.sort()
+print(my_list)`}
+      </pre>
+
+      <h2 className="text-2xl font-semibold mt-6">7. การแปลงระหว่าง List และ Tuple</h2>
+      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+{`my_tuple = tuple(my_list)
+my_list = list(my_tuple)`}
+      </pre>
+
+      <h2 className="text-2xl font-semibold mt-6">8. กรณีการใช้งาน</h2>
+      <ul className="list-disc ml-5 mt-2">
+        <li>ใช้ <strong>List</strong> เมื่อข้อมูลต้องมีการเปลี่ยนแปลง</li>
+        <li>ใช้ <strong>Tuple</strong> เมื่อข้อมูลเป็นค่าคงที่ หรือเพื่อประสิทธิภาพที่ดีกว่า</li>
+      </ul>
     </div>
   );
 };
