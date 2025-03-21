@@ -14,7 +14,7 @@ const PythonControlStructure = () => {
         คำสั่ง if-elif-else ใช้เพื่อตรวจสอบเงื่อนไขหลายแบบและเลือกทำเฉพาะทางที่ตรงกับเงื่อนไขนั้น
       </p>
       <h3 className="text-xl font-medium mt-3">ตัวอย่าง: If-Else</h3>
-      <pre className="bg-gray-800 text-white p-4 rounded-md">
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm w-full">
 {`x = 10
 if x > 0:
     print("เป็นจำนวนบวก")
@@ -33,13 +33,13 @@ else:
       </p>
 
       <h3 className="text-xl font-medium mt-3">ตัวอย่าง: ลูป For</h3>
-      <pre className="bg-gray-800 text-white p-4 rounded-md">
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm w-full">
 {`for i in range(1, 6):
     print("รอบที่", i)`}
       </pre>
 
       <h3 className="text-xl font-medium mt-3">ตัวอย่าง: ลูป While</h3>
-      <pre className="bg-gray-800 text-white p-4 rounded-md">
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm w-full">
 {`x = 0
 while x < 5:
     print("ค่าของ x:", x)
@@ -49,8 +49,9 @@ while x < 5:
       <p className="mt-2">
         สามารถใช้คำสั่ง <code>break</code> และ <code>continue</code> เพื่อควบคุมการวนลูปเพิ่มเติมได้เช่นกัน
       </p>
+
       <h3 className="text-xl font-medium mt-3">ตัวอย่าง: ใช้ break</h3>
-      <pre className="bg-gray-800 text-white p-4 rounded-md">
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm w-full">
 {`for i in range(10):
     if i == 5:
         break
@@ -63,7 +64,7 @@ while x < 5:
       </p>
 
       <h3 className="text-xl font-medium mt-3">ตัวอย่าง: ใช้ Try-Except</h3>
-      <pre className="bg-gray-800 text-white p-4 rounded-md">
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm w-full">
 {`try:
     num = int(input("ป้อนตัวเลข: "))
     print("คุณป้อน:", num)
@@ -72,7 +73,7 @@ except ValueError:
       </pre>
 
       <h3 className="text-xl font-medium mt-3">ตัวอย่างเพิ่มเติม: ZeroDivisionError</h3>
-      <pre className="bg-gray-800 text-white p-4 rounded-md">
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm w-full">
 {`try:
     x = 10 / 0
 except ZeroDivisionError:

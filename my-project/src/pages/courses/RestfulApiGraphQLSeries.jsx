@@ -11,10 +11,10 @@ import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Br
 
 const lessons = [
   // 101: Introduction to API
-  { id: "101", title: "What is an API?", image: "/api1.webp", docLink: "/restful-api-graphql-series/intro", videoLink: "#" },
+  { id: "101", title: "What is an API?", image: "/api1.webp", docLink: "/courses/restful-api-graphql-series/intro", videoLink: "#" },
  
   // 201: RESTful API
-  { id: "201", title: "RESTful API Basics", image: "/api2.jpg", docLink: "/restful-api-graphql-series/rest-basic", videoLink: "#" },
+  { id: "201", title: "RESTful API Basics", image: "/api2.jpg", docLink: "/courses/restful-api-graphql-series/rest-basics", videoLink: "#" },
  
   // 202: GraphQL
   { id: "202", title: "GraphQL Basics", image: "/api3.png", docLink: "/courses/restful-api-graphql-series/graphql-basics", videoLink: "#" },

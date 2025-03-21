@@ -15,7 +15,7 @@ const ListsTuples = () => {
       </ul>
 
       <h2 className="text-2xl font-semibold mt-6">2. ตัวอย่างการสร้าง List และ Tuple</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+      <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-sm w-full">
 {`my_list = [1, 2, 3, 4]
 my_tuple = (1, 2, 3, 4)
 
@@ -24,13 +24,13 @@ print(my_tuple)`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">3. การเข้าถึงข้อมูล</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+      <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-sm w-full">
 {`print(my_list[0])   # 1
 print(my_tuple[2])  # 3`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">4. การเปลี่ยนค่า (List เท่านั้น)</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+      <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-sm w-full">
 {`my_list[1] = 10
 print(my_list)  # [1, 10, 3, 4]
 
@@ -38,7 +38,7 @@ my_tuple[1] = 10  # ❌ Error: Tuples are immutable`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">5. การวนลูป</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+      <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-sm w-full">
 {`for item in my_list:
     print(item)
 
@@ -48,7 +48,7 @@ for item in my_tuple:
 
       <h2 className="text-2xl font-semibold mt-6">6. เมธอดที่ใช้กับ List</h2>
       <p className="mt-2">List มีเมธอดหลายแบบ เช่น append(), remove(), sort()</p>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+      <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-sm w-full">
 {`my_list.append(5)
 my_list.remove(2)
 my_list.sort()
@@ -56,7 +56,7 @@ print(my_list)`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">7. การแปลงระหว่าง List และ Tuple</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg">
+      <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto text-sm w-full">
 {`my_tuple = tuple(my_list)
 my_list = list(my_tuple)`}
       </pre>

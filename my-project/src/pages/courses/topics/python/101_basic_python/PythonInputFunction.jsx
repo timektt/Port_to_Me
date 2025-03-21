@@ -11,14 +11,14 @@ const PythonInputFunction = () => {
 
       <h2 className="text-2xl font-semibold mt-6">1. การใช้ input() รับค่าจากผู้ใช้</h2>
       <p>Python มีฟังก์ชัน <code>input()</code> ที่ช่วยให้สามารถรับค่าจากผู้ใช้ผ่านทางคีย์บอร์ดได้</p>
-      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2">
+      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto text-sm w-full">
 {`name = input("กรุณาป้อนชื่อของคุณ: ")
 print(f"สวัสดี {name}!")`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">2. ฟังก์ชันใน Python</h2>
       <p>ฟังก์ชันคือชุดคำสั่งที่สามารถเรียกใช้ซ้ำได้</p>
-      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2">
+      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto text-sm w-full">
 {`def greet(name):
     print(f"Hello, {name}")
 
@@ -26,7 +26,7 @@ greet("Alice")`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">3. ฟังก์ชันที่มีค่าเริ่มต้น (Default Arguments)</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2">
+      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto text-sm w-full">
 {`def greet(name="ผู้ใช้"):
     print(f"สวัสดี, {name}!")
 
@@ -36,7 +36,7 @@ greet("บ็อบ")   # Output: สวัสดี, บ็อบ!`}
 
       <h2 className="text-2xl font-semibold mt-6">4. Keyword Arguments</h2>
       <p>เราสามารถส่ง argument โดยระบุชื่อ parameter ได้เลย</p>
-      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2">
+      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto text-sm w-full">
 {`def introduce(name, age):
     print(f"{name} อายุ {age} ปี")
 
@@ -44,7 +44,7 @@ introduce(age=25, name="ซาร่า")`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">5. ฟังก์ชันที่ส่งค่ากลับ (Return Values)</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2">
+      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto text-sm w-full">
 {`def add(a, b):
     return a + b
 
@@ -54,13 +54,13 @@ print("ผลรวมคือ:", result)  # Output: ผลรวมคือ: 
 
       <h2 className="text-2xl font-semibold mt-6">6. Lambda Functions</h2>
       <p>ฟังก์ชันแบบย่อที่ใช้คำว่า <code>lambda</code></p>
-      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2">
+      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto text-sm w-full">
 {`square = lambda x: x * x
 print(square(4))  # Output: 16`}
       </pre>
 
       <h2 className="text-2xl font-semibold mt-6">7. ส่งคืนค่าหลายค่า (Multiple Return Values)</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2">
+      <pre className="bg-gray-800 text-white p-4 rounded-md mt-2 overflow-x-auto text-sm w-full">
 {`def calc(a, b):
     return a + b, a * b
 
