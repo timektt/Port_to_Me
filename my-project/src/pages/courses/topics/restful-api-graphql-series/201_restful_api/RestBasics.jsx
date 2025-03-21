@@ -5,10 +5,11 @@ const RestBasics = () => {
     <div className="max-w-3xl mx-auto p-6 text-left">
       <h1 className="text-3xl font-bold mb-4">พื้นฐานของ RESTful API</h1>
       <p className="mb-4">
-        RESTful API เป็นรูปแบบหนึ่งของ API ที่ใช้หลักการของ **REST (Representational State Transfer)** 
+        RESTful API เป็นรูปแบบหนึ่งของ API ที่ใช้หลักการของ{" "}
+        <strong>REST (Representational State Transfer)</strong>{" "}
         ซึ่งออกแบบให้สามารถทำงานบนโปรโตคอล HTTP ได้อย่างมีประสิทธิภาพ
       </p>
-      
+
       <h2 className="text-2xl font-semibold mt-6 mb-2">📌 หลักการสำคัญของ REST</h2>
       <ul className="list-disc pl-6 space-y-2">
         <li><strong>Stateless:</strong> ไม่มีการเก็บสถานะระหว่างคำร้องขอ (Request)</li>

@@ -5,7 +5,7 @@ const MiddlewareConcepts = () => {
     <div className="p-4 sm:p-6 md:p-8 max-w-4xl mx-auto">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">🛠️ Middleware Concepts</h1>
       <p className="mt-4">
-        Middleware เป็นฟังก์ชันที่ทำงานก่อนที่ Request จะไปถึง Route Handler เช่น **Logging, Authentication, Error Handling**
+        Middleware เป็นฟังก์ชันที่ทำงานก่อนที่ Request จะไปถึง Route Handler เช่น <strong>Logging, Authentication, Error Handling</strong>
       </p>
 
       <h2 className="text-xl font-semibold mt-6">📌 ตัวอย่าง Middleware</h2>
@@ -27,7 +27,46 @@ app.get("/", (req, res) => {
 app.listen(3000, () => console.log("Server running on port 3000"));`}</code>
       </pre>
 
-      <p className="mt-4">⚡ ลองรันแล้วเช็ค console.log()</p>
+      <p className="mt-4">⚡ ลองรันแล้วเช็ค <code>console.log()</code></p>
+
+      <h2 className="text-xl font-semibold mt-6">🔐 Middleware สำหรับ Authentication</h2>
+      <p className="mt-2">
+        สามารถใช้ Middleware เพื่อตรวจสอบ Token หรือสิทธิ์ของผู้ใช้งาน ก่อนเข้าถึง API ที่ต้องการความปลอดภัย
+      </p>
+      <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2">
+        <code>{`const auth = (req, res, next) => {
+  const token = req.headers["authorization"];
+  if (token === "secret") {
+    next();
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+};
+
+app.get("/secure", auth, (req, res) => {
+  res.send("Access granted!");
+});`}</code>
+      </pre>
+
+      <h2 className="text-xl font-semibold mt-6">🧼 การจัดลำดับ Middleware</h2>
+      <p className="mt-2">
+        Middleware จะทำงานตามลำดับที่ <code>app.use()</code> หรือ <code>app.get()</code> ถูกเรียก ดังนั้นควรจัดลำดับให้เหมาะสม เช่น Logging → Auth → Handler
+      </p>
+
+      <h2 className="text-xl font-semibold mt-6">🧩 ประเภทของ Middleware</h2>
+      <ul className="list-disc ml-6 mt-2">
+        <li><strong>Application-level middleware</strong> - ใช้กับ <code>app.use()</code></li>
+        <li><strong>Router-level middleware</strong> - ใช้กับ <code>express.Router()</code></li>
+        <li><strong>Error-handling middleware</strong> - ฟังก์ชันที่มี <code>(err, req, res, next)</code></li>
+        <li><strong>Built-in middleware</strong> - เช่น <code>express.json()</code>, <code>express.static()</code></li>
+        <li><strong>Third-party middleware</strong> - เช่น <code>cors</code>, <code>morgan</code></li>
+      </ul>
+
+      <h2 className="text-xl font-semibold mt-6">✅ สรุป</h2>
+      <p className="mt-2">
+        Middleware เป็นเครื่องมือสำคัญใน Express ที่ช่วยจัดการ Request/Response ได้ยืดหยุ่นมากขึ้น
+        ใช้สำหรับตรวจสอบข้อมูล ล็อกข้อมูล หรือแม้แต่ควบคุมสิทธิ์การเข้าถึง API
+      </p>
     </div>
   );
 };

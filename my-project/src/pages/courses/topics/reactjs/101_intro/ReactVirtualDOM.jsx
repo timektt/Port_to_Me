@@ -17,18 +17,21 @@ const ReactVirtualDOM = () => {
 
       <h2 className="text-2xl font-semibold mt-6">🎯 ตัวอย่างการใช้ Virtual DOM</h2>
       <p className="mt-4">
-        เมื่อใช้ React เราไม่ต้องแก้ไข DOM ตรง ๆ แต่ให้ React จัดการให้โดยใช้ **state** และ **re-render**
+        เมื่อใช้ React เราไม่ต้องแก้ไข DOM ตรง ๆ แต่ให้ React จัดการให้โดยใช้ <strong>state</strong> และ <strong>re-render</strong>
       </p>
 
-      {/* ✅ เพิ่มพื้นหลังให้เฉพาะส่วนโค้ดเพื่อให้อ่านง่ายขึ้น */}
       <pre className="p-4 rounded-md overflow-x-auto border bg-gray-200 text-black dark:bg-gray-800 dark:text-white">
-        {`const [count, setCount] = useState(0);
+        <code>{`import React, { useState } from "react";
 
-return (
-  <button onClick={() => setCount(count + 1)}>
-    Count: {count}
-  </button>
-);`}
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Count: {count}
+    </button>
+  );
+};`}</code>
       </pre>
     </div>
   );

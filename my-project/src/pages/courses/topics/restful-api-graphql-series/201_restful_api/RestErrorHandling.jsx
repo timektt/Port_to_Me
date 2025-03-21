@@ -23,6 +23,29 @@ const RestErrorHandling = () => {
           <tr><td className="border p-2">500</td><td className="border p-2">Internal Server Error (ข้อผิดพลาดภายในเซิร์ฟเวอร์)</td></tr>
         </tbody>
       </table>
+
+      <h2 className="text-2xl font-semibold mt-6 mb-2">🛠️ ตัวอย่างการจัดการ Error ใน Express</h2>
+      <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2">
+        <code>{`const express = require('express');
+const app = express();
+
+app.get('/user/:id', (req, res) => {
+  const user = null; // สมมุติว่าไม่พบข้อมูล
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  res.json(user);
+});
+
+// Middleware จัดการ error ทั่วไป
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal Server Error' });
+});
+
+app.listen(3000, () => console.log('Server running'));
+`}</code>
+      </pre>
     </div>
   );
 };

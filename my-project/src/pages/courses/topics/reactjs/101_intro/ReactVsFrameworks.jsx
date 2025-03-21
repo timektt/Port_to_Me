@@ -10,18 +10,17 @@ const ReactVsFrameworks = () => {
 
       <h2 className="text-2xl font-semibold mt-6">📌 ตารางเปรียบเทียบ</h2>
 
-      {/* ✅ เพิ่มตารางเปรียบเทียบ */}
       <div className="overflow-x-auto mt-4">
-        <table className="w-full border-collapse border bg-gray-200 text-black dark:bg-gray-800 dark:text-white">
+        <table className="w-full border-collapse border bg-gray-100 dark:bg-gray-800 text-sm sm:text-base">
           <thead>
-            <tr className="bg-gray-300 dark:bg-gray-700">
+            <tr className="bg-gray-300 dark:bg-gray-700 text-black dark:text-white">
               <th className="p-3 border">คุณสมบัติ</th>
               <th className="p-3 border">React</th>
               <th className="p-3 border">Angular</th>
               <th className="p-3 border">Vue.js</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-gray-900 dark:text-gray-100">
             <tr>
               <td className="p-3 border">รูปแบบ</td>
               <td className="p-3 border">Library</td>
@@ -31,7 +30,7 @@ const ReactVsFrameworks = () => {
             <tr>
               <td className="p-3 border">แนวคิดหลัก</td>
               <td className="p-3 border">Component-based</td>
-              <td className="p-3 border">MVVM (Model-View-ViewModel)</td>
+              <td className="p-3 border">MVVM</td>
               <td className="p-3 border">Component-based</td>
             </tr>
             <tr>
@@ -53,7 +52,7 @@ const ReactVsFrameworks = () => {
               <td className="p-3 border">Vuex, Pinia</td>
             </tr>
             <tr>
-              <td className="p-3 border">การใช้งานร่วมกับ Backend</td>
+              <td className="p-3 border">ใช้งานร่วมกับ Backend</td>
               <td className="p-3 border">ง่าย</td>
               <td className="p-3 border">ซับซ้อน</td>
               <td className="p-3 border">ง่าย</td>
@@ -63,10 +62,10 @@ const ReactVsFrameworks = () => {
       </div>
 
       <h2 className="text-2xl font-semibold mt-6">🎯 สรุป</h2>
-      <p className="mt-4">
-        - **React:** ใช้งานง่าย ยืดหยุ่น ควบคุมการจัดการสถานะได้ดี<br />
-        - **Angular:** มีโครงสร้างแน่นหนา เหมาะสำหรับระบบขนาดใหญ่<br />
-        - **Vue.js:** ใช้งานง่ายและเบา เหมาะกับโปรเจคที่ต้องการความเร็ว
+      <p className="mt-4 leading-relaxed">
+        - <strong>React:</strong> ใช้งานง่าย ยืดหยุ่น ควบคุมสถานะได้ดี<br />
+        - <strong>Angular:</strong> โครงสร้างชัดเจน เหมาะกับระบบใหญ่<br />
+        - <strong>Vue.js:</strong> เบา เรียนรู้ง่าย เหมาะกับการพัฒนาแบบรวดเร็ว
       </p>
     </div>
   );

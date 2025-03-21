@@ -5,7 +5,7 @@ const HandlingHttpRequests = () => {
     <div className="p-4 sm:p-6 md:p-8 max-w-4xl mx-auto">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">📡 Handling HTTP Requests</h1>
       <p className="mt-4">
-        Express.js รองรับการรับ-ส่งข้อมูลผ่าน HTTP Methods เช่น **GET, POST, PUT, DELETE**
+        Express.js รองรับการรับ-ส่งข้อมูลผ่าน HTTP Methods เช่น <strong>GET, POST, PUT, DELETE</strong>
       </p>
 
       <h2 className="text-xl font-semibold mt-6">📌 ตัวอย่างการรับค่า POST Request</h2>
@@ -22,7 +22,35 @@ app.post("/api/users", (req, res) => {
 app.listen(3000, () => console.log("Server running on port 3000"));`}</code>
       </pre>
 
-      <p className="mt-4">🛠️ ทดสอบโดยใช้ **Postman หรือ cURL**</p>
+      <h2 className="text-xl font-semibold mt-6">📌 ตัวอย่าง GET, PUT และ DELETE</h2>
+      <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 overflow-x-auto">
+        <code>{`// GET - ดึงข้อมูลผู้ใช้ทั้งหมด
+app.get("/api/users", (req, res) => {
+  res.json([{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }]);
+});
+
+// PUT - อัปเดตข้อมูลผู้ใช้
+app.put("/api/users/:id", (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  res.json({ message: \`User \${id} updated to \${name}\` });
+});
+
+// DELETE - ลบผู้ใช้
+app.delete("/api/users/:id", (req, res) => {
+  const { id } = req.params;
+  res.json({ message: \`User \${id} deleted\` });
+});`}</code>
+      </pre>
+
+      <p className="mt-4">🛠️ ทดสอบ API เหล่านี้โดยใช้ <strong>Postman</strong> หรือ <strong>cURL</strong> สำหรับการจำลองคำขอ</p>
+
+      <h2 className="text-xl font-semibold mt-6">🧠 หมายเหตุเพิ่มเติม</h2>
+      <ul className="list-disc ml-5 mt-2">
+        <li>ใช้ <code>express.json()</code> เพื่อแปลง JSON request body</li>
+        <li>ใช้ <code>req.params</code> สำหรับดึงค่าใน URL เช่น <code>:id</code></li>
+        <li>ใช้ <code>req.body</code> สำหรับดึงค่าจาก request body</li>
+      </ul>
     </div>
   );
 };

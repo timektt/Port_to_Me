@@ -403,10 +403,10 @@ function App() {
 
                                             {/* ✅ React Hooks */}
                       <Route path="hooks-intro" element={<HooksIntro/>} />
-                      <Route path="useeffect" element={<CustomHooks />} />
-                      <Route path="useref" element={<UseEffectHook />} />
-                      <Route path="usereducer" element={<UseRefHook />} />
-                      <Route path="custom-hooks" element={<UseReducerHook />} />
+                      <Route path="useeffect" element={<UseEffectHook/>} />
+                      <Route path="useref" element={<UseRefHook/>} />
+                      <Route path="usereducer" element={<UseReducerHook />} />
+                      <Route path="custom-hooks" element={<CustomHooks />} />
 
                       <Route path="react-router" element={<ReactRouterIntro />} />
                       <Route path="nested-routes" element={<NestedRoutes />} />
