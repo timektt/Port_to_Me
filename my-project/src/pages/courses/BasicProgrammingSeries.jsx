@@ -8,12 +8,12 @@ import BasicProgrammingMobileMenu from "../../components/common/sidebar/MobileMe
 import Breadcrumb from "../../components/common/Breadcrumb"; // ✅ ใช้ Breadcrumb
 
 const lessons = [
-  { id: "101", title: "Introduction to Programming", image: "/basic1.png", docLink: "#", videoLink: "#" },
-  { id: "201", title: "Variables & Data Types", image: "/basic2.jpg", docLink: "#", videoLink: "#" },
-  { id: "202", title: "Control Flow & Loops", image: "/basic3.jpg", docLink: "#", videoLink: "#" },
-  { id: "203", title: "Functions & Modules", image: "/basic1.png", docLink: "#", videoLink: "#" },
-  { id: "204", title: "Object-Oriented Programming (OOP)", image: "/basic2.jpg", docLink: "#", videoLink: "#" },
-  { id: "205", title: "Debugging & Error Handling", image: "/basic3.jpg", docLink: "#", videoLink: "#" },
+  { id: "101", title: "Introduction to Programming", image: "/basic1.png", docLink: "/courses/basic-programming/intro", videoLink: "#" },
+  { id: "201", title: "Variables & Data Types", image: "/basic2.jpg", docLink: "/courses/basic-programming/variables", videoLink: "#" },
+  { id: "202", title: "Control Flow & Loops", image: "/basic3.jpg", docLink: "/courses/basic-programming/conditions", videoLink: "#" },
+  { id: "203", title: "Functions & Modules", image: "/basic1.png", docLink: "/courses/basic-programming/functions", videoLink: "#" },
+  { id: "204", title: "Object-Oriented Programming (OOP)", image: "/basic2.jpg", docLink: "/courses/basic-programming/oop", videoLink: "#" },
+  { id: "205", title: "Debugging & Error Handling", image: "/basic3.jpg", docLink: "/courses/basic-programming/debugging", videoLink: "#" },
 ];
 
 
