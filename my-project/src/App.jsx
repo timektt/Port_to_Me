@@ -223,6 +223,50 @@ import RestGraphQL from "./pages/courses/topics/webdev/205_databases_apis/RestGr
 import CachingStrategies from "./pages/courses/topics/webdev/205_databases_apis/CachingStrategies";
 import DatabaseOptimization from "./pages/courses/topics/webdev/205_databases_apis/DatabaseOptimization";
 
+// ✅ Import Basic Programming 101 Topics
+import WhatIsProgramming from "./pages/courses/topics/basic-programming/101_introduction_to_programming/WhatIsProgramming";
+import ComputerExecution from "./pages/courses/topics/basic-programming/101_introduction_to_programming/ComputerExecution";
+import ProgrammingLanguages from "./pages/courses/topics/basic-programming/101_introduction_to_programming/ProgrammingLanguages";
+import CompilersInterpreters from "./pages/courses/topics/basic-programming/101_introduction_to_programming/CompilersInterpreters";
+import SetupEnvironment from "./pages/courses/topics/basic-programming/101_introduction_to_programming/SetupEnvironment";
+
+
+// ✅ Variables & Data Types 201 Topics
+import VariableIntro from "./pages/courses/topics/basic-programming/201_variables_datatypes/UnderstandingVariables";
+import PrimitiveDataTypes from "./pages/courses/topics/basic-programming/201_variables_datatypes/PrimitiveDataTypes";
+import TypeConversion from "./pages/courses/topics/basic-programming/201_variables_datatypes/TypeConversion";
+import Constants from "./pages/courses/topics/basic-programming/201_variables_datatypes/Constants";
+import VariableScope from "./pages/courses/topics/basic-programming/201_variables_datatypes/VariableScope";
+
+// 🔁 Control Flow & Loops 202
+import ConditionalStatements from "./pages/courses/topics/basic-programming/202_control_flow&loops/ConditionalStatements";
+import LoopsForWhile from "./pages/courses/topics/basic-programming/202_control_flow&loops/LoopsForWhile";
+import BreakContinueStatements from "./pages/courses/topics/basic-programming/202_control_flow&loops/BreakContinueStatements";
+import NestedLoops from "./pages/courses/topics/basic-programming/202_control_flow&loops/NestedLoops";
+import RecursionBasics from "./pages/courses/topics/basic-programming/202_control_flow&loops/RecursionBasics";
+
+
+// ✅ Functions & Modules 203
+import DefiningFunctions from "./pages/courses/topics/basic-programming/203_functions&modules/DefiningFunctions";
+import WorkingWithModules from "./pages/courses/topics/basic-programming/203_functions&modules/WorkingWithModules";
+import FunctionParameters from "./pages/courses/topics/basic-programming/203_functions&modules/FunctionParameters";
+import ReturnValuesScope from "./pages/courses/topics/basic-programming/203_functions&modules/ReturnValuesScope";
+import LambdaFunctions from "./pages/courses/topics/basic-programming/203_functions&modules/LambdaFunctions";
+
+
+//  204
+import ClassesObjects from "./pages/courses/topics/basic-programming/204_object_oriented_programming/ClassesObjects";
+import EncapsulationInheritance from "./pages/courses/topics/basic-programming/204_object_oriented_programming/EncapsulationInheritance";
+import PolymorphismMethodOverriding from "./pages/courses/topics/basic-programming/204_object_oriented_programming/PolymorphismMethodOverriding";
+import AbstractionInterfaces from "./pages/courses/topics/basic-programming/204_object_oriented_programming/AbstractionInterfaces";
+import OOPDesignPatterns from "./pages/courses/topics/basic-programming/204_object_oriented_programming/OOPDesignPatterns";
+
+// 205
+import CommonProgrammingErrors from "./pages/courses/topics/basic-programming/205_debugging_error_handling/CommonProgrammingErrors";
+import DebuggingTools from "./pages/courses/topics/basic-programming/205_debugging_error_handling/DebuggingTools";
+import ErrorTypes from "./pages/courses/topics/basic-programming/205_debugging_error_handling/ErrorTypes";
+import ExceptionHandling from "./pages/courses/topics/basic-programming/205_debugging_error_handling/ExceptionHandling";
+import LoggingMonitoring from "./pages/courses/topics/basic-programming/205_debugging_error_handling/LoggingMonitoring";
 
 
 
@@ -466,12 +510,61 @@ function App() {
                       <Route path="rest-graphql" element={<RestGraphQL />} />
                       <Route path="caching-strategies" element={<CachingStrategies />} />
                       <Route path="db-optimization" element={<DatabaseOptimization />} />
-                    </Route>
+                      </Route>
+                      {/* ✅ 101: Introduction to Programming */}
+                    <Route
+                      path="/courses/basic-programming/*"
+                      element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />}
+       >
+                      <Route index element={<WhatIsProgramming />} />
+                      <Route path="intro" element={<WhatIsProgramming />} />
+                      <Route path="computer-execution" element={<ComputerExecution />} />
+                      <Route path="programming-languages" element={<ProgrammingLanguages />} />
+                      <Route path="compilers-interpreters" element={<CompilersInterpreters />} />
+                      <Route path="setup" element={<SetupEnvironment />} />
+
+
+                      {/* ✅ Basic Programming: Variables & Data Types */}
+                    <Route path="variables" element={<VariableIntro />} />
+                    <Route path="data-types" element={<PrimitiveDataTypes />} />
+                    <Route path="type-conversion" element={<TypeConversion />} />
+                    <Route path="constants" element={<Constants />} />
+                    <Route path="scope" element={<VariableScope />} />
+
+                    {/* ✅ 202: Control Flow & Loops */}
+                    <Route path="conditions" element={<ConditionalStatements />} />
+                    <Route path="loops" element={<LoopsForWhile />} />
+                    <Route path="break-continue" element={<BreakContinueStatements />} />
+                    <Route path="nested-loops" element={<NestedLoops />} />
+                    <Route path="recursion" element={<RecursionBasics />} />
+
+                    {/* ✅ 203: Arrays & Objects */}
+                    <Route path="functions" element={<DefiningFunctions />} />
+                    <Route path="modules" element={<WorkingWithModules />} />
+                    <Route path="parameters" element={<FunctionParameters />} />
+                    <Route path="return-values" element={<ReturnValuesScope />} />
+                    <Route path="lambda-functions" element={<LambdaFunctions />} />
+
+                    {/* ✅ OOP Series */}
+                    <Route path="oop" element={<ClassesObjects />} />
+                    <Route path="oop-inheritance" element={<EncapsulationInheritance />} />
+                    <Route path="polymorphism" element={<PolymorphismMethodOverriding />} />
+                    <Route path="abstraction" element={<AbstractionInterfaces />} />
+                    <Route path="oop-design-patterns" element={<OOPDesignPatterns />} />
+
+                    {/* ✅ Debugging & Error Handling */}
+                    <Route path="debugging" element={<CommonProgrammingErrors />} />
+                    <Route path="debugging-tools" element={<DebuggingTools />} />
+                    <Route path="error-types" element={<ErrorTypes />} />
+                    <Route path="exception-handling" element={<ExceptionHandling />} />
+                    <Route path="logging-monitoring" element={<LoggingMonitoring />} />
+                  </Route>
+                    
 
             {/* ✅ คอร์สอื่น ๆ */}
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/web-development" element={<WebDevSeries theme={theme} setTheme={setTheme} />} />
-            <Route path="/courses/basic-programming" element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />} />
+            
         </Routes>
 
         </div>

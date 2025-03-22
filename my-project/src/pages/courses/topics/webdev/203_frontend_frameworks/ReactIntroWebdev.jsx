@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReactIntro = () => {
+const ReactIntroWebdev = () => {
   return (
     <>
       <h1 className="text-2xl font-bold mb-4">แนะนำ React</h1>
@@ -26,4 +26,4 @@ export default Welcome;`}
   );
 };
 
-export default ReactIntro;
+export default ReactIntroWebdev;
