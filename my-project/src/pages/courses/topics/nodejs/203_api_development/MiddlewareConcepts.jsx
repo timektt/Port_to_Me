@@ -2,15 +2,20 @@ import React from "react";
 
 const MiddlewareConcepts = () => {
   return (
-    <div className="p-4 sm:p-6 md:p-8 max-w-4xl mx-auto">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">🛠️ Middleware Concepts</h1>
-      <p className="mt-4">
-        Middleware เป็นฟังก์ชันที่ทำงานก่อนที่ Request จะไปถึง Route Handler เช่น <strong>Logging, Authentication, Error Handling</strong>
+    <div className="p-4 sm:p-6 md:p-8 max-w-4xl mx-auto overflow-x-hidden">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold break-words">
+        🛠️ Middleware Concepts
+      </h1>
+
+      <p className="mt-4 text-lg break-words">
+        Middleware เป็นฟังก์ชันที่ทำงานก่อนที่ Request จะไปถึง Route Handler เช่น{" "}
+        <strong>Logging, Authentication, Error Handling</strong>
       </p>
 
       <h2 className="text-xl font-semibold mt-6">📌 ตัวอย่าง Middleware</h2>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2">
-        <code>{`const express = require("express");
+      <div className="overflow-x-auto">
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 text-sm sm:text-base">
+          <code>{`const express = require("express");
 const app = express();
 
 const logger = (req, res, next) => {
@@ -25,16 +30,18 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3000, () => console.log("Server running on port 3000"));`}</code>
-      </pre>
+        </pre>
+      </div>
 
-      <p className="mt-4">⚡ ลองรันแล้วเช็ค <code>console.log()</code></p>
+      <p className="mt-4 text-base">⚡ ลองรันแล้วเช็ค <code>console.log()</code></p>
 
       <h2 className="text-xl font-semibold mt-6">🔐 Middleware สำหรับ Authentication</h2>
-      <p className="mt-2">
+      <p className="mt-2 text-base break-words">
         สามารถใช้ Middleware เพื่อตรวจสอบ Token หรือสิทธิ์ของผู้ใช้งาน ก่อนเข้าถึง API ที่ต้องการความปลอดภัย
       </p>
-      <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2">
-        <code>{`const auth = (req, res, next) => {
+      <div className="overflow-x-auto">
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 text-sm sm:text-base">
+          <code>{`const auth = (req, res, next) => {
   const token = req.headers["authorization"];
   if (token === "secret") {
     next();
@@ -46,15 +53,16 @@ app.listen(3000, () => console.log("Server running on port 3000"));`}</code>
 app.get("/secure", auth, (req, res) => {
   res.send("Access granted!");
 });`}</code>
-      </pre>
+        </pre>
+      </div>
 
       <h2 className="text-xl font-semibold mt-6">🧼 การจัดลำดับ Middleware</h2>
-      <p className="mt-2">
+      <p className="mt-2 text-base break-words">
         Middleware จะทำงานตามลำดับที่ <code>app.use()</code> หรือ <code>app.get()</code> ถูกเรียก ดังนั้นควรจัดลำดับให้เหมาะสม เช่น Logging → Auth → Handler
       </p>
 
       <h2 className="text-xl font-semibold mt-6">🧩 ประเภทของ Middleware</h2>
-      <ul className="list-disc ml-6 mt-2">
+      <ul className="list-disc ml-6 mt-2 space-y-1 text-base">
         <li><strong>Application-level middleware</strong> - ใช้กับ <code>app.use()</code></li>
         <li><strong>Router-level middleware</strong> - ใช้กับ <code>express.Router()</code></li>
         <li><strong>Error-handling middleware</strong> - ฟังก์ชันที่มี <code>(err, req, res, next)</code></li>
@@ -63,7 +71,7 @@ app.get("/secure", auth, (req, res) => {
       </ul>
 
       <h2 className="text-xl font-semibold mt-6">✅ สรุป</h2>
-      <p className="mt-2">
+      <p className="mt-2 text-base break-words">
         Middleware เป็นเครื่องมือสำคัญใน Express ที่ช่วยจัดการ Request/Response ได้ยืดหยุ่นมากขึ้น
         ใช้สำหรับตรวจสอบข้อมูล ล็อกข้อมูล หรือแม้แต่ควบคุมสิทธิ์การเข้าถึง API
       </p>
