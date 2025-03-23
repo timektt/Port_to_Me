@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import CourseGrid from "./home/CourseGrid";
 import PythonSeries from "./pages/courses/PythonSeries";
+import SearchResults from "./pages/SearchResults";
 import NodeSeries from "./pages/courses/NodejsSeries";
 import RestfulApiGraphQLSeries from "./pages/courses/RestfulApiGraphQLSeries";
 import ReactJsSeries from "./pages/courses/ReactJsSeries";
@@ -512,11 +513,10 @@ function App() {
                       <Route path="db-optimization" element={<DatabaseOptimization />} />
                       </Route>
                       {/* ✅ 101: Introduction to Programming */}
+
                     <Route
                       path="/courses/basic-programming/*"
-                      element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />}
-       >
-                      <Route index element={<WhatIsProgramming />} />
+                      element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />}    >
                       <Route path="intro" element={<WhatIsProgramming />} />
                       <Route path="computer-execution" element={<ComputerExecution />} />
                       <Route path="programming-languages" element={<ProgrammingLanguages />} />
@@ -564,7 +564,7 @@ function App() {
             {/* ✅ คอร์สอื่น ๆ */}
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/web-development" element={<WebDevSeries theme={theme} setTheme={setTheme} />} />
-            
+            <Route path="/search" element={<SearchResults />} />
         </Routes>
 
         </div>

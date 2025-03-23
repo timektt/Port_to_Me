@@ -8,7 +8,7 @@ import {
   FaBars,
   FaSun,
   FaMoon,
-  FaSearch, // ✅ เพิ่มไอคอนค้นหา
+  FaSearch,
 } from "react-icons/fa";
 import MainMobileMenu from "../../menu/MainMobileMenu";
 import PythonMobileMenu from "./sidebar/MobileMenus/PythonMobileMenu";
@@ -19,11 +19,15 @@ import ReactJsMobileMenu from "./sidebar/MobileMenus/ReactJsMobileMenu";
 import WebDevMobileMenu from "./sidebar/MobileMenus/WebDevMobileMenu";
 
 const Navbar = ({ theme, setTheme }) => {
-  
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // ✅ เก็บค่าค้นหา
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+
+  // ✅ ล้างค่าค้นหาเมื่อเปลี่ยนหน้า
+  useEffect(() => {
+    setSearchQuery("");
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -50,12 +54,35 @@ const Navbar = ({ theme, setTheme }) => {
         <button className="md:hidden text-3xl" onClick={() => setMobileMenuOpen(true)}>
           <FaBars />
         </button>
-
-        {/* ✅ ProfileInfo คลิกกลับ Home + กด "Courses" ไปที่หน้าคอร์สทั้งหมด */}
         <ProfileInfo navigate={navigate} />
       </div>
 
-      {/* ✅ Right Section: Social Links + Dark Mode Toggle + Search Box */}
+      {/* ✅ Mobile Search Input */}
+      <div className="px-4 pt-4 md:hidden">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && searchQuery.trim()) {
+                navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+                setSearchQuery("");
+                setMobileMenuOpen(false);
+              }
+            }}
+            className={`w-full p-2 pl-9 rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+              theme === "dark"
+                ? "bg-gray-700 text-white border-gray-600"
+                : "bg-gray-200 text-gray-900 border-gray-400"
+            }`}
+          />
+          <FaSearch className="absolute left-3 top-3 text-gray-400 pointer-events-none" />
+        </div>
+      </div>
+
+      {/* ✅ Desktop Right Section */}
       <div className="hidden md:flex items-center gap-6">
         <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-red-500">
           <FaYoutube className="text-2xl" />
@@ -67,7 +94,6 @@ const Navbar = ({ theme, setTheme }) => {
           <FaGithub className="text-2xl" />
         </a>
 
-        {/* ✅ Toggle Dark/Light Mode */}
         <button
           onClick={toggleTheme}
           className="w-10 h-10 flex items-center justify-center rounded-full transition bg-gray-700 hover:bg-gray-600"
@@ -79,13 +105,17 @@ const Navbar = ({ theme, setTheme }) => {
           )}
         </button>
 
-        {/* ✅ Search Box (ขวาสุด) */}
         <div className="relative w-48">
           <input
             type="text"
             placeholder="Search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && searchQuery.trim()) {
+                navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+              }
+            }}
             className={`p-2 pl-8 w-full rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               theme === "dark"
                 ? "bg-gray-700 text-white border-gray-600"
@@ -96,30 +126,26 @@ const Navbar = ({ theme, setTheme }) => {
         </div>
       </div>
 
-  {/* ✅ Mobile Menu */}
-  {mobileMenuOpen && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-    {location.pathname.startsWith("/courses/python-series") ? (
-      <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/nodejs-series") ? (
-      <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/restful-api-graphql-series") ? (
-      <RestfulApiGraphQLMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/reactjs-series") ? ( 
-      <ReactJsMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/web-development") ? (
-      <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.startsWith("/courses/basic-programming") ? (
-      <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : (
-      <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    )}
-  </div>
-)}
-
-
-
-
+      {/* ✅ Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+          {location.pathname.startsWith("/courses/python-series") ? (
+            <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : location.pathname.startsWith("/courses/nodejs-series") ? (
+            <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : location.pathname.startsWith("/courses/restful-api-graphql-series") ? (
+            <RestfulApiGraphQLMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : location.pathname.startsWith("/courses/reactjs-series") ? (
+            <ReactJsMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : location.pathname.startsWith("/courses/web-development") ? (
+            <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : location.pathname.startsWith("/courses/basic-programming") ? (
+            <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          ) : (
+            <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+          )}
+        </div>
+      )}
     </nav>
   );
 };

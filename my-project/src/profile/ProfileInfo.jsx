@@ -11,21 +11,22 @@ const ProfileInfo = ({ navigate }) => {
         onClick={() => navigate("/")} // ✅ กลับหน้า Home
       />
 
-      {/* ✅ ชื่อเว็บ & Navigation */}
-      <h1 className="text-3xl font-bold flex items-center gap-5 relative -top-1.5"> 
-        Superbear 
+<h1 className="hidden sm:flex flex-col md:flex-row md:items-center text-xl sm:text-2xl md:text-3xl font-bold gap-1 md:gap-6 relative -top-1.5">
+  <span>Superbear</span>
 
-        {/* ✅ กด "Courses" จะไปที่หน้ารวมคอร์ส */}
-        <span 
-          className="text-xl text-gray-400 hidden md:inline relative top-1 cursor-pointer hover:text-gray-600"
-          onClick={() => navigate("/courses")}
-        >
-          Courses
-        </span>
+  <div className="flex items-center gap-4 text-xl text-gray-400">
+    {/* ✅ กด "Courses" จะไปที่หน้ารวมคอร์ส */}
+    <span
+      className="cursor-pointer hover:text-gray-600 hidden md:inline"
+      onClick={() => navigate("/courses")}
+    >
+      Courses
+    </span>
 
-        {/* ❌ "Post" เป็นข้อความธรรมดา (ไม่สามารถกดได้) */}
-        <span className="text-xl text-gray-400 hidden md:inline relative top-1"> |  Post</span>
-      </h1>
+    {/* ❌ "Post" เป็นข้อความธรรมดา */}
+    <span className="hidden md:inline">| Post</span>
+  </div>
+</h1>
     </div>
   );
 };

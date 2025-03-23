@@ -117,7 +117,7 @@ const BasicProgrammingSeries = ({ theme, setTheme }) => {
               {/* ✅ Warning Box */}
               <div className={`p-4 mt-4 rounded-md shadow-md flex flex-col gap-2 ${theme === "dark" ? "bg-yellow-700 text-white" : "bg-yellow-300 text-black"}`}>
                 <strong className="text-lg flex items-center gap-2">⚠ WARNING</strong>
-                <p>เอกสารฉบับนี้ยังอยู่ในระหว่างการทำ Series ของ Node.js...</p>
+                <p>เอกสารฉบับนี้ยังอยู่ในระหว่างการทำ Series ของ BasicProgrammingSeries...</p>
                 <p>สามารถติดตามผ่านทาง Youtube: <a href="https://youtube.com" className="text-blue-400 hover:underline ml-1">Superbear</a></p>
               </div>
 
@@ -208,7 +208,7 @@ const BasicProgrammingSeries = ({ theme, setTheme }) => {
   {nextTopic ? (
     <button
       className="flex flex-col items-end justify-center w-full max-w-xs md:max-w-sm lg:max-w-md min-w-[150px] min-h-[60px] bg-gray-800 text-white px-6 py-4 rounded-md hover:bg-gray-700 border border-gray-600"
-      onClick={() => navigate(`/courses/nodejs-series/${nextTopic.path}`)}
+      onClick={() => navigate(`/courses/basic-programming/${nextTopic.path}`)}
     >
       <span className="text-sm text-gray-400">Next</span>
       <span className="text-lg">{nextTopic.title} »</span>
