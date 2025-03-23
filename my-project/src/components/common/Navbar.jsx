@@ -57,30 +57,31 @@ const Navbar = ({ theme, setTheme }) => {
         <ProfileInfo navigate={navigate} />
       </div>
 
-      {/* ✅ Mobile Search Input */}
-      <div className="px-4 pt-4 md:hidden">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && searchQuery.trim()) {
-                navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-                setSearchQuery("");
-                setMobileMenuOpen(false);
-              }
-            }}
-            className={`w-full p-2 pl-9 rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
-              theme === "dark"
-                ? "bg-gray-700 text-white border-gray-600"
-                : "bg-gray-200 text-gray-900 border-gray-400"
-            }`}
-          />
-          <FaSearch className="absolute left-3 top-3 text-gray-400 pointer-events-none" />
+            {/* ✅ Mobile Search Input (ปรับให้ชิดขวา อยู่กลาง และกว้างน้อยลง) */}
+        <div className="md:hidden flex justify-end items-center h-full pr-4">
+          <div className="relative w-4/5 max-w-xs">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && searchQuery.trim()) {
+                  navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+                  setSearchQuery("");
+                  setMobileMenuOpen(false);
+                }
+              }}
+              className={`p-2 pl-9 w-full rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+                theme === "dark"
+                  ? "bg-gray-700 text-white border-gray-600"
+                  : "bg-gray-200 text-gray-900 border-gray-400"
+              }`}
+            />
+            <FaSearch className="absolute left-3 top-3 text-gray-400 pointer-events-none" />
+          </div>
         </div>
-      </div>
+
 
       {/* ✅ Desktop Right Section */}
       <div className="hidden md:flex items-center gap-6">
