@@ -33,16 +33,17 @@ const TagsPage = () => {
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-        {allTags.map((tag, index) => (
-          <button
-            key={index}
-            onClick={() => navigate(`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`)}
-            className={`px-4 py-2 rounded-lg shadow-md cursor-pointer text-center transition-all duration-300
-              ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-200 text-black hover:bg-gray-300"}`}
-          >
-            {tag.name}
-          </button>
-        ))}
+            {allTags.map((tag, index) => (
+        <button
+          key={index}
+          onClick={() => navigate(`/tags/${tag.query}`)}
+          className={`px-4 py-2 rounded-lg shadow-md cursor-pointer text-center transition-all duration-300
+            ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+        >
+          {tag.name}
+        </button>
+      ))}
+
       </div>
     </div>
   );
