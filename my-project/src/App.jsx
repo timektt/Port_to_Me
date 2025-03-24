@@ -16,6 +16,7 @@ import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/
 import CourseTags from "./components/common/CourseTags"; // ✅ Import Component ใหม่
 import TagsPage from "./pages/TagsPage";
 import PopularTags from "./pages/courses/PopularTags";
+import TagResults from "./pages/TagResults";
 
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
@@ -565,6 +566,8 @@ function App() {
             <Route path="/courses/reactjs-series" element={<ReactJsSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/courses/web-development" element={<WebDevSeries theme={theme} setTheme={setTheme} />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/tags/:tagName" element={<TagResults />} />
+            <Route path="/tags" element={<TagsPage />} />
         </Routes>
 
         </div>

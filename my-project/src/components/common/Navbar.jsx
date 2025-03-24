@@ -6,10 +6,10 @@ import {
   FaFacebook,
   FaGithub,
   FaBars,
-  FaSun,
   FaMoon,
   FaSearch,
 } from "react-icons/fa";
+import { IoSunny } from "react-icons/io5";
 import MainMobileMenu from "../../menu/MainMobileMenu";
 import PythonMobileMenu from "./sidebar/MobileMenus/PythonMobileMenu";
 import BasicProgrammingMobileMenu from "./sidebar/MobileMenus/BasicProgrammingMobileMenu";
@@ -57,30 +57,31 @@ const Navbar = ({ theme, setTheme }) => {
         <ProfileInfo navigate={navigate} />
       </div>
 
-            {/* ✅ Mobile Search Input (ปรับให้ชิดขวา อยู่กลาง และกว้างน้อยลง) */}
-        <div className="md:hidden flex justify-end items-center h-full pr-4">
-          <div className="relative w-4/5 max-w-xs">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && searchQuery.trim()) {
-                  navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-                  setSearchQuery("");
-                  setMobileMenuOpen(false);
-                }
-              }}
-              className={`p-2 pl-9 w-full rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
-                theme === "dark"
-                  ? "bg-gray-700 text-white border-gray-600"
-                  : "bg-gray-200 text-gray-900 border-gray-400"
-              }`}
-            />
-            <FaSearch className="absolute left-3 top-3 text-gray-400 pointer-events-none" />
-          </div>
+          {/* ✅ Mobile Search Input */}
+      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 w-48 md:hidden">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}ก
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && searchQuery.trim()) {
+                navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+                setSearchQuery(""); // ✅ Clear after search
+                setMobileMenuOpen(false);
+              }
+            }}
+            className={`p-2 pl-9 w-full rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+              theme === "dark"
+                ? "bg-gray-700 text-white border-gray-600"
+                : "bg-gray-200 text-gray-900 border-gray-400"
+            }`}
+          />
+          <FaSearch className="absolute left-3 top-3 text-gray-400 pointer-events-none" />
         </div>
+      </div>
+
 
 
       {/* ✅ Desktop Right Section */}
@@ -100,7 +101,7 @@ const Navbar = ({ theme, setTheme }) => {
           className="w-10 h-10 flex items-center justify-center rounded-full transition bg-gray-700 hover:bg-gray-600"
         >
           {theme === "dark" ? (
-            <FaSun className="text-yellow-400 text-2xl" />
+            <IoSunny className="text-yellow-300 text-2xl" />
           ) : (
             <FaMoon className="text-blue-400 text-2xl" />
           )}

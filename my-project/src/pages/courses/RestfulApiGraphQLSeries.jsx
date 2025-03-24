@@ -193,7 +193,7 @@ const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : 
   <div className="flex items-center">
     <span className="text-lg font-bold">Tags:</span>
     <button
-      onClick={() => navigate("/tags/RestfulApiGraphQL")}
+      onClick={() => navigate("/tags/graphqL")}
       className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
     >
       restfulapi&graphql
