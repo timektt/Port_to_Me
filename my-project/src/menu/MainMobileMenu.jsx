@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const MainMobileMenu = ({ onClose, theme, setTheme }) => {
   const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem("token");
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -17,24 +18,28 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
     localStorage.setItem("theme", newTheme);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+    onClose();
+  };
+
   return (
     <>
-      {/* ✅ Overlay ด้านหลัง */}
+      {/* ✅ Overlay */}
       <div
         className="fixed inset-0 bg-black bg-opacity-30 z-40"
         onClick={onClose}
         aria-label="Close menu overlay"
       ></div>
 
-      {/* ✅ เมนูหลัก */}
+      {/* ✅ Main Menu */}
       <div
         className={`fixed top-0 left-0 w-64 h-full p-4 z-50 shadow-lg transition-all duration-300
           ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}
       >
-        {/* ✅ ปุ่มปิดเมนู (X) */}
+        {/* ✅ Close Button */}
         <button
-          role="button"
-          aria-label="Close menu"
           className={`absolute right-4 top-4 text-2xl transition-colors duration-200
             ${theme === "dark" ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"}`}
           onClick={onClose}
@@ -42,7 +47,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
           <FaTimes />
         </button>
 
-        {/* ✅ โลโก้ + Superbear + ปุ่ม Toggle Theme */}
+        {/* ✅ Logo + Toggle */}
         <div className="mt-6 flex items-center mb-3">
           <img
             src="/spm2.jpg"
@@ -55,7 +60,6 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
             </span>
             <button
               onClick={toggleTheme}
-              tabIndex="0"
               className="cursor-pointer transition-transform transform hover:scale-110"
               aria-label="Toggle dark mode"
             >
@@ -68,7 +72,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
           </div>
         </div>
 
-        {/* ✅ ปุ่มกลับ */}
+        {/* ✅ Back Button */}
         <button
           className="flex items-center text-sm text-gray-400 hover:text-gray-300 mb-3 transition"
           onClick={onClose}
@@ -76,7 +80,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
           <FaArrowLeft className="mr-2" /> กลับไปที่เมนูหลัก
         </button>
 
-        {/* ✅ รายการเมนู */}
+        {/* ✅ Menu List */}
         <ul className="mt-3 space-y-3">
           <li>
             <button
@@ -112,6 +116,28 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
             </button>
           </li>
         </ul>
+
+        {/* ✅ Login/Logout ตำแหน่งใหม่: ถัดจากเมนูหลัก */}
+        <div className="mt-6">
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+            >
+              Logout
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                navigate("/login");
+                onClose();
+              }}
+              className="w-full py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+            >
+              Login
+            </button>
+          )}
+        </div>
       </div>
     </>
   );

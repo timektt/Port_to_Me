@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import ProfileInfo from "../../profile/ProfileInfo";
 import {
   FaYoutube,
@@ -24,7 +24,12 @@ const Navbar = ({ theme, setTheme }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // ✅ ล้างค่าค้นหาเมื่อเปลี่ยนหน้า
+  const isLoggedIn = !!localStorage.getItem("token");
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   useEffect(() => {
     setSearchQuery("");
   }, [location.pathname]);
@@ -57,18 +62,18 @@ const Navbar = ({ theme, setTheme }) => {
         <ProfileInfo navigate={navigate} />
       </div>
 
-          {/* ✅ Mobile Search Input */}
+      {/* ✅ Mobile Search Input */}
       <div className="absolute right-4 top-1/2 transform -translate-y-1/2 w-48 md:hidden">
         <div className="relative">
           <input
             type="text"
             placeholder="Search..."
-            value={searchQuery}ก
+            value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter" && searchQuery.trim()) {
                 navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-                setSearchQuery(""); // ✅ Clear after search
+                setSearchQuery("");
                 setMobileMenuOpen(false);
               }
             }}
@@ -81,8 +86,6 @@ const Navbar = ({ theme, setTheme }) => {
           <FaSearch className="absolute left-3 top-3 text-gray-400 pointer-events-none" />
         </div>
       </div>
-
-
 
       {/* ✅ Desktop Right Section */}
       <div className="hidden md:flex items-center gap-6">
@@ -126,6 +129,23 @@ const Navbar = ({ theme, setTheme }) => {
           />
           <FaSearch className="absolute left-2 top-3 text-gray-400" />
         </div>
+
+{/* ✅ Login/Logout ปุ่มดีไซน์ใหม่ */}
+{isLoggedIn ? (
+  <button
+    onClick={handleLogout}
+    className="px-5 py-2 rounded-full font-semibold text-white bg-red-500 hover:bg-red-600 shadow-md transition duration-300"
+  >
+    Logout
+  </button>
+) : (
+  <Link
+    to="/login"
+    className="px-5 py-2 rounded-full font-semibold text-white bg-green-500 hover:bg-green-600 shadow-md transition duration-300"
+  >
+    Login
+  </Link>
+        )}
       </div>
 
       {/* ✅ Mobile Menu Overlay */}

@@ -17,6 +17,7 @@ import CourseTags from "./components/common/CourseTags"; // ✅ Import Component
 import TagsPage from "./pages/TagsPage";
 import PopularTags from "./pages/courses/PopularTags";
 import TagResults from "./pages/TagResults";
+import Login from "./pages/Login";
 
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
@@ -568,6 +569,8 @@ function App() {
             <Route path="/search" element={<SearchResults />} />
             <Route path="/tags/:tagName" element={<TagResults />} />
             <Route path="/tags" element={<TagsPage />} />
+            <Route path="/login" element={<Login />} />
+
         </Routes>
 
         </div>
