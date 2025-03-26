@@ -6,12 +6,11 @@ const { Pool } = require("pg");
 const app = express();
 
 const pool = new Pool({
-    user: "postgres",
-    password: "Time_44611", // <- ใช้รหัสของคุณตรงนี้
-    host: "localhost",
-    port: 5432,
-    database: "my_project"
-  });
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
 app.use(cors());
 app.use(express.json());
