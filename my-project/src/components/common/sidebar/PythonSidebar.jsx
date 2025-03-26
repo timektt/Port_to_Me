@@ -122,7 +122,7 @@ const PythonSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
                       key={subItem.id}
                       className={`p-2 rounded-lg cursor-pointer transition duration-200 ${
                         location.pathname === subItem.path
-                          ? "bg-green-500 text-white font-bold"
+                          ? "bg-green-600 text-white font-bold"
                           : "hover:bg-gray-600"
                       }`}
                       onClick={() => navigate(subItem.path)}
