@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { auth } from "../firebase/firebase-config";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc"; // โลโก้ Google สีเต็ม
+
 
 const Login = () => {
   const [email, setEmail] = useState("test@example.com");
   const [password, setPassword] = useState("123456");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); // ✅ ใช้สำหรับ redirect
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,8 +25,9 @@ const Login = () => {
       });
 
       if (res.data.success) {
-        localStorage.setItem("token", res.data.token); // ✅ บันทึก token
-        navigate("/"); // ✅ redirect ไปหน้าแรก
+        alert("Login Success!");
+        localStorage.setItem("token", res.data.token);
+        navigate("/");
       } else {
         alert("Invalid credentials");
       }
@@ -31,6 +36,20 @@ const Login = () => {
       alert("Login failed");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      alert(`Welcome, ${user.displayName}`);
+      localStorage.setItem("token", await user.getIdToken());
+      navigate("/");
+    } catch (err) {
+      console.error("Google login error:", err);
+      alert("Google login failed");
     }
   };
 
@@ -49,7 +68,6 @@ const Login = () => {
             className="w-full px-4 py-2 rounded-xl bg-gray-600 text-white placeholder-gray-300 focus:outline-none"
             required
           />
-
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
@@ -93,17 +111,11 @@ const Login = () => {
         <p className="my-3 text-gray-400 font-semibold">OR</p>
 
         <button
-          onClick={() =>
-            window.location.href = "https://github.com/login/oauth/authorize"
-          }
+          onClick={handleGoogleLogin}
           className="bg-gray-700 hover:bg-gray-600 w-full flex items-center justify-center gap-3 rounded-lg py-2 font-semibold transition"
         >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-            alt="GitHub"
-            className="w-5 h-5"
-          />
-          Sign in with GitHub
+        <FcGoogle className="text-xl" />
+          Sign in with Google
         </button>
       </div>
     </div>

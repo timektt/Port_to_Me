@@ -4,7 +4,7 @@ const cors = require("cors");
 const { Pool } = require("pg");
 
 const app = express();
-// const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+
 const pool = new Pool({
     user: "postgres",
     password: "Time_44611", // <- ใช้รหัสของคุณตรงนี้
