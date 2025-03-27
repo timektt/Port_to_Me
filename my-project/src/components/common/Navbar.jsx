@@ -141,7 +141,7 @@ const Navbar = ({ theme, setTheme }) => {
 ) : (
   <Link
     to="/login"
-    className="px-5 py-2 rounded-full font-semibold text-white bg-green-500 hover:bg-green-600 shadow-md transition duration-300"
+    className="px-5 py-2 rounded-full font-semibold text-white bg-gray-500 hover:bg-gray-600 shadow-md transition duration-300"
   >
     Login
   </Link>
