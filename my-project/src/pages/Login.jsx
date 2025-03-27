@@ -5,10 +5,12 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
+  linkWithCredential,
+  fetchSignInMethodsForEmail,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa"; // ✅ เพิ่ม GitHub icon
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("test@example.com");
@@ -21,7 +23,6 @@ const Login = () => {
     e.preventDefault();
     if (loading) return;
     setLoading(true);
-
     try {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, {
         email,
@@ -43,31 +44,33 @@ const Login = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
+  const handleOAuthLogin = async (provider) => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      alert(`Welcome, ${user.displayName}`);
       localStorage.setItem("token", await user.getIdToken());
+      alert(`Welcome, ${user.displayName}`);
       navigate("/");
     } catch (err) {
-      console.error("Google login error:", err);
-      alert("Google login failed");
-    }
-  };
+      if (err.code === "auth/account-exists-with-different-credential") {
+        const email = err.customData?.email;
+        const pendingCred = err.credential;
+        const methods = await fetchSignInMethodsForEmail(auth, email);
 
-  const handleGitHubLogin = async () => {
-    const provider = new GithubAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      alert(`Welcome, ${user.displayName}`);
-      localStorage.setItem("token", await user.getIdToken());
-      navigate("/");
-    } catch (err) {
-      console.error("GitHub login error:", err);
-      alert("GitHub login failed");
+        if (methods.includes("google.com")) {
+          const googleProvider = new GoogleAuthProvider();
+          const result = await signInWithPopup(auth, googleProvider);
+          await linkWithCredential(result.user, pendingCred);
+          localStorage.setItem("token", await result.user.getIdToken());
+          alert("Accounts linked successfully!");
+          navigate("/");
+        } else {
+          alert("Please log in with the previously used provider.");
+        }
+      } else {
+        console.error(err);
+        alert("Login failed");
+      }
     }
   };
 
@@ -129,7 +132,7 @@ const Login = () => {
         <p className="my-3 text-gray-400 font-semibold">OR</p>
 
         <button
-          onClick={handleGoogleLogin}
+          onClick={() => handleOAuthLogin(new GoogleAuthProvider())}
           className="bg-gray-700 hover:bg-gray-600 w-full flex items-center justify-center gap-3 rounded-lg py-2 font-semibold transition"
         >
           <FcGoogle className="text-xl" />
@@ -137,7 +140,7 @@ const Login = () => {
         </button>
 
         <button
-          onClick={handleGitHubLogin}
+          onClick={() => handleOAuthLogin(new GithubAuthProvider())}
           className="bg-gray-800 hover:bg-gray-700 w-full flex items-center justify-center gap-3 rounded-lg py-2 font-semibold transition mt-2"
         >
           <FaGithub className="text-xl" />
