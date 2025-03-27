@@ -19,6 +19,7 @@ import PopularTags from "./pages/courses/PopularTags";
 import TagResults from "./pages/TagResults";
 import Login from "./pages/Login";
 import LoginFirebase from "./pages/LoginFirebase";
+import Register from "./pages/Register";
 
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
@@ -572,7 +573,7 @@ function App() {
             <Route path="/tags" element={<TagsPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login-firebase" element={<LoginFirebase />} />
-
+            <Route path="/register" element={<Register />} />
         </Routes>
 
         </div>

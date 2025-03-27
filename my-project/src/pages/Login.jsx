@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { auth } from "../firebase/firebase-config";
 import {
+  signInWithEmailAndPassword,
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
@@ -11,38 +12,40 @@ import {
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
-  const [email, setEmail] = useState("test@example.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (loading) return;
     setLoading(true);
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, {
-        email,
-        password,
-      });
-
-      if (res.data.success) {
-        alert("Login Success!");
-        localStorage.setItem("token", res.data.token);
-        navigate("/");
-      } else {
-        alert("Invalid credentials");
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      const user = result.user;
+  
+      if (!user.emailVerified) {
+        await user.sendEmailVerification();
+        alert("Please verify your email. A verification link has been sent.");
+        return;
       }
+  
+      const token = await user.getIdToken(true); // บังคับ refresh token
+      localStorage.setItem("token", token);
+      alert("Login Success!");
+      navigate("/");
     } catch (err) {
-      console.error(err);
-      alert("Login failed");
+      console.error("Login error:", err);
+      alert("Login failed: " + err.message);
     } finally {
       setLoading(false);
     }
   };
+  
 
   const handleOAuthLogin = async (provider) => {
     try {
@@ -58,18 +61,26 @@ const Login = () => {
         const methods = await fetchSignInMethodsForEmail(auth, email);
 
         if (methods.includes("google.com")) {
-          const googleProvider = new GoogleAuthProvider();
-          const result = await signInWithPopup(auth, googleProvider);
-          await linkWithCredential(result.user, pendingCred);
-          localStorage.setItem("token", await result.user.getIdToken());
-          alert("Accounts linked successfully!");
-          navigate("/");
+          alert(
+            `บัญชีนี้เคยเชื่อมต่อผ่าน Google มาก่อน กรุณาใช้ปุ่ม "Sign in with Google" เพื่อลงชื่อเข้าใช้ แล้วระบบจะเชื่อมบัญชี GitHub ให้อัตโนมัติ`
+          );
+
+          try {
+            const googleResult = await signInWithPopup(auth, new GoogleAuthProvider());
+            await linkWithCredential(googleResult.user, pendingCred);
+            localStorage.setItem("token", await googleResult.user.getIdToken());
+            alert("บัญชี GitHub เชื่อมกับบัญชี Google สำเร็จ!");
+            navigate("/");
+          } catch (linkErr) {
+            console.error("Error linking credentials:", linkErr);
+            alert("เกิดข้อผิดพลาดในการเชื่อมบัญชี");
+          }
         } else {
-          alert("Please log in with the previously used provider.");
+          alert("บัญชีนี้เคยลงทะเบียนด้วยผู้ให้บริการอื่น กรุณาเข้าสู่ระบบด้วยวิธีเดิม");
         }
       } else {
         console.error(err);
-        alert("Login failed");
+        alert("OAuth login failed");
       }
     }
   };
@@ -83,7 +94,7 @@ const Login = () => {
         <form onSubmit={handleLogin} className="space-y-3">
           <input
             type="text"
-            placeholder="User ID"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-2 rounded-xl bg-gray-600 text-white placeholder-gray-300 focus:outline-none"
@@ -102,8 +113,9 @@ const Login = () => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-2 text-lg text-gray-300"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
-              {showPassword ? "🙈" : "👁️"}
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
             </button>
           </div>
 
@@ -146,6 +158,16 @@ const Login = () => {
           <FaGithub className="text-xl" />
           Sign in with GitHub
         </button>
+
+        <p className="mt-4 text-sm text-gray-400">
+          Don't have an account?{" "}
+          <span
+            className="text-blue-400 hover:underline cursor-pointer"
+            onClick={() => navigate("/register")}
+          >
+            Register here
+          </span>
+        </p>
       </div>
     </div>
   );
