@@ -132,7 +132,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
                 navigate("/login");
                 onClose();
               }}
-              className="w-full py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+              className="w-full py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition"
             >
               Login
             </button>
