@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { auth } from "../firebase/firebase-config";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc"; // โลโก้ Google สีเต็ม
-
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa"; // ✅ เพิ่ม GitHub icon
 
 const Login = () => {
   const [email, setEmail] = useState("test@example.com");
@@ -50,6 +54,20 @@ const Login = () => {
     } catch (err) {
       console.error("Google login error:", err);
       alert("Google login failed");
+    }
+  };
+
+  const handleGitHubLogin = async () => {
+    const provider = new GithubAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      alert(`Welcome, ${user.displayName}`);
+      localStorage.setItem("token", await user.getIdToken());
+      navigate("/");
+    } catch (err) {
+      console.error("GitHub login error:", err);
+      alert("GitHub login failed");
     }
   };
 
@@ -114,8 +132,16 @@ const Login = () => {
           onClick={handleGoogleLogin}
           className="bg-gray-700 hover:bg-gray-600 w-full flex items-center justify-center gap-3 rounded-lg py-2 font-semibold transition"
         >
-        <FcGoogle className="text-xl" />
+          <FcGoogle className="text-xl" />
           Sign in with Google
+        </button>
+
+        <button
+          onClick={handleGitHubLogin}
+          className="bg-gray-800 hover:bg-gray-700 w-full flex items-center justify-center gap-3 rounded-lg py-2 font-semibold transition mt-2"
+        >
+          <FaGithub className="text-xl" />
+          Sign in with GitHub
         </button>
       </div>
     </div>
