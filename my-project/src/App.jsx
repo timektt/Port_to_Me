@@ -20,7 +20,7 @@ import TagResults from "./pages/TagResults";
 import Login from "./pages/Login";
 import LoginFirebase from "./pages/LoginFirebase";
 import Register from "./pages/Register";
-
+import ForgotPassword from "./pages/ForgotPassword";
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -574,6 +574,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/login-firebase" element={<LoginFirebase />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
 
         </div>

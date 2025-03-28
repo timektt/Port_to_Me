@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { auth } from "../firebase/firebase-config";
 import {
   signInWithEmailAndPassword,
@@ -8,6 +7,7 @@ import {
   signInWithPopup,
   linkWithCredential,
   fetchSignInMethodsForEmail,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
@@ -27,14 +27,15 @@ const Login = () => {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       const user = result.user;
-  
+
       if (!user.emailVerified) {
         await user.sendEmailVerification();
         alert("Please verify your email. A verification link has been sent.");
+        setLoading(false);
         return;
       }
-  
-      const token = await user.getIdToken(true); // บังคับ refresh token
+
+      const token = await user.getIdToken(true);
       localStorage.setItem("token", token);
       alert("Login Success!");
       navigate("/");
@@ -45,7 +46,6 @@ const Login = () => {
       setLoading(false);
     }
   };
-  
 
   const handleOAuthLogin = async (provider) => {
     try {
@@ -62,9 +62,8 @@ const Login = () => {
 
         if (methods.includes("google.com")) {
           alert(
-            `บัญชีนี้เคยเชื่อมต่อผ่าน Google มาก่อน กรุณาใช้ปุ่ม "Sign in with Google" เพื่อลงชื่อเข้าใช้ แล้วระบบจะเชื่อมบัญชี GitHub ให้อัตโนมัติ`
+            `บัญชีนี้เคยเชื่อมต่อผ่าน Google มาก่อน กรุณาใช้ปุ่ม "Sign in with Google"`
           );
-
           try {
             const googleResult = await signInWithPopup(auth, new GoogleAuthProvider());
             await linkWithCredential(googleResult.user, pendingCred);
@@ -83,6 +82,10 @@ const Login = () => {
         alert("OAuth login failed");
       }
     }
+  };
+
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
   };
 
   return (
@@ -120,16 +123,12 @@ const Login = () => {
           </div>
 
           <div className="text-left text-sm text-purple-300 mb-2 ml-1">
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                alert("Please contact support to reset your password.");
-              }}
-              className="hover:underline"
+            <span
+              onClick={handleForgotPassword}
+              className="hover:underline cursor-pointer"
             >
-              Forgot Password
-            </a>
+              Forgot Password?
+            </span>
           </div>
 
           <button
