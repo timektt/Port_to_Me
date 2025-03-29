@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import ProfileInfo from "../../profile/ProfileInfo";
 import {
@@ -17,16 +17,17 @@ import NodeMobileMenu from "./sidebar/MobileMenus/NodeMobileMenu";
 import RestfulApiGraphQLMobileMenu from "./sidebar/MobileMenus/RestfulApiGraphQLMobileMenu";
 import ReactJsMobileMenu from "./sidebar/MobileMenus/ReactJsMobileMenu";
 import WebDevMobileMenu from "./sidebar/MobileMenus/WebDevMobileMenu";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = ({ theme, setTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const { user, logout } = useContext(AuthContext);
 
-  const isLoggedIn = !!localStorage.getItem("token");
-  const handleLogout = () => {
-    localStorage.removeItem("token");
+  const handleLogout = async () => {
+    await logout();
     navigate("/");
   };
 
@@ -130,21 +131,20 @@ const Navbar = ({ theme, setTheme }) => {
           <FaSearch className="absolute left-2 top-3 text-gray-400" />
         </div>
 
-{/* ✅ Login/Logout ปุ่มดีไซน์ใหม่ */}
-{isLoggedIn ? (
-  <button
-    onClick={handleLogout}
-    className="px-5 py-2 rounded-full font-semibold text-white bg-red-500 hover:bg-red-600 shadow-md transition duration-300"
-  >
-    Logout
-  </button>
-) : (
-  <Link
-    to="/login"
-    className="px-5 py-2 rounded-full font-semibold text-white bg-gray-500 hover:bg-gray-600 shadow-md transition duration-300"
-  >
-    Login
-  </Link>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="px-5 py-2 rounded-full font-semibold text-white bg-red-500 hover:bg-red-600 shadow-md transition duration-300"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            className="px-5 py-2 rounded-full font-semibold text-white bg-gray-500 hover:bg-gray-600 shadow-md transition duration-300"
+          >
+            Login
+          </Link>
         )}
       </div>
 

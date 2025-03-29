@@ -21,6 +21,7 @@ import Login from "./pages/Login";
 import LoginFirebase from "./pages/LoginFirebase";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
+import { AuthProvider } from "./components/context/AuthContext";
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -290,6 +291,7 @@ function App() {
   return (
     <Router>
       <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
+      <AuthProvider>
         <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(true)} />
 
         {mobileMenuOpen && (
@@ -297,6 +299,7 @@ function App() {
         )}
 
         <div className="flex-1">
+       
         <Routes>
             {/* ✅ หน้าแรก */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
@@ -576,15 +579,18 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
-
+        
         </div>
-
+        
         <Footer />
+       
         <div className="fixed bottom-16 right-4 z-50">
           <SupportMeButton />
         </div>
+        </AuthProvider>
       </div>
     </Router>
+    
   );
 }
 
