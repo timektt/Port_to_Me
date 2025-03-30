@@ -21,7 +21,7 @@ import Login from "./pages/Login";
 import LoginFirebase from "./pages/LoginFirebase";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
-import { AuthProvider } from "./components/context/AuthContext";
+import {  useAuth,AuthProvider } from "./components/context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
 
@@ -283,6 +283,7 @@ import LoggingMonitoring from "./pages/courses/topics/basic-programming/205_debu
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
 function App() {
+  const { user } = useAuth(); // ✅ ต้องมีบรรทัดนี้
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); 
 
@@ -292,18 +293,22 @@ function App() {
   }, [theme]);
 
   return (
+    <AuthProvider>
     <Router>
       <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
-      <AuthProvider>
-        <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(true)} />
+      <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(true)} />
 
-        {mobileMenuOpen && (
+        
+      {mobileMenuOpen && (
           <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
         )}
 
         <div className="flex-1">
+
        
-        <Routes>
+
+       
+        <Routes key={user?.uid || "guest"}>
             {/* ✅ หน้าแรก */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
             <Route path="/courses" element={<AllCourses theme={theme} />} />
@@ -631,10 +636,11 @@ function App() {
         <div className="fixed bottom-16 right-4 z-50">
           <SupportMeButton />
         </div>
-        </AuthProvider>
+       
       </div>
+      
     </Router>
-    
+    </AuthProvider>
   );
 }
 
