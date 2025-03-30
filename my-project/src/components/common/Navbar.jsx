@@ -130,22 +130,37 @@ const Navbar = ({ theme, setTheme }) => {
           />
           <FaSearch className="absolute left-2 top-3 text-gray-400" />
         </div>
-
         {user ? (
-          <button
-            onClick={handleLogout}
-            className="px-5 py-2 rounded-full font-semibold text-white bg-red-500 hover:bg-red-600 shadow-md transition duration-300"
-          >
-            Logout
-          </button>
-        ) : (
-          <Link
-            to="/login"
-            className="px-5 py-2 rounded-full font-semibold text-white bg-gray-500 hover:bg-gray-600 shadow-md transition duration-300"
-          >
-            Login
-          </Link>
-        )}
+  <div className="flex gap-3">
+    <Link
+      to="/dashboard"
+      className="px-5 py-2 rounded-full font-semibold text-yellow-400 bg-black 
+        border border-yellow-500 transition-all duration-300
+        hover:shadow-[0_0_6px_#FFD700,0_0_12px_#FFD700]"
+    >
+      Dashboard
+    </Link>
+    <button
+      onClick={handleLogout}
+      className="px-5 py-2 rounded-full font-semibold text-white bg-red-500 
+        hover:bg-red-600 shadow-md transition duration-300"
+    >
+      Logout
+    </button>
+  </div>
+) : (
+  <Link
+    to="/login"
+    className="px-5 py-2 rounded-full font-semibold text-yellow-400 bg-black 
+      border border-yellow-500 transition-all duration-300
+      hover:shadow-[0_0_6px_#FFD700,0_0_12px_#FFD700]"
+  >
+    Login
+  </Link>
+)}
+
+
+
       </div>
 
       {/* ✅ Mobile Menu Overlay */}

@@ -3,9 +3,9 @@ import {
   FaTimes,
   FaChevronRight,
   FaArrowLeft,
-  FaSun,
   FaMoon,
 } from "react-icons/fa";
+import { FiSun } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const MainMobileMenu = ({ onClose, theme, setTheme }) => {
@@ -64,7 +64,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
               aria-label="Toggle dark mode"
             >
               {theme === "dark" ? (
-                <FaSun className="text-yellow-400 text-2xl" />
+                <FiSun className="text-yellow-400 text-2xl" />
               ) : (
                 <FaMoon className="text-blue-400 text-2xl" />
               )}
@@ -117,15 +117,30 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
           </li>
         </ul>
 
-        {/* ✅ Login/Logout ตำแหน่งใหม่: ถัดจากเมนูหลัก */}
-        <div className="mt-6">
+        {/* ✅ Login/Dashboard/Logout */}
+        <div className="mt-6 space-y-3">
           {isLoggedIn ? (
-            <button
-              onClick={handleLogout}
-              className="w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition"
-            >
-              Logout
-            </button>
+            <>
+              {/* ✅ Dashboard Button */}
+              <button
+  onClick={() => {
+    navigate("/dashboard");
+    onClose();
+  }}
+  className="w-full py-2 rounded-full font-semibold text-yellow-400 bg-black 
+             border border-yellow-500 shadow-md hover:shadow-yellow-300/50 transition duration-300"
+>
+  Dashboard
+</button>
+
+              {/* ✅ Logout Button */}
+              <button
+                onClick={handleLogout}
+                className="w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+              >
+                Logout
+              </button>
+            </>
           ) : (
             <button
               onClick={() => {

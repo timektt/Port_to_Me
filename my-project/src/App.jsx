@@ -22,6 +22,9 @@ import LoginFirebase from "./pages/LoginFirebase";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import { AuthProvider } from "./components/context/AuthContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
+
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -310,262 +313,295 @@ function App() {
             <Route path="/tags" element={<TagsPage />} /> {/* ✅ เส้นทางไปที่ TagsPage */}
             <Route path="/popular-tags" element={<PopularTags />} /> {/* ✅ เส้นทางไปที่ PopularTags */}
 
-            {/* ✅ หน้าคอร์สทั้งหมด */}
-            <Route path="/courses/python-series/*" element={<PythonSeries theme={theme} setTheme={setTheme} />}>
-                        <Route index element={<PythonIntro />} /> {/* ✅ หน้า default เมื่อเข้า /courses/python-series */}
-                        <Route path="intro" element={<PythonIntro />} />
-                        <Route path="variables" element={<PythonVariables />} />
-                        <Route path="control-structure" element={<PythonControlStructure />} />
-                        <Route path="input-function" element={<PythonInputFunction />} />
-                        <Route path="leetcode" element={<PythonLeetcode />} />
+                          {/* ✅ หน้าคอร์สทั้งหมด */}
+                          <Route
+                path="/courses/python-series/*"
+                element={
+                  <ProtectedRoute>
+                    <PythonSeries theme={theme} setTheme={setTheme} />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<PythonIntro />} />
+                <Route path="intro" element={<PythonIntro />} />
+                <Route path="variables" element={<PythonVariables />} />
+                <Route path="control-structure" element={<PythonControlStructure />} />
+                <Route path="input-function" element={<PythonInputFunction />} />
+                <Route path="leetcode" element={<PythonLeetcode />} />
 
-                        {/*data201*/}
-                        <Route path="data" element={<ListsTuples />} />
-                        <Route path="dictionaries" element={<Dictionaries />} />
-                        <Route path="set" element={<SetsFrozenset />} />
-                        <Route path="pandas" element={<PandasData />} />
+                {/* data201 */}
+                <Route path="data" element={<ListsTuples />} />
+                <Route path="dictionaries" element={<Dictionaries />} />
+                <Route path="set" element={<SetsFrozenset />} />
+                <Route path="pandas" element={<PandasData />} />
 
-                        {/*visualization202*/}
-                        <Route path="matplotlib" element={<MatplotlibBasics />} />
-                        <Route path="seaborn" element={<SeabornDataVisualization />} />
-                        <Route path="plotly" element={<PlotlyInteractiveGraphs />} />
+                {/* visualization202 */}
+                <Route path="matplotlib" element={<MatplotlibBasics />} />
+                <Route path="seaborn" element={<SeabornDataVisualization />} />
+                <Route path="plotly" element={<PlotlyInteractiveGraphs />} />
 
-                        {/*data203*/}
-                        <Route path="data-cleaning" element={<DataCleaning />} />
-                        <Route path="data-transformation" element={<DataTransformation />} />
-                        <Route path="data-formatting" element={<DataFormatting />} />
+                {/* data203 */}
+                <Route path="data-cleaning" element={<DataCleaning />} />
+                <Route path="data-transformation" element={<DataTransformation />} />
+                <Route path="data-formatting" element={<DataFormatting />} />
 
-                        {/*statistic204*/}
-                        <Route path="basic-statistics" element={<BasicStatistics />} />
-                        <Route path="probability" element={<ProbabilityDistribution />} />
-                        <Route path="hypothesis-testing" element={<HypothesisTesting />} />
+                {/* statistic204 */}
+                <Route path="basic-statistics" element={<BasicStatistics />} />
+                <Route path="probability" element={<ProbabilityDistribution />} />
+                <Route path="hypothesis-testing" element={<HypothesisTesting />} />
 
-                        {/*statistic205*/}
-                        <Route path="regression" element={<RegressionAnalysis />} />
-                        <Route path="clustering" element={<ClusteringMethods />} />
-                        <Route path="deep-learning" element={<DeepLearningBasics />} />
-            </Route>
+                {/* statistic205 */}
+                <Route path="regression" element={<RegressionAnalysis />} />
+                <Route path="clustering" element={<ClusteringMethods />} />
+                <Route path="deep-learning" element={<DeepLearningBasics />} />
+              </Route>
 
-            {/* ✅ Node.js Series */}
-            <Route path="/courses/nodejs-series/*" element={<NodeSeries theme={theme} setTheme={setTheme} />}>
-                <Route index element={<NodeIntro />} />
-                <Route path="node-intro" element={<NodeIntro />} />
-                <Route path="node-run-code" element={<NodeJsRunCode />} />
-                <Route path="node-modules" element={<NodeModules />} />
-                <Route path="node-npm-yarn" element={<NodePackageManager />} />
-                <Route path="node-setup" element={<NodeSetup />} />
+          {/* ✅ Node.js Series */}
+          <Route
+            path="/courses/nodejs-series/*"
+            element={
+              <ProtectedRoute>
+                <NodeSeries theme={theme} setTheme={setTheme} />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<NodeIntro />} />
+            <Route path="node-intro" element={<NodeIntro />} />
+            <Route path="node-run-code" element={<NodeJsRunCode />} />
+            <Route path="node-modules" element={<NodeModules />} />
+            <Route path="node-npm-yarn" element={<NodePackageManager />} />
+            <Route path="node-setup" element={<NodeSetup />} />
 
-                {/* ✅ Asynchronous JavaScript */}
-                <Route path="async-callbacks" element={<AsyncCallbacks />} />
-                <Route path="promises-async-await" element={<PromisesAsyncAwait />} />
-                <Route path="event-emitter" element={<EventEmitter />} />
-                <Route path="streams-buffer" element={<StreamsBuffer />} />
-                <Route path="fs-promises" element={<FsPromises />} />
+            {/* ✅ Asynchronous JavaScript */}
+            <Route path="async-callbacks" element={<AsyncCallbacks />} />
+            <Route path="promises-async-await" element={<PromisesAsyncAwait />} />
+            <Route path="event-emitter" element={<EventEmitter />} />
+            <Route path="streams-buffer" element={<StreamsBuffer />} />
+            <Route path="fs-promises" element={<FsPromises />} />
 
-                {/* ✅ Event Loop & Async Operations */}
-                <Route path="event-loop" element={<EventLoop />} />
-                <Route path="timers-io" element={<TimersIO />} />
-                <Route path="process-next-tick" element={<ProcessNextTick />} />
-                <Route path="async-error-handling" element={<AsyncErrors />} />
-                <Route path="child-processes" element={<ChildProcesses />} />
+            {/* ✅ Event Loop & Async Operations */}
+            <Route path="event-loop" element={<EventLoop />} />
+            <Route path="timers-io" element={<TimersIO />} />
+            <Route path="process-next-tick" element={<ProcessNextTick />} />
+            <Route path="async-error-handling" element={<AsyncErrors />} />
+            <Route path="child-processes" element={<ChildProcesses />} />
 
-                {/* ✅ API Development */}
-                <Route path="rest-api-basics" element={<RestApiBasics />} />
-                <Route path="handling-http-requests" element={<HandlingHttpRequests />} />
-                <Route path="middleware-concepts" element={<MiddlewareConcepts />} />
-                <Route path="error-handling" element={<ValidationErrorHandling />} />
-                <Route path="api-authentication" element={<AuthenticationJWT />} />
+            {/* ✅ API Development */}
+            <Route path="rest-api-basics" element={<RestApiBasics />} />
+            <Route path="handling-http-requests" element={<HandlingHttpRequests />} />
+            <Route path="middleware-concepts" element={<MiddlewareConcepts />} />
+            <Route path="error-handling" element={<ValidationErrorHandling />} />
+            <Route path="api-authentication" element={<AuthenticationJWT />} />
 
-        
+            {/* ✅ Express.js Framework */}
+            <Route path="express-intro" element={<ExpressIntro />} />
+            <Route path="express-routing" element={<ExpressRouting />} />
+            <Route path="express-middleware" element={<ExpressMiddleware />} />
+            <Route path="express-cors" element={<ExpressCORS />} />
+            <Route path="express-error-handling" element={<ExpressErrorHandling />} />
 
-                {/* ✅ Express.js Framework */}
-                <Route path="express-intro" element={<ExpressIntro />} />
-                <Route path="express-routing" element={<ExpressRouting />} />
-                <Route path="express-middleware" element={<ExpressMiddleware />} />
-                <Route path="express-cors" element={<ExpressCORS />} />
-                <Route path="express-error-handling" element={<ExpressErrorHandling />} />
+            {/* ✅ Database Integration */}
+            <Route path="mongodb-integration" element={<MongoDBIntegration />} />
+            <Route path="postgresql-integration" element={<PostgreSQLIntegration />} />
+            <Route path="mongoose-orm" element={<MongooseORM />} />
+            <Route path="knexjs-postgresql" element={<KnexJSPostgreSQL />} />
+            <Route path="redis-integration" element={<RedisIntegration />} />
+          </Route>
 
-                {/* ✅ Database Integration */}
-                <Route path="mongodb-integration" element={<MongoDBIntegration />} />
-                <Route path="postgresql-integration" element={<PostgreSQLIntegration />} />
-                <Route path="mongoose-orm" element={<MongooseORM />} />
-                <Route path="knexjs-postgresql" element={<KnexJSPostgreSQL />} />
-                <Route path="redis-integration" element={<RedisIntegration />} />
+        {/* ✅ GraphQL API Series (Protected) */}
+        <Route
+          path="/courses/restful-api-graphql-series/*"
+          element={
+            <ProtectedRoute>
+              <RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<ApiIntro />} />
+          <Route path="intro" element={<ApiIntro />} />
+          <Route path="rest-vs-graphql" element={<RestVsGraphQL />} />
+          <Route path="how-apis-work" element={<HowApisWork />} />
+          <Route path="api-types" element={<ApiTypes />} />
+          <Route path="api-documentation" element={<ApiDocumentation />} />
 
+          <Route path="rest-basics" element={<RestBasics />} />
+          <Route path="rest-nodejs" element={<RestNodejs />} />
+          <Route path="rest-crud" element={<RestCrud />} />
+          <Route path="rest-error-handling" element={<RestErrorHandling />} />
+          <Route path="rest-versioning" element={<RestVersioning />} />
 
-                </Route>
+          <Route path="graphql-basics" element={<GraphQLBasics />} />
+          <Route path="graphql-api" element={<BuildingGraphQLApi />} />
+          <Route path="graphql-queries-mutations" element={<QueriesMutations />} />
+          <Route path="graphql-schema-resolvers" element={<GraphQLSchemaResolvers />} />
+          <Route path="graphql-vs-rest" element={<GraphQLVsRest />} />
 
-                {/* ✅ GraphQL API */}
-                {/* ✅ GraphQL API */}
-                  <Route path="/courses/restful-api-graphql-series/*" element={<RestfulApiGraphQLSeries theme={theme} setTheme={setTheme} />}>
-                    <Route index element={<ApiIntro />} />  {/* ✅ หน้าแรกเมื่อเข้า /courses/restful-api-graphql-series */}
-                    <Route path="intro" element={<ApiIntro />} />
-                    <Route path="rest-vs-graphql" element={<RestVsGraphQL />} />
-                    <Route path="how-apis-work" element={<HowApisWork />} />
-                    <Route path="api-types" element={<ApiTypes />} />
-                    <Route path="api-documentation" element={<ApiDocumentation />} />
+          {/* ✅ API Security 203 */}
+          <Route path="api-security" element={<ApiAuthentication />} />
+          <Route path="rate-limiting" element={<RateLimitingCORS />} />
+          <Route path="oauth-api-keys" element={<OAuthApiKeys />} />
+          <Route path="jwt-session" element={<JwtSessionManagement />} />
+          <Route path="api-security-best-practices" element={<ApiSecurityBestPractices />} />
 
+          {/* ✅ Advanced API Concepts 204 */}
+          <Route path="api-gateways-microservices" element={<ApiGatewaysMicroservices />} />
+          <Route path="graphql-subscriptions" element={<GraphQLSubscriptions />} />
+          <Route path="api-performance" element={<ApiPerformanceOptimization />} />
+          <Route path="api-testing-monitoring" element={<ApiTestingMonitoring />} />
+          <Route path="api-deployment-scaling" element={<ApiDeploymentScaling />} />
+        </Route>
 
-                    <Route path="rest-basics" element={<RestBasics />} />
-                    <Route path="rest-nodejs" element={<RestNodejs />} />
-                    <Route path="rest-crud" element={<RestCrud />} />
-                    <Route path="rest-error-handling" element={<RestErrorHandling />} />
-                    <Route path="rest-versioning" element={<RestVersioning />} />
+        <Route
+  path="/courses/reactjs-series/*"
+  element={
+    <ProtectedRoute>
+      <ReactJsSeries theme={theme} setTheme={setTheme} />
+    </ProtectedRoute>
+  }
+>
+  <Route index element={<ReactIntro />} />
+  <Route path="intro" element={<ReactIntro />} />
+  <Route path="setup" element={<ReactSetup />} />
+  <Route path="jsx-rendering" element={<ReactJSXRendering />} />
+  <Route path="virtual-dom" element={<ReactVirtualDOM />} />
+  <Route path="react-vs-frameworks" element={<ReactVsFrameworks />} />
 
-                    <Route path="graphql-basics" element={<GraphQLBasics />} />
-                    <Route path="graphql-api" element={<BuildingGraphQLApi />} />
-                    <Route path="graphql-queries-mutations" element={<QueriesMutations />} />
-                    <Route path="graphql-schema-resolvers" element={<GraphQLSchemaResolvers />} />
-                    <Route path="graphql-vs-rest" element={<GraphQLVsRest />} />
+  {/* ✅ React 201 */}
+  <Route path="components" element={<FunctionalClassComponents />} />
+  <Route path="props" element={<PropsDrilling />} />
+  <Route path="lifecycle" element={<ComponentLifecycle />} />
+  <Route path="reusable-components" element={<ReusableComponents />} />
+  <Route path="composition-vs-inheritance" element={<CompositionVsInheritance />} />
 
-                    {/* ✅ API Security 203 */}
-                    <Route path="api-security" element={<ApiAuthentication />} />
-                    <Route path="rate-limiting" element={<RateLimitingCORS />} />
-                    <Route path="oauth-api-keys" element={<OAuthApiKeys />} />
-                    <Route path="jwt-session" element={<JwtSessionManagement />} />
-                    <Route path="api-security-best-practices" element={<ApiSecurityBestPractices />} />
+  {/* ✅ React 202 */}
+  <Route path="state" element={<UseStateHook />} />
+  <Route path="context-api" element={<ContextAPI />} />
+  <Route path="redux" element={<ReduxBasics />} />
+  <Route path="recoil-zustand" element={<RecoilZustand />} />
+  <Route path="global-state" element={<GlobalStateManagement />} />
 
-                    {/* ✅ Advanced API Concepts 204 */}
-                    <Route path="api-gateways-microservices" element={<ApiGatewaysMicroservices />} />
-                    <Route path="graphql-subscriptions" element={<GraphQLSubscriptions />} />
-                    <Route path="api-performance" element={<ApiPerformanceOptimization />} />
-                    <Route path="api-testing-monitoring" element={<ApiTestingMonitoring />} />
-                    <Route path="api-deployment-scaling" element={<ApiDeploymentScaling />} />
-                  </Route>
+  {/* ✅ React Hooks */}
+  <Route path="hooks-intro" element={<HooksIntro />} />
+  <Route path="useeffect" element={<UseEffectHook />} />
+  <Route path="useref" element={<UseRefHook />} />
+  <Route path="usereducer" element={<UseReducerHook />} />
+  <Route path="custom-hooks" element={<CustomHooks />} />
 
-                  <Route path="/courses/reactjs-series/*" element={<ReactJsSeries theme={theme} setTheme={setTheme} />}>
-                      <Route index element={<ReactIntro />} /> {/* ✅ หน้า default เมื่อเข้า /courses/reactjs-series */}
-                      <Route path="intro" element={<ReactIntro />} />
-                      <Route path="setup" element={<ReactSetup />} />
-                      <Route path="jsx-rendering" element={<ReactJSXRendering />} />
-                      <Route path="virtual-dom" element={<ReactVirtualDOM />} />
-                      <Route path="react-vs-frameworks" element={<ReactVsFrameworks />} />
-                       {/* ✅ React 201 */}
-                      <Route path="components" element={<FunctionalClassComponents />} />
-                      <Route path="props" element={<PropsDrilling />} />
-                      <Route path="lifecycle" element={<ComponentLifecycle />} />
-                      <Route path="reusable-components" element={<ReusableComponents />} />
-                      <Route path="composition-vs-inheritance" element={<CompositionVsInheritance />} />
-                      {/* ✅ React 202 */}
-                      <Route path="state" element={<UseStateHook />} />
-                      <Route path="context-api" element={<ContextAPI />} />
-                      <Route path="redux" element={<ReduxBasics />} />
-                      <Route path="recoil-zustand" element={<RecoilZustand />} />
-                      <Route path="global-state" element={<GlobalStateManagement />} />
+  <Route path="react-router" element={<ReactRouterIntro />} />
+  <Route path="nested-routes" element={<NestedRoutes />} />
+  <Route path="navigation" element={<ProgrammaticNavigation />} />
+  <Route path="protected-routes" element={<ProtectedRoutesPage />} />
+  <Route path="lazy-loading" element={<LazyLoading />} />
 
-                                            {/* ✅ React Hooks */}
-                      <Route path="hooks-intro" element={<HooksIntro/>} />
-                      <Route path="useeffect" element={<UseEffectHook/>} />
-                      <Route path="useref" element={<UseRefHook/>} />
-                      <Route path="usereducer" element={<UseReducerHook />} />
-                      <Route path="custom-hooks" element={<CustomHooks />} />
+  {/* ✅ Fetching Data & API Integration */}
+  <Route path="fetch-api" element={<FetchingDataWithFetchAPI />} />
+  <Route path="axios" element={<UsingAxiosForHttpRequests />} />
+  <Route path="loading-errors" element={<HandlingLoadingAndErrors />} />
+  <Route path="graphql" element={<GraphQLIntegration />} />
+  <Route path="caching-api" element={<CachingAndOptimizingAPICalls />} />
+</Route>
 
-                      <Route path="react-router" element={<ReactRouterIntro />} />
-                      <Route path="nested-routes" element={<NestedRoutes />} />
-                      <Route path="navigation" element={<ProgrammaticNavigation />} />
-                      <Route path="protected-routes" element={<ProtectedRoutesPage />} />
-                      <Route path="lazy-loading" element={<LazyLoading />} />
+<Route
+  path="/courses/web-development/*"
+  element={
+    <ProtectedRoute>
+      <WebDevSeries theme={theme} setTheme={setTheme} />
+    </ProtectedRoute>
+  }
+>
+  <Route index element={<IntroductionToWebDevelopment />} />
+  <Route path="intro" element={<IntroductionToWebDevelopment />} />
+  <Route path="frontend-backend" element={<FrontendVsBackend />} />
+  <Route path="how-web-works" element={<HowTheWebWorks />} />
+  <Route path="client-server" element={<ClientVsServer />} />
+  <Route path="web-dev-tools" element={<EssentialWebDevTools />} />
 
-                       {/* ✅ Route สำหรับ Fetching Data & API Integration (205) */}
-                      <Route path="fetch-api" element={<FetchingDataWithFetchAPI />} />
-                      <Route path="axios" element={<UsingAxiosForHttpRequests />} />
-                      <Route path="loading-errors" element={<HandlingLoadingAndErrors />} />
-                      <Route path="graphql" element={<GraphQLIntegration />} />
-                      <Route path="caching-api" element={<CachingAndOptimizingAPICalls />} />
+  {/* ✅ Web Dev 201 */}
+  <Route path="html-basics" element={<HTMLBasics />} />
+  <Route path="css-basics" element={<CSSBasics />} />
+  <Route path="responsive-design" element={<ResponsiveDesign />} />
+  <Route path="css-grid-flexbox" element={<CSSGridFlexbox />} />
+  <Route path="css-preprocessors" element={<CSSPreprocessors />} />
 
-                      </Route>
+  {/* ✅ Web Dev 202 */}
+  <Route path="javascript-basics" element={<JavaScriptBasics />} />
+  <Route path="dom-manipulation" element={<DOMManipulation />} />
+  <Route path="es6-modern-js" element={<ES6ModernJS />} />
+  <Route path="event-handling" element={<EventHandling />} />
+  <Route path="async-js" element={<AsyncJS />} />
 
-                      {/* ✅ Web Development Series */}
-                      <Route path="/courses/web-development/*" element={<WebDevSeries theme={theme} setTheme={setTheme} />}>
-                      <Route index element={<IntroductionToWebDevelopment />} />
-                      <Route path="intro" element={<IntroductionToWebDevelopment />} />
-                      <Route path="frontend-backend" element={<FrontendVsBackend />} />
-                      <Route path="how-web-works" element={<HowTheWebWorks />} />
-                      <Route path="client-server" element={<ClientVsServer />} />
-                      <Route path="web-dev-tools" element={<EssentialWebDevTools />} />
+  {/* ✅ Web Dev 203 */}
+  <Route path="react-intro" element={<ReactIntroWebdev />} />
+  <Route path="vue-intro" element={<VueIntro />} />
+  <Route path="angular-intro" element={<AngularIntro />} />
+  <Route path="state-management" element={<StateManagement />} />
+  <Route path="ssr-vs-csr" element={<SSRvsCSR />} />
 
-                                {/* ✅ Web Dev 201 */}
-                      <Route path="html-basics" element={<HTMLBasics />} />
-                      <Route path="css-basics" element={<CSSBasics />} />
-                      <Route path="responsive-design" element={<ResponsiveDesign />} />
-                      <Route path="css-grid-flexbox" element={<CSSGridFlexbox />} />
-                      <Route path="css-preprocessors" element={<CSSPreprocessors />} />
+  {/* ✅ Web Dev 204 */}
+  <Route path="node-express" element={<NodeExpress />} />
+  <Route path="api-development" element={<APIDevelopment />} />
+  <Route path="authentication" element={<Authentication />} />
+  <Route path="file-upload" element={<FileUpload />} />
+  <Route path="websockets" element={<WebSockets />} />
 
-                        {/* ✅ Web Dev 202 */}
-                      <Route path="javascript-basics" element={<JavaScriptBasics />} />
-                      <Route path="dom-manipulation" element={<DOMManipulation />} />
-                      <Route path="es6-modern-js" element={<ES6ModernJS />} />
-                      <Route path="event-handling" element={<EventHandling />} />
-                      <Route path="async-js" element={<AsyncJS />} />
+  {/* ✅ Web Dev 205 */}
+  <Route path="mongodb" element={<MongoDBBasics />} />
+  <Route path="sql-basics" element={<SQLFundamentals />} />
+  <Route path="rest-graphql" element={<RestGraphQL />} />
+  <Route path="caching-strategies" element={<CachingStrategies />} />
+  <Route path="db-optimization" element={<DatabaseOptimization />} />
+</Route>
 
-                                {/* ✅ Web Dev 203 */}
-                      <Route path="react-intro" element={<ReactIntroWebdev />} />
-                      <Route path="vue-intro" element={<VueIntro />} />
-                      <Route path="angular-intro" element={<AngularIntro />} />
-                      <Route path="state-management" element={<StateManagement />} />
-                      <Route path="ssr-vs-csr" element={<SSRvsCSR />} />
+<Route
+  path="/courses/basic-programming/*"
+  element={
+    <ProtectedRoute>
+      <BasicProgrammingSeries theme={theme} setTheme={setTheme} />
+    </ProtectedRoute>
+  }
+>
+  <Route path="intro" element={<WhatIsProgramming />} />
+  <Route path="computer-execution" element={<ComputerExecution />} />
+  <Route path="programming-languages" element={<ProgrammingLanguages />} />
+  <Route path="compilers-interpreters" element={<CompilersInterpreters />} />
+  <Route path="setup" element={<SetupEnvironment />} />
 
-                       {/* ✅ Web Dev 204 */}
-                      <Route path="node-express" element={<NodeExpress />} />
-                      <Route path="api-development" element={<APIDevelopment />} />
-                      <Route path="authentication" element={<Authentication />} />
-                      <Route path="file-upload" element={<FileUpload />} />
-                      <Route path="websockets" element={<WebSockets />} />
+  {/* ✅ Basic Programming: Variables & Data Types */}
+  <Route path="variables" element={<VariableIntro />} />
+  <Route path="data-types" element={<PrimitiveDataTypes />} />
+  <Route path="type-conversion" element={<TypeConversion />} />
+  <Route path="constants" element={<Constants />} />
+  <Route path="scope" element={<VariableScope />} />
 
-                       {/* ✅ Web Dev 205 */}
-                      <Route path="mongodb" element={<MongoDBBasics />} />
-                      <Route path="sql-basics" element={<SQLFundamentals />} />
-                      <Route path="rest-graphql" element={<RestGraphQL />} />
-                      <Route path="caching-strategies" element={<CachingStrategies />} />
-                      <Route path="db-optimization" element={<DatabaseOptimization />} />
-                      </Route>
-                      {/* ✅ 101: Introduction to Programming */}
+  {/* ✅ 202: Control Flow & Loops */}
+  <Route path="conditions" element={<ConditionalStatements />} />
+  <Route path="loops" element={<LoopsForWhile />} />
+  <Route path="break-continue" element={<BreakContinueStatements />} />
+  <Route path="nested-loops" element={<NestedLoops />} />
+  <Route path="recursion" element={<RecursionBasics />} />
 
-                    <Route
-                      path="/courses/basic-programming/*"
-                      element={<BasicProgrammingSeries theme={theme} setTheme={setTheme} />}    >
-                      <Route path="intro" element={<WhatIsProgramming />} />
-                      <Route path="computer-execution" element={<ComputerExecution />} />
-                      <Route path="programming-languages" element={<ProgrammingLanguages />} />
-                      <Route path="compilers-interpreters" element={<CompilersInterpreters />} />
-                      <Route path="setup" element={<SetupEnvironment />} />
+  {/* ✅ 203: Arrays & Objects */}
+  <Route path="functions" element={<DefiningFunctions />} />
+  <Route path="modules" element={<WorkingWithModules />} />
+  <Route path="parameters" element={<FunctionParameters />} />
+  <Route path="return-values" element={<ReturnValuesScope />} />
+  <Route path="lambda-functions" element={<LambdaFunctions />} />
 
+  {/* ✅ OOP Series */}
+  <Route path="oop" element={<ClassesObjects />} />
+  <Route path="oop-inheritance" element={<EncapsulationInheritance />} />
+  <Route path="polymorphism" element={<PolymorphismMethodOverriding />} />
+  <Route path="abstraction" element={<AbstractionInterfaces />} />
+  <Route path="oop-design-patterns" element={<OOPDesignPatterns />} />
 
-                      {/* ✅ Basic Programming: Variables & Data Types */}
-                    <Route path="variables" element={<VariableIntro />} />
-                    <Route path="data-types" element={<PrimitiveDataTypes />} />
-                    <Route path="type-conversion" element={<TypeConversion />} />
-                    <Route path="constants" element={<Constants />} />
-                    <Route path="scope" element={<VariableScope />} />
+  {/* ✅ Debugging & Error Handling */}
+  <Route path="debugging" element={<CommonProgrammingErrors />} />
+  <Route path="debugging-tools" element={<DebuggingTools />} />
+  <Route path="error-types" element={<ErrorTypes />} />
+  <Route path="exception-handling" element={<ExceptionHandling />} />
+  <Route path="logging-monitoring" element={<LoggingMonitoring />} />
+</Route>
 
-                    {/* ✅ 202: Control Flow & Loops */}
-                    <Route path="conditions" element={<ConditionalStatements />} />
-                    <Route path="loops" element={<LoopsForWhile />} />
-                    <Route path="break-continue" element={<BreakContinueStatements />} />
-                    <Route path="nested-loops" element={<NestedLoops />} />
-                    <Route path="recursion" element={<RecursionBasics />} />
-
-                    {/* ✅ 203: Arrays & Objects */}
-                    <Route path="functions" element={<DefiningFunctions />} />
-                    <Route path="modules" element={<WorkingWithModules />} />
-                    <Route path="parameters" element={<FunctionParameters />} />
-                    <Route path="return-values" element={<ReturnValuesScope />} />
-                    <Route path="lambda-functions" element={<LambdaFunctions />} />
-
-                    {/* ✅ OOP Series */}
-                    <Route path="oop" element={<ClassesObjects />} />
-                    <Route path="oop-inheritance" element={<EncapsulationInheritance />} />
-                    <Route path="polymorphism" element={<PolymorphismMethodOverriding />} />
-                    <Route path="abstraction" element={<AbstractionInterfaces />} />
-                    <Route path="oop-design-patterns" element={<OOPDesignPatterns />} />
-
-                    {/* ✅ Debugging & Error Handling */}
-                    <Route path="debugging" element={<CommonProgrammingErrors />} />
-                    <Route path="debugging-tools" element={<DebuggingTools />} />
-                    <Route path="error-types" element={<ErrorTypes />} />
-                    <Route path="exception-handling" element={<ExceptionHandling />} />
-                    <Route path="logging-monitoring" element={<LoggingMonitoring />} />
-                  </Route>
                     
 
             {/* ✅ คอร์สอื่น ๆ */}
@@ -578,6 +614,14 @@ function App() {
             <Route path="/login-firebase" element={<LoginFirebase />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         
         </div>
