@@ -21,7 +21,7 @@ import Login from "./pages/Login";
 import LoginFirebase from "./pages/LoginFirebase";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
-import {  useAuth,AuthProvider } from "./components/context/AuthContext";
+import { AuthProvider } from "./components/context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
 
@@ -283,7 +283,6 @@ import LoggingMonitoring from "./pages/courses/topics/basic-programming/205_debu
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
 function App() {
-  const { user } = useAuth(); // ✅ ต้องมีบรรทัดนี้
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); 
 
@@ -308,7 +307,7 @@ function App() {
        
 
        
-        <Routes key={user?.uid || "guest"}>
+        <Routes >
             {/* ✅ หน้าแรก */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
             <Route path="/courses" element={<AllCourses theme={theme} />} />
