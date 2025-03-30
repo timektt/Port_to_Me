@@ -129,13 +129,16 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
           </button>
         </div>
       </div>
-
-      {/* ✅ ปุ่ม Back ไปเมนูหลัก */}
-      <button 
-        className="flex items-center text-sm text-gray-400 hover:text-gray-300 mb-3 transition"
-        onClick={onClose}
+          {/* ✅ ปุ่มกลับไปหน้า Python Series */}
+          <button
+        className={`w-full text-left text-sm font-medium px-5 py-3 rounded-lg mb-4 transition 
+          ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+        onClick={() => {
+          navigate("/courses/reactjs-series");
+          onClose();
+        }}
       >
-        <FaArrowLeft className="mr-2" /> กลับไปที่เมนูหลัก
+         ReactJsSeries
       </button>
 
       {/* ✅ รายการบทเรียน (Dropdown) */}
@@ -143,7 +146,7 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
         {sidebarItems.map((item) => (
           <li key={item.id} className="border-b border-gray-700">
             <button
-              className="flex items-center justify-between w-full p-3 rounded-lg transition duration-300 ease-in-out
+              className="flex items-center justify-between w-full p-4 rounded-lg transition duration-300 ease-in-out
                 hover:bg-gray-700 hover:shadow-lg text-left"
               onClick={() => toggleSection(item.id)}
             >

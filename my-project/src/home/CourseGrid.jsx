@@ -17,7 +17,7 @@ const CourseGrid = ({ theme }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={`p-8 max-w-screen-lg mx-auto w-full ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+    <div className={`p-8 max-w-screen-lg mx-auto w-full ${theme === "dark" ? " from-gray-900 to-gray-600 text-white" : " text-black"}`}>
       <h2 className="text-2xl md:text-3xl font-bold text-left mb-6">🎓 Latest Courses</h2>
 
       {/* ✅ Grid แสดงคอร์สทั้งหมด */}

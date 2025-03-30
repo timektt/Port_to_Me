@@ -98,11 +98,19 @@ const WebDevSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
             <FaTimes />
           </button>
     
-          <h2 className="text-xl font-bold mb-4">
-            <span className={`inline-block px-3 py-1 rounded-md ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
-              WebDevSeries
-            </span>
-          </h2>
+           {/* Header: Webdev Series Title (Clickable) */}
+           <h2
+          className="text-xl font-bold mb-4 cursor-pointer transition hover:underline hover:text-yellow-400"
+          onClick={() => navigate("/courses/web-development")}
+        >
+          <span
+            className={`inline-block px-3 py-1 rounded-md ${
+              theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+            }`}
+          >
+            Webdev Series
+          </span>
+        </h2>
     
           <ul className="space-y-2 mt-4 mb-24">  {/* ✅ เพิ่ม mb-24 เพื่อให้ Scroll ได้ */}
             {sidebarItems.map((item) => (

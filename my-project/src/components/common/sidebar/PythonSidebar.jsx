@@ -93,9 +93,16 @@ const PythonSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
           <FaTimes />
         </button>
 
-        {/* Header */}
-        <h2 className="text-xl font-bold mb-4">
-          <span className={`inline-block px-3 py-1 rounded-md ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
+        {/* Header: Python Series Title (Clickable) */}
+        <h2
+          className="text-xl font-bold mb-4 cursor-pointer transition hover:underline hover:text-yellow-400"
+          onClick={() => navigate("/courses/python-series")}
+        >
+          <span
+            className={`inline-block px-3 py-1 rounded-md ${
+              theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+            }`}
+          >
             Python Series
           </span>
         </h2>

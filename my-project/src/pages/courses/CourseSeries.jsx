@@ -31,7 +31,7 @@ const CourseSeries = ({
   }, []);
 
   return (
-    <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
+    <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gradient-to-b from-gray-900 to-gray-600 text-white" : "bg-gray-100 text-black"}`}>
       {/* ✅ Navbar */}
       <div className="fixed top-0 left-0 w-full z-50">
         <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)} />

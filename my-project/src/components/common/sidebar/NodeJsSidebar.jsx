@@ -99,9 +99,18 @@ const NodeJsSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
           <FaTimes />
         </button>
   
-        <h2 className="text-xl font-bold mb-4">
-          <span className={`inline-block px-3 py-1 rounded-md ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
-            Node.js Series
+         
+        {/* Header: NodeJs Series Title (Clickable) */}
+        <h2
+          className="text-xl font-bold mb-4 cursor-pointer transition hover:underline hover:text-yellow-400"
+          onClick={() => navigate("/courses/nodejs-series")}
+        >
+          <span
+            className={`inline-block px-3 py-1 rounded-md ${
+              theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+            }`}
+          >
+            NodeJs Series
           </span>
         </h2>
   

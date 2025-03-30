@@ -71,15 +71,6 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
             </button>
           </div>
         </div>
-
-        {/* ✅ Back Button */}
-        <button
-          className="flex items-center text-sm text-gray-400 hover:text-gray-300 mb-3 transition"
-          onClick={onClose}
-        >
-          <FaArrowLeft className="mr-2" /> กลับไปที่เมนูหลัก
-        </button>
-
         {/* ✅ Menu List */}
         <ul className="mt-3 space-y-3">
           <li>

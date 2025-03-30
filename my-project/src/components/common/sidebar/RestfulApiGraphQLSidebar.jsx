@@ -89,12 +89,20 @@ const RestfulApiGraphQLSidebar = ({ theme, sidebarOpen, setSidebarOpen }) => {
             <FaTimes />
           </button>
     
-          <h2 className="text-xl font-bold mb-4">
-            <span className={`inline-block px-3 py-1 rounded-md ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}>
+            {/* Header: React Series Title (Clickable) */}
+                      <h2
+            className="text-xl font-bold mb-4 cursor-pointer transition hover:underline hover:text-yellow-400"
+            onClick={() => navigate("/courses/restful-api-graphql-series")}
+          >
+            <span
+              className={`inline-block max-w-full px-3 py-1 rounded-md text-sm break-words text-center ${
+                theme === "dark" ? "bg-gray-700 text-white" : "bg-gray-200 text-black"
+              }`}
+            >
               RESTful API & GraphQL Series
             </span>
           </h2>
-    
+
           <ul className="space-y-2 mt-4 mb-24">  {/* ✅ เพิ่ม mb-24 เพื่อให้ Scroll ได้ */}
             {sidebarItems.map((item) => (
               <li key={item.id} className="border-b border-gray-700">

@@ -103,14 +103,17 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
            </button>
          </div>
        </div>
- 
-       {/* ✅ ปุ่ม Back ไปเมนูหลัก */}
-       <button 
-         className="flex items-center text-sm text-gray-400 hover:text-gray-300 mb-3 transition"
-         onClick={onClose}
-       >
-         <FaArrowLeft className="mr-2" /> กลับไปที่เมนูหลัก
-       </button>
+       <button
+        className={`w-full text-left text-sm font-medium px-5 py-3 rounded-lg mb-4 transition 
+          ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+        onClick={() => {
+          navigate("/courses/restful-api-graphql-series");
+          onClose();
+        }}
+      >
+         RestfulApiGraphQLSeries
+      </button>
+
  
        {/* ✅ รายการบทเรียน (Dropdown) */}
        <ul className="space-y-2 mt-4">
