@@ -24,7 +24,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import { AuthProvider } from "./components/context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
-import AdminRoute from "./routes/Adminroute";
+import AdminRoute from "./routes/AdminRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
