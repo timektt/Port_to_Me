@@ -52,7 +52,7 @@ const Navbar = ({ theme, setTheme }) => {
   return (
     <nav
       className={`navbar px-4 py-2 h-16 flex justify-between items-center text-base md:text-lg fixed top-0 w-full z-50 ${
-        theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"
+        theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"
       }`}
     >
       {/* ✅ Left Section: Hamburger Menu + Profile */}

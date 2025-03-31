@@ -29,7 +29,7 @@ const TagsPage = () => {
       ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
 
       <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center sm:text-left">
-        🏷️ All Tags
+         All Tags
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">

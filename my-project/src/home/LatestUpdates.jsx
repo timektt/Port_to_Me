@@ -16,7 +16,7 @@ const LatestUpdates = ({ theme }) => {
     <div className={`latest-updates p-4 sm:p-8 max-w-screen-lg mx-auto w-full`}>
       {/* ✅ Header */}
       <h2 className={`text-xl sm:text-2xl md:text-3xl font-bold text-left mt-6 sm:mt-12 mb-4 sm:mb-6 ${theme === "dark" ? "text-white" : "text-black"}`}>
-        📄 Latest Update Documents
+        Latest Update Documents
       </h2>
 
       {/* ✅ Container */}
@@ -25,7 +25,7 @@ const LatestUpdates = ({ theme }) => {
           <div
             key={index}
             className={`p-4 rounded-lg shadow-lg flex flex-col sm:flex-row items-start sm:items-center w-full ${
-              theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+              theme === "dark" ? "bg-gray-900" : "bg-gray-200"
             }`}
           >
             {/* ✅ Tags & Level */}

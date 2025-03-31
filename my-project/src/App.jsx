@@ -24,7 +24,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import { AuthProvider } from "./components/context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
-
+import AdminRoute from "./routes/Adminroute";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -294,7 +295,7 @@ function App() {
   return (
     <AuthProvider>
     <Router>
-      <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gradient-to-b from-gray-900 to-gray-600 text-white" : "bg-gradient-to-r from-gray-100 to-gray-300 text-gray-900"}`}>
+      <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gradient-to-r from-gray-700 to-black from-gray-900 to-gray-600 text-white" : "bg-gradient-to-r from-gray-100 to-gray-300 text-gray-900"}`}>
       <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(true)} />
 
         
@@ -626,6 +627,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+              <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
         </Routes>
         
         </div>

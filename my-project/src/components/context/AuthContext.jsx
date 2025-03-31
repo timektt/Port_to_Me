@@ -1,18 +1,41 @@
 // src/components/context/AuthContext.js
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../../firebase/firebase-config";
-
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../../firebase/firebase-config";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(undefined); // ⬅️ เริ่มด้วย undefined เพื่อรองรับ loading state
-  const [loading, setLoading] = useState(true); // ⬅️ เริ่มด้วย loading เป็น true
-
+  const [user, setUser] = useState(undefined);
+  const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState(null);
+  
+  
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser); // จะเป็น null หรือ user object
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        try {
+          const docRef = doc(db, "users", currentUser.uid);
+          const docSnap = await getDoc(docRef);
+          const userRole = docSnap.exists() ? docSnap.data().role : null;
+
+          
+          console.log("✅ current user:", currentUser.email);
+          console.log("✅ role:", userRole); // <--- ✅ ตรวจสอบว่าโหลด role สำเร็จ
+
+
+          setUser(currentUser);
+          setRole(userRole);
+        } catch (error) {
+          console.error("Failed to fetch user role:", error);
+          setUser(currentUser);
+          setRole(null);
+        }
+      } else {
+        setUser(null);
+        setRole(null);
+      }
       setLoading(false);
     });
 
@@ -22,11 +45,12 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     await signOut(auth);
     setUser(null);
+    setRole(null);
     localStorage.removeItem("token");
   };
 
   return (
-    <AuthContext.Provider value={{ user, logout ,loading }}>
+    <AuthContext.Provider value={{ user, logout, loading, role }}>
       {children}
     </AuthContext.Provider>
   );

@@ -14,7 +14,7 @@ const ProfileInfo = ({ navigate }) => {
       <h1 className="hidden sm:flex flex-col md:flex-row md:items-center text-xl sm:text-2xl md:text-3xl font-bold gap-1 md:gap-6 relative -top-1.5">
         <span>Superbear</span>
 
-        <div className="flex items-center gap-3 text-base text-gray-400">
+        <div className="flex items-center gap-3 text-base text-xl text-gray-400">
           {/* Courses */}
           <span
             className="cursor-pointer hover:text-gray-600 hidden lg:inline"
@@ -26,7 +26,7 @@ const ProfileInfo = ({ navigate }) => {
           {/* Post */}
           <span
             className="cursor-pointer hover:text-gray-600 hidden lg:inline"
-            onClick={() => navigate("/posts")}
+            onClick={() => navigate("")}
           >
             | Post
           </span>

@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../components/context/AuthContext";
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, role } = useAuth(); // ✅ เพิ่ม role
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-20 sm:px-6 lg:px-8 space-y-10">
@@ -25,10 +25,12 @@ const Dashboard = () => {
             {user?.uid}
           </p>
           <p>
-            <span className="font-semibold text-yellow-400">
-              Email Verified:
-            </span>{" "}
+            <span className="font-semibold text-yellow-400">Email Verified:</span>{" "}
             {user?.emailVerified ? "✅ Verified" : "❌ Not Verified"}
+          </p>
+          <p>
+            <span className="font-semibold text-yellow-400">Role:</span>{" "}
+            {role ? `👑 ${role}` : "—"}
           </p>
         </div>
       </div>
