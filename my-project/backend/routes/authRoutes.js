@@ -19,7 +19,11 @@ router.post("/register", async (req, res) => {
       'INSERT INTO "users" (email, password) VALUES ($1, $2) RETURNING id, email',
       [email, hashedPassword]
     );
-    res.json({ success: true, user: result.rows[0] });
+    res.json({
+      success: true,
+      message: "User registered",
+      user: result.rows[0],
+    });
   } catch (err) {
     console.error("❌ Register error:", err);
     res.status(500).json({ success: false, message: "Server error" });
@@ -27,33 +31,44 @@ router.post("/register", async (req, res) => {
 });
 
 // LOGIN
+// LOGIN
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const userResult = await pool.query('SELECT * FROM "users" WHERE email = $1', [email]);
-
-    if (userResult.rows.length === 0) {
-      return res.status(401).json({ success: false, message: "Invalid credentials" });
+    const { email, password } = req.body;
+    try {
+      const userResult = await pool.query('SELECT * FROM "users" WHERE email = $1', [email]);
+  
+      if (userResult.rows.length === 0) {
+        return res.status(401).json({ success: false, message: "Invalid credentials" });
+      }
+  
+      const user = userResult.rows[0];
+      const isMatch = await bcrypt.compare(password, user.password);
+  
+      if (!isMatch) {
+        return res.status(401).json({ success: false, message: "Invalid credentials" });
+      }
+  
+      const token = jwt.sign(
+        { id: user.id, email: user.email, role: user.role || "user" },
+        process.env.JWT_SECRET,
+        { expiresIn: "3h" }
+      );
+  
+      res.json({
+        success: true,
+        message: "Login successful",
+        token,
+        user: {
+          id: user.id,
+          email: user.email,
+          role: user.role || "user",
+        },
+      });
+    } catch (err) {
+      console.error("❌ Login error:", err);
+      res.status(500).json({ success: false, message: "Server error" });
     }
-
-    const user = userResult.rows[0];
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(401).json({ success: false, message: "Invalid credentials" });
-    }
-
-    const token = jwt.sign(
-      { id: user.id, email: user.email, role: user.role || "user" },
-      process.env.JWT_SECRET,
-      { expiresIn: "3h" }
-    );
-
-    res.json({ success: true, token });
-  } catch (err) {
-    console.error("❌ Login error:", err);
-    res.status(500).json({ success: false, message: "Server error" });
-  }
-});
+  });
+  
 
 module.exports = router;
