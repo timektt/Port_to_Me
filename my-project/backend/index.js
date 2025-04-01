@@ -2,9 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
-const bcrypt = require("bcrypt");
-const authRoutes = require("./routes/authRoutes");
+const admin = require("./firebaseAdmin"); // ✅ เพิ่ม Firebase Admin
 const app = express();
+const verifyFirebaseToken = require("./middleware/verifyFirebaseToken");
+const userRoutes = require("./routes/userRoutes");
 
 
 const pool = new Pool({
@@ -14,11 +15,30 @@ const pool = new Pool({
   }
 });
 
+app.use("/api/user", userRoutes);
 app.use(cors());
 app.use(express.json());
-app.use("/api/auth", authRoutes);
 
-// ตรวจสอบว่าเชื่อมกับ DB อะไรอยู่
+// ✅ Middleware: ตรวจสอบ Firebase Token
+const verifyFirebaseToken = async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    req.user = decodedToken;
+    next();
+  } catch (error) {
+    console.error("❌ Token verification failed:", error);
+    return res.status(401).json({ message: "Invalid token" });
+  }
+};
+
+// ✅ ตรวจสอบฐานข้อมูล
 pool.query("SELECT current_database()", (err, result) => {
   if (err) {
     console.error("❌ ไม่สามารถเชื่อมต่อฐานข้อมูล:", err);
@@ -27,54 +47,15 @@ pool.query("SELECT current_database()", (err, result) => {
   }
 });
 
+// ✅ Route หลัก
 app.get("/", (req, res) => res.send("Backend is running!"));
 
-// ✅ REGISTER
-app.post("/api/register", async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const query = 'INSERT INTO "users" (email, password) VALUES ($1, $2)';
-    const values = [email, hashedPassword];
-
-    await pool.query(query, values);
-    res.status(201).json({ success: true, message: "User registered" });
-  } catch (err) {
-    console.error("❌ Register error:", err);
-    res.status(500).json({ success: false, message: "Server error" });
-  }
+// ✅ Route ที่ต้อง login ด้วย Firebase Auth
+app.get("/api/protected", verifyFirebaseToken, (req, res) => {
+  res.json({ message: "✅ Access granted", uid: req.user.uid, email: req.user.email });
 });
 
-// ✅ LOGIN
-app.post("/api/login", async (req, res) => {
-  const { email, password } = req.body;
-  console.log("📥 Email:", email);
-  console.log("📥 Password:", password);
-
-  try {
-    const query = 'SELECT * FROM "users" WHERE email = $1';
-    const values = [email];
-    const result = await pool.query(query, values);
-
-    if (result.rows.length === 0) {
-      return res.status(401).json({ success: false, message: "Invalid credentials" });
-    }
-
-    const user = result.rows[0];
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(401).json({ success: false, message: "Invalid credentials" });
-    }
-
-    res.json({ success: true, message: "Login successful" });
-  } catch (err) {
-    console.error("❌ Login error:", err);
-    res.status(500).json({ success: false, message: "Server error" });
-  }
-});
-
+// ✅ เริ่ม server
 app.listen(5000, () => {
   console.log("🚀 Server started on http://localhost:5000");
 
@@ -86,6 +67,8 @@ app.listen(5000, () => {
     }
   });
 });
+
+// ✅ Fallback route
 app.use((req, res) => {
   res.status(404).json({ message: "🚫 Not Found: " + req.originalUrl });
 });
