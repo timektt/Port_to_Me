@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import ProfileInfo from "../../profile/ProfileInfo";
 import {
@@ -8,6 +8,12 @@ import {
   FaBars,
   FaMoon,
   FaSearch,
+  FaUserCircle,
+  FaSignOutAlt,
+  FaHome,
+  FaTimes,
+  FaTags,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { IoSunny } from "react-icons/io5";
 import MainMobileMenu from "../../menu/MainMobileMenu";
@@ -22,6 +28,8 @@ import { AuthContext } from "../context/AuthContext";
 const Navbar = ({ theme, setTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
   const { user, logout } = useContext(AuthContext);
@@ -33,6 +41,7 @@ const Navbar = ({ theme, setTheme }) => {
 
   useEffect(() => {
     setSearchQuery("");
+    setShowDropdown(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -41,8 +50,17 @@ const Navbar = ({ theme, setTheme }) => {
         setMobileMenuOpen(false);
       }
     };
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowDropdown(false);
+      }
+    };
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -52,10 +70,12 @@ const Navbar = ({ theme, setTheme }) => {
   return (
     <nav
       className={`navbar px-4 py-2 h-16 flex justify-between items-center text-base md:text-lg fixed top-0 w-full z-50 ${
-        theme === "dark" ? "bg-gradient-to-b from-gray-900 to-gray-600 text-white" : "bg-white text-gray-900"
+        theme === "dark"
+          ? "bg-gradient-to-b from-gray-900 to-gray-600 text-white"
+          : "bg-white text-gray-900"
       }`}
     >
-      {/* ✅ Left Section: Hamburger Menu + Profile */}
+      {/* ✅ Left Section */}
       <div className="flex items-center gap-3">
         <button className="md:hidden text-3xl" onClick={() => setMobileMenuOpen(true)}>
           <FaBars />
@@ -63,7 +83,7 @@ const Navbar = ({ theme, setTheme }) => {
         <ProfileInfo navigate={navigate} />
       </div>
 
-      {/* ✅ Mobile Search Input */}
+      {/* ✅ Mobile Search */}
       <div className="absolute right-4 top-1/2 transform -translate-y-1/2 w-48 md:hidden">
         <div className="relative">
           <input
@@ -111,78 +131,72 @@ const Navbar = ({ theme, setTheme }) => {
           )}
         </button>
 
-        <div className="relative w-48">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && searchQuery.trim()) {
-                navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-              }
-            }}
-            className={`p-2 pl-8 w-full rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              theme === "dark"
-                ? "bg-gray-700 text-white border-gray-600"
-                : "bg-gray-200 text-gray-900 border-gray-400"
-            }`}
-          />
-          <FaSearch className="absolute left-2 top-3 text-gray-400" />
-        </div>
         {user ? (
-  <div className="flex gap-3">
-    <Link
-      to="/dashboard"
-      className="px-5 py-2 rounded-full font-semibold text-yellow-400 bg-black 
-        border border-yellow-500 transition-all duration-300
-        hover:shadow-[0_0_6px_#FFD700,0_0_12px_#FFD700]"
-    >
-      Dashboard
-    </Link>
-    <button
-      onClick={handleLogout}
-      className="px-5 py-2 rounded-full font-semibold text-white bg-red-500 
-        hover:bg-red-600 shadow-md transition duration-300"
-    >
-      Logout
-    </button>
-  </div>
-) : (
-  <Link
-    to="/login"
-    className="px-5 py-2 rounded-full font-semibold text-yellow-400 bg-black 
-      border border-yellow-500 transition-all duration-300
-      hover:shadow-[0_0_6px_#FFD700,0_0_12px_#FFD700]"
-  >
-    Login
-  </Link>
-)}
+          <div className="relative" ref={dropdownRef}>
+            {/* ปุ่มเปิด/ปิด Dropdown */}
+            <button
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="flex items-center gap-2"
+            >
+              <FaUserCircle className="text-3xl text-gray-400" />
+              <span className="font-medium hidden lg:block">
+                {user.displayName?.split(" ")[0]}
+              </span>
+            </button>
 
-
-
+            {/* Dropdown */}
+            {showDropdown && (
+              <div
+                className={`absolute right-0 top-full mt-1 w-44 bg-white text-black shadow-lg z-50 transition-all duration-300 transform ${
+                  showDropdown ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                } rounded-b-lg rounded-t-md`}
+                style={{
+                  borderTopLeftRadius: "0.375rem", // ขอบบนเหลี่ยม
+                  borderTopRightRadius: "0.375rem", // ขอบบนเหลี่ยม
+                  borderBottomLeftRadius: "0.75rem", // ขอบล่างมล
+                  borderBottomRightRadius: "0.75rem", // ขอบล่างมล
+                }}
+              >
+                <Link
+                  to="/dashboard"
+                  className="block px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                >
+                  <FaHome className="text-gray-500" /> Dashboard
+                </Link>
+                <Link
+                  to="/profile"
+                  className="block px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                >
+                  <FaUserCircle className="text-gray-500" /> Profile
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="block w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                >
+                  <FaSignOutAlt className="text-gray-500" /> Logout
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Link
+            to="/login"
+            className="px-5 py-2 rounded-full font-semibold text-yellow-400 bg-black 
+              border border-yellow-500 transition-all duration-300
+              hover:shadow-[0_0_6px_#FFD700,0_0_12px_#FFD700]"
+          >
+            Login
+          </Link>
+        )}
       </div>
 
-      {/* ✅ Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-          {location.pathname.startsWith("/courses/python-series") ? (
-            <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : location.pathname.startsWith("/courses/nodejs-series") ? (
-            <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : location.pathname.startsWith("/courses/restful-api-graphql-series") ? (
-            <RestfulApiGraphQLMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : location.pathname.startsWith("/courses/reactjs-series") ? (
-            <ReactJsMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : location.pathname.startsWith("/courses/web-development") ? (
-            <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : location.pathname.startsWith("/courses/basic-programming") ? (
-            <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          ) : (
-            <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-          )}
-        </div>
-      )}
+  <MainMobileMenu
+    onClose={() => setMobileMenuOpen(false)}
+    theme={theme}
+    setTheme={setTheme}
+  />
+)}
     </nav>
   );
 };

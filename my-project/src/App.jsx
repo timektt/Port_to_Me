@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
-import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu";
 import { AuthProvider } from "./components/context/AuthContext";
 import AdminRoute from "./routes/AdminRoute";
+import MainMobileMenu from "./menu/MainMobileMenu";
 
 const CourseGrid = lazy(() => import("./home/CourseGrid"));
 const AllCourses = lazy(() => import("./pages/courses/AllCourses"));
@@ -301,9 +301,8 @@ function App() {
 
         
       {mobileMenuOpen && (
-          <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-        )}
-
+   <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+      )}
         <div className="flex-1">
 
        

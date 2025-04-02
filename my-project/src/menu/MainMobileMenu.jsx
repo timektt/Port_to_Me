@@ -2,8 +2,12 @@ import React from "react";
 import {
   FaTimes,
   FaChevronRight,
-  FaArrowLeft,
   FaMoon,
+  FaHome,
+  FaTags,
+  FaPhoneAlt,
+  FaSignOutAlt,
+  FaUserCircle,
 } from "react-icons/fa";
 import { FiSun } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -35,24 +39,26 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
 
       {/* ✅ Main Menu */}
       <div
-        className={`fixed top-0 left-0 w-64 h-full p-4 z-50 shadow-lg transition-all duration-300
-          ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}
+        className={`fixed top-0 left-0 w-64 h-full p-4 z-50 shadow-lg transition-transform duration-300 ${
+          theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
+        }`}
       >
         {/* ✅ Close Button */}
         <button
-          className={`absolute right-4 top-4 text-2xl transition-colors duration-200
-            ${theme === "dark" ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"}`}
+          className={`absolute right-4 top-4 text-2xl transition-colors duration-200 ${
+            theme === "dark" ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"
+          }`}
           onClick={onClose}
         >
           <FaTimes />
         </button>
 
-        {/* ✅ Logo + Toggle */}
-        <div className="mt-6 flex items-center mb-3">
+        {/* ✅ Logo + Theme Toggle */}
+        <div className="mt-6 flex items-center mb-6">
           <img
             src="/spm2.jpg"
             alt="Logo"
-            className="w-8 h-8 mr-2 object-cover rounded-full"
+            className="w-10 h-10 mr-3 object-cover rounded-full"
           />
           <div className="flex items-center space-x-2">
             <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
@@ -71,8 +77,9 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
             </button>
           </div>
         </div>
+
         {/* ✅ Menu List */}
-        <ul className="mt-3 space-y-3">
+        <ul className="mt-3 space-y-4">
           <li>
             <button
               onClick={() => {
@@ -81,7 +88,10 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
               }}
               className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
             >
-              Courses <FaChevronRight />
+              <span className="flex items-center gap-2">
+                <FaHome className="text-lg" /> Courses
+              </span>
+              <FaChevronRight />
             </button>
           </li>
           <li>
@@ -92,7 +102,10 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
               }}
               className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
             >
-              Tags <FaChevronRight />
+              <span className="flex items-center gap-2">
+                <FaTags className="text-lg" /> Tags
+              </span>
+              <FaChevronRight />
             </button>
           </li>
           <li>
@@ -103,33 +116,33 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
               }}
               className="w-full flex justify-between items-center text-left hover:text-gray-300 transition"
             >
-              Contact us <FaChevronRight />
+              <span className="flex items-center gap-2">
+                <FaPhoneAlt className="text-lg" /> Contact Us
+              </span>
+              <FaChevronRight />
             </button>
           </li>
         </ul>
 
-        {/* ✅ Login/Dashboard/Logout */}
-        <div className="mt-6 space-y-3">
+        {/* ✅ User Section */}
+        <div className="mt-8 space-y-4">
           {isLoggedIn ? (
             <>
-              {/* ✅ Dashboard Button */}
               <button
-  onClick={() => {
-    navigate("/dashboard");
-    onClose();
-  }}
-  className="w-full py-2 rounded-full font-semibold text-yellow-400 bg-black 
-             border border-yellow-500 shadow-md hover:shadow-yellow-300/50 transition duration-300"
->
-  Dashboard
-</button>
-
-              {/* ✅ Logout Button */}
+                onClick={() => {
+                  navigate("/dashboard");
+                  onClose();
+                }}
+                className="w-full py-2 rounded-full font-semibold text-yellow-400 bg-black 
+                  border border-yellow-500 shadow-md hover:shadow-yellow-300/50 transition duration-300 flex items-center justify-center gap-2"
+              >
+                <FaUserCircle className="text-lg" /> Dashboard
+              </button>
               <button
                 onClick={handleLogout}
-                className="w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+                className="w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition flex items-center justify-center gap-2"
               >
-                Logout
+                <FaSignOutAlt className="text-lg" /> Logout
               </button>
             </>
           ) : (
@@ -138,9 +151,9 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
                 navigate("/login");
                 onClose();
               }}
-              className="w-full py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition"
+              className="w-full py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition flex items-center justify-center gap-2"
             >
-              Login
+              <FaUserCircle className="text-lg" /> Login
             </button>
           )}
         </div>
