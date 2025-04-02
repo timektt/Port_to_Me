@@ -1,0 +1,17 @@
+[
+    {
+      "category": "python-series",
+      "level": "101: Basic Python",
+      "title": "ทำความรู้จักกับ Python",
+      "path": "/courses/python-series/intro",
+      "date": "08/10/2567"
+    },
+    {
+      "category": "python-series",
+      "level": "101: Basic Python",
+      "title": "Variable & Data Type",
+      "path": "/courses/python-series/variables",
+      "date": "08/10/2567"
+    }
+  ]
+  

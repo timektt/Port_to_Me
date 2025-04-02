@@ -1,31 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
-import CourseGrid from "./home/CourseGrid";
-import PythonSeries from "./pages/courses/PythonSeries";
-import SearchResults from "./pages/SearchResults";
-import NodeSeries from "./pages/courses/NodejsSeries";
-import RestfulApiGraphQLSeries from "./pages/courses/RestfulApiGraphQLSeries";
-import ReactJsSeries from "./pages/courses/ReactJsSeries";
-import WebDevSeries from "./pages/courses/WebDevSeries";
-import BasicProgrammingSeries from "./pages/courses/BasicProgrammingSeries";
-import AllCourses from "./pages/courses/AllCourses";
 import SupportMeButton from "./support/SupportMeButton";
 import Footer from "./components/common/Footer";
 import BasicProgrammingMobileMenu from "./components/common/sidebar/MobileMenus/BasicProgrammingMobileMenu";
-import CourseTags from "./components/common/CourseTags"; // ✅ Import Component ใหม่
-import TagsPage from "./pages/TagsPage";
-import PopularTags from "./pages/courses/PopularTags";
-import TagResults from "./pages/TagResults";
-import Login from "./pages/Login";
-import LoginFirebase from "./pages/LoginFirebase";
-import Register from "./pages/Register";
-import ForgotPassword from "./pages/ForgotPassword";
 import { AuthProvider } from "./components/context/AuthContext";
-import ProtectedRoute from "./routes/ProtectedRoute";
-import Dashboard from "./pages/Dashboard";
 import AdminRoute from "./routes/AdminRoute";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+
+const CourseGrid = lazy(() => import("./home/CourseGrid"));
+const AllCourses = lazy(() => import("./pages/courses/AllCourses"));
+const PythonSeries = lazy(() => import("./pages/courses/PythonSeries"));
+const NodeSeries = lazy(() => import("./pages/courses/NodejsSeries"));
+const WebDevSeries = lazy(() => import("./pages/courses/WebDevSeries"));
+const BasicProgrammingSeries = lazy(() => import("./pages/courses/BasicProgrammingSeries"));
+const ReactJsSeries = lazy(() => import("./pages/courses/ReactJsSeries"));
+const RestfulApiGraphQLSeries = lazy(() => import("./pages/courses/RestfulApiGraphQLSeries"));
+const SearchResults = lazy(() => import("./pages/SearchResults"));
+const Login = lazy(() => import("./pages/Login"));
+const LoginFirebase = lazy(() => import("./pages/LoginFirebase"));
+const Register = lazy(() => import("./pages/Register"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const TagsPage = lazy(() => import("./pages/TagsPage"));
+const TagResults = lazy(() => import("./pages/TagResults"));
+const PopularTags = lazy(() => import("./pages/courses/PopularTags"));
+const CourseTags = lazy(() => import("./components/common/CourseTags"));
+const ProtectedRoute = lazy(() => import("./routes/ProtectedRoute"));
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -307,7 +308,7 @@ function App() {
 
        
 
-       
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes >
             {/* ✅ หน้าแรก */}
             <Route path="/" element={<CourseGrid theme={theme} />} />
@@ -636,6 +637,7 @@ function App() {
           }
         />
         </Routes>
+        </Suspense>
         
         </div>
         
