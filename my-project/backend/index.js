@@ -6,6 +6,7 @@ const admin = require("./firebaseAdmin"); // ✅ เพิ่ม Firebase Admin
 const app = express();
 const verifyFirebaseToken = require("./middleware/verifyFirebaseToken");
 const userRoutes = require("./routes/userRoutes");
+const PORT = process.env.PORT || 5000;
 
 
 const pool = new Pool({
@@ -56,8 +57,8 @@ app.get("/api/protected", verifyFirebaseToken, (req, res) => {
 });
 
 // ✅ เริ่ม server
-app.listen(5000, () => {
-  console.log("🚀 Server started on http://localhost:5000");
+app.listen(PORT, () => {
+  console.log(`🚀 Server started on http://localhost:${PORT}`);
 
   pool.query("SELECT NOW()", (err, result) => {
     if (err) {
