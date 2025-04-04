@@ -43,7 +43,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
           theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
         }`}
       >
-        <div className="h-full overflow-y-auto p-4">
+         <div className="h-full overflow-y-auto p-4 pb-28"> {/* ✅ แก้จุดนี้ */}
           {/* ✅ Close Button */}
           <button
             className={`absolute right-4 top-4 text-2xl transition-colors duration-200 ${
