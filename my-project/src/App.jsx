@@ -298,7 +298,7 @@ function App() {
   return (
     <AuthProvider>
     <Router>
-      <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gradient-to-r from-gray-700 to-black from-gray-900 to-gray-600 text-white" : "bg-gradient-to-r from-gray-100 to-gray-300 text-gray-900"}`}>
+      <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gradient-to-r from-gray-100 to-gray-300 text-gray-900"}`}>
       <Navbar theme={theme} setTheme={setTheme} onMenuToggle={() => setMobileMenuOpen(true)} />
 
         

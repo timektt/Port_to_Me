@@ -5,19 +5,19 @@ import LatestUpdates from "./LatestUpdates";
 import PopularTags from "../pages/courses/PopularTags";
 
 const courses = [
-  { id: "python-series", image: "/Python.jpg", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
-  { id: "nodejs-series", image: "/nodejs.jpg", title: "Node.js Series", description: "เรียนรู้การพัฒนา Backend ด้วย Node.js" }, // ✅ แก้ id ให้ตรงกับเส้นทาง
-  { id: "restful-api-graphql-series", image: "/Api.jpg", title: "RESTful API &  GraphQL", description: "คอร์สนี้เหมาะสำหรับทุกคนที่อยากเข้าใจ API และแนวคิดขึ้นสูง" },
-  { id: "reactjs-series", image: "/react.png", title: "React.js Series", description: "คอร์สสอนสร้างโปรเจกต์ด้วย React " },
-  { id: "web-development", image: "/Web.jpg", title: "Web Development 101", description: "คอร์สเรียนพื้นฐานสำหรับเริ่มต้นสร้างเว็บไซต์" },
-  { id: "basic-programming", image: "/Basic.jpg", title: "Basic Programming", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
+  { id: "python-series", image: "/python_1.png", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
+  { id: "nodejs-series", image: "/node_1.png", title: "Node.js Series", description: "เรียนรู้การพัฒนา Backend ด้วย Node.js" }, // ✅ แก้ id ให้ตรงกับเส้นทาง
+  { id: "restful-api-graphql-series", image: "/api_1.png", title: "RESTful API &  GraphQL", description: "คอร์สนี้เหมาะสำหรับทุกคนที่อยากเข้าใจ API และแนวคิดขึ้นสูง" },
+  { id: "reactjs-series", image: "/react_1.png", title: "React.js Series", description: "คอร์สสอนสร้างโปรเจกต์ด้วย React " },
+  { id: "web-development", image: "/webdev_1.png", title: "Web Development 101", description: "คอร์สเรียนพื้นฐานสำหรับเริ่มต้นสร้างเว็บไซต์" },
+  { id: "basic-programming", image: "/basicpro_1.png", title: "Basic Programming", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
 ];
 
 const CourseGrid = ({ theme }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={`p-8 max-w-screen-lg mx-auto w-full ${theme === "dark" ? " from-gray-900 to-gray-700 text-white" : " text-black"}`}>
+    <div className={`p-8 max-w-screen-lg mx-auto w-full ${theme === "dark" ? " text-white" : " text-black"}`}>
       <h2 className="text-2xl md:text-3xl font-bold text-left mb-6">🎓 Latest Courses</h2>
 
       {/* ✅ Grid แสดงคอร์สทั้งหมด */}
@@ -26,7 +26,7 @@ const CourseGrid = ({ theme }) => {
           <div 
             key={course.id} 
             className={`p-4 rounded-lg shadow-lg transition transform hover:scale-105 cursor-pointer
-              ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-100 text-black hover:bg-gray-200"}`}
+              ${theme === "dark" ? " bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-100 text-black hover:bg-gray-200"}`}
             onClick={() => navigate(`/courses/${course.id}`)}
           >
             <img

@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { getAuth, updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../firebase/firebase-config";
+import { AuthContext } from "../components/context/AuthContext";
 
 export default function Profile() {
   const auth = getAuth();
@@ -11,6 +12,9 @@ export default function Profile() {
   const [photoURL, setPhotoURL] = useState(user?.photoURL || "/default.jpg");
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef();
+
+  // ✅ เพิ่มจาก AuthContext
+  const { setUser } = useContext(AuthContext);
 
   const handleUpload = async (file) => {
     if (!file || !user) return;
@@ -27,12 +31,16 @@ export default function Profile() {
       displayName: name,
       photoURL: photoURL,
     });
+
+    // ✅ อัปเดต context ให้ Navbar อัปเดตรูปทันที
+    setUser(getAuth().currentUser);
+
     alert("✅ Profile updated!");
   };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-14">
-      <h2 className="text-2xl font-bold mb-6 text-center">  Profile</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">Profile</h2>
 
       <div className="mb-4 text-center">
         <img
@@ -60,9 +68,9 @@ export default function Profile() {
         placeholder="Your name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="w-full mb-3 p-2 rounded bg-gray-800"
+        className="w-full mb-3 p-2 rounded bg-gray-800 text-white"
       />
-      <p className="text-sm mb-4">Email: {user?.email}</p>
+      <p className="text-sm mb-4 text-white">Email: {user?.email}</p>
 
       <button
         onClick={handleSave}

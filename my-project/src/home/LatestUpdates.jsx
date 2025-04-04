@@ -34,7 +34,7 @@ const LatestUpdates = ({ theme }) => {
           <div
             key={index}
             className={`p-4 rounded-lg shadow-lg flex flex-col sm:flex-row items-start sm:items-center w-full ${
-              theme === "dark" ? "bg-gray-900" : "bg-gray-200"
+              theme === "dark" ? "bg-gray-800" : "bg-gray-200"
             }`}
           >
             <div className="flex flex-wrap sm:flex-nowrap items-center space-x-2">

@@ -7,6 +7,12 @@ const SupportMeModal = ({ closeModal }) => {
   const pricePerCoffee = 40;
   const total = quantity * pricePerCoffee;
 
+  // ✅ เพิ่มฟังก์ชันเปิด BuyMeACoffee
+  const handleDonate = () => {
+    const url = `https://buymeacoffee.com/superbear?amount=${total}`;
+    window.open(url, "_blank");
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -14,7 +20,7 @@ const SupportMeModal = ({ closeModal }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={closeModal} // ปิด Modal เมื่อคลิกด้านนอก
+        onClick={closeModal}
       >
         <motion.div
           className="bg-white p-3 rounded-lg shadow-lg w-64 relative"
@@ -22,9 +28,8 @@ const SupportMeModal = ({ closeModal }) => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          onClick={(e) => e.stopPropagation()} // ป้องกันการปิด Modal เมื่อคลิกด้านใน
+          onClick={(e) => e.stopPropagation()}
         >
-          {/* ปุ่มปิด */}
           <button
             className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
             onClick={closeModal}
@@ -32,7 +37,6 @@ const SupportMeModal = ({ closeModal }) => {
             <FaTimes size={16} />
           </button>
 
-          {/* รูปโปรไฟล์ */}
           <div className="flex justify-center">
             <img
               src="/spm2.jpg"
@@ -41,29 +45,21 @@ const SupportMeModal = ({ closeModal }) => {
             />
           </div>
 
-          {/* หัวข้อ */}
           <h2 className="text-sm font-semibold text-center mt-3 text-gray-700">
             Buy a Coffee for Superbear
           </h2>
 
-          {/* ปุ่ม + - และจำนวน */}
           <div className="flex items-center justify-center mt-3">
             <FaCoffee size={22} className="text-gray-700 mr-3" />
-
-            {/* ปุ่มลดจำนวน */}
             <button
               className="w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full border border-gray-400 hover:bg-gray-300 transition"
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
             >
               <FaMinus size={14} />
             </button>
-
-            {/* จำนวน (เปลี่ยนเป็นสีดำ) */}
             <span className="w-10 h-8 flex items-center justify-center text-sm font-semibold bg-white border border-gray-400 rounded-full mx-2 text-black">
               {quantity}
             </span>
-
-            {/* ปุ่มเพิ่มจำนวน */}
             <button
               className="w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full border border-gray-400 hover:bg-gray-300 transition"
               onClick={() => setQuantity(quantity + 1)}
@@ -72,12 +68,10 @@ const SupportMeModal = ({ closeModal }) => {
             </button>
           </div>
 
-          {/* ราคาทั้งหมด (เปลี่ยนเป็นสีดำ) */}
           <div className="bg-gray-300 p-3 mt-3 rounded-lg text-center text-sm font-semibold text-black">
             ฿ {total}
           </div>
 
-          {/* ช่องใส่ชื่อและข้อความ (เปลี่ยนเป็นสีดำ) */}
           <input
             type="text"
             placeholder="Your name or nickname"
@@ -90,12 +84,14 @@ const SupportMeModal = ({ closeModal }) => {
             rows="3"
           ></textarea>
 
-          {/* ปุ่ม Donate */}
-          <button className="w-full bg-blue-600 text-white p-3 rounded-lg mt-3 text-sm hover:bg-blue-700 transition">
+          {/* ✅ ปุ่ม Donate แบบใช้งานจริง */}
+          <button
+            onClick={handleDonate}
+            className="w-full bg-blue-600 text-white p-3 rounded-lg mt-3 text-sm hover:bg-blue-700 transition"
+          >
             Donate ฿{total}
           </button>
 
-          {/* คำอธิบาย */}
           <p className="text-xs text-gray-500 text-center mt-2">
             Payments go directly to Superbear
           </p>
