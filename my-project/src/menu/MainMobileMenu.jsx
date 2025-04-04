@@ -37,14 +37,13 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
         aria-label="Close menu overlay"
       ></div>
 
-      {/* ✅ Main Menu with scroll */}
-      <div
-        className={`fixed top-0 left-0 w-64 h-full z-50 shadow-lg transition-transform duration-300 ${
+            {/* ✅ Main Menu with scroll */}
+            <div
+        className={`fixed top-0 left-0 w-64 h-screen z-50 shadow-lg transition-transform duration-300 ${
           theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
         }`}
       >
-         <div className="h-full overflow-y-auto p-4 pb-28"> {/* ✅ แก้จุดนี้ */}
-          {/* ✅ Close Button */}
+        <div className="h-full overflow-y-auto p-4 pb-40">
           <button
             className={`absolute right-4 top-4 text-2xl transition-colors duration-200 ${
               theme === "dark"
