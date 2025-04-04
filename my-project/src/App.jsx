@@ -6,6 +6,8 @@ import Footer from "./components/common/Footer";
 import { AuthProvider } from "./components/context/AuthContext";
 import AdminRoute from "./routes/AdminRoute";
 import MainMobileMenu from "./menu/MainMobileMenu";
+import Profile from "./pages/Profile";
+
 
 const CourseGrid = lazy(() => import("./home/CourseGrid"));
 const AllCourses = lazy(() => import("./pages/courses/AllCourses"));
@@ -635,6 +637,7 @@ function App() {
             </AdminRoute>
           }
         />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         </Routes>
         </Suspense>
         

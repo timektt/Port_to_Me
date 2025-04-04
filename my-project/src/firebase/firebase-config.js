@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // ⬅️ เพิ่ม Firestore
+import { getStorage } from "firebase/storage"; 
 
 const firebaseConfig = {
   apiKey: "AIzaSyAm9rRFycPYzVTDHyk6V22QQ4I7bqtk4ws",
@@ -16,3 +17,4 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app); // ⬅️ เพิ่มบรรทัดนี้
 export default app;
+export const storage = getStorage(app); // ✅ เพิ่มบรรทัดนี้

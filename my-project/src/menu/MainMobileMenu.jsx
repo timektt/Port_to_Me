@@ -126,36 +126,50 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
 
         {/* ✅ User Section */}
         <div className="mt-8 space-y-4">
-          {isLoggedIn ? (
-            <>
-              <button
-                onClick={() => {
-                  navigate("/dashboard");
-                  onClose();
-                }}
-                className="w-full py-2 rounded-full font-semibold text-yellow-400 bg-black 
-                  border border-yellow-500 shadow-md hover:shadow-yellow-300/50 transition duration-300 flex items-center justify-center gap-2"
-              >
-                <FaUserCircle className="text-lg" /> Dashboard
-              </button>
-              <button
-                onClick={handleLogout}
-                className="w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition flex items-center justify-center gap-2"
-              >
-                <FaSignOutAlt className="text-lg" /> Logout
-              </button>
-            </>
-          ) : (
-            <button
-              onClick={() => {
-                navigate("/login");
-                onClose();
-              }}
-              className="w-full py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition flex items-center justify-center gap-2"
-            >
-              <FaUserCircle className="text-lg" /> Login
-            </button>
-          )}
+        {isLoggedIn ? (
+  <>
+    <button
+      onClick={() => {
+        navigate("/dashboard");
+        onClose();
+      }}
+      className="w-full py-2 rounded-full font-semibold text-yellow-400 bg-black 
+        border border-yellow-500 shadow-md hover:shadow-yellow-300/50 transition duration-300 flex items-center justify-center gap-2"
+    >
+      <FaUserCircle className="text-lg" /> Dashboard
+    </button>
+
+    {/* ✅ เพิ่มปุ่ม Profile */}
+          <button
+        onClick={() => {
+          navigate("/profile");
+          onClose();
+        }}
+        className="w-full py-2 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-full shadow-md hover:from-indigo-600 hover:to-blue-600 transition duration-300 flex items-center justify-center gap-2"
+      >
+        <FaUserCircle className="text-lg" /> Profile
+      </button>
+
+
+    <button
+      onClick={handleLogout}
+      className="w-full py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition flex items-center justify-center gap-2"
+    >
+      <FaSignOutAlt className="text-lg" /> Logout
+    </button>
+  </>
+) : (
+  <button
+    onClick={() => {
+      navigate("/login");
+      onClose();
+    }}
+    className="w-full py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition flex items-center justify-center gap-2"
+  >
+    <FaUserCircle className="text-lg" /> Login
+  </button>
+)}
+
         </div>
       </div>
     </>
