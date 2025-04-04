@@ -191,12 +191,25 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
 
       {mobileMenuOpen && (
-  <MainMobileMenu
-    onClose={() => setMobileMenuOpen(false)}
-    theme={theme}
-    setTheme={setTheme}
-  />
+  <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
+    {location.pathname.includes("/courses/reactjs-series") ? (
+      <ReactJsMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.includes("/courses/nodejs-series") ? (
+      <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.includes("/courses/basic-programming") ? (
+      <BasicProgrammingMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.includes("/courses/restful-api-graphql-series") ? (
+      <RestfulApiGraphQLMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.includes("/courses/python-series") ? (
+      <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.includes("/courses/web-development") ? (
+      <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : (
+      <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    )}
+  </div>
 )}
+
     </nav>
   );
 };
