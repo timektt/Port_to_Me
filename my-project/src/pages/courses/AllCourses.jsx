@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaBook } from "react-icons/fa";
-import { Helmet } from "react-helmet-async"; // ✅ เพิ่มส่วนนี้
 
 const courses = [
   { id: "python-series", image: "/python_1.png", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
@@ -17,10 +16,6 @@ const AllCourses = ({ theme }) => {
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
-      {/* ✅ ตั้ง title สำหรับหน้านี้ */}
-      <Helmet>
-        <title>All Courses | Superbear</title>
-      </Helmet>
 
       <main className="flex-1 p-6 pt-20">
         <div className="max-w-5xl mx-auto">
