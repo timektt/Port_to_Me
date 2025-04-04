@@ -32,7 +32,7 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
     <>
       {/* ✅ Overlay */}
       <div
-        className="fixed inset-0 h-screen w-screen bg-black bg-opacity-30 z-40"
+        className="fixed top-0 left-0 right-0 bottom-0 z-40 bg-black bg-opacity-40"
         onClick={onClose}
         aria-label="Close menu overlay"
       ></div>
