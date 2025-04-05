@@ -39,10 +39,11 @@ const MainMobileMenu = ({ onClose, theme, setTheme }) => {
 
             {/* ✅ Main Menu with scroll */}
             <div
-        className={`fixed top-0 left-0 w-64 h-screen z-50 shadow-lg transition-transform duration-300 ${
-          theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
-        }`}
-      >
+            className={`fixed top-0 left-0 w-64 h-[100dvh] z-50 shadow-lg transition-transform duration-300 ${
+              theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
+            }`}
+          >
+
         <div className="h-full overflow-y-auto p-4 pb-40">
           <button
             className={`absolute right-4 top-4 text-2xl transition-colors duration-200 ${
