@@ -5,9 +5,9 @@ import {
   FaChevronDown,
   FaChevronRight,
   FaArrowLeft,
-  FaSun,
   FaMoon,
 } from "react-icons/fa";
+import { FiSun } from "react-icons/fi"; // ✅ ใช้ FiSun แทน FaSun
 
 const sidebarItems = [
   {
@@ -93,7 +93,7 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
         theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
       }`}
     >
-      {/* ปุ่มปิดเมนู (X) */}
+      {/* ปุ่มปิดเมนู */}
       <button
         className={`absolute right-4 top-4 text-2xl transition-colors duration-200 ${
           theme === "dark"
@@ -106,11 +106,11 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
       </button>
 
       {/* โลโก้ + Superbear + ปุ่มเปลี่ยนธีม */}
-      <div className="mt-6 flex items-center mb-3">
+      <div className="mt-6 flex items-center mb-6">
         <img
           src="/spm2.jpg"
           alt="Logo"
-          className="w-8 h-8 mr-2 object-cover rounded-full"
+          className="w-10 h-10 mr-3 object-cover rounded-full"
         />
         <div className="flex items-center space-x-2">
           <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
@@ -121,7 +121,7 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
             onClick={toggleTheme}
           >
             {theme === "dark" ? (
-              <FaSun className="text-yellow-400 text-2xl" />
+              <FiSun className="text-yellow-400 text-2xl" /> // ✅ ใช้ FiSun
             ) : (
               <FaMoon className="text-blue-400 text-2xl" />
             )}
@@ -129,7 +129,7 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
         </div>
       </div>
 
-      {/* ✅ ปุ่มกลับไปหน้า Python Series */}
+      {/* ปุ่มกลับไปหน้า Python Series */}
       <button
         className={`w-full text-left text-sm font-medium px-5 py-3 rounded-lg mb-4 transition 
           ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-200 text-black hover:bg-gray-300"}`}
@@ -138,20 +138,18 @@ const PythonMobileMenu = ({ onClose, theme, setTheme }) => {
           onClose();
         }}
       >
-         Python Series
+        <FaArrowLeft className="inline-block mr-2" /> Python Series
       </button>
 
-      {/* ปุ่ม Back ไปเมนูหลัก */}
-
       {/* รายการบทเรียน */}
-      <ul className="space-y-2 mt-4">
+      <ul className="space-y-4">
         {sidebarItems.map((item) => (
-          <li key={item.id} className="border-b border-gray-700">
+          <li key={item.id} className="border-b border-gray-700 pb-2">
             <button
-              className="flex items-center justify-between w-full p-4 rounded-lg transition duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg text-left"
+              className="flex items-center justify-between w-full p-3 rounded-lg transition duration-300 ease-in-out hover:bg-gray-700 hover:shadow-lg text-left"
               onClick={() => toggleSection(item.id)}
             >
-              {item.title}
+              <span className="font-medium">{item.title}</span>
               {expandedSections[item.id] ? (
                 <FaChevronDown />
               ) : (

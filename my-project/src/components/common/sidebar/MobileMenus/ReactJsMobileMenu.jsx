@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom"; // ✅ รวมให้อยู่ในบรรทัดเดียว
-import { FaTimes, FaChevronDown, FaChevronRight, FaArrowLeft, FaSun, FaMoon } from "react-icons/fa";
-
+import { FaTimes, FaChevronDown, FaChevronRight, FaArrowLeft, FaMoon } from "react-icons/fa";
+import { FiSun } from "react-icons/fi"; // ✅ ใช้ FiSun แทน FaSun
 
 const sidebarItems = [
   // ✅ 101: พื้นฐานของ React.js
@@ -83,9 +83,6 @@ const sidebarItems = [
   },
 ];
 
-
-
-
 const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -105,13 +102,18 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
   };
 
   return (
-    <div className={`fixed top-0 left-0 w-64 h-full p-4 z-50 shadow-lg transition-all duration-300 
-      ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"} overflow-y-auto pb-20`}>
-
+    <div
+      className={`fixed top-0 left-0 w-64 h-full p-4 z-50 shadow-lg transition-all duration-300 ${
+        theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"
+      } overflow-y-auto pb-20`}
+    >
       {/* ✅ ปุ่มปิดเมนู (X) */}
-      <button 
-        className={`absolute right-4 top-4 text-2xl transition-colors duration-200 
-          ${theme === "dark" ? "text-white hover:text-gray-400" : "text-black hover:text-gray-600"}`}
+      <button
+        className={`absolute right-4 top-4 text-2xl transition-colors duration-200 ${
+          theme === "dark"
+            ? "text-white hover:text-gray-400"
+            : "text-black hover:text-gray-600"
+        }`}
         onClick={onClose}
       >
         <FaTimes />
@@ -119,18 +121,30 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
 
       {/* ✅ โลโก้ + Superbear + ปุ่ม Dark/Light Mode */}
       <div className="mt-6 flex items-center mb-3">
-        <img src="/spm2.jpg" alt="Logo" className="w-8 h-8 mr-2 object-cover rounded-full" />
+        <img
+          src="/spm2.jpg"
+          alt="Logo"
+          className="w-8 h-8 mr-2 object-cover rounded-full"
+        />
         <div className="flex items-center space-x-2">
           <span className="text-lg font-bold cursor-pointer hover:text-gray-400 transition">
             Superbear
           </span>
-          <button className="cursor-pointer transition-transform transform hover:scale-110" onClick={toggleTheme}>
-            {theme === "dark" ? <FaSun className="text-yellow-400 text-2xl" /> : <FaMoon className="text-blue-400 text-2xl" />}
+          <button
+            className="cursor-pointer transition-transform transform hover:scale-110"
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? (
+              <FiSun className="text-yellow-400 text-2xl" /> // ✅ ใช้ FiSun
+            ) : (
+              <FaMoon className="text-blue-400 text-2xl" />
+            )}
           </button>
         </div>
       </div>
-          {/* ✅ ปุ่มกลับไปหน้า Python Series */}
-          <button
+
+      {/* ✅ ปุ่มกลับไปหน้า React.js Series */}
+      <button
         className={`w-full text-left text-sm font-medium px-5 py-3 rounded-lg mb-4 transition 
           ${theme === "dark" ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-200 text-black hover:bg-gray-300"}`}
         onClick={() => {
@@ -138,7 +152,7 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
           onClose();
         }}
       >
-         ReactJsSeries
+        <FaArrowLeft className="inline-block mr-2" /> React.js Series
       </button>
 
       {/* ✅ รายการบทเรียน (Dropdown) */}
@@ -160,9 +174,14 @@ const ReactJsMobileMenu = ({ onClose, theme, setTheme }) => {
                   <li
                     key={subItem.id}
                     className={`p-2 rounded-lg cursor-pointer transition duration-200 ${
-                      location.pathname === subItem.path ? "bg-green-500 text-white font-bold" : "hover:bg-gray-600"
+                      location.pathname === subItem.path
+                        ? "bg-green-500 text-white font-bold"
+                        : "hover:bg-gray-600"
                     }`}
-                    onClick={() => { navigate(subItem.path); onClose(); }}
+                    onClick={() => {
+                      navigate(subItem.path);
+                      onClose();
+                    }}
                   >
                     {subItem.title}
                   </li>
