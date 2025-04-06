@@ -55,7 +55,7 @@ const from = location.state?.from?.pathname || "/";
       const user = result.user;
       localStorage.setItem("token", await user.getIdToken());
       alert(`Welcome, ${user.displayName}`);
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (err) {
       if (err.code === "auth/account-exists-with-different-credential") {
         const email = err.customData?.email;
@@ -71,7 +71,7 @@ const from = location.state?.from?.pathname || "/";
             await linkWithCredential(googleResult.user, pendingCred);
             localStorage.setItem("token", await googleResult.user.getIdToken());
             alert("บัญชี GitHub เชื่อมกับบัญชี Google สำเร็จ!");
-            navigate("/");
+            navigate(from, { replace: true });;
           } catch (linkErr) {
             console.error("Error linking credentials:", linkErr);
             alert("เกิดข้อผิดพลาดในการเชื่อมบัญชี");
