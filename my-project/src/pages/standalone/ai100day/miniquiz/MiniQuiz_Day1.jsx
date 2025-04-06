@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { FaCheckCircle, FaTimesCircle, FaQuestionCircle } from "react-icons/fa";
 
-const MiniQuiz_Day1 = () => {
+const MiniQuiz_Day1 = ({ theme }) => {
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState(0);
+  const [incorrect, setIncorrect] = useState([]);
 
   const questions = [
     {
@@ -54,17 +57,45 @@ const MiniQuiz_Day1 = () => {
   };
 
   const handleSubmit = () => {
+    let newScore = 0;
+    let wrong = [];
+
+    questions.forEach((q) => {
+      const userAnswer = answers[q.id];
+      if (userAnswer === q.correct) {
+        newScore++;
+      } else {
+        wrong.push({
+          id: q.id,
+          question: q.question,
+          yourAnswer: q.options[userAnswer],
+          correctAnswer: q.options[q.correct],
+        });
+      }
+    });
+
+    setScore(newScore);
+    setIncorrect(wrong);
     setSubmitted(true);
   };
 
   const getFeedback = (qid, index) => {
-    if (!submitted) return "";
-    return questions.find((q) => q.id === qid).correct === index ? "✅" : "❌";
+    if (!submitted) return <FaQuestionCircle className="text-gray-400" />;
+    return questions.find((q) => q.id === qid).correct === index ? (
+      <FaCheckCircle className="text-green-500" />
+    ) : (
+      <FaTimesCircle className="text-red-500" />
+    );
   };
 
   return (
-    <div className="bg-black/60 text-white rounded-xl p-6 mt-12 border border-yellow-500 shadow-lg">
-      <h2 className="text-2xl font-semibold mb-6"> Mini Quiz</h2>
+    <section
+      id="quiz"
+      className="bg-black/60 text-white rounded-xl p-6 mt-12 border border-yellow-500 shadow-lg"
+    >
+      <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+        <FaQuestionCircle className="text-yellow-500" /> Mini Quiz
+      </h2>
 
       {questions.map((q) => (
         <div key={q.id} className="mb-6">
@@ -93,14 +124,47 @@ const MiniQuiz_Day1 = () => {
       {!submitted ? (
         <button
           onClick={handleSubmit}
-          className="mt-4 px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full"
+          className="mt-4 px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full flex items-center gap-2"
         >
-          ตรวจคำตอบ
+          <FaCheckCircle /> ตรวจคำตอบ
         </button>
       ) : (
-        <p className="mt-4 text-green-400 font-medium">✔️ ตรวจคำตอบเรียบร้อยแล้ว!</p>
+        <>
+          <p className="mt-4 text-green-400 font-medium flex items-center gap-2">
+            <FaCheckCircle /> ✅ คุณได้ {score} / {questions.length} คะแนน
+          </p>
+
+          {incorrect.length > 0 && (
+            <div className="mt-4 text-red-300">
+              <p className="font-semibold mb-2 flex items-center gap-2">
+                <FaTimesCircle /> ❌ ข้อที่คุณตอบผิด:
+              </p>
+              <ul className="list-disc pl-6 space-y-2 text-sm">
+                {incorrect.map((item, idx) => (
+                  <li key={idx}>
+                    <p>
+                      🔸 <strong>{item.question}</strong>
+                    </p>
+                    <p>
+                      คุณตอบ:{" "}
+                      <span className="text-red-400">
+                        {item.yourAnswer || "ไม่ได้เลือก"}
+                      </span>
+                    </p>
+                    <p>
+                      คำตอบที่ถูกต้อง:{" "}
+                      <span className="text-green-400">
+                        {item.correctAnswer}
+                      </span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
       )}
-    </div>
+    </section>
   );
 };
 

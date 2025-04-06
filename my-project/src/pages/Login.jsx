@@ -13,13 +13,15 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-
+import { useLocation } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+const from = location.state?.from?.pathname || "/";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ const Login = () => {
       const token = await user.getIdToken(true);
       localStorage.setItem("token", token);
       alert("Login Success!");
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (err) {
       console.error("Login error:", err);
       alert("Login failed: " + err.message);

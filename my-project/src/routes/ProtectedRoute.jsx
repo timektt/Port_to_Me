@@ -1,16 +1,15 @@
-// src/routes/ProtectedRoute.jsx
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../components/context/AuthContext";
 
 const ProtectedRoute = ({ children }) => {
-  const { user , loading } = useAuth();
+  const { user, loading } = useAuth();
+  const location = useLocation(); // ✅ เพิ่มบรรทัดนี้
 
-  // ✅ ระหว่างยังไม่ได้เช็ค user ให้แสดง loading หรือ null ไปก่อน
-  if (loading) return null; // หรือ return <Loading /> ถ้ามี component loading
-  if (user === undefined) return null;
+  if (loading || user === undefined) return null;
 
-  // ✅ ถ้าไม่ใช่ user -> redirect ไป /login และไม่ให้ย้อนกลับ
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />; // ✅ ส่งตำแหน่งเดิมไป
+  }
 
   return children;
 };
