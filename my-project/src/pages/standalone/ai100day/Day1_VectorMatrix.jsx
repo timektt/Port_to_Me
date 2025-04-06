@@ -426,7 +426,7 @@ print("ขนาดเวกเตอร์:", norm)  # ควรได้ 5.0 (
 
 
       {/* ✅ ScrollSpy แบบลอยขวา ไม่ดัน content */}
-      <div className="hidden lg:block fixed right-6 top-28 z-50">
+      <div className="hidden lg:block fixed right-6 top-[185px] z-50">
         <ScrollSpy_Ai_Day1 />
       </div>
 

@@ -36,7 +36,7 @@ const ScrollSpy_Ai_Day1 = () => {
   };
 
   return (
-    <div className="fixed right-6 top-32 hidden lg:flex flex-col gap-2 z-50">
+    <div className="flex flex-col gap-2">
       {headings.map((h) => (
         <button
           key={h.id}
