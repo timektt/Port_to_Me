@@ -8,14 +8,17 @@ function useQuery() {
 }
 
 const SearchResults = () => {
-  const query = useQuery().get("q")?.toLowerCase() || "";
+  const rawQuery = useQuery().get("q") || "";
+  const query = rawQuery.trim().toLowerCase();
 
   const fuse = new Fuse(keywords, {
     keys: ["title", "tags"],
     threshold: 0.3,
+    includeScore: false,
   });
 
   const filtered = useMemo(() => {
+    if (!query || query.length > 100) return []; // ✅ ป้องกัน input ยาวเกินหรือลองใส่โค้ดแปลกๆ
     return fuse.search(query).map((result) => result.item);
   }, [query]);
 

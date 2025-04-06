@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase-config";
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Register = () => {
@@ -9,25 +12,45 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [attempts, setAttempts] = useState(0);
+  const cooldownRef = useRef(false);
   const navigate = useNavigate();
+
+  const validateForm = () => {
+    if (!email.includes("@") || password.length < 6) {
+      alert("❌ Please enter a valid email and password (min 6 characters).");
+      return false;
+    }
+    return true;
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    if (loading) return;
+    if (loading || cooldownRef.current || !validateForm()) return;
     setLoading(true);
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // ✅ ส่งอีเมลยืนยัน
       await sendEmailVerification(user);
-
-      alert("Register success! Please check your email to verify your account.");
+      alert("✅ Register success! Please verify your email.");
+      setEmail(""); setPassword(""); // 🧹 Clear form
       navigate("/login");
     } catch (err) {
       console.error("Firebase Register Error:", err);
-      alert("Register failed: " + err.message);
+      alert("❌ Register failed: " + err.message);
+      setAttempts((prev) => prev + 1);
+
+      // ⛔ Basic rate limit
+      if (attempts >= 2) {
+        cooldownRef.current = true;
+        alert("🚫 Too many attempts. Please wait 10 seconds.");
+        setTimeout(() => {
+          cooldownRef.current = false;
+          setAttempts(0);
+        }, 10000);
+      }
     } finally {
       setLoading(false);
     }

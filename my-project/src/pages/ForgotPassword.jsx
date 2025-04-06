@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebase-config";
 import { useNavigate } from "react-router-dom";
@@ -6,19 +6,47 @@ import { useNavigate } from "react-router-dom";
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
   const navigate = useNavigate();
+
+  // ✅ ลด spam: Cooldown timer
+  useEffect(() => {
+    if (cooldown > 0) {
+      const timer = setTimeout(() => setCooldown(cooldown - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [cooldown]);
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
-    if (!email) return alert("Please enter your email address.");
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail) {
+      return alert("❌ Please enter your email address.");
+    }
+
+    if (!isValidEmail(trimmedEmail)) {
+      return alert("❌ Invalid email format.");
+    }
+
+    if (cooldown > 0) {
+      return alert(`⏳ Please wait ${cooldown} seconds before trying again.`);
+    }
+
     setLoading(true);
     try {
-      await sendPasswordResetEmail(auth, email);
-      alert("Password reset link sent! Please check your email.");
+      await sendPasswordResetEmail(auth, trimmedEmail);
+      alert("✅ Password reset link sent! Please check your email.");
+      setCooldown(30); // ⏱ ป้องกัน spam ภายใน 30 วินาที
       navigate("/login");
     } catch (err) {
       console.error("Reset password error:", err);
-      alert("Failed to send reset link: " + err.message);
+      alert("❌ Failed to send reset link: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -42,15 +70,19 @@ const ForgotPassword = () => {
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || cooldown > 0}
             className="w-full bg-green-600 hover:bg-green-700 transition rounded-full py-2 font-bold"
           >
-            {loading ? "Sending..." : "Send Reset Link"}
+            {loading
+              ? "Sending..."
+              : cooldown > 0
+              ? `Please wait (${cooldown}s)`
+              : "Send Reset Link"}
           </button>
         </form>
 
         <p className="mt-4 text-sm text-purple-300">
-          Remember your password? {" "}
+          Remember your password?{" "}
           <span
             onClick={() => navigate("/login")}
             className="text-blue-400 hover:underline cursor-pointer"

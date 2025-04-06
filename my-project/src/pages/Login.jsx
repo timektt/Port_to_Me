@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { auth } from "../firebase/firebase-config";
 import {
   signInWithEmailAndPassword,
@@ -7,24 +7,35 @@ import {
   signInWithPopup,
   linkWithCredential,
   fetchSignInMethodsForEmail,
-  sendPasswordResetEmail,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useLocation } from "react-router-dom";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [attempts, setAttempts] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
-const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
+  const cooldownRef = useRef(false);
+
+  const validateForm = () => {
+    if (!email.includes("@") || password.length < 6) {
+      alert("❌ Invalid email or password format.");
+      return false;
+    }
+    return true;
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!validateForm() || cooldownRef.current) return;
+
     setLoading(true);
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -33,17 +44,28 @@ const from = location.state?.from?.pathname || "/";
       if (!user.emailVerified) {
         await user.sendEmailVerification();
         alert("Please verify your email. A verification link has been sent.");
-        setLoading(false);
         return;
       }
 
       const token = await user.getIdToken(true);
       localStorage.setItem("token", token);
-      alert("Login Success!");
+      alert("✅ Login Success!");
+      setEmail(""); setPassword(""); // 🧹 Clear form
       navigate(from, { replace: true });
     } catch (err) {
       console.error("Login error:", err);
+      setAttempts((prev) => prev + 1);
       alert("Login failed: " + err.message);
+
+      // ⛔ Basic client-side rate limit
+      if (attempts >= 2) {
+        cooldownRef.current = true;
+        alert("🚫 Too many attempts. Please wait 10 seconds.");
+        setTimeout(() => {
+          cooldownRef.current = false;
+          setAttempts(0);
+        }, 10000);
+      }
     } finally {
       setLoading(false);
     }
@@ -63,18 +85,16 @@ const from = location.state?.from?.pathname || "/";
         const methods = await fetchSignInMethodsForEmail(auth, email);
 
         if (methods.includes("google.com")) {
-          alert(
-            `บัญชีนี้เคยเชื่อมต่อผ่าน Google มาก่อน กรุณาใช้ปุ่ม "Sign in with Google"`
-          );
+          alert(`บัญชีนี้เคยเชื่อมต่อผ่าน Google มาก่อน กรุณาใช้ปุ่ม "Sign in with Google"`);
           try {
             const googleResult = await signInWithPopup(auth, new GoogleAuthProvider());
             await linkWithCredential(googleResult.user, pendingCred);
             localStorage.setItem("token", await googleResult.user.getIdToken());
-            alert("บัญชี GitHub เชื่อมกับบัญชี Google สำเร็จ!");
-            navigate(from, { replace: true });;
+            alert("✅ บัญชี GitHub เชื่อมกับบัญชี Google สำเร็จ!");
+            navigate(from, { replace: true });
           } catch (linkErr) {
             console.error("Error linking credentials:", linkErr);
-            alert("เกิดข้อผิดพลาดในการเชื่อมบัญชี");
+            alert("❌ Error linking accounts");
           }
         } else {
           alert("บัญชีนี้เคยลงทะเบียนด้วยผู้ให้บริการอื่น กรุณาเข้าสู่ระบบด้วยวิธีเดิม");
