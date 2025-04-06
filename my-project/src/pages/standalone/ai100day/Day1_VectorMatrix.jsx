@@ -5,14 +5,17 @@ import { FaPlay } from "react-icons/fa";
 import Comments from "../../../components/common/Comments";
 import SupportMeButton from "../../../support/SupportMeButton";
 import MiniQuiz_Day1 from "./miniquiz/MiniQuiz_Day1";
+import ScrollSpy_Ai_Day1 from "./scrollspy/ScrollSpy_Ai_Day1";
+
 const Day1_VectorMatrix = ({ theme }) => {
   const navigate = useNavigate();
   return (
     <div
-      className={`min-h-screen ${
+      className={`relative min-h-screen ${
         theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
       }`}
     >
+      {/* ✅ เนื้อหาหลัก */}
       <main className="max-w-3xl mx-auto p-6 pt-20">
         <h1 className="text-3xl font-bold mb-6">
           Day 1: Introduction to Vectors & Matrices
@@ -23,7 +26,7 @@ const Day1_VectorMatrix = ({ theme }) => {
           จึงเป็นหัวใจของงานด้านปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง (AI/ML)
         </p>
 
-        <section className="mb-10">
+        <section id="vector" className="mb-10">
   <h2 className="text-2xl font-semibold mb-3">Vector คืออะไร</h2>
 
   {/* ✅ ภาพประกอบเวกเตอร์ */}
@@ -71,13 +74,13 @@ const Day1_VectorMatrix = ({ theme }) => {
   </p>
 </section>
 
-<section className="mb-10">
+<section id="matrix" className="mb-10">
   <h2 className="text-2xl font-semibold mb-3">Matrix คืออะไร</h2>
 
   <img
     src="/matrix.png"
     alt="Matrix illustration"
-    className="rounded-xl shadow-lg mb-6 w-full max-w-md mx-auto"
+    className="rounded-xl shadow-lg mb-6 w-full max-w-md mx-auto shadow-md border border-yellow-400"
   />
 
   <p className="mb-2">
@@ -187,7 +190,7 @@ plt.show()`}
 
 
 
-        <section className="mb-10">
+        <section  id="examples" className="mb-10">
           <h2 className="text-2xl font-semibold mb-3">
             ตัวอย่างการใช้งาน Vector และ Matrix ใน Python ด้วย NumPy
           </h2>
@@ -217,8 +220,16 @@ print("Matrix Product:", product)`}
           </p>
         </section>
 
-        <section className="mb-10">
+        <section id = "why-ai" className="mb-10">
   <h2 className="text-2xl font-semibold mb-3">ทำไม AI ถึงใช้ Vector และ Matrix</h2>
+
+   {/* ✅ ภาพประกอบเวกเตอร์ */}
+   <img
+    src="/whyai_uses.png"
+    alt="Whyai uses"
+    className="w-full max-w-lg mx-auto mb-6 rounded-xl shadow-md border border-yellow-400"
+  />
+
 
   <p className="mb-2">
     ในระบบ AI ทุกวันนี้ ไม่ว่าจะเป็น ChatGPT, ระบบแปลภาษา, หรือระบบจดจำภาพ — ล้วนต้องแปลงข้อมูลให้อยู่ในรูปแบบที่คอมพิวเตอร์เข้าใจได้ ซึ่งก็คือ “ตัวเลข”
@@ -267,7 +278,7 @@ print("Matrix Product:", product)`}
   </p>
 </section>
 
-<section className="mb-10">
+<section id= "exercise" className="mb-10">
   <h2 className="text-2xl font-semibold mb-3">แบบฝึกหัดเสริม</h2>
   <p className="mb-2">
     เพื่อเสริมความเข้าใจจากบทเรียน ลองฝึกเขียนโค้ดจริงใน Python ดังนี้:
@@ -328,7 +339,7 @@ print("ขนาดเวกเตอร์:", norm)  # ควรได้ 5.0 (
 </section>
 
 
-<section className="mb-12">
+<section  id = "summary" className="mb-12">
   <h2 className="text-2xl font-semibold mb-3">ตารางสรุปภาพรวม</h2>
   <table className="table-auto w-full text-sm text-left border border-gray-600 text-white">
     <thead className="bg-gray-700 text-white">
@@ -395,7 +406,9 @@ print("ขนาดเวกเตอร์:", norm)  # ควรได้ 5.0 (
     </tbody>
   </table>
 </section>
+      <section id="quiz" className="mb-10">
         <MiniQuiz_Day1 theme={theme} />
+      </section>
         <div className="flex justify-between items-center max-w-5xl mx-auto px-4 mt-4">
   <div className="flex items-center">
     <span className="text-lg font-bold">Tags:</span>
@@ -410,6 +423,12 @@ print("ขนาดเวกเตอร์:", norm)  # ควรได้ 5.0 (
 
         <Comments theme={theme} />
       </main>
+
+
+      {/* ✅ ScrollSpy แบบลอยขวา ไม่ดัน content */}
+      <div className="hidden lg:block fixed right-6 top-28 z-50">
+        <ScrollSpy_Ai_Day1 />
+      </div>
 
       <SupportMeButton />
     </div>
