@@ -641,10 +641,10 @@ function App() {
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
          
-        <Route
-  path="/courses/ai/intro-to-vectors-matrices"
-  element={<Day1_VectorMatrix theme={theme} setTheme={setTheme} />}
-/>
+                <Route
+          path="/courses/ai/intro-to-vectors-matrices"
+          element={<Day1_VectorMatrix theme={theme} setTheme={setTheme} />}
+        />
         </Routes>
         
         </Suspense>
