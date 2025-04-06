@@ -9,6 +9,7 @@ const allTags = [
   { name: "React", query: "react" },
   { name: "Web Development", query: "web" },
   { name: "Basic Programming", query: "basic" },
+  { name: "Ai", query: "Ai" },
 ];
 
 const TagsPage = () => {

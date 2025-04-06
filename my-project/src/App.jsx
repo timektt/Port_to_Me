@@ -281,7 +281,8 @@ import ErrorTypes from "./pages/courses/topics/basic-programming/205_debugging_e
 import ExceptionHandling from "./pages/courses/topics/basic-programming/205_debugging_error_handling/ExceptionHandling";
 import LoggingMonitoring from "./pages/courses/topics/basic-programming/205_debugging_error_handling/LoggingMonitoring";
 
-
+//Ai
+import Day1_VectorMatrix from "./pages/standalone/ai100day/Day1_VectorMatrix";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -638,7 +639,13 @@ function App() {
           }
         />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+
+         
+        <Route path="/courses/ai/intro-to-vectors-matrices"element={<ProtectedRoute><Day1_VectorMatrix theme={theme} setTheme={setTheme} /></ProtectedRoute>
+            }
+          />
         </Routes>
+        
         </Suspense>
         
         </div>

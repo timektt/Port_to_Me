@@ -8,6 +8,9 @@ const courses = [
   { id: "web-development", title: "Web Development", color: "bg-yellow-500", path: "/courses/web-development" },
   { id: "basic-programming", title: "Basic Programming", color: "bg-red-500", path: "/courses/basic-programming" },
   { id: "restful-api-graphql-series", title: "REST API & GraphQL", color: "bg-indigo-500", path: "/courses/restful-api-graphql-series" },
+  { id: "ai", title: "AI", color: "bg-pink-500", path: "/courses/ai" },
+  { id: "all-courses", title: "All Courses", color: "bg-gray-500", path: "/courses" },
+
 ];
 
 const CourseTags = () => {

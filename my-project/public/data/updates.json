@@ -1,5 +1,12 @@
 [
-    {
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
+    "title": "Introduction to Vectors & Matrices",
+    "path": "/courses/ai/intro-to-vectors-matrices",
+    "date": "06/04/2568"
+  },
+  {
       "category": "python-series",
       "level": "101: Basic Python",
       "title": "ทำความรู้จักกับ Python",
@@ -13,5 +20,6 @@
       "path": "/courses/python-series/variables",
       "date": "08/10/2567"
     }
+
   ]
   
