@@ -18,7 +18,7 @@ const ScrollSpy_Ai_Day1 = () => {
     const handleScroll = () => {
       let current = null;
       for (const heading of headings) {
-        const el = document.getElementById(heading.id);
+        const el = document.getElementById(heading.id);     
         if (el && el.getBoundingClientRect().top < window.innerHeight / 4) {
           current = heading.id;
         }

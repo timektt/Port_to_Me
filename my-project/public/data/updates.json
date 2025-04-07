@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Vector Addition & Scalar Multiplication",
+    "path": "/courses/ai/vector-addition&scalarmultiplication",
+    "date": "07/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Introduction to Vectors & Matrices",
     "path": "/courses/ai/intro-to-vectors-matrices",
     "date": "06/04/2568"
@@ -20,6 +27,7 @@
       "path": "/courses/python-series/variables",
       "date": "08/10/2567"
     }
+    
 
   ]
   
