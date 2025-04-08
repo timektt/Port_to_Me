@@ -657,7 +657,7 @@ function App() {
 
 
            <Route
-            path="/courses/ai/dot-product&cosineSimilarity"
+            path="/courses/ai/dot-product&cosinesimilarity"
             element={<Day3_DotProduct theme={theme} setTheme={setTheme} />}
             />
         </Routes>
