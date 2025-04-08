@@ -284,6 +284,7 @@ import LoggingMonitoring from "./pages/courses/topics/basic-programming/205_debu
 //Ai
 import Day1_VectorMatrix from "./pages/standalone/ai100day/Day1_VectorMatrix";
 import Day2_VectorOperations from "./pages/standalone/ai100day/Day2_VectorOperations";
+import Day3_DotProduct from "./pages/standalone/ai100day/Day3_DotProduct";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -652,6 +653,12 @@ function App() {
             <Route
             path="/courses/ai/vector-addition&scalarmultiplication"
             element={<Day2_VectorOperations theme={theme} setTheme={setTheme} />}
+            />
+
+
+           <Route
+            path="/courses/ai/dot-product&cosineSimilarity"
+            element={<Day3_DotProduct theme={theme} setTheme={setTheme} />}
             />
         </Routes>
 

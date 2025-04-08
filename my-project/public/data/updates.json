@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Dot Product & ความหมายเชิงมุม (Cosine Similarity)",
+    "path": "/courses/ai/dot-product&cosineSimilarity",
+    "date": "08/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Vector Addition & Scalar Multiplication",
     "path": "/courses/ai/vector-addition&scalarmultiplication",
     "date": "07/04/2568"
