@@ -2,6 +2,7 @@
 import typography from '@tailwindcss/typography'
 
 export default {
+  darkMode: "class", // ✅ เพิ่มตรงนี้
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {

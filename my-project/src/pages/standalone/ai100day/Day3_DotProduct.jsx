@@ -284,46 +284,47 @@ print("Cosine Similarity:", cos_sim)`}
   </div>
 </section>
 
-<h3 className="text-lg font-semibold mt-8 mb-3"> เปรียบเทียบ Dot Product กับ Cosine Similarity</h3>
+<h3 className="text-lg font-semibold mt-8 mb-3">เปรียบเทียบ Dot Product กับ Cosine Similarity</h3>
 
-<div className="overflow-x-auto mb-6">
-  <table className="min-w-full table-auto border border-gray-300 text-sm text-left">
+<div className="overflow-x-auto mb-6 rounded-lg border border-gray-300 dark:border-gray-700">
+  <table className="min-w-full table-auto text-sm text-left">
     <thead>
-      <tr className="bg-gray-100 dark:bg-gray-800">
-        <th className="border px-4 py-2">หัวข้อ</th>
-        <th className="border px-4 py-2">Dot Product</th>
-        <th className="border px-4 py-2">Cosine Similarity</th>
+      <tr className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+        <th className="border px-4 py-2 dark:border-gray-700">หัวข้อ</th>
+        <th className="border px-4 py-2 dark:border-gray-700">Dot Product</th>
+        <th className="border px-4 py-2 dark:border-gray-700">Cosine Similarity</th>
       </tr>
     </thead>
-    <tbody className="bg-white dark:bg-gray-900">
+    <tbody className="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200">
       <tr>
-        <td className="border px-4 py-2">ผลลัพธ์</td>
-        <td className="border px-4 py-2">จำนวนจริง (อิงขนาด)</td>
-        <td className="border px-4 py-2">ค่าระหว่าง -1 ถึง 1</td>
+        <td className="border px-4 py-2 dark:border-gray-700">ผลลัพธ์</td>
+        <td className="border px-4 py-2 dark:border-gray-700">จำนวนจริง (อิงขนาด)</td>
+        <td className="border px-4 py-2 dark:border-gray-700">ค่าระหว่าง -1 ถึง 1</td>
+      </tr>
+      <tr className="bg-gray-50 dark:bg-gray-800/40">
+        <td className="border px-4 py-2 dark:border-gray-700">สนใจทิศหรือขนาด?</td>
+        <td className="border px-4 py-2 dark:border-gray-700">ทิศ + ขนาด</td>
+        <td className="border px-4 py-2 dark:border-gray-700">เฉพาะทิศทาง (normalized)</td>
       </tr>
       <tr>
-        <td className="border px-4 py-2">สนใจทิศหรือขนาด?</td>
-        <td className="border px-4 py-2">ทิศ + ขนาด</td>
-        <td className="border px-4 py-2">เฉพาะทิศทาง (normalized)</td>
+        <td className="border px-4 py-2 dark:border-gray-700">อ่อนไหวต่อ scale?</td>
+        <td className="border px-4 py-2 dark:border-gray-700">ใช่</td>
+        <td className="border px-4 py-2 dark:border-gray-700">ไม่</td>
+      </tr>
+      <tr className="bg-gray-50 dark:bg-gray-800/40">
+        <td className="border px-4 py-2 dark:border-gray-700">ใช้งานเหมาะกับ</td>
+        <td className="border px-4 py-2 dark:border-gray-700">การวัด “พลัง” หรือผลรวม</td>
+        <td className="border px-4 py-2 dark:border-gray-700">การวัด “ความคล้ายเชิงความหมาย”</td>
       </tr>
       <tr>
-        <td className="border px-4 py-2">อ่อนไหวต่อ scale?</td>
-        <td className="border px-4 py-2">ใช่</td>
-        <td className="border px-4 py-2">ไม่</td>
-      </tr>
-      <tr>
-        <td className="border px-4 py-2">ใช้งานเหมาะกับ</td>
-        <td className="border px-4 py-2">การวัด “พลัง” หรือผลรวม</td>
-        <td className="border px-4 py-2">การวัด “ความคล้ายเชิงความหมาย”</td>
-      </tr>
-      <tr>
-        <td className="border px-4 py-2">ตัวอย่างที่ใช้บ่อย</td>
-        <td className="border px-4 py-2">Self-Attention, Recommendation</td>
-        <td className="border px-4 py-2">Word Similarity, Semantic Search</td>
+        <td className="border px-4 py-2 dark:border-gray-700">ตัวอย่างที่ใช้บ่อย</td>
+        <td className="border px-4 py-2 dark:border-gray-700">Self-Attention, Recommendation</td>
+        <td className="border px-4 py-2 dark:border-gray-700">Word Similarity, Semantic Search</td>
       </tr>
     </tbody>
   </table>
 </div>
+
 
 
 <section id="dot-limitations" className="mb-16 scroll-mt-32">
@@ -629,7 +630,7 @@ print("Cosine Similarity:", cos_sim)`}
   </p>
 
   {/* Flow Diagram (สามารถแทนด้วยภาพได้ในอนาคต) */}
-  <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-300 dark:border-gray-700 shadow-sm">
+  <div className=" dark:bg-gray-800 p-6 rounded-xl border border-gray-300 dark:border-gray-700 shadow-sm">
     <div className="text-center text-sm sm:text-base">
       <p> <strong>Vector A</strong> &nbsp; ⨯ &nbsp; <strong>Vector B</strong></p>
       <p>↓</p>
