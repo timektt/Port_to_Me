@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Linear Transformation & Feature Extraction",
+    "path": "/courses/ai/linear-transformation&feature-extraction",
+    "date": "11/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Matrix Multiplication",
     "path": "/courses/ai/matrix-multiplication",
     "date": "10/04/2568"
@@ -33,14 +40,8 @@
       "title": "ทำความรู้จักกับ Python",
       "path": "/courses/python-series/intro",
       "date": "08/10/2567"
-    },
-    {
-      "category": "python-series",
-      "level": "101: Basic Python",
-      "title": "Variable & Data Type",
-      "path": "/courses/python-series/variables",
-      "date": "08/10/2567"
     }
+  
     
 
   ]
