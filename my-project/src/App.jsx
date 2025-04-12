@@ -287,6 +287,7 @@ import Day2_VectorOperations from "./pages/standalone/ai100day/Day2_VectorOperat
 import Day3_DotProduct from "./pages/standalone/ai100day/Day3_DotProduct";
 import Day4_MatrixMultiplication from "./pages/standalone/ai100day/Day4_MatrixMultiplication";
 import Day5_LinearTransform from "./pages/standalone/ai100day/Day5_LinearTransform";
+import Day6_ActivationFunctions from "./pages/standalone/ai100day/Day6_ActivationFunctions";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -645,34 +646,11 @@ function App() {
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
          
-                <Route
-          path="/courses/ai/intro-to-vectors-matrices"
-          element={<Day1_VectorMatrix theme={theme} setTheme={setTheme} />}
-        />
-         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-
-         
-            <Route
-            path="/courses/ai/vector-addition&scalarmultiplication"
-            element={<Day2_VectorOperations theme={theme} setTheme={setTheme} />}
-            />
-
-
-           <Route
-            path="/courses/ai/dot-product&cosinesimilarity"
-            element={<Day3_DotProduct theme={theme} setTheme={setTheme} />}
-            />
-
-
-          <Route
-            path="/courses/ai/matrix-multiplication"
-            element={<Day4_MatrixMultiplication theme={theme} setTheme={setTheme} />}
-            />
-
-          <Route
-            path="/courses/ai/linear-transformation&feature-extraction"
-            element={<Day5_LinearTransform theme={theme} setTheme={setTheme} />}
-            />
+                <Route path="/courses/ai/intro-to-vectors-matrices" element={<Day1_VectorMatrix theme={theme} setTheme={setTheme} />} />
+                <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                <Route path="/courses/ai/vector-addition&scalarmultiplication"element={<Day2_VectorOperations theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/dot-product&cosinesimilarity" element={<Day3_DotProduct theme={theme} setTheme={setTheme} />}/><Route  path="/courses/ai/matrix-multiplication"element={<Day4_MatrixMultiplication theme={theme} setTheme={setTheme} />}/>          <Route path="/courses/ai/linear-transformation&feature-extraction" element={<Day5_LinearTransform theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/activation-functions" element={<Day6_ActivationFunctions theme={theme} setTheme={setTheme} />} />
         </Routes>
 
         

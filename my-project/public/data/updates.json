@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Activation Functions",
+    "path": "/courses/ai/activation-functions",
+    "date": "12/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Linear Transformation & Feature Extraction",
     "path": "/courses/ai/linear-transformation&feature-extraction",
     "date": "11/04/2568"
