@@ -240,8 +240,10 @@ const Day6_ActivationFunctions = ({ theme }) => {
   </div>
 
   <div className="mt-10">
-    <h3 className="text-xl font-semibold mb-3"> ตารางเปรียบเทียบแบบสรุป</h3>
-    <table className="w-full text-sm border-collapse border mt-4">
+  <h3 className="text-xl font-semibold mb-3">ตารางเปรียบเทียบแบบสรุป</h3>
+
+  <div className="overflow-x-auto">
+    <table className="min-w-[600px] text-sm border-collapse border">
       <thead>
         <tr className="bg-yellow-200 text-black">
           <th className="border px-3 py-2 text-left">Activation</th>
@@ -276,6 +278,8 @@ const Day6_ActivationFunctions = ({ theme }) => {
       </tbody>
     </table>
   </div>
+</div>
+
 
   <div className="bg-yellow-100 dark:bg-yellow-200 text-black p-4 mt-8 rounded-xl text-sm border-l-4 border-yellow-500 shadow">
     <strong>Insight:</strong><br />
