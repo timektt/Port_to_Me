@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Loss Functions & Optimization",
+    "path": "/courses/ai/lossfunctions&optimization",
+    "date": "13/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Activation Functions",
     "path": "/courses/ai/activation-functions",
     "date": "12/04/2568"
@@ -40,15 +47,7 @@
     "title": "Introduction to Vectors & Matrices",
     "path": "/courses/ai/intro-to-vectors-matrices",
     "date": "06/04/2568"
-  },
-  {
-      "category": "python-series",
-      "level": "101: Basic Python",
-      "title": "ทำความรู้จักกับ Python",
-      "path": "/courses/python-series/intro",
-      "date": "08/10/2567"
-    }
-  
+  }
     
 
   ]

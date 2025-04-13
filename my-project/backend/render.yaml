@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: superbear-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: FIREBASE_PROJECT_ID
+        value: superbear-792a7
+      - key: FIREBASE_CLIENT_EMAIL
+        value: firebase-adminsdk-fbsvc@superbear-792a7.iam.gserviceaccount.com
+      - key: FIREBASE_PRIVATE_KEY
+        value: |
+          -----BEGIN PRIVATE KEY-----
+          MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2cZo4UU7tqeTz
+          SPbrC2v4TsPZbPCn2Q4SbtAHBAJmrGAosSIxdERfSFVm2IcKVdCpp3ByuAolO5tJ
+          fsDwjTGNMfdigCmC45mqHHHl6uj66XqBtlau+WibHLzVbmg5GwWB76zjj1AWWMV2
+          KQL/GTM8TUmdRXBn3ZgUmOpRVTFEUANdK/E09NhyIoZqywfMM+q4TAgGaGGz6TKd
+          7F8fGOTd5gDHiq1sI/0yn8d9O7wCSsjKay2Xq++IKxmdNxTWi+KUbc5WF4ZLdEvi
+          21NTOsqyQsoUDffbqifh+C6oHEgzMNwfRYkfONkGUKztlJ5GjGo42e+NZYCS5ECx
+          Q3LAuhLdAgMBAAECggEAGZ5BFAhix1+UXQ8RUPblHdRdjuHLtx306mSyBFItTiKF
+          ...
+          Xc4skoLQMxEyJPU=
+          -----END PRIVATE KEY-----
+      - key: DATABASE_URL
+        value: postgresql://myproject_db_w8uz_user:9espvQKvMORQPPdZ2jxsxFhiup4AWQSl@dpg-cvhvjh1opnds73fogfqg-a/myproject_db_w8uz

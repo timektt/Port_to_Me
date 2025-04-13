@@ -131,7 +131,7 @@ const NodeSeries = ({ theme, setTheme }) => {
                 {/* ✅ Mobile Sidebar */}
                 {mobileMenuOpen && (
                   <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
-                    {console.log("✅ NodeMobileMenu Rendered!")}
+        
                     <NodeMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
                   </div>
                 )}

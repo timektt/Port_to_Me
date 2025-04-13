@@ -21,9 +21,7 @@ export const AuthProvider = ({ children }) => {
           const userRole = docSnap.exists() ? docSnap.data().role : null;
 
           
-          console.log("✅ current user:", currentUser.email);
-          console.log("✅ role:", userRole); // <--- ✅ ตรวจสอบว่าโหลด role สำเร็จ
-
+  
 
           setUser(currentUser);
           setRole(userRole);
@@ -50,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, logout, loading, role }}>
+    <AuthContext.Provider value={{ user, logout, loading, setUser, role }}>
       {children}
     </AuthContext.Provider>
   );

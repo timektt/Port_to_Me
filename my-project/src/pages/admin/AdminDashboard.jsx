@@ -3,7 +3,6 @@ import React from "react";
 import AdminUpdates from "./AdminUpdates";
 
 const AdminDashboard = () => {
-  console.log("✅ AdminDashboard rendered");
 
   return (
     <div className="min-h-screen px-4 pt-24 sm:px-6 lg:px-10 pb-20 flex flex-col items-center">
