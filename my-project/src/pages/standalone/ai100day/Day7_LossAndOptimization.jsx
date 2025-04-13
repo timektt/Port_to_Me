@@ -36,6 +36,44 @@ const Day7_LossOptimization = ({ theme }) => {
   .quality('auto')
   .resize(scale().width(700));
 
+  const img5 = cld
+  .image('LossFunction5')
+  .format('auto')
+  .quality('auto')
+  .resize(scale().width(700));
+
+  const img6 = cld
+  .image('LossFunction6')
+  .format('auto')
+  .quality('auto')
+  .resize(scale().width(700));
+
+  const img7 = cld
+  .image('LossFunction7')
+  .format('auto')
+  .quality('auto')
+  .resize(scale().width(700));
+
+  const img8 = cld
+  .image('LossFunction8')
+  .format('auto')
+  .quality('auto')
+  .resize(scale().width(700));
+
+  const img9 = cld
+  .image('LossFunction9')
+  .format('auto')
+  .quality('auto')
+  .resize(scale().width(700));
+
+  const img10 = cld
+  .image('LossFunction10')
+  .format('auto')
+  .quality('auto')
+  .resize(scale().width(400));
+
+
+
   return (
     <div
       className={`relative min-h-screen ${
@@ -47,7 +85,7 @@ const Day7_LossOptimization = ({ theme }) => {
 
         {/* Section: What is Loss Function */}
         <section id="what-is-loss" className="mb-16 scroll-mt-32">
-  <h2 className="text-2xl font-semibold mb-4">Loss Function คืออะไร?</h2>
+  <h2 className="text-2xl font-semibold mb-4 text-center">Loss Function คืออะไร?</h2>
 
   <div className="my-6">
     <AdvancedImage cldImg={img1} />
@@ -239,7 +277,11 @@ const Day7_LossOptimization = ({ theme }) => {
 
 
 <section id="what-is-optimization" className="mb-16 scroll-mt-32">
-          <h2 className="text-2xl font-semibold mb-4">Optimization คืออะไร?</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-center">Optimization คืออะไร?</h2>
+
+          <div className="my-6">
+          <AdvancedImage cldImg={img5} />
+         </div>
 
           <p className="mb-4 text-base leading-relaxed">
             Optimization คือกระบวนการสำคัญในกระบวนการเรียนรู้ของโมเดล ที่ใช้ปรับค่าน้ำหนัก (weights) ภายในโครงข่ายประสาทเทียม เพื่อให้โมเดลสามารถทำนายได้แม่นยำมากขึ้น โดยอาศัยแนวคิดพื้นฐานคือการ <strong>ลดค่า Loss</strong> ให้ต่ำที่สุดผ่านการเรียนรู้หลายรอบ (epoch)
@@ -262,11 +304,15 @@ const Day7_LossOptimization = ({ theme }) => {
             <li>ทำซ้ำกระบวนการนี้ทุก epoch → โมเดลจะค่อย ๆ ดีขึ้น</li>
           </ul>
 
-          <h3 className="text-xl font-semibold mb-3"> ภาพจำลองการไต่ลงเขา</h3>
-          <img src="/loss_landscape.png" alt="Loss Landscape" className="w-full max-w-xl mx-auto rounded shadow border border-yellow-400 mb-4" />
+          <h3 className="text-xl font-semibold mb-3 text-center"> ภาพจำลองการไต่ลงเขา</h3>
+          <div className="my-6">
+           <AdvancedImage cldImg={img6} />
+          </div>
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">เส้นทางจากจุดเริ่มต้นสู่จุดต่ำสุดของ Loss</p>
 
-          <h3 className="text-xl font-semibold mt-6 mb-3"> ทำไม Optimization ถึงสำคัญ?</h3>
+          <h3 className="text-xl font-semibold mt-6 mb-3 "> ทำไม Optimization ถึงสำคัญ?</h3>
+   
+
           <ul className="list-disc pl-6 space-y-2 text-base">
             <li>โมเดลจะไม่สามารถเรียนรู้จากข้อมูลได้เลยหากไม่มีการอัปเดตน้ำหนัก</li>
             <li>Optimizer ที่ดีจะช่วยให้โมเดล converge เร็วขึ้น และได้ผลลัพธ์ที่แม่นยำกว่า</li>
@@ -332,7 +378,10 @@ const Day7_LossOptimization = ({ theme }) => {
 
 
         <section id="gradient-descent" className="mb-16 scroll-mt-32">
-  <h2 className="text-2xl font-semibold mb-4">Gradient Descent & Learning Rate</h2>
+  <h2 className="text-2xl font-semibold mb-4 text-center">Gradient Descent & Learning Rate</h2>
+  <div className="my-6 ">
+    <AdvancedImage cldImg={img7} />
+  </div>
 
   <p className="mb-4">
     Gradient Descent คือกระบวนการพื้นฐานที่สุดในการอัปเดตค่าน้ำหนักของโมเดล โดยใช้ค่าความชัน (gradient) ของฟังก์ชัน loss เพื่อบอกทิศทางในการปรับค่าพารามิเตอร์ให้ loss ลดลง
@@ -342,7 +391,7 @@ const Day7_LossOptimization = ({ theme }) => {
     ถ้านึกภาพ loss เป็น "ภูเขา" Gradient Descent ก็เหมือนกับการไต่ลงเขาไปหาจุดต่ำสุด โดยการก้าวลงแต่ละครั้งคือการปรับค่า weight ของโมเดลไปในทิศทางที่ลดค่า loss
   </p>
 
-  <img src="/gradient_descent_landscape.png" alt="Gradient Descent Visual" className="rounded-xl shadow border border-yellow-500 mx-auto my-6" />
+  
 
   <h3 className="text-xl font-semibold mt-6 mb-2">Learning Rate คืออะไร?</h3>
   <p className="mb-4">
@@ -351,7 +400,7 @@ const Day7_LossOptimization = ({ theme }) => {
 
   <div className="grid md:grid-cols-3 gap-6 mb-6">
     <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-xl shadow">
-      <h4 className="font-semibold mb-2">🔹 Learning Rate ต่ำ</h4>
+      <h4 className="font-semibold mb-2"> Learning Rate ต่ำ</h4>
       <ul className="list-disc pl-6 space-y-1 text-sm">
         <li>Loss ลดช้า</li>
         <li>อาจติดอยู่ที่ local minimum</li>
@@ -428,7 +477,10 @@ const Day7_LossOptimization = ({ theme }) => {
 </section>
 
 <section id="gradient-problems" className="mb-16 scroll-mt-32">
-  <h2 className="text-2xl font-semibold mb-4">Vanishing & Exploding Gradients คืออะไร?</h2>
+  <h2 className="text-2xl font-semibold mb-4 text-center">Vanishing & Exploding Gradients คืออะไร?</h2>
+  <div className="my-6 ">
+    <AdvancedImage cldImg={img9} />
+  </div>
 
   <p className="mb-4 text-base leading-relaxed">
     ปัญหานี้มักเกิดขึ้นในโมเดล Neural Network ที่มีความลึกมาก (Deep Neural Network)
@@ -436,6 +488,10 @@ const Day7_LossOptimization = ({ theme }) => {
     กลับมาจากเลเยอร์หลัง ๆ อาจค่อย ๆ <strong>ลดลงจนใกล้ 0</strong> (เรียกว่า Vanishing) หรือ <strong>เพิ่มขึ้นจนใหญ่มาก</strong> (เรียกว่า Exploding)
     ส่งผลให้การเรียนรู้ไม่มีประสิทธิภาพ
   </p>
+
+  <div className="my-6 ">
+    <AdvancedImage cldImg={img8} />
+  </div>
 
   <p className="mb-4 text-base">
     ในการฝึกโมเดล เราจะใช้ Backpropagation เพื่อส่งค่าความผิดพลาด (Error) จากเลเยอร์ปลายทางกลับไปยังต้นทาง
@@ -475,7 +531,7 @@ const Day7_LossOptimization = ({ theme }) => {
     ในบางกรณีโมเดลอาจ overfit หรือเทรนได้ผลไม่เสถียร เพราะค่าที่ไหลย้อนกลับมากผิดธรรมชาติ
   </p>
 
-  <h3 className="text-xl font-semibold mb-2">แนวทางการป้องกัน</h3>
+  <h3 className="text-xl font-semibold mb-2 ">แนวทางการป้องกัน</h3>
   <ul className="list-disc pl-6 space-y-2 mb-4">
     <li>ใช้ Activation Function ที่ไม่ทำให้ Gradient หาย เช่น ReLU แทน sigmoid</li>
     <li>ใช้ Weight Initialization ให้เหมาะสม เช่น Xavier หรือ He Initialization</li>
@@ -483,6 +539,10 @@ const Day7_LossOptimization = ({ theme }) => {
     <li>ใช้ Residual Connection (เช่นใน ResNet) เพื่อให้ Gradient ไหลย้อนกลับได้ตรงขึ้น</li>
     <li>ใช้ Gradient Clipping เพื่อจำกัดไม่ให้ Gradient ใหญ่เกินไป</li>
   </ul>
+
+  <div className="flex justify-center mb-6">
+    <AdvancedImage cldImg={img10} />
+  </div>
 
   <div className="bg-yellow-100 dark:bg-yellow-800 text-black dark:text-yellow-100 p-4 rounded-xl border-l-4 border-yellow-500 shadow">
     <strong>Insight:</strong><br />
