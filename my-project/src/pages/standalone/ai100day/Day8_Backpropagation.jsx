@@ -26,8 +26,8 @@ const Day8_Backpropagation = ({ theme }) => {
   const img12 = cld.image('Backpropagation12').format('auto').quality('auto').resize(scale().width(500));
   const img13= cld.image('Backpropagation13').format('auto').quality('auto').resize(scale().width(500));
   const img14= cld.image('Backpropagation14').format('auto').quality('auto').resize(scale().width(500));
-  const img15= cld.image('Backpropagation15').format('auto').quality('auto').resize(scale().width(500));
-
+  const img16= cld.image('Backpropagation16').format('auto').quality('auto').resize(scale().width(500));
+  const img17= cld.image('Backpropagation17').format('auto').quality('auto').resize(scale().width(600));
 
   return (
     <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
@@ -469,7 +469,7 @@ plt.show()`}</pre>
   </div>
 
   <h3 className="text-xl font-semibold mb-3 text-center">3. Early Stopping</h3>
-  <div className="flex justify-center my-6 "><AdvancedImage cldImg={img13} /></div>
+  <div className="flex justify-center my-6 "><AdvancedImage cldImg={img16} /></div>
   <p className="mb-4">
     เทคนิค Early Stopping คือการหยุดการฝึกเมื่อโมเดลไม่พัฒนาอีกแล้ว
     เช่น เมื่อ Validation Loss ไม่ลดลงเป็นจำนวนรอบที่กำหนด (patience)
@@ -492,7 +492,7 @@ plt.show()`}</pre>
   </p>
 
   <h3 className="text-xl font-semibold mb-3 text-center">5. Callback ที่มีประโยชน์</h3>
-  <div className="flex justify-center my-6 "><AdvancedImage cldImg={img15} /></div>
+  <div className="flex justify-center my-6 "><AdvancedImage cldImg={img17} /></div>
   <ul className="list-disc pl-6 space-y-2 mb-6">
     <li><strong>ModelCheckpoint:</strong> เก็บ weights ที่ดีที่สุดระหว่างการฝึก</li>
     <li><strong>ReduceLROnPlateau:</strong> ลด learning rate เมื่อ performance ไม่ดีขึ้น</li>
