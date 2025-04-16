@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Backpropagation & Training Loop",
+    "path": "/courses/ai/backpropagation&trainingLoop",
+    "date": "13/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Loss Functions & Optimization",
     "path": "/courses/ai/lossfunctions&optimization",
     "date": "13/04/2568"
