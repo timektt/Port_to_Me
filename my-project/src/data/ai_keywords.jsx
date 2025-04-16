@@ -6,4 +6,5 @@ export const aiKeywords = [
     { id: 'Day5', title: 'Linear Transformation & Feature Extraction', path: '/courses/ai/linear-transformation&feature-extraction', tags: ['Day5', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day6', title: 'Activation Functions', path: '/courses/ai/activation-functions', tags: ['Day6', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day7', title: 'Loss Functions & Optimization', path: '/courses/ai/lossfunctions&optimization', tags: ['Day7', 'Ai', 'beginner', 'Basic Ai'] },
+    { id: 'Day8', title: 'Backpropagation & Training Loop', path: '/courses/ai/backpropagation&trainingLoop', tags: ['Day8', 'Ai', 'beginner', 'Basic Ai'] },
 ]

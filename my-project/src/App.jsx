@@ -289,6 +289,7 @@ import Day4_MatrixMultiplication from "./pages/standalone/ai100day/Day4_MatrixMu
 import Day5_LinearTransform from "./pages/standalone/ai100day/Day5_LinearTransform";
 import Day6_ActivationFunctions from "./pages/standalone/ai100day/Day6_ActivationFunctions";
 import Day7_LossOptimization from "./pages/standalone/ai100day/Day7_LossAndOptimization";
+import Day8_Backpropagation from "./pages/standalone/ai100day/Day8_Backpropagation";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -653,6 +654,7 @@ function App() {
                 <Route path="/courses/ai/dot-product&cosinesimilarity" element={<Day3_DotProduct theme={theme} setTheme={setTheme} />}/><Route  path="/courses/ai/matrix-multiplication"element={<Day4_MatrixMultiplication theme={theme} setTheme={setTheme} />}/>          <Route path="/courses/ai/linear-transformation&feature-extraction" element={<Day5_LinearTransform theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/activation-functions" element={<Day6_ActivationFunctions theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/lossfunctions&optimization" element={<Day7_LossOptimization theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/backpropagation&trainingLoop" element={<Day8_Backpropagation theme={theme} setTheme={setTheme} />} />
         </Routes>
 
         
