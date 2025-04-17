@@ -1,5 +1,5 @@
 // src/pages/standalone/ai100day/Day1_VectorMatrix.jsx
-import React, { useState } from "react";              // ⬅️ import useState จาก react
+import React from "react";              // ⬅️ import useState จาก react
 import { useNavigate } from "react-router-dom";       // ⬅️ useNavigate จาก react-router-dom
 import { FaPlay } from "react-icons/fa";
 import Comments from "../../../components/common/Comments";
@@ -13,32 +13,14 @@ import AiSidebar from "../../../components/common/sidebar/AiSidebar";
 
 const Day1_VectorMatrix = ({ theme }) => {
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
-      
-      {/* ✅ Navbar */}
-      <div className="fixed top-0 w-full z-50">
-        <Navbar
-          theme={theme}
-          setTheme={() => {}}
-          onMenuToggle={() => setMobileMenuOpen(true)}
-        />
-      </div>
-  
-      {/* ✅ Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50">
-          <AiMobileMenu
-            onClose={() => setMobileMenuOpen(false)}
-            theme={theme}
-            setTheme={() => {}}
-          />
-        </div>
-      )}
-  
-      {/* ✅ AiSidebar เฉพาะ Desktop */}
+    <div
+      className={`relative min-h-screen ${
+        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+      }`}
+    >
+      {/* ✅ AiSidebar (เฉพาะ Desktop) */}
       <div className="hidden lg:block fixed left-0 top-16 bottom-0 w-64 z-40">
         <AiSidebar theme={theme} />
       </div>
