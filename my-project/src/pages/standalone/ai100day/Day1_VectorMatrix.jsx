@@ -1,20 +1,42 @@
 // src/pages/standalone/ai100day/Day1_VectorMatrix.jsx
-import React from "react";
-import { useNavigate } from "react-router-dom"; // ✅ ใช้ Outlet และ useParams
+import React, { useState } from "react";              // ⬅️ import useState จาก react
+import { useNavigate } from "react-router-dom";       // ⬅️ useNavigate จาก react-router-dom
 import { FaPlay } from "react-icons/fa";
 import Comments from "../../../components/common/Comments";
 import SupportMeButton from "../../../support/SupportMeButton";
 import MiniQuiz_Day1 from "./miniquiz/MiniQuiz_Day1";
 import ScrollSpy_Ai_Day1 from "./scrollspy/ScrollSpy_Ai_Day1";
+import Navbar from "../../../components/common/Navbar";
+import AiMobileMenu from "../../../components/common/sidebar/MobileMenus/AiMobileMenu";
 
 const Day1_VectorMatrix = ({ theme }) => {
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div
-      className={`relative min-h-screen ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
-      }`}
-    >
+    <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
+
+      {/* ✅ Navbar */}
+      <div className="fixed top-0 w-full z-50">
+        <Navbar
+          theme={theme}
+          setTheme={() => {}}
+          onMenuToggle={() => setMobileMenuOpen(true)}
+        />
+      </div>
+
+      {/* ✅ Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50">
+          <AiMobileMenu
+            onClose={() => setMobileMenuOpen(false)}
+            theme={theme}
+            setTheme={() => {}}
+          />
+        </div>
+      )}
+
+    
       {/* ✅ เนื้อหาหลัก */}
       <main className="max-w-3xl mx-auto p-6 pt-20">
         <h1 className="text-3xl font-bold mb-6">
