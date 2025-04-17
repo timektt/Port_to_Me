@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaBook } from "react-icons/fa";
 
 const courses = [
+  { id: "ai-series", image: "/ai_series.png", title: "Ai Series", description: "คอร์สเรียนพื้นฐาน Ai เชิงลึก" },
   { id: "python-series", image: "/python_1.png", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
   { id: "nodejs-series", image: "/node_1.png", title: "Node.js Series", description: "เรียนรู้การพัฒนา Backend ด้วย Node.js" },
   { id: "restful-api-graphql-series", image: "/api_1.png", title: "RESTful API & GraphQL", description: "คอร์สนี้เหมาะสำหรับทุกคนที่อยากเข้าใจ API และแนวคิดขึ้นสูง" },

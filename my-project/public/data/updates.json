@@ -2,9 +2,16 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Regularization & Generalization",
+    "path": "/courses/ai/regularization&generalization",
+    "date": "17/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Backpropagation & Training Loop",
     "path": "/courses/ai/backpropagation&trainingLoop",
-    "date": "13/04/2568"
+    "date": "16/04/2568"
   },
   {
     "category": "Ai-Series",

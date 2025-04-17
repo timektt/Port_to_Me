@@ -11,7 +11,7 @@ const tags = [
   { name: "React", query: "react", count: 30 },
   { name: "Web Development", query: "web", count: 30 },
   { name: "Basic Programming", query: "basic", count: 29 },
-  { name: "Ai", query: "Ai", count: 8 },
+  { name: "Ai", query: "Ai", count: 9 },
 ];
 
 const PopularTags = () => {
@@ -20,7 +20,7 @@ const PopularTags = () => {
   return (
     <div className="popular-tags p-4 sm:p-6 md:p-8 max-w-screen-lg mx-auto w-full">
       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-left mt-10 mb-6">
-        Popular Tags
+        Tags
       </h2>
 
       <div className="flex flex-wrap gap-3 justify-start sm:justify-start">
