@@ -29,6 +29,7 @@ const TagResults = lazy(() => import("./pages/TagResults"));
 const PopularTags = lazy(() => import("./pages/courses/PopularTags"));
 const CourseTags = lazy(() => import("./components/common/CourseTags"));
 const ProtectedRoute = lazy(() => import("./routes/ProtectedRoute"));
+const AiSeries = lazy(() => import("./pages/courses/AiSeries"));
 
 // ✅ Import Python Subtopics (อัปเดตเส้นทางหลังแยกโฟลเดอร์)
 // Python 101
@@ -290,6 +291,7 @@ import Day5_LinearTransform from "./pages/standalone/ai100day/Day5_LinearTransfo
 import Day6_ActivationFunctions from "./pages/standalone/ai100day/Day6_ActivationFunctions";
 import Day7_LossOptimization from "./pages/standalone/ai100day/Day7_LossAndOptimization";
 import Day8_Backpropagation from "./pages/standalone/ai100day/Day8_Backpropagation";
+import Day9_Regularization from "./pages/standalone/ai100day/Day9_Regularization";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -647,7 +649,8 @@ function App() {
         />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
-         
+               
+                <Route path="/courses/ai-series" element={<AiSeries theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/intro-to-vectors-matrices" element={<Day1_VectorMatrix theme={theme} setTheme={setTheme} />} />
                 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
                 <Route path="/courses/ai/vector-addition&scalarmultiplication"element={<Day2_VectorOperations theme={theme} setTheme={setTheme} />} />
@@ -655,6 +658,8 @@ function App() {
                 <Route path="/courses/ai/activation-functions" element={<Day6_ActivationFunctions theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/lossfunctions&optimization" element={<Day7_LossOptimization theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/backpropagation&trainingLoop" element={<Day8_Backpropagation theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/regularization&generalization" element={<Day9_Regularization theme={theme} setTheme={setTheme} />} />
+      
         </Routes>
 
         

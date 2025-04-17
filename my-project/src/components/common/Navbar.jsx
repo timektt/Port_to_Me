@@ -23,6 +23,7 @@ import NodeMobileMenu from "./sidebar/MobileMenus/NodeMobileMenu";
 import RestfulApiGraphQLMobileMenu from "./sidebar/MobileMenus/RestfulApiGraphQLMobileMenu";
 import ReactJsMobileMenu from "./sidebar/MobileMenus/ReactJsMobileMenu";
 import WebDevMobileMenu from "./sidebar/MobileMenus/WebDevMobileMenu";
+import AiMobileMenu from "./sidebar/MobileMenus/AiMobileMenu";
 import { AuthContext } from "../context/AuthContext";
 
 const Navbar = ({ theme, setTheme }) => {
@@ -204,11 +205,14 @@ const Navbar = ({ theme, setTheme }) => {
       <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : location.pathname.includes("/courses/web-development") ? (
       <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
+    ) : location.pathname.includes("/courses/ai-series") ? ( // ✅ เพิ่มบรรทัดนี้
+      <AiMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : (
       <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     )}
   </div>
 )}
+
 
     </nav>
   );
