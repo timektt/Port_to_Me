@@ -5,6 +5,8 @@ import SupportMeButton from "../../../support/SupportMeButton";
 import MiniQuiz_Day3 from "./miniquiz/MiniQuiz_Day3";
 import ScrollSpy_Ai_Day3 from "./scrollspy/ScrollSpy_Ai_Day3";
 import TryDotProduct from "../../courses/topics/interactive/TryDotProduct";
+import AiSidebar from "../../../components/common/sidebar/AiSidebar";
+
 
 
 
@@ -17,6 +19,10 @@ const Day3_DotProduct = ({ theme }) => {
         theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
       }`}
     >
+      {/* ✅ AiSidebar (เฉพาะ Desktop) */}
+      <div className="hidden lg:block fixed left-0 top-16 bottom-0 w-64 z-40">
+        <AiSidebar theme={theme} />
+      </div>
       <main className="max-w-3xl mx-auto p-6 pt-20">
         <h1 className="text-3xl font-bold mb-6">
           Day 3: Dot Product & ความหมายเชิงมุม (Cosine Similarity)

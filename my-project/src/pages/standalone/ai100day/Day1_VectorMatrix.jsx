@@ -8,6 +8,8 @@ import MiniQuiz_Day1 from "./miniquiz/MiniQuiz_Day1";
 import ScrollSpy_Ai_Day1 from "./scrollspy/ScrollSpy_Ai_Day1";
 import Navbar from "../../../components/common/Navbar";
 import AiMobileMenu from "../../../components/common/sidebar/MobileMenus/AiMobileMenu";
+import AiSidebar from "../../../components/common/sidebar/AiSidebar";
+
 
 const Day1_VectorMatrix = ({ theme }) => {
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const Day1_VectorMatrix = ({ theme }) => {
 
   return (
     <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
-
+      
       {/* ✅ Navbar */}
       <div className="fixed top-0 w-full z-50">
         <Navbar
@@ -24,7 +26,7 @@ const Day1_VectorMatrix = ({ theme }) => {
           onMenuToggle={() => setMobileMenuOpen(true)}
         />
       </div>
-
+  
       {/* ✅ Mobile Menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50">
@@ -35,6 +37,11 @@ const Day1_VectorMatrix = ({ theme }) => {
           />
         </div>
       )}
+  
+      {/* ✅ AiSidebar เฉพาะ Desktop */}
+      <div className="hidden lg:block fixed left-0 top-16 bottom-0 w-64 z-40">
+        <AiSidebar theme={theme} />
+      </div>
 
     
       {/* ✅ เนื้อหาหลัก */}
