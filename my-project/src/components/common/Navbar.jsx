@@ -205,7 +205,7 @@ const Navbar = ({ theme, setTheme }) => {
       <PythonMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : location.pathname.includes("/courses/web-development") ? (
       <WebDevMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
-    ) : location.pathname.includes("/courses/ai-series") ? ( // ✅ เพิ่มบรรทัดนี้
+    ) : location.pathname.includes("/courses/ai") ? ( // ✅ เพิ่มบรรทัดนี้
       <AiMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
     ) : (
       <MainMobileMenu onClose={() => setMobileMenuOpen(false)} theme={theme} setTheme={setTheme} />
