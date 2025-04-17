@@ -4,6 +4,7 @@ import Comments from "../../../components/common/Comments";
 import SupportMeButton from "../../../support/SupportMeButton";
 import MiniQuiz_Day2 from "./miniquiz/MiniQuiz_Day2";
 import ScrollSpy_Ai_Day2 from "./scrollspy/ScrollSpy_Ai_Day2";
+import AiSidebar from "../../../components/common/sidebar/AiSidebar";
 
 const Day2_VectorOperations = ({ theme }) => {
   const navigate = useNavigate();
@@ -14,6 +15,11 @@ const Day2_VectorOperations = ({ theme }) => {
         theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
       }`}
     >
+      {/* ✅ AiSidebar (เฉพาะ Desktop) */}
+      <div className="hidden lg:block fixed left-0 top-16 bottom-0 w-64 z-40">
+        <AiSidebar theme={theme} />
+      </div>
+    
       <main className="max-w-3xl mx-auto p-6 pt-20">
         <h1 className="text-3xl font-bold mb-6">
           Day 2: Vector Addition & Scalar Multiplication

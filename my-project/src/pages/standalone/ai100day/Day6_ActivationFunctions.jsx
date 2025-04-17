@@ -4,6 +4,7 @@ import Comments from "../../../components/common/Comments";
 import SupportMeButton from "../../../support/SupportMeButton";
 import ScrollSpy_Ai_Day6 from "./scrollspy/ScrollSpy_Ai_Day6";
 import MiniQuiz_Day6 from "./miniquiz/MiniQuiz_Day6";
+import AiSidebar from "../../../components/common/sidebar/AiSidebar";
 
 const Day6_ActivationFunctions = ({ theme }) => {
   const navigate = useNavigate();
@@ -14,6 +15,10 @@ const Day6_ActivationFunctions = ({ theme }) => {
         theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
       }`}
     >
+      {/* ✅ AiSidebar (เฉพาะ Desktop) */}
+      <div className="hidden lg:block fixed left-0 top-16 bottom-0 w-64 z-40">
+        <AiSidebar theme={theme} />
+      </div>
       <main className="max-w-3xl mx-auto p-6 pt-20">
         <h1 className="text-3xl font-bold mb-6">Day 6: Activation Functions</h1>
 

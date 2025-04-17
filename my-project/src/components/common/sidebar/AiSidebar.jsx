@@ -15,7 +15,7 @@ const sidebarItems = [
         {
           id: "day2",
           title: "Day 2: Vector Addition & Scalar Multiplication",
-          path: "/courses/ai-series/day2",
+          path: "/courses/ai/vector-addition&scalarmultiplication",
         },
         {
             id: "day3",

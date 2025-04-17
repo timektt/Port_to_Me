@@ -7,6 +7,7 @@ import MiniQuiz_Day7 from "./miniquiz/MiniQuiz_Day7";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
 import { scale } from "@cloudinary/url-gen/actions/resize";
+import AiSidebar from "../../../components/common/sidebar/AiSidebar";
 
 
 const Day7_LossOptimization = ({ theme }) => {
@@ -80,6 +81,10 @@ const Day7_LossOptimization = ({ theme }) => {
         theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
       }`}
     >
+      {/* ✅ AiSidebar (เฉพาะ Desktop) */}
+      <div className="hidden lg:block fixed left-0 top-16 bottom-0 w-64 z-40">
+        <AiSidebar theme={theme} />
+      </div>
       <main className="max-w-3xl mx-auto p-6 pt-20">
         <h1 className="text-3xl font-bold mb-6">Day 7: Loss Functions & Optimization</h1>
 
