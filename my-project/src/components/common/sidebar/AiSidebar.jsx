@@ -52,6 +52,9 @@ const sidebarItems = [
           title: "Day 9: Regularization & Generalization",
           path: "/courses/ai/regularization&generalization",
         },
+        { id: "day10", 
+          title: "Day 10: Bias-Variance Tradeoff & Model Capacity", 
+          path: "/courses/ai/bias-variancetradeoff&modelcapacity" },
       ],
     },
   ];

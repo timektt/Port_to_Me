@@ -23,6 +23,8 @@ const sidebarItems = [
       { id: "day7", title: "Day 7: Loss Functions & Optimization", path: "/courses/ai/lossfunctions&optimization" },
       { id: "day8", title: "Day 8: Backpropagation & Training Loop", path: "/courses/ai/backpropagation&trainingLoop" },
       { id: "day9", title: "Day 9: Regularization & Generalization", path: "/courses/ai/regularization&generalization" },
+      { id: "day10", title: "Day 10: Bias-Variance Tradeoff & Model Capacity", path: "/courses/ai/bias-variancetradeoff&modelcapacity" },
+
     ],
   },
 ];

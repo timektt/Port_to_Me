@@ -8,4 +8,5 @@ export const aiKeywords = [
     { id: 'Day7', title: 'Loss Functions & Optimization', path: '/courses/ai/lossfunctions&optimization', tags: ['Day7', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day8', title: 'Backpropagation & Training Loop', path: '/courses/ai/backpropagation&trainingLoop', tags: ['Day8', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day9', title: 'Regularization & Generalization', path: '/courses/ai/regularization&generalization', tags: ['Day9', 'Ai', 'beginner', 'Basic Ai'] },
+    { id: 'Day10', title: 'Bias-Variance Tradeoff & Model Capacity', path: '/courses/ai/bias-variancetradeoff&modelcapacity', tags: ['Day10', 'Ai', 'beginner', 'Basic Ai'] },
 ]
