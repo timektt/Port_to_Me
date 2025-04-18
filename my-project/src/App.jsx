@@ -292,6 +292,7 @@ import Day6_ActivationFunctions from "./pages/standalone/ai100day/Day6_Activatio
 import Day7_LossOptimization from "./pages/standalone/ai100day/Day7_LossAndOptimization";
 import Day8_Backpropagation from "./pages/standalone/ai100day/Day8_Backpropagation";
 import Day9_Regularization from "./pages/standalone/ai100day/Day9_Regularization";
+import Day10_BiasVariance from "./pages/standalone/ai100day/Day10_BiasVariance";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -659,6 +660,7 @@ function App() {
                 <Route path="/courses/ai/lossfunctions&optimization" element={<Day7_LossOptimization theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/backpropagation&trainingLoop" element={<Day8_Backpropagation theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/regularization&generalization" element={<Day9_Regularization theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/bias-variancetradeoff&modelcapacity" element={<Day10_BiasVariance theme={theme} setTheme={setTheme} />} />
       
         </Routes>
 

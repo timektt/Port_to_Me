@@ -11,7 +11,7 @@ const tags = [
   { name: "React", query: "react", count: 30 },
   { name: "Web Development", query: "web", count: 30 },
   { name: "Basic Programming", query: "basic", count: 29 },
-  { name: "Ai", query: "Ai", count: 9 },
+  { name: "Ai", query: "Ai", count: 10 },
 ];
 
 const PopularTags = () => {

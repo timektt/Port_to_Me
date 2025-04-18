@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Bias-Variance Tradeoff & Model Capacity",
+    "path": "/courses/ai/bias-variancetradeoff&modelcapacity",
+    "date": "18/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Regularization & Generalization",
     "path": "/courses/ai/regularization&generalization",
     "date": "17/04/2568"
@@ -54,13 +61,6 @@
     "title": "Vector Addition & Scalar Multiplication",
     "path": "/courses/ai/vector-addition&scalarmultiplication",
     "date": "07/04/2568"
-  },
-  {
-    "category": "Ai-Series",
-    "level": " Basic AI",
-    "title": "Introduction to Vectors & Matrices",
-    "path": "/courses/ai/intro-to-vectors-matrices",
-    "date": "06/04/2568"
   }
     
 
