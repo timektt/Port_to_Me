@@ -55,6 +55,9 @@ const sidebarItems = [
         { id: "day10", 
           title: "Day 10: Bias-Variance Tradeoff & Model Capacity", 
           path: "/courses/ai/bias-variancetradeoff&modelcapacity" },
+          { id: "day11", title: "Day 11: Cross Validation & Model Evaluation", 
+          path: "/courses/ai/cross validation&modelevaluation" }
+
       ],
     },
   ];
