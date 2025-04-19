@@ -24,7 +24,7 @@ const sidebarItems = [
       { id: "day8", title: "Day 8: Backpropagation & Training Loop", path: "/courses/ai/backpropagation&trainingLoop" },
       { id: "day9", title: "Day 9: Regularization & Generalization", path: "/courses/ai/regularization&generalization" },
       { id: "day10", title: "Day 10: Bias-Variance Tradeoff & Model Capacity", path: "/courses/ai/bias-variancetradeoff&modelcapacity" },
-      { id: "day11", title: "Day 11: Cross Validation & Model Evaluation", path: "/courses/ai/cross validation&modelevaluation" }
+      { id: "day11", title: "Day 11: Cross Validation & Model Evaluation", path: "/courses/ai/cross-validation&modelevaluation" }
 
     ],
   },
