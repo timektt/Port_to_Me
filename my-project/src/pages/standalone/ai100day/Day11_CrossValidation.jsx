@@ -496,21 +496,19 @@ print(grid_search.best_score_)`}
 
 {/* Section: ตัวอย่างโค้ด */}
 <section id="code-example" className="mb-16 scroll-mt-32 min-h-[500px]">
-  <h2 className="text-2xl font-semibold mb-4 text-center">
-    ตัวอย่างโค้ดการใช้งาน Cross Validation
-  </h2>
+  <h2 className="text-2xl font-semibold mb-4 text-center">ตัวอย่างโค้ดการใช้งาน Cross Validation</h2>
 
   <p className="mb-4 leading-relaxed">
     ในส่วนนี้เราจะมาเรียนรู้การใช้งาน Cross Validation ผ่านไลบรารี <strong>Scikit-learn</strong> ซึ่งเป็นหนึ่งในไลบรารียอดนิยมของ Python สำหรับ Machine Learning โดยจะยกตัวอย่างทั้งการใช้ <code>cross_val_score</code>, <code>KFold</code>, <code>StratifiedKFold</code> รวมไปถึงการใช้งานร่วมกับ <code>Pipeline</code> และ <code>GridSearchCV</code>
   </p>
 
-  {/* --- Code Block 1 --- */}
   <h3 className="text-xl font-semibold mb-2">1. ตัวอย่างพื้นฐาน: cross_val_score</h3>
   <p className="mb-4 leading-relaxed">
     ฟังก์ชัน <code>cross_val_score</code> เป็นวิธีง่ายที่สุดในการทำ Cross Validation โดยไม่ต้องสร้างลูปเอง ใช้สำหรับการวัดค่า score แบบอัตโนมัติในแต่ละรอบของ K-Fold
   </p>
-  <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-x-auto py-4">
-    <pre className="bg-gray-800 dark:bg-gray-800 text-yellow-100 p-6 rounded-xl text-sm font-mono whitespace-pre min-w-[600px] shadow-lg">
+
+  <div className="overflow-x-auto mb-4">
+    <pre className="bg-gray-800 text-yellow-100 p-4 rounded-xl text-sm font-mono whitespace-pre">
 {`from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import load_iris
@@ -524,13 +522,13 @@ print("Mean Accuracy:", scores.mean())`}
     </pre>
   </div>
 
-  {/* --- Code Block 2 --- */}
   <h3 className="text-xl font-semibold mb-2">2. การใช้งาน KFold แบบกำหนดเอง</h3>
   <p className="mb-4 leading-relaxed">
     หากต้องการควบคุมลำดับหรือการแบ่ง fold ด้วยตัวเอง สามารถใช้คลาส <code>KFold</code> ร่วมกับ <code>cross_val_score</code> ได้ โดยกำหนดจำนวน fold, การสับลำดับ และ seed
   </p>
-  <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-x-auto py-4">
-    <pre className="bg-gray-800 dark:bg-gray-800 text-yellow-100 p-6 rounded-xl text-sm font-mono whitespace-pre min-w-[600px] shadow-lg">
+
+  <div className="overflow-x-auto mb-4">
+    <pre className="bg-gray-800 text-yellow-100 p-4 rounded-xl text-sm font-mono whitespace-pre">
 {`from sklearn.model_selection import KFold, cross_val_score
 
 kf = KFold(n_splits=5, shuffle=True, random_state=42)
@@ -541,13 +539,13 @@ print("Mean:", scores.mean())`}
     </pre>
   </div>
 
-  {/* --- Code Block 3 --- */}
   <h3 className="text-xl font-semibold mb-2">3. ใช้ StratifiedKFold สำหรับ Classification</h3>
   <p className="mb-4 leading-relaxed">
     สำหรับปัญหา Classification ที่คลาสไม่สมดุล ควรใช้ <code>StratifiedKFold</code> ซึ่งจะรักษาสัดส่วนของแต่ละคลาสไว้ในทุก fold เพื่อป้องกันความลำเอียง
   </p>
-  <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-x-auto py-4">
-    <pre className="bg-gray-800 dark:bg-gray-800 text-yellow-100 p-6 rounded-xl text-sm font-mono whitespace-pre min-w-[600px] shadow-lg">
+
+  <div className="overflow-x-auto mb-4">
+    <pre className="bg-gray-800 text-yellow-100 p-4 rounded-xl text-sm font-mono whitespace-pre">
 {`from sklearn.model_selection import StratifiedKFold
 
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
@@ -558,13 +556,13 @@ print("Mean Accuracy:", scores.mean())`}
     </pre>
   </div>
 
-  {/* --- Code Block 4 --- */}
   <h3 className="text-xl font-semibold mb-2">4. ใช้งานร่วมกับ Pipeline</h3>
   <p className="mb-4 leading-relaxed">
     การใช้ <code>Pipeline</code> ทำให้สามารถรวมหลายขั้นตอนเข้าด้วยกัน เช่น การปรับขนาดข้อมูล (Scaler) และการเทรนโมเดลในขั้นตอนเดียว พร้อมใช้ Cross Validation ได้เลย
   </p>
-  <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-x-auto py-4">
-    <pre className="bg-gray-800 dark:bg-gray-800 text-yellow-100 p-6 rounded-xl text-sm font-mono whitespace-pre min-w-[600px] shadow-lg">
+
+  <div className="overflow-x-auto mb-4">
+    <pre className="bg-gray-800 text-yellow-100 p-4 rounded-xl text-sm font-mono whitespace-pre">
 {`from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -575,13 +573,13 @@ print("Pipeline Accuracy:", scores.mean())`}
     </pre>
   </div>
 
-  {/* --- Code Block 5 --- */}
   <h3 className="text-xl font-semibold mb-2">5. การค้นหา Hyperparameter ที่ดีที่สุดด้วย GridSearchCV</h3>
   <p className="mb-4 leading-relaxed">
     <code>GridSearchCV</code> จะทำการ Cross Validation โดยอัตโนมัติในทุกค่า hyperparameter ที่กำหนดไว้ใน grid และเลือกค่าที่ดีที่สุดให้เรา
   </p>
-  <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-x-auto py-4">
-    <pre className="bg-gray-800 dark:bg-gray-800 text-yellow-100 p-6 rounded-xl text-sm font-mono whitespace-pre min-w-[600px] shadow-lg">
+
+  <div className="overflow-x-auto mb-4">
+    <pre className="bg-gray-800 text-yellow-100 p-4 rounded-xl text-sm font-mono whitespace-pre">
 {`from sklearn.model_selection import GridSearchCV
 
 param_grid = { 'C': [0.1, 1, 10] }
@@ -593,13 +591,13 @@ print("Best Score:", grid.best_score_)`}
     </pre>
   </div>
 
-  {/* --- Code Block 6 --- */}
   <h3 className="text-xl font-semibold mb-2">6. การใช้คะแนนเฉลี่ยและการประเมินผล</h3>
   <p className="mb-4 leading-relaxed">
     หลังจากได้ผลลัพธ์แต่ละ fold แล้ว การดูค่าเฉลี่ย (mean) และส่วนเบี่ยงเบนมาตรฐาน (std) จะช่วยให้เรารู้ว่าโมเดลของเรามี performance ที่สม่ำเสมอแค่ไหนในแต่ละชุดข้อมูลที่แตกต่างกัน
   </p>
-  <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-x-auto py-4">
-    <pre className="bg-gray-800 dark:bg-gray-800 text-yellow-100 p-6 rounded-xl text-sm font-mono whitespace-pre min-w-[600px] shadow-lg">
+
+  <div className="overflow-x-auto mb-4">
+    <pre className="bg-gray-800 text-yellow-100 p-4 rounded-xl text-sm font-mono whitespace-pre">
 {`import numpy as np
 
 mean_score = scores.mean()
@@ -610,7 +608,6 @@ print(f"Standard Deviation: {std_score:.4f}")`}
     </pre>
   </div>
 </section>
-
 
 
 
