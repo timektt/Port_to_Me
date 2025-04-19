@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Cross Validation & Model Evaluation",
+    "path": "/courses/ai/cross validation&modelevaluation",
+    "date": "19/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Bias-Variance Tradeoff & Model Capacity",
     "path": "/courses/ai/bias-variancetradeoff&modelcapacity",
     "date": "18/04/2568"
@@ -54,15 +61,7 @@
     "title": "Dot Product & ความหมายเชิงมุม (Cosine Similarity)",
     "path": "/courses/ai/dot-product&cosinesimilarity",
     "date": "08/04/2568"
-  },
-  {
-    "category": "Ai-Series",
-    "level": " Basic AI",
-    "title": "Vector Addition & Scalar Multiplication",
-    "path": "/courses/ai/vector-addition&scalarmultiplication",
-    "date": "07/04/2568"
   }
     
-
   ]
   
