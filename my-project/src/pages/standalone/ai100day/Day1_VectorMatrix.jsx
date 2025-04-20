@@ -13,7 +13,6 @@ import AiSidebar from "../../../components/common/sidebar/AiSidebar";
 
 const Day1_VectorMatrix = ({ theme }) => {
   const navigate = useNavigate();
-
   return (
     <div
       className={`relative min-h-screen ${
