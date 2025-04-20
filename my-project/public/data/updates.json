@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Overfitting, Underfitting & Model Diagnostics",
+    "path": "/courses/ai/overfitting- underfitting&model-diagnostics",
+    "date": "20/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Cross Validation & Model Evaluation",
     "path": "/courses/ai/cross-validation&modelevaluation",
     "date": "19/04/2568"
@@ -54,14 +61,8 @@
     "title": "Matrix Multiplication",
     "path": "/courses/ai/matrix-multiplication",
     "date": "10/04/2568"
-  },
-  {
-    "category": "Ai-Series",
-    "level": " Basic AI",
-    "title": "Dot Product & ความหมายเชิงมุม (Cosine Similarity)",
-    "path": "/courses/ai/dot-product&cosinesimilarity",
-    "date": "08/04/2568"
   }
+
     
   ]
   

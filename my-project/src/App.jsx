@@ -294,6 +294,7 @@ import Day8_Backpropagation from "./pages/standalone/ai100day/Day8_Backpropagati
 import Day9_Regularization from "./pages/standalone/ai100day/Day9_Regularization";
 import Day10_BiasVariance from "./pages/standalone/ai100day/Day10_BiasVariance";
 import Day11_CrossValidation from "./pages/standalone/ai100day/Day11_CrossValidation";
+import Day12_Overfitting from "./pages/standalone/ai100day/Day12_Overfitting";
 
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
@@ -663,6 +664,7 @@ function App() {
                 <Route path="/courses/ai/regularization&generalization" element={<Day9_Regularization theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/bias-variancetradeoff&modelcapacity" element={<Day10_BiasVariance theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/cross-validation&modelevaluation" element={<Day11_CrossValidation theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/overfitting- underfitting&model-diagnostics" element={<Day12_Overfitting theme={theme} setTheme={setTheme} />} />
       
         </Routes>
 
