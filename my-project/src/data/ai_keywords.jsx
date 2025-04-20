@@ -10,7 +10,7 @@ export const aiKeywords = [
     { id: 'Day9', title: 'Regularization & Generalization', path: '/courses/ai/regularization&generalization', tags: ['Day9', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day10', title: 'Bias-Variance Tradeoff & Model Capacity', path: '/courses/ai/bias-variancetradeoff&modelcapacity', tags: ['Day10', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day11', title: 'Cross Validation & Model Evaluation', path: '/courses/ai/cross validation&modelevaluation', tags: ['Day11', 'Ai', 'beginner', 'Basic Ai'] },
-    { id: 'Day12', title: 'Overfitting, Underfitting & Model Diagnostics', path: '/courses/ai/overfitting- underfitting&model-diagnostics', tags: ['Day11', 'Ai', 'beginner', 'Basic Ai'] },
+    { id: 'Day12', title: 'Overfitting, Underfitting & Model Diagnostics', path: '/courses/ai/overfitting-underfitting&model-diagnostics', tags: ['Day11', 'Ai', 'beginner', 'Basic Ai'] },
 
 ]
     

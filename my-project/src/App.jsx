@@ -664,7 +664,7 @@ function App() {
                 <Route path="/courses/ai/regularization&generalization" element={<Day9_Regularization theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/bias-variancetradeoff&modelcapacity" element={<Day10_BiasVariance theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/cross-validation&modelevaluation" element={<Day11_CrossValidation theme={theme} setTheme={setTheme} />} />
-                <Route path="/courses/ai/overfitting- underfitting&model-diagnostics" element={<Day12_Overfitting theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/overfitting-underfitting&model-diagnostics" element={<Day12_Overfitting theme={theme} setTheme={setTheme} />} />
       
         </Routes>
 
