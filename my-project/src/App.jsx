@@ -7,6 +7,7 @@ import { AuthProvider } from "./components/context/AuthContext";
 import AdminRoute from "./routes/AdminRoute";
 import MainMobileMenu from "./menu/MainMobileMenu";
 import Profile from "./pages/Profile";
+import { Analytics } from '@vercel/analytics/react';
 
 
 const CourseGrid = lazy(() => import("./home/CourseGrid"));
@@ -683,7 +684,7 @@ function App() {
         </div>
        
       </div>
-      
+      <Analytics /> 
     </Router>
     </AuthProvider>
   );
