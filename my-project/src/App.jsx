@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import { Analytics } from '@vercel/analytics/react';
 
 
+
 const CourseGrid = lazy(() => import("./home/CourseGrid"));
 const AllCourses = lazy(() => import("./pages/courses/AllCourses"));
 const PythonSeries = lazy(() => import("./pages/courses/PythonSeries"));
