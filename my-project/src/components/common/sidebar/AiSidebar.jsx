@@ -59,7 +59,9 @@ const sidebarItems = [
           path: "/courses/ai/cross-validation&modelevaluation" },
 
           { id: "day12", title: "Day 12: Overfitting, Underfitting & Model Diagnostics", 
-            path: "/courses/ai/overfitting-underfitting&model-diagnostics" }
+            path: "/courses/ai/overfitting-underfitting&model-diagnostics" },
+            { id: "day13", title: "Day 13: Model Interpretability & Explainability", 
+              path: "/courses/ai/modele-interpretability&explainability" }
   
       ],
     },

@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Model Interpretability & Explainability",
+    "path": "/courses/ai/modele-interpretability&explainability",
+    "date": "21/04/2568"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Overfitting, Underfitting & Model Diagnostics",
     "path": "/courses/ai/overfitting-underfitting&model-diagnostics",
     "date": "20/04/2568"
@@ -54,14 +61,8 @@
     "title": "Linear Transformation & Feature Extraction",
     "path": "/courses/ai/linear-transformation&feature-extraction",
     "date": "11/04/2568"
-  },
-  {
-    "category": "Ai-Series",
-    "level": " Basic AI",
-    "title": "Matrix Multiplication",
-    "path": "/courses/ai/matrix-multiplication",
-    "date": "10/04/2568"
   }
+
 
     
   ]
