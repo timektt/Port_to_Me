@@ -8,6 +8,7 @@ import AdminRoute from "./routes/AdminRoute";
 import MainMobileMenu from "./menu/MainMobileMenu";
 import Profile from "./pages/Profile";
 import { Analytics } from '@vercel/analytics/react';
+import LatestUpdatesAll from "./home/LatestUpdatesAll";
 
 
 
@@ -298,7 +299,7 @@ import Day10_BiasVariance from "./pages/standalone/ai100day/Day10_BiasVariance";
 import Day11_CrossValidation from "./pages/standalone/ai100day/Day11_CrossValidation";
 import Day12_Overfitting from "./pages/standalone/ai100day/Day12_Overfitting";
 import Day13_ModelExplainability from "./pages/standalone/ai100day/Day13_ModelExplainability";
-
+import Day14_ModelFairness from "./pages/standalone/ai100day/Day14_ModelFairness";
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
@@ -335,6 +336,7 @@ function App() {
             <Route path="/courses/tags" element={<CourseTags />} /> {/* ✅ Route ใหม่สำหรับ Tag Page */}
             <Route path="/tags" element={<TagsPage />} /> {/* ✅ เส้นทางไปที่ TagsPage */}
             <Route path="/popular-tags" element={<PopularTags />} /> {/* ✅ เส้นทางไปที่ PopularTags */}
+            <Route path="/latest-updates/all" element={<LatestUpdatesAll theme={theme} />} />
 
                           {/* ✅ หน้าคอร์สทั้งหมด */}
                           <Route
@@ -669,6 +671,10 @@ function App() {
                 <Route path="/courses/ai/cross-validation&modelevaluation" element={<Day11_CrossValidation theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/overfitting-underfitting&model-diagnostics" element={<Day12_Overfitting theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/modele-interpretability&explainability" element={<Day13_ModelExplainability theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/fairness,bias&ethics" element=
+                {<Day14_ModelFairness theme={theme} setTheme={setTheme} />} />
+
+                
       
         </Routes>
 
