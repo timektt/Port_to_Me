@@ -1,0 +1,61 @@
+[
+    
+    {
+      "id": "ai-series",
+      "title": "Ai Series",
+      "description": "คอร์สเรียนพื้นฐาน Ai เชิงลึก",
+      "image": "/ai_series.png",
+      "path": "/courses/ai-series",
+      "date": "2025-04-21"
+    },
+    {
+      "id": "python-series",
+      "title": "Python Series",
+      "description": "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้",
+      "image": "/python_1.png",
+      "path": "/courses/python-series",
+      "date": "2025-04-20"
+    },
+    {
+      "id": "nodejs-series",
+      "title": "Node.js Series",
+      "description": "เรียนรู้การพัฒนา Backend ด้วย Node.js",
+      "image": "/node_1.png",
+      "path": "/courses/nodejs-series",
+      "date": "2025-04-19"
+    },
+    {
+      "id": "reactjs-series",
+      "title": "React.js Series",
+      "description": "คอร์สสอนสร้างโปรเจกต์ด้วย React ",
+      "image": "/react_1.png",
+      "path": "/courses/reactjs-series",
+      "date": "2025-04-18"
+    },
+    {
+      "id": "web-development",
+      "title": "Web Development 101",
+      "description": "คอร์สเรียนพื้นฐานสำหรับเริ่มต้นสร้างเว็บไซต์",
+      "image": "/webdev_1.png",
+      "path": "/courses/web-development",
+      "date": "2025-04-17"
+    },
+    {
+      "id": "basic-programming",
+      "title": "Basic Programming",
+      "description": "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้",
+      "image": "/basicpro_1.png",
+      "path": "/courses/basic-programming",
+      "date": "2025-04-16"
+    },
+    {
+        "id": "restful-api-graphql-series",
+        "title": "RESTful API & GraphQL",
+        "description": "คอร์สนี้เหมาะสำหรับทุกคนที่อยากเข้าใจ API และแนวคิดขั้นสูง",
+        "image": "/api_1.png",
+        "path": "/courses/restful-api-graphql-series",
+        "date": "2025-04-15"
+      }
+      
+  ]
+  

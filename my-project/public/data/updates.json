@@ -2,68 +2,71 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "Fairness, Bias & Ethics in AI",
+    "path": "/courses/ai/fairness,bias&ethics",
+    "date": "2025-04-22"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Model Interpretability & Explainability",
     "path": "/courses/ai/modele-interpretability&explainability",
-    "date": "21/04/2568"
+    "date": "2025-04-21"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Overfitting, Underfitting & Model Diagnostics",
     "path": "/courses/ai/overfitting-underfitting&model-diagnostics",
-    "date": "20/04/2568"
+    "date": "2025-04-20"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Cross Validation & Model Evaluation",
     "path": "/courses/ai/cross-validation&modelevaluation",
-    "date": "19/04/2568"
+    "date": "2025-04-19"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Bias-Variance Tradeoff & Model Capacity",
     "path": "/courses/ai/bias-variancetradeoff&modelcapacity",
-    "date": "18/04/2568"
+    "date": "2025-04-18"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Regularization & Generalization",
     "path": "/courses/ai/regularization&generalization",
-    "date": "17/04/2568"
+    "date": "2025-04-17"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Backpropagation & Training Loop",
     "path": "/courses/ai/backpropagation&trainingLoop",
-    "date": "16/04/2568"
+    "date": "2025-04-16"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Loss Functions & Optimization",
     "path": "/courses/ai/lossfunctions&optimization",
-    "date": "13/04/2568"
+    "date": "2025-04-13"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Activation Functions",
     "path": "/courses/ai/activation-functions",
-    "date": "12/04/2568"
+    "date": "2025-04-12"
   },
   {
     "category": "Ai-Series",
     "level": " Basic AI",
     "title": "Linear Transformation & Feature Extraction",
     "path": "/courses/ai/linear-transformation&feature-extraction",
-    "date": "11/04/2568"
+    "date": "2025-04-11"
   }
-
-
-    
-  ]
-  
+]

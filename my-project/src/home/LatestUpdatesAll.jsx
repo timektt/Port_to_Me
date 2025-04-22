@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const LatestUpdates = ({ theme }) => {
-  const [latestUpdates, setLatestUpdates] = useState([]);
+const LatestUpdatesAll = ({ theme }) => {
+  const [allUpdates, setAllUpdates] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const LatestUpdates = ({ theme }) => {
       try {
         const res = await fetch("/data/updates.json");
         const data = await res.json();
-        setLatestUpdates(data);
+        setAllUpdates(data);
       } catch (err) {
         console.error("❌ Error loading updates.json:", err);
       }
@@ -19,23 +19,20 @@ const LatestUpdates = ({ theme }) => {
     fetchUpdates();
   }, []);
 
-  // ✅ เรียงลำดับจากใหม่ไปเก่า และตัดแค่ 9 หัวข้อ
-  const latestNine = latestUpdates
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 9);
+  const sortedUpdates = allUpdates.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
-    <div className="latest-updates p-4 sm:p-8 max-w-screen-lg mx-auto w-full">
+    <div className="all-updates p-4 sm:p-8 max-w-screen-lg mx-auto w-full">
       <h2
         className={`text-xl sm:text-2xl md:text-3xl font-bold text-left mt-6 sm:mt-12 mb-4 sm:mb-6 ${
           theme === "dark" ? "text-white" : "text-black"
         }`}
       >
-        Latest Update Documents
+        เอกสารอัปเดตทั้งหมด
       </h2>
 
       <div className="space-y-4 w-full">
-        {latestNine.map((update, index) => (
+        {sortedUpdates.map((update, index) => (
           <div
             key={index}
             className={`p-4 rounded-lg shadow-lg flex flex-col sm:flex-row items-start sm:items-center w-full ${
@@ -79,20 +76,8 @@ const LatestUpdates = ({ theme }) => {
           </div>
         ))}
       </div>
-
-      {/* ✅ ปุ่มดูทั้งหมด */}
-      <div className="text-center mt-6">
-        <button
-          onClick={() => navigate("/latest-updates/all")}
-          className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg"
-        >
-          ดูทั้งหมด
-        </button>
-      </div>
-
-      <hr className="my-6 border-t-4 border-gray-300 dark:border-gray-600" />
     </div>
   );
 };
 
-export default LatestUpdates;
+export default LatestUpdatesAll;
