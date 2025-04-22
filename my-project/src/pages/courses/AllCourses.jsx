@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaBook } from "react-icons/fa";
 
-const courses = [
-  { id: "ai-series", image: "/ai_series.png", title: "Ai Series", description: "คอร์สเรียนพื้นฐาน Ai เชิงลึก" },
-  { id: "python-series", image: "/python_1.png", title: "Python Series", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
-  { id: "nodejs-series", image: "/node_1.png", title: "Node.js Series", description: "เรียนรู้การพัฒนา Backend ด้วย Node.js" },
-  { id: "restful-api-graphql-series", image: "/api_1.png", title: "RESTful API & GraphQL", description: "คอร์สนี้เหมาะสำหรับทุกคนที่อยากเข้าใจ API และแนวคิดขึ้นสูง" },
-  { id: "reactjs-series", image: "/react_1.png", title: "React.js Series", description: "คอร์สสอนสร้างโปรเจกต์ด้วย React" },
-  { id: "web-development", image: "/webdev_1.png", title: "Web Development 101", description: "คอร์สเรียนพื้นฐานสำหรับเริ่มต้นสร้างเว็บไซต์" },
-  { id: "basic-programming", image: "/basicpro_1.png", title: "Basic Programming", description: "คอร์สเรียนพื้นฐานที่ Programmer ทุกคนควรรู้" },
-];
-
 const AllCourses = ({ theme }) => {
+  const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch("/data/courses.json");
+        const data = await res.json();
+        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setCourses(sorted);
+      } catch (err) {
+        console.error("❌ Error loading courses.json:", err);
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
-
       <main className="flex-1 p-6 pt-20">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 flex items-center justify-center gap-2">
@@ -31,7 +36,7 @@ const AllCourses = ({ theme }) => {
                 className={`p-6 rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105 ${
                   theme === "dark" ? "bg-gray-800" : "bg-gray-200"
                 }`}
-                onClick={() => navigate(`/courses/${course.id}`)}
+                onClick={() => navigate(course.path)}
               >
                 <img
                   src={course.image}
@@ -40,7 +45,7 @@ const AllCourses = ({ theme }) => {
                 />
                 <h2 className="text-2xl font-bold mt-3">{course.title}</h2>
                 <p className="text-sm mt-2">{course.description}</p>
-                <a href={`/courses/${course.id}`} className="text-green-500 hover:underline">ดูรายละเอียด</a>
+                <a href={course.path} className="text-green-500 hover:underline">ดูรายละเอียด</a>
               </div>
             ))}
           </div>
