@@ -27,7 +27,7 @@ const Day14_ModelFairness = ({ theme }) => {
   const img11 = cld.image('Fairness11').format('auto').quality('auto').resize(scale().width(500));
   const img12 = cld.image('Fairness12').format('auto').quality('auto').resize(scale().width(500));
   const img13 = cld.image('Fairness13').format('auto').quality('auto').resize(scale().width(500));
-  const img14 = cld.image('Fairness14').format('auto').quality('auto').resize(scale().width(500));
+  const img14 = cld.image('Fairness14').format('auto').quality('auto').resize(scale().width(600));
 
   return (
     <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
@@ -962,7 +962,7 @@ print(metric_frame.by_group)
 <section id="summary" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-4 text-center">10. สรุปท้ายบท</h2>
   <div className="flex justify-center my-6">
-    <AdvancedImage cldImg={img13} />
+    <AdvancedImage cldImg={img14} />
   </div>
 
   <p className="mb-4 leading-relaxed">
