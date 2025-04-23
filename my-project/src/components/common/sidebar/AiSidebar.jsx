@@ -65,7 +65,10 @@ const sidebarItems = [
           path: "/courses/ai/modele-interpretability&explainability" },
 
           { id: "day14", title: "Day 14: Fairness, Bias & Ethics in AI", 
-          path: "/courses/ai/fairness,bias&ethics" }   
+          path: "/courses/ai/fairness,bias&ethics" },
+          { id: "day15", title: "Day 15: AI Governance & Risk Management", 
+          path: "/courses/ai/ai-governance&risk-management" }
+         
 
   
       ],

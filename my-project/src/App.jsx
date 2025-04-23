@@ -300,6 +300,7 @@ import Day11_CrossValidation from "./pages/standalone/ai100day/Day11_CrossValida
 import Day12_Overfitting from "./pages/standalone/ai100day/Day12_Overfitting";
 import Day13_ModelExplainability from "./pages/standalone/ai100day/Day13_ModelExplainability";
 import Day14_ModelFairness from "./pages/standalone/ai100day/Day14_ModelFairness";
+import Day15_AIGovernance from "./pages/standalone/ai100day/Day15_AIGovernance";
 
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
@@ -673,6 +674,8 @@ function App() {
                 <Route path="/courses/ai/modele-interpretability&explainability" element={<Day13_ModelExplainability theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/fairness,bias&ethics" element=
                 {<Day14_ModelFairness theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/ai-governance&risk-management" element=
+                {<Day15_AIGovernance theme={theme} setTheme={setTheme} />} />
 
                 
       
