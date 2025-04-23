@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Basic AI",
+    "title": "AI Governance & Risk Management",
+    "path": "/courses/ai/ai-governance&risk-management",
+    "date": "2025-04-23"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Basic AI",
     "title": "Fairness, Bias & Ethics in AI",
     "path": "/courses/ai/fairness,bias&ethics",
     "date": "2025-04-22"

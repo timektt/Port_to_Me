@@ -28,9 +28,11 @@ const sidebarItems = [
       { id: "day12", title: "Day 12: Overfitting, Underfitting & Model Diagnostics", 
       path: "/courses/ai/overfitting-underfitting&model-diagnostics" },
       { id: "day13", title: "Day 13: Model Interpretability & Explainability", 
-        path: "/courses/ai/modele-interpretability&explainability" },
-        { id: "day14", title: "Day 14: Fairness, Bias & Ethics in AI", 
-        path: "/courses/ai/fairness,bias&ethics" }
+      path: "/courses/ai/modele-interpretability&explainability" },
+      { id: "day14", title: "Day 14: Fairness, Bias & Ethics in AI", 
+      path: "/courses/ai/fairness,bias&ethics" },
+      { id: "day15", title: "Day 15: AI Governance & Risk Management", 
+      path: "/courses/ai/ai-governance&risk-management" }
 
     ],
   },

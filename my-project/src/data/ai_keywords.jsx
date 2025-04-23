@@ -13,6 +13,7 @@ export const aiKeywords = [
     { id: 'Day12', title: 'Overfitting, Underfitting & Model Diagnostics', path: '/courses/ai/overfitting-underfitting&model-diagnostics', tags: ['Day12', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day13', title: 'Model Interpretability & Explainability', path: '/courses/ai/modele-interpretability&explainability', tags: ['Day13', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day14', title: 'Fairness, Bias & Ethics in AI ', path: '/courses/ai/fairness,bias&ethics', tags: ['Day14', 'Ai', 'beginner', 'Basic Ai'] },
+    { id: 'Day15', title: 'AI Governance & Risk Management ', path: '/courses/ai/ai-governance&risk-management', tags: ['Day15', 'Ai', 'beginner', 'Basic Ai'] },
 
 
 ]
