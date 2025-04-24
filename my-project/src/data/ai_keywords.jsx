@@ -14,6 +14,7 @@ export const aiKeywords = [
     { id: 'Day13', title: 'Model Interpretability & Explainability', path: '/courses/ai/modele-interpretability&explainability', tags: ['Day13', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day14', title: 'Fairness, Bias & Ethics in AI ', path: '/courses/ai/fairness,bias&ethics', tags: ['Day14', 'Ai', 'beginner', 'Basic Ai'] },
     { id: 'Day15', title: 'AI Governance & Risk Management ', path: '/courses/ai/ai-governance&risk-management', tags: ['Day15', 'Ai', 'beginner', 'Basic Ai'] },
+    { id: 'Day16', title: 'Introduction to Neural Networks ', path: '/courses/ai/neural-network-intro', tags: ['Day16', 'Ai', 'beginner', 'Neural Networks'] },
 
 
 ]
