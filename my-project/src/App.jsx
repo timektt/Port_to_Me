@@ -302,6 +302,15 @@ import Day13_ModelExplainability from "./pages/standalone/ai100day/Day13_ModelEx
 import Day14_ModelFairness from "./pages/standalone/ai100day/Day14_ModelFairness";
 import Day15_AIGovernance from "./pages/standalone/ai100day/Day15_AIGovernance";
 
+
+
+//Neural Networks
+import Day16_NeuralNetworkIntro from "./pages/standalone/ai100day/Day16-40/Day16_NeuralNetworkIntro";
+
+
+
+
+
 import { Outlet } from "react-router-dom"; // ✅ ใช้ Outlet เพื่อให้ PythonSeries เป็น Layout หลัก
 
 function App() {
@@ -676,6 +685,11 @@ function App() {
                 {<Day14_ModelFairness theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/ai-governance&risk-management" element=
                 {<Day15_AIGovernance theme={theme} setTheme={setTheme} />} />
+
+                // Neural Networks
+                <Route path="/courses/ai/neural-network-intro" element=
+                {<Day16_NeuralNetworkIntro theme={theme} setTheme={setTheme} />} />
+                
 
                 
       

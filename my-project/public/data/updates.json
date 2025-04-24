@@ -1,6 +1,13 @@
 [
   {
     "category": "Ai-Series",
+    "level": " Neural Networks",
+    "title": "Introduction to Neural Networks",
+    "path": "/courses/ai/neural-network-intro",
+    "date": "2025-04-24"
+  },
+  {
+    "category": "Ai-Series",
     "level": " Basic AI",
     "title": "AI Governance & Risk Management",
     "path": "/courses/ai/ai-governance&risk-management",
