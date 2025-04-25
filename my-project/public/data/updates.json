@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Neural Networks",
+    "title": "Perceptron & Multi-Layer Perceptron",
+    "path": "/courses/ai/perceptron-mlp",
+    "date": "2025-04-24"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Neural Networks",
     "title": "Introduction to Neural Networks",
     "path": "/courses/ai/neural-network-intro",
     "date": "2025-04-24"
