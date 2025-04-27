@@ -307,6 +307,7 @@ import Day15_AIGovernance from "./pages/standalone/ai100day/Day15_AIGovernance";
 //Neural Networks
 import Day16_NeuralNetworkIntro from "./pages/standalone/ai100day/Day16-40/Day16_NeuralNetworkIntro";
 import Day17_PerceptronMLP from "./pages/standalone/ai100day/Day16-40/Day17_PerceptronMLP";
+import Day18_WeightInitialization from "./pages/standalone/ai100day/Day16-40/Day18_WeightInitialization";
 
 
 
@@ -692,6 +693,8 @@ function App() {
                 {<Day16_NeuralNetworkIntro theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/perceptron-mlp" element=
                 {<Day17_PerceptronMLP theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/weight-initialization" element=
+                {<Day18_WeightInitialization theme={theme} setTheme={setTheme} />} />
                 
 
                 
