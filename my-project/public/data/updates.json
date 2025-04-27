@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": " Neural Networks",
+    "title": "Weight Initialization Strategies",
+    "path": "/courses/ai/weight-initialization",
+    "date": "2025-04-27"
+  },
+  {
+    "category": "Ai-Series",
+    "level": " Neural Networks",
     "title": "Perceptron & Multi-Layer Perceptron",
     "path": "/courses/ai/perceptron-mlp",
     "date": "2025-04-24"
