@@ -1,6 +1,13 @@
 [
   {
     "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Gradient Descent Variants",
+    "path": "/courses/ai/gradient-descent-variants",
+    "date": "2025-04-28"
+  },
+  {
+    "category": "Ai-Series",
     "level": " Neural Networks",
     "title": "Weight Initialization Strategies",
     "path": "/courses/ai/weight-initialization",
