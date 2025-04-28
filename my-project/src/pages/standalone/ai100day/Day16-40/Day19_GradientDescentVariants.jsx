@@ -15,6 +15,17 @@ const Day19_GradientDescentVariants = ({ theme }) => {
 
   const img1 = cld.image("gd_variants1").format("auto").quality("auto").resize(scale().width(650));
   const img2 = cld.image("gd_variants2").format("auto").quality("auto").resize(scale().width(600));
+  const img3 = cld.image("gd_variants3").format("auto").quality("auto").resize(scale().width(500));
+  const img4 = cld.image("gd_variants4").format("auto").quality("auto").resize(scale().width(600));
+  const img5 = cld.image("gd_variants5").format("auto").quality("auto").resize(scale().width(600));
+  const img6 = cld.image("gd_variants6").format("auto").quality("auto").resize(scale().width(600));
+  const img7 = cld.image("gd_variants7").format("auto").quality("auto").resize(scale().width(600));
+  const img8 = cld.image("gd_variants8").format("auto").quality("auto").resize(scale().width(600));
+  const img9 = cld.image("gd_variants9").format("auto").quality("auto").resize(scale().width(600));
+  const img10 = cld.image("gd_variants10").format("auto").quality("auto").resize(scale().width(600));
+  const img11 = cld.image("gd_variants11").format("auto").quality("auto").resize(scale().width(600));
+  const img12 = cld.image("gd_variants12").format("auto").quality("auto").resize(scale().width(600));
+
 
   return (
     <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
@@ -48,9 +59,9 @@ const Day19_GradientDescentVariants = ({ theme }) => {
       <li><strong>Hyperparameter Sensitivity:</strong> ต้องการการเลือก Learning Rate (η) อย่างละเอียด มิฉะนั้นโมเดลจะไม่เรียนรู้ หรือ Diverge ทันที</li>
     </ul>
 
-    <div className="flex justify-center my-8">
-      <img src="/images/gradient_descent_oscillation.png" alt="Oscillation in Gradient Descent" className="rounded-xl shadow-md w-full max-w-2xl" />
-    </div>
+    <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img3} />
+        </div>
 
     <h3 className="text-xl font-semibold">ทำไมการพัฒนา Gradient Descent Variants จึงจำเป็น?</h3>
     <p>
@@ -127,6 +138,9 @@ const Day19_GradientDescentVariants = ({ theme }) => {
 
 <section id="basic-gradient-descent" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-6 text-center">2. Review สั้น: Gradient Descent พื้นฐาน</h2>
+  <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img4} />
+        </div>
   <div className="prose dark:prose-invert max-w-none text-base leading-relaxed space-y-6">
     <p>
       Gradient Descent คืออัลกอริทึมพื้นฐานที่สุดใน Optimization สำหรับการเรียนรู้ของโมเดล Machine Learning และ Deep Learning ซึ่งได้รับการอธิบายไว้อย่างกว้างขวางในงานวิจัยของ Stanford University และ MIT AI Lab ว่าเป็นกลไกสำคัญในการหาค่าพารามิเตอร์ที่เหมาะสมเพื่อให้ Loss Function ต่ำที่สุด
@@ -229,6 +243,9 @@ for i in range(20):
 
 <section id="sgd" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-6 text-center">3. Stochastic Gradient Descent (SGD)</h2>
+  <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img5} />
+        </div>
   <div className="prose dark:prose-invert max-w-none text-base leading-relaxed space-y-6">
     <p>
       Stochastic Gradient Descent (SGD) เป็นหนึ่งในอัลกอริทึมพื้นฐานที่มีบทบาทสำคัญในกระบวนการฝึกโมเดล Machine Learning และ Deep Learning โดยมีหลักการทำงานที่แตกต่างจาก Gradient Descent แบบดั้งเดิมที่ใช้ข้อมูลทั้งชุด (full batch) ในการคำนวณกราดิเอนต์ในแต่ละรอบการอัปเดตพารามิเตอร์
@@ -237,10 +254,6 @@ for i in range(20):
     <p>
       ใน SGD จะมีการเลือกตัวอย่างข้อมูลแบบสุ่มเพียงหนึ่งตัวอย่าง หรือกลุ่มย่อยขนาดเล็ก (mini-batch) เพื่อคำนวณกราดิเอนต์และทำการอัปเดตพารามิเตอร์ทันที ส่งผลให้การอัปเดตเกิดขึ้นบ่อยครั้งและทำให้การฝึกมีความรวดเร็วขึ้น นอกจากนี้การสุ่มยังทำให้เส้นทางการไหลของพารามิเตอร์มีลักษณะเป็น stochastic หรือมีความไม่แน่นอนซึ่งช่วยให้สามารถหลีกเลี่ยง local minima ได้ดีขึ้นในฟังก์ชันที่มีหลาย minima
     </p>
-
-    <div className="flex justify-center my-6">
-      <img src="/images/sgd_vs_gd.png" alt="GD vs SGD" className="rounded-lg shadow-lg max-w-full h-auto" />
-    </div>
 
     <h3 className="text-xl font-semibold">สูตรการอัปเดตของ SGD</h3>
     <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
@@ -272,9 +285,8 @@ for i in range(20):
 
     <h3 className="text-xl font-semibold">ตัวอย่างการเปรียบเทียบ GD กับ SGD</h3>
     <div className="flex justify-center my-6">
-      <img src="/images/sgd_landscape.gif" alt="SGD Landscape Visualization" className="rounded-lg shadow-lg max-w-full h-auto" />
-    </div>
-
+          <AdvancedImage cldImg={img6} />
+        </div>
     <p>
       จากภาพจะเห็นได้ว่า Full Batch Gradient Descent เคลื่อนที่เป็นเส้นตรงอย่างมั่นคงสู่ minimum แต่มีความช้า ในขณะที่ SGD กระโดดไปมาแบบ stochastic แต่สามารถไปถึงบริเวณ minimum ได้รวดเร็วกว่ามาก
     </p>
@@ -326,6 +338,9 @@ for epoch in range(100):
 
 <section id="mini-batch" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-6 text-center">4. Mini-Batch Gradient Descent</h2>
+  <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img7} />
+        </div>
   <div className="prose dark:prose-invert max-w-none text-base leading-relaxed space-y-6">
     <p>
       Mini-Batch Gradient Descent เป็นหนึ่งในเทคนิคการอัปเดตพารามิเตอร์ที่ได้รับความนิยมสูงสุดในวงการ Deep Learning และ Machine Learning สมัยใหม่ โดยมีการผสานข้อดีระหว่าง Gradient Descent แบบดั้งเดิมที่มีเสถียรภาพสูง และ Stochastic Gradient Descent (SGD) ที่มีความเร็วในการอัปเดตสูง ทั้งนี้ Mini-Batch ช่วยให้สามารถปรับตัวได้ดีต่อทั้งปริมาณข้อมูลที่มากและการเรียนรู้ที่มีความผันผวนในระดับที่เหมาะสม
@@ -419,6 +434,9 @@ Update parameters:
 
 <section id="momentum" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-6 text-center">5. Momentum</h2>
+  <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img8} />
+        </div>
   
   <div className="prose dark:prose-invert max-w-none text-base leading-relaxed space-y-6">
 
@@ -529,6 +547,9 @@ for inputs, labels in dataloader:
 
 <section id="nesterov" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-6 text-center">6. Nesterov Accelerated Gradient (NAG)</h2>
+  <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img9} />
+        </div>
   <div className="prose dark:prose-invert max-w-none text-base leading-relaxed space-y-6">
     <p>
       Nesterov Accelerated Gradient (NAG) เป็นเทคนิคการเร่งความเร็วของกระบวนการ Optimization ที่ได้รับการพัฒนาขึ้นโดย Yurii Nesterov ในปี 1983 จากงานวิจัยทางคณิตศาสตร์เชิงนูน (Convex Optimization) และต่อมาได้ถูกนำมาปรับใช้ใน Machine Learning และ Deep Learning อย่างแพร่หลาย เพื่อเพิ่มความเร็วในการลู่เข้าสู่ค่าต่ำสุดของ Loss Function และลดปัญหา overshooting ที่พบได้ใน Gradient Descent ทั่วไปและ Momentum ปกติ
@@ -627,6 +648,9 @@ for epoch in range(100):
 
 <section id="adaptive-methods" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-6 text-center">7. Adaptive Methods (AdaGrad, RMSProp, Adam)</h2>
+  <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img10} />
+        </div>
   <div className="prose dark:prose-invert max-w-none text-base leading-relaxed space-y-6">
 
     <p>
@@ -853,6 +877,9 @@ for data, target in dataloader:
 
 <section id="insight" className="mb-16 scroll-mt-32 min-h-[400px]">
 <h2 className="text-2xl font-semibold mb-6 text-center">9. Insight เชิงลึก</h2>
+<div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img11} />
+        </div>
 <div className="prose dark:prose-invert max-w-none text-base leading-relaxed space-y-6">
   <p>
     การพัฒนาเทคนิคการปรับปรุง Gradient Descent ในช่วงหลายทศวรรษที่ผ่านมา เป็นหัวใจสำคัญที่ผลักดันให้การฝึก Neural Networks มีประสิทธิภาพสูงขึ้นในทางปฏิบัติ โดยเฉพาะอย่างยิ่งในงานที่โมเดลมีขนาดใหญ่หรือข้อมูลมีความซับซ้อนสูง แนวคิดเช่น Learning Rate Scheduling, Warm Restarts และ Cyclic Learning Rate ได้รับการยอมรับอย่างกว้างขวางจากสถาบันชั้นนำ เช่น Stanford, MIT, และ Google Brain ว่าสามารถช่วยเร่งการลู่เข้าของโมเดลได้อย่างมีนัยสำคัญ
@@ -898,7 +925,10 @@ for data, target in dataloader:
     </p>
   </div>
 
-  <h3 className="text-xl font-semibold mt-8">แนวทางปฏิบัติที่แนะนำ (Best Practices)</h3>
+  <h3 className="text-xl font-semibold mt-8 text-center">แนวทางปฏิบัติที่แนะนำ (Best Practices)</h3>
+  <div className="flex justify-center my-6">
+          <AdvancedImage cldImg={img12} />
+        </div>
   <ul className="list-disc pl-6 space-y-2">
     <li>เริ่มต้นด้วย Adam เมื่อยังไม่มีข้อมูลที่ชัดเจนเกี่ยวกับลักษณะของปัญหา</li>
     <li>ปรับ Learning Rate เป็นตัวแรกที่ควรปรับเมื่อการฝึกไม่เป็นไปตามที่คาดหวัง</li>
