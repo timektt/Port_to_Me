@@ -17,6 +17,6 @@ export const aiKeywords = [
     { id: 'Day16', title: 'Introduction to Neural Networks ', path: '/courses/ai/neural-network-intro', tags: ['Day16', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day17', title: 'Perceptron & Multi-Layer Perceptron', path: '/courses/ai/perceptron-mlp', tags: ['Day17', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day18', title: 'Weight Initialization Strategies', path: '/courses/ai/weight-initialization', tags: ['Day18', 'Ai', 'beginner', 'Neural Networks'] },
-    { id: 'Day19', title: 'Gradient Descent Variants', path: '/courses/ai/weight-initialization', tags: ['Day18', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day19', title: 'Gradient Descent Variants', path: '/courses/ai/weight-initialization', tags: ['Day19', 'Ai', 'beginner', 'Neural Networks'] },
 ]
     
