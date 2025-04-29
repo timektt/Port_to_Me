@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Batch Normalization & Layer Norm",
+    "path": "/courses/ai/batch-layer-normalization",
+    "date": "2025-04-29"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Gradient Descent Variants",
     "path": "/courses/ai/gradient-descent-variants",
     "date": "2025-04-28"
