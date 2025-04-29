@@ -309,6 +309,7 @@ import Day16_NeuralNetworkIntro from "./pages/standalone/ai100day/Day16-40/Day16
 import Day17_PerceptronMLP from "./pages/standalone/ai100day/Day16-40/Day17_PerceptronMLP";
 import Day18_WeightInitialization from "./pages/standalone/ai100day/Day16-40/Day18_WeightInitialization";
 import Day19_GradientDescentVariants from "./pages/standalone/ai100day/Day16-40/Day19_GradientDescentVariants";
+import Day20_BatchLayerNormalization from "./pages/standalone/ai100day/Day16-40/Day20_BatchLayerNormalization";
 
 
 
@@ -698,6 +699,9 @@ function App() {
                 {<Day18_WeightInitialization theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/gradient-descent-variants" element=
                 {<Day19_GradientDescentVariants theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/batch-layer-normalization" element=
+                {<Day20_BatchLayerNormalization theme={theme} setTheme={setTheme} />} />
+
                 
 
                 
