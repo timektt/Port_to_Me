@@ -19,6 +19,7 @@ export const aiKeywords = [
     { id: 'Day18', title: 'Weight Initialization Strategies', path: '/courses/ai/weight-initialization', tags: ['Day18', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day19', title: 'Gradient Descent Variants', path: '/courses/ai/weight-initialization', tags: ['Day19', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day20', title: 'Batch Normalization & Layer Norm', path: '/courses/ai/batch-layer-normalization', tags: ['Day20', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day21', title: 'Introduction to (CNN)', path: '/courses/ai/intro-to-cnn', tags: ['Day21', 'Ai', 'beginner', 'Neural Networks'] },
 ]
 
     
