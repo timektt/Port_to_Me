@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Introduction to (CNN)",
+    "path": "/courses/ai/intro-to-cnn",
+    "date": "2025-04-30"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Batch Normalization & Layer Norm",
     "path": "/courses/ai/batch-layer-normalization",
     "date": "2025-04-29"
