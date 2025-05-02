@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "CNN Architecture & Filters",
+    "path": "/courses/ai/cnn-architecture",
+    "date": "2025-05-02"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Introduction to (CNN)",
     "path": "/courses/ai/intro-to-cnn",
     "date": "2025-04-30"
