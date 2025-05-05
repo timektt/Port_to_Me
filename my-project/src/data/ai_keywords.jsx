@@ -21,6 +21,8 @@ export const aiKeywords = [
     { id: 'Day20', title: 'Batch Normalization & Layer Norm', path: '/courses/ai/batch-layer-normalization', tags: ['Day20', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day21', title: 'Introduction to (CNN)', path: '/courses/ai/intro-to-cnn', tags: ['Day21', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day22', title: 'CNN Architecture & Filters', path: '/courses/ai/cnn-architecture', tags: ['Day22', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day23', title: 'Pooling & Stride Techniques', path: '/courses/ai/pooling-stride', tags: ['Day23', 'Ai', 'beginner', 'Neural Networks'] },
+    
     
 ]
 

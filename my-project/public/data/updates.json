@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Pooling & Stride Techniques",
+    "path": "/courses/ai/pooling-stride",
+    "date": "2025-05-04"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "CNN Architecture & Filters",
     "path": "/courses/ai/cnn-architecture",
     "date": "2025-05-02"
