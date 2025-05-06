@@ -313,6 +313,7 @@ import Day20_BatchLayerNormalization from "./pages/standalone/ai100day/Day16-40/
 import Day21_CNNIntro from "./pages/standalone/ai100day/Day16-40/Day21_CNNIntro";
 import Day22_CNNArchitecture from "./pages/standalone/ai100day/Day16-40/Day22_CNNArchitecture";
 import Day23_PoolingStride from "./pages/standalone/ai100day/Day16-40/Day23_PoolingStride";
+import Day24_CNNVision from "./pages/standalone/ai100day/Day16-40/Day24_CNNVision";
 
 
 function App() {
@@ -705,6 +706,8 @@ function App() {
                 {<Day22_CNNArchitecture theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/pooling-stride" element=
                 {<Day23_PoolingStride theme={theme} setTheme={setTheme} />} />
+                 <Route path="/courses/ai/cnn-computer-vision" element=
+                {<Day24_CNNVision theme={theme} setTheme={setTheme} />} />
 
 
                 

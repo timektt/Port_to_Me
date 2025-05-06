@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "CNN in Computer Vision",
+    "path": "/courses/ai/cnn-computer-vision",
+    "date": "2025-05-06"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Pooling & Stride Techniques",
     "path": "/courses/ai/pooling-stride",
     "date": "2025-05-04"
