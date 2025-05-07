@@ -314,6 +314,7 @@ import Day21_CNNIntro from "./pages/standalone/ai100day/Day16-40/Day21_CNNIntro"
 import Day22_CNNArchitecture from "./pages/standalone/ai100day/Day16-40/Day22_CNNArchitecture";
 import Day23_PoolingStride from "./pages/standalone/ai100day/Day16-40/Day23_PoolingStride";
 import Day24_CNNVision from "./pages/standalone/ai100day/Day16-40/Day24_CNNVision";
+import Day25_CNNRegularization from "./pages/standalone/ai100day/Day16-40/Day25_CNNRegularization";
 
 
 function App() {
@@ -708,6 +709,8 @@ function App() {
                 {<Day23_PoolingStride theme={theme} setTheme={setTheme} />} />
                  <Route path="/courses/ai/cnn-computer-vision" element=
                 {<Day24_CNNVision theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/intro-to-rnn" element=
+                {<Day25_CNNRegularization theme={theme} setTheme={setTheme} />} />
 
 
                 

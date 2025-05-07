@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Introduction to (RNN)",
+    "path": "/courses/ai/intro-to-rnn",
+    "date": "2025-05-07"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "CNN in Computer Vision",
     "path": "/courses/ai/cnn-computer-vision",
     "date": "2025-05-06"
