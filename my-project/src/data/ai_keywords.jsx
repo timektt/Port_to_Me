@@ -24,6 +24,7 @@ export const aiKeywords = [
     { id: 'Day23', title: 'Pooling & Stride Techniques', path: '/courses/ai/pooling-stride', tags: ['Day23', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day24', title: 'CNN in Computer Vision', path: '/courses/ai/cnn-computer-vision', tags: ['Day24', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day25', title: 'Introduction to (RNN)', path: '/courses/ai/intro-to-rnn', tags: ['Day25', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day26', title: 'Sequence Modeling & Time Series', path: '/courses/ai/sequence-modeling', tags: ['Day26', 'Ai', 'beginner', 'Neural Networks'] },
     
     
 ]
