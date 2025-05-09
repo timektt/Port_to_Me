@@ -316,6 +316,7 @@ import Day23_PoolingStride from "./pages/standalone/ai100day/Day16-40/Day23_Pool
 import Day24_CNNVision from "./pages/standalone/ai100day/Day16-40/Day24_CNNVision";
 import Day25_CNNRegularization from "./pages/standalone/ai100day/Day16-40/Day25_CNNRegularization";
 import Day26_SequenceTimeSeries from "./pages/standalone/ai100day/Day16-40/Day26_SequenceTimeSeries";
+import Day27_LSTM from "./pages/standalone/ai100day/Day16-40/Day27_LSTM";
 
 
 function App() {
@@ -714,6 +715,8 @@ function App() {
                 {<Day25_CNNRegularization theme={theme} setTheme={setTheme} />} />
                  <Route path="/courses/ai/sequence-modeling" element=
                 {<Day26_SequenceTimeSeries theme={theme} setTheme={setTheme} />} />
+                 <Route path="/courses/ai/lstm-explained" element=
+                {<Day27_LSTM theme={theme} setTheme={setTheme} />} />
 
 
 

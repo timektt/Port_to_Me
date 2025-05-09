@@ -1,4 +1,11 @@
 [
+   {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Long Short-Term Memory (LSTM)",
+    "path": "/courses/ai/lstm-explained",
+    "date": "2025-05-09"
+  },
   {
     "category": "Ai-Series",
     "level": "Neural Networks",
