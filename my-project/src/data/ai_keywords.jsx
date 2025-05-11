@@ -26,6 +26,7 @@ export const aiKeywords = [
     { id: 'Day25', title: 'Introduction to (RNN)', path: '/courses/ai/intro-to-rnn', tags: ['Day25', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day26', title: 'Sequence Modeling & Time Series', path: '/courses/ai/sequence-modeling', tags: ['Day26', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day27', title: 'Long Short-Term Memory (LSTM)', path: '/courses/ai/lstm-explained', tags: ['Day27', 'Ai', 'beginner', 'Neural Networks'] },
+     { id: 'Day28', title: 'Gated Recurrent Units (GRU)', path: '/courses/ai/gru-explained', tags: ['Day28', 'Ai', 'beginner', 'Neural Networks'] },
     
     
 ]

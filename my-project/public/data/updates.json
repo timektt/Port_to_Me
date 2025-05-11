@@ -1,4 +1,11 @@
 [
+     {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Gated Recurrent Units (GRU)",
+    "path": "/courses/ai/gru-explained",
+    "date": "2025-05-11"
+  },
    {
     "category": "Ai-Series",
     "level": "Neural Networks",
