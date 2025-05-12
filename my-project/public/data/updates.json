@@ -1,4 +1,11 @@
 [
+   {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Bidirectional & Deep RNNs",
+    "path": "/courses/ai/bidirectional-rnn",
+    "date": "2025-05-12"
+  },
      {
     "category": "Ai-Series",
     "level": "Neural Networks",
