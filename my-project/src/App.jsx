@@ -318,6 +318,8 @@ import Day25_CNNRegularization from "./pages/standalone/ai100day/Day16-40/Day25_
 import Day26_SequenceTimeSeries from "./pages/standalone/ai100day/Day16-40/Day26_SequenceTimeSeries";
 import Day27_LSTM from "./pages/standalone/ai100day/Day16-40/Day27_LSTM";
 import Day28_GRU from "./pages/standalone/ai100day/Day16-40/Day28_GRU";
+import Day29_BiDeepRNNs from "./pages/standalone/ai100day/Day16-40/Day29_BiDeepRNNs";
+
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
@@ -719,6 +721,8 @@ function App() {
                 {<Day27_LSTM theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/gru-explained" element=
                 {<Day28_GRU theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/bidirectional-rnn" element=
+                {<Day29_BiDeepRNNs theme={theme} setTheme={setTheme} />} />
 
 
                 
