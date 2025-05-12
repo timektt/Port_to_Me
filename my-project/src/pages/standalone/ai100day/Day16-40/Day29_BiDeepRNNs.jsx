@@ -21,7 +21,7 @@ const Day29_BiDeepRNNs = ({ theme }) => {
   const img6 = cld.image("Day29_6").format("auto").quality("auto").resize(scale().width(500));
   const img7 = cld.image("Day29_7").format("auto").quality("auto").resize(scale().width(500));
   const img8 = cld.image("Day29_8").format("auto").quality("auto").resize(scale().width(500));
-  const img9 = cld.image("Day29_9").format("auto").quality("auto").resize(scale().width(500));
+  const img9 = cld.image("Day29_9").format("auto").quality("auto").resize(scale().width(490));
   const img10 = cld.image("Day29_10").format("auto").quality("auto").resize(scale().width(500));
   const img11 = cld.image("Day29_11").format("auto").quality("auto").resize(scale().width(490));
  
@@ -249,49 +249,51 @@ Layer 3: h_t^(3) = RNN(h_t^{(2)}, h_{t-1}^{(3)})`}
   <div className="flex justify-center my-6">
     <AdvancedImage cldImg={img5} />
   </div>
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose dark:prose-invert text-base leading-relaxed space-y-8">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-base leading-relaxed space-y-8">
 
     <p>
       การพัฒนาโมเดล Recurrent Neural Networks (RNNs) ได้เกิดการต่อยอดเชิงสถาปัตยกรรมหลายแนวทาง เพื่อเพิ่มศักยภาพในการจัดการข้อมูลลำดับที่ซับซ้อน โดยเฉพาะในงานที่ต้องอาศัยบริบทจากทั้งอดีตและอนาคต หรือข้อมูลที่มีโครงสร้างลึก การเปรียบเทียบระหว่างสถาปัตยกรรมต่าง ๆ จึงมีความสำคัญต่อการเลือกใช้โมเดลที่เหมาะสมกับลักษณะปัญหา
     </p>
 
     <h3 className="text-xl font-semibold">การเปรียบเทียบประเภทของสถาปัตยกรรม RNN</h3>
-    <table className="w-full border border-gray-300 dark:border-gray-700 table-auto text-sm sm:text-base">
-      <thead className="bg-gray-100 dark:bg-gray-800">
-        <tr>
-          <th className="border px-4 py-2">Type</th>
-          <th className="border px-4 py-2">Direction</th>
-          <th className="border px-4 py-2">Depth</th>
-          <th className="border px-4 py-2">Use Cases</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border px-4 py-2">Vanilla RNN</td>
-          <td className="border px-4 py-2">One</td>
-          <td className="border px-4 py-2">1</td>
-          <td className="border px-4 py-2">Simple sequences</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">Deep RNN</td>
-          <td className="border px-4 py-2">One</td>
-          <td className="border px-4 py-2">&gt;1</td>
-          <td className="border px-4 py-2">Time series / Speech</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">Bidirectional RNN</td>
-          <td className="border px-4 py-2">Two</td>
-          <td className="border px-4 py-2">1</td>
-          <td className="border px-4 py-2">NLP / Text classification</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">Bi-Deep RNN</td>
-          <td className="border px-4 py-2">Two</td>
-          <td className="border px-4 py-2">&gt;1</td>
-          <td className="border px-4 py-2">Advanced NLP / Translation</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="overflow-x-auto">
+      <table className="min-w-full border border-gray-300 dark:border-gray-700 text-sm sm:text-base text-left">
+        <thead className="bg-gray-100 dark:bg-gray-800">
+          <tr>
+            <th className="border px-3 py-2 whitespace-nowrap">Type</th>
+            <th className="border px-3 py-2 whitespace-nowrap">Direction</th>
+            <th className="border px-3 py-2 whitespace-nowrap">Depth</th>
+            <th className="border px-3 py-2 whitespace-nowrap">Use Cases</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border px-3 py-2">Vanilla RNN</td>
+            <td className="border px-3 py-2">One</td>
+            <td className="border px-3 py-2">1</td>
+            <td className="border px-3 py-2">Simple sequences</td>
+          </tr>
+          <tr>
+            <td className="border px-3 py-2">Deep RNN</td>
+            <td className="border px-3 py-2">One</td>
+            <td className="border px-3 py-2">&gt;1</td>
+            <td className="border px-3 py-2">Time series / Speech</td>
+          </tr>
+          <tr>
+            <td className="border px-3 py-2">Bidirectional RNN</td>
+            <td className="border px-3 py-2">Two</td>
+            <td className="border px-3 py-2">1</td>
+            <td className="border px-3 py-2">NLP / Text classification</td>
+          </tr>
+          <tr>
+            <td className="border px-3 py-2">Bi-Deep RNN</td>
+            <td className="border px-3 py-2">Two</td>
+            <td className="border px-3 py-2">&gt;1</td>
+            <td className="border px-3 py-2">Advanced NLP / Translation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3 className="text-xl font-semibold">ข้อสังเกตและการเลือกใช้งาน</h3>
     <ul className="list-disc list-inside ml-4 space-y-2">
@@ -320,6 +322,7 @@ Layer 3: h_t^(3) = RNN(h_t^{(2)}, h_{t-1}^{(3)})`}
     </ul>
   </div>
 </section>
+
 
 
         <section id="equations" className="mb-16 scroll-mt-32 min-h-[400px]">
