@@ -319,6 +319,7 @@ import Day26_SequenceTimeSeries from "./pages/standalone/ai100day/Day16-40/Day26
 import Day27_LSTM from "./pages/standalone/ai100day/Day16-40/Day27_LSTM";
 import Day28_GRU from "./pages/standalone/ai100day/Day16-40/Day28_GRU";
 import Day29_BiDeepRNNs from "./pages/standalone/ai100day/Day16-40/Day29_BiDeepRNNs";
+import Day30_AttentionClassic from "./pages/standalone/ai100day/Day16-40/Day30_AttentionClassic";
 
 
 function App() {
@@ -723,6 +724,8 @@ function App() {
                 {<Day28_GRU theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/bidirectional-rnn" element=
                 {<Day29_BiDeepRNNs theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/attention-mechanism" element=
+                {<Day30_AttentionClassic theme={theme} setTheme={setTheme} />} />
 
 
                 

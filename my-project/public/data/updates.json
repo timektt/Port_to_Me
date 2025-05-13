@@ -1,4 +1,11 @@
 [
+     {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Attention Mechanisms (Classic)",
+    "path": "/courses/ai/attention-mechanism",
+    "date": "2025-05-13"
+  },
    {
     "category": "Ai-Series",
     "level": "Neural Networks",
