@@ -28,7 +28,7 @@ export const aiKeywords = [
      { id: 'Day27', title: 'Long Short-Term Memory (LSTM)', path: '/courses/ai/lstm-explained', tags: ['Day27', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day28', title: 'Gated Recurrent Units (GRU)', path: '/courses/ai/gru-explained', tags: ['Day28', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day29', title: 'Bidirectional & Deep RNNs', path: '/courses/ai/bidirectional-rnn', tags: ['Day29', 'Ai', 'beginner', 'Neural Networks'] },
-    
+    { id: 'Day30', title: 'Attention Mechanisms (Classic)', path: '/courses/ai/attention-mechanism', tags: ['Day30', 'Ai', 'beginner', 'Neural Networks'] },
     
 ]
 
