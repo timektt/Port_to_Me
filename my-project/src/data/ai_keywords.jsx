@@ -29,6 +29,7 @@ export const aiKeywords = [
      { id: 'Day28', title: 'Gated Recurrent Units (GRU)', path: '/courses/ai/gru-explained', tags: ['Day28', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day29', title: 'Bidirectional & Deep RNNs', path: '/courses/ai/bidirectional-rnn', tags: ['Day29', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day30', title: 'Attention Mechanisms (Classic)', path: '/courses/ai/attention-mechanism', tags: ['Day30', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day31', title: 'Transformer Architecture Overview', path: '/courses/ai/transformer-overview', tags: ['Day31', 'Ai', 'beginner', 'Neural Networks'] },
     
 ]
 
