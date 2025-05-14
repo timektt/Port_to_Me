@@ -15,7 +15,6 @@ const Day31_TransformerOverview = ({ theme }) => {
 
   const img1 = cld.image("Day31_1").format("auto").quality("auto").resize(scale().width(661));
   const img2 = cld.image("Day31_2").format("auto").quality("auto").resize(scale().width(491));
-  const img3 = cld.image("Day31_3").format("auto").quality("auto").resize(scale().width(491));
   const img4 = cld.image("Day31_4").format("auto").quality("auto").resize(scale().width(491));
   const img5 = cld.image("Day31_5").format("auto").quality("auto").resize(scale().width(491));
   const img6 = cld.image("Day31_6").format("auto").quality("auto").resize(scale().width(491));
@@ -26,7 +25,8 @@ const Day31_TransformerOverview = ({ theme }) => {
   const img11 = cld.image("Day31_11").format("auto").quality("auto").resize(scale().width(498));
   const img12 = cld.image("Day31_12").format("auto").quality("auto").resize(scale().width(491));
   const img13 = cld.image("Day31_13").format("auto").quality("auto").resize(scale().width(501));
-  const img14 = cld.image("Day31_14").format("auto").quality("auto").resize(scale().width(400));
+  const img14 = cld.image("Day31_14").format("auto").quality("auto").resize(scale().width(501));
+  const img15 = cld.image("Day31_15").format("auto").quality("auto").resize(scale().width(490));
 
   return (
     <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
@@ -115,9 +115,11 @@ const Day31_TransformerOverview = ({ theme }) => {
 
 <section id="architecture" className="mb-16 scroll-mt-32 min-h-[400px]">
   <h2 className="text-2xl font-semibold mb-6 text-center">2. Overall Architecture: Encoder-Decoder แบบ Full Attention</h2>
-  <div className="flex justify-center my-6">
-    <AdvancedImage cldImg={img3} />
+
+   <div className="flex justify-center my-6">
+    <AdvancedImage cldImg={img15} />
   </div>
+
   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose dark:prose-invert text-base leading-relaxed space-y-10">
 
     <h3 className="text-xl font-semibold">โครงสร้างหลักของ Transformer</h3>
