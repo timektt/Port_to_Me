@@ -2,6 +2,13 @@
      {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Transformer Architecture Overview",
+    "path": "/courses/ai/transformer-overview",
+    "date": "2025-05-14"
+  },
+     {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Attention Mechanisms (Classic)",
     "path": "/courses/ai/attention-mechanism",
     "date": "2025-05-13"

@@ -320,6 +320,7 @@ import Day27_LSTM from "./pages/standalone/ai100day/Day16-40/Day27_LSTM";
 import Day28_GRU from "./pages/standalone/ai100day/Day16-40/Day28_GRU";
 import Day29_BiDeepRNNs from "./pages/standalone/ai100day/Day16-40/Day29_BiDeepRNNs";
 import Day30_AttentionClassic from "./pages/standalone/ai100day/Day16-40/Day30_AttentionClassic";
+import Day31_TransformerOverview from "./pages/standalone/ai100day/Day16-40/Day31_TransformerOverview";
 
 
 function App() {
@@ -726,6 +727,8 @@ function App() {
                 {<Day29_BiDeepRNNs theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/attention-mechanism" element=
                 {<Day30_AttentionClassic theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/transformer-overview" element=
+                {<Day31_TransformerOverview theme={theme} setTheme={setTheme} />} />
 
 
                 
