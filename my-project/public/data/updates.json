@@ -2,6 +2,13 @@
      {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Positional Encoding in Transformers",
+    "path": "/courses/ai/positional-encoding",
+    "date": "2025-05-15"
+  },
+     {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Transformer Architecture Overview",
     "path": "/courses/ai/transformer-overview",
     "date": "2025-05-14"
