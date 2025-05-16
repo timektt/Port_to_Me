@@ -1,4 +1,11 @@
 [
+    {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Self-Attention & Multi-Head Attention",
+    "path": "/courses/ai/self-attention",
+    "date": "2025-05-16"
+  },
      {
     "category": "Ai-Series",
     "level": "Neural Networks",

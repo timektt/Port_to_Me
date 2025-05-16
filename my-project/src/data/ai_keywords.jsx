@@ -31,6 +31,7 @@ export const aiKeywords = [
     { id: 'Day30', title: 'Attention Mechanisms (Classic)', path: '/courses/ai/attention-mechanism', tags: ['Day30', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day31', title: 'Transformer Architecture Overview', path: '/courses/ai/transformer-overview', tags: ['Day31', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day32', title: 'Positional Encoding in Transformers', path: '/courses/ai/positional-encoding', tags: ['Day32', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day33', title: 'Self-Attention & Multi-Head Attention', path: '/courses/ai/self-attention', tags: ['Day33', 'Ai', 'beginner', 'Neural Networks'] },
     
 ]
 
