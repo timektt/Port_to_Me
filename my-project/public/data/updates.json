@@ -2,11 +2,18 @@
     {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Encoder-Decoder Structure",
+    "path": "/courses/ai/transformer-encoder-decoder",
+    "date": "2025-05-17"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Self-Attention & Multi-Head Attention",
     "path": "/courses/ai/self-attention",
     "date": "2025-05-16"
   },
-     {
+  {
     "category": "Ai-Series",
     "level": "Neural Networks",
     "title": "Positional Encoding in Transformers",

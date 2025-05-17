@@ -323,6 +323,7 @@ import Day30_AttentionClassic from "./pages/standalone/ai100day/Day16-40/Day30_A
 import Day31_TransformerOverview from "./pages/standalone/ai100day/Day16-40/Day31_TransformerOverview";
 import Day32_PositionalEncoding from "./pages/standalone/ai100day/Day16-40/Day32_PositionalEncoding";
 import Day33_SelfAttention from "./pages/standalone/ai100day/Day16-40/Day33_SelfAttention";
+import Day34_EncoderDecoder from "./pages/standalone/ai100day/Day16-40/Day34_EncoderDecoder";
 
 
 function App() {
@@ -735,6 +736,8 @@ function App() {
                 {<Day32_PositionalEncoding theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/self-attention" element=
                 {<Day33_SelfAttention theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/transformer-encoder-decoder" element=
+                {<Day34_EncoderDecoder theme={theme} setTheme={setTheme} />} />
 
 
                 
