@@ -2,6 +2,13 @@
     {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Transfer Learning & Pretraining",
+    "path": "/courses/ai/transfer-learning",
+    "date": "2025-05-18"
+  },
+    {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Encoder-Decoder Structure",
     "path": "/courses/ai/transformer-encoder-decoder",
     "date": "2025-05-17"

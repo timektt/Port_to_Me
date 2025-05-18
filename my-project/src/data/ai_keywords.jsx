@@ -33,6 +33,7 @@ export const aiKeywords = [
     { id: 'Day32', title: 'Positional Encoding in Transformers', path: '/courses/ai/positional-encoding', tags: ['Day32', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day33', title: 'Self-Attention & Multi-Head Attention', path: '/courses/ai/self-attention', tags: ['Day33', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day34', title: 'Encoder-Decoder Structure', path: '/courses/ai/transformer-encoder-decoder', tags: ['Day34', 'Ai', 'beginner', 'Neural Networks'] },
+      { id: 'Day35', title: 'Transfer Learning & Pretraining', path: '/courses/ai/transfer-learning', tags: ['Day35', 'Ai', 'beginner', 'Neural Networks'] },
     
     
 ]
