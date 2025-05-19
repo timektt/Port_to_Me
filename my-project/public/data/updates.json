@@ -1,4 +1,11 @@
 [
+     {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Fine-tuning Pretrained Models",
+    "path": "/courses/ai/fine-tuning",
+    "date": "2025-05-19"
+  },
     {
     "category": "Ai-Series",
     "level": "Neural Networks",
