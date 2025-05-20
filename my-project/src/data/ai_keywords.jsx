@@ -35,6 +35,8 @@ export const aiKeywords = [
      { id: 'Day34', title: 'Encoder-Decoder Structure', path: '/courses/ai/transformer-encoder-decoder', tags: ['Day34', 'Ai', 'beginner', 'Neural Networks'] },
       { id: 'Day35', title: 'Transfer Learning & Pretraining', path: '/courses/ai/transfer-learning', tags: ['Day35', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day36', title: 'Fine-tuning Pretrained Models', path: '/courses/ai/fine-tuning', tags: ['Day36', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day37', title: 'Data Augmentation Techniques', path: 'courses/ai/data-augmentation', tags: ['Day37', 'Ai', 'beginner', 'Neural Networks'] },
+    
     
     
 ]
