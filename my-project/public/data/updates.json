@@ -2,6 +2,13 @@
      {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Data Augmentation Techniques",
+    "path": "courses/ai/data-augmentation",
+    "date": "2025-05-20"
+  },
+     {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Fine-tuning Pretrained Models",
     "path": "/courses/ai/fine-tuning",
     "date": "2025-05-19"

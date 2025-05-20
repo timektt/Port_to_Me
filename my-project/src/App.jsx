@@ -326,6 +326,7 @@ import Day33_SelfAttention from "./pages/standalone/ai100day/Day16-40/Day33_Self
 import Day34_EncoderDecoder from "./pages/standalone/ai100day/Day16-40/Day34_EncoderDecoder";
 import Day35_TransferLearning from "./pages/standalone/ai100day/Day16-40/Day35_TransferLearning";
 import Day36_FineTuning from "./pages/standalone/ai100day/Day16-40/Day36_FineTuning";
+import Day37_DataAugmentation from "./pages/standalone/ai100day/Day16-40/Day37_DataAugmentation";
 
 
 function App() {
@@ -744,6 +745,9 @@ function App() {
                 {<Day35_TransferLearning theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/fine-tuning" element=
                 {<Day36_FineTuning theme={theme} setTheme={setTheme} />} />
+                <Route path="courses/ai/data-augmentation" element=
+                {<Day37_DataAugmentation theme={theme} setTheme={setTheme} />} />
+
 
 
 
