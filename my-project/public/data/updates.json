@@ -1,4 +1,11 @@
 [
+   {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
+    "title": "Hyperparameter Tuning Strategies",
+    "path": "/courses/ai/hyperparameter-tuning",
+    "date": "2025-05-21"
+  },
      {
     "category": "Ai-Series",
     "level": "Neural Networks",

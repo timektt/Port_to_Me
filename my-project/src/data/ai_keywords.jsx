@@ -36,7 +36,7 @@ export const aiKeywords = [
       { id: 'Day35', title: 'Transfer Learning & Pretraining', path: '/courses/ai/transfer-learning', tags: ['Day35', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day36', title: 'Fine-tuning Pretrained Models', path: '/courses/ai/fine-tuning', tags: ['Day36', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day37', title: 'Data Augmentation Techniques', path: 'courses/ai/data-augmentation', tags: ['Day37', 'Ai', 'beginner', 'Neural Networks'] },
-    
+     { id: 'Day38', title: 'Hyperparameter Tuning Strategies', path: '/courses/ai/hyperparameter-tuning', tags: ['Day38', 'Ai', 'beginner', 'Neural Networks'] },
     
     
 ]

@@ -327,6 +327,7 @@ import Day34_EncoderDecoder from "./pages/standalone/ai100day/Day16-40/Day34_Enc
 import Day35_TransferLearning from "./pages/standalone/ai100day/Day16-40/Day35_TransferLearning";
 import Day36_FineTuning from "./pages/standalone/ai100day/Day16-40/Day36_FineTuning";
 import Day37_DataAugmentation from "./pages/standalone/ai100day/Day16-40/Day37_DataAugmentation";
+import Day38_HyperparameterTuning from "./pages/standalone/ai100day/Day16-40/Day38_HyperparameterTuning";
 
 
 function App() {
@@ -747,6 +748,8 @@ function App() {
                 {<Day36_FineTuning theme={theme} setTheme={setTheme} />} />
                 <Route path="courses/ai/data-augmentation" element=
                 {<Day37_DataAugmentation theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/hyperparameter-tuning" element=
+                {<Day38_HyperparameterTuning theme={theme} setTheme={setTheme} />} />
 
 
 
