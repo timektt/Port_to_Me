@@ -2,6 +2,13 @@
    {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Supervised Learning Best Practices",
+    "path": "/courses/ai/supervised-learning-best-practices",
+    "date": "2025-05-22"
+  },
+   {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Hyperparameter Tuning Strategies",
     "path": "/courses/ai/hyperparameter-tuning",
     "date": "2025-05-21"
