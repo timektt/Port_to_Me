@@ -993,10 +993,10 @@ test_suite.save_html("drift_report.html")
             <div className="flex items-center">
               <span className="text-lg font-bold">Tags:</span>
               <button
-                onClick={() => navigate("/tags/deployment")}
+                onClick={() => navigate("/tags/ai")}
                 className="ml-2 px-3 py-1 border border-gray-500 rounded-lg text-green-700 cursor-pointer hover:bg-gray-700 transition"
               >
-                deployment
+                ai
               </button>
             </div>
           </div>
