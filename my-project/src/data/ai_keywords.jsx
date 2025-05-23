@@ -38,6 +38,7 @@ export const aiKeywords = [
     { id: 'Day37', title: 'Data Augmentation Techniques', path: 'courses/ai/data-augmentation', tags: ['Day37', 'Ai', 'beginner', 'Neural Networks'] },
      { id: 'Day38', title: 'Hyperparameter Tuning Strategies', path: '/courses/ai/hyperparameter-tuning', tags: ['Day38', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day39', title: 'Supervised Learning Best Practices', path: '/courses/ai/supervised-learning-best-practices', tags: ['Day39', 'Ai', 'beginner', 'Neural Networks'] },
+    { id: 'Day40', title: 'Model Deployment Basics', path: '/courses/ai/model-deployment-basics', tags: ['Day40', 'Ai', 'beginner', 'Neural Networks'] },
     
 ]
 

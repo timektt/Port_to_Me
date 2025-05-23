@@ -2,6 +2,13 @@
    {
     "category": "Ai-Series",
     "level": "Neural Networks",
+    "title": "Model Deployment Basics",
+    "path": "/courses/ai/model-deployment-basics",
+    "date": "2025-05-23"
+  },
+   {
+    "category": "Ai-Series",
+    "level": "Neural Networks",
     "title": "Supervised Learning Best Practices",
     "path": "/courses/ai/supervised-learning-best-practices",
     "date": "2025-05-22"

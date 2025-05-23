@@ -329,6 +329,7 @@ import Day36_FineTuning from "./pages/standalone/ai100day/Day16-40/Day36_FineTun
 import Day37_DataAugmentation from "./pages/standalone/ai100day/Day16-40/Day37_DataAugmentation";
 import Day38_HyperparameterTuning from "./pages/standalone/ai100day/Day16-40/Day38_HyperparameterTuning";
 import Day39_BestPractices from "./pages/standalone/ai100day/Day16-40/Day39_BestPractices";
+import Day40_ModelDeployment from "./pages/standalone/ai100day/Day16-40/Day40_ModelDeployment";
 
 
 function App() {
@@ -753,12 +754,8 @@ function App() {
                 {<Day38_HyperparameterTuning theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/supervised-learning-best-practices" element=
                 {<Day39_BestPractices theme={theme} setTheme={setTheme} />} />
-
-
-
-
-                
-
+                <Route path="/courses/ai/model-deployment-basics" element=
+                {<Day40_ModelDeployment theme={theme} setTheme={setTheme} />} />
                 
       
         </Routes>
