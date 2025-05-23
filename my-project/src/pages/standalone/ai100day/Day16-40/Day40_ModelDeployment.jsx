@@ -27,7 +27,7 @@ const Day40_ModelDeployment = ({ theme }) => {
   const img12 = cld.image("Day40_12").format("auto").quality("auto").resize(scale().width(501));
 
   return (
-    <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-700 text-black"}`}>
+    <div className={`relative min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
       <div className="hidden lg:block fixed left-0 top-16 bottom-0 w-64 z-40">
         <AiSidebar theme={theme} />
       </div>
