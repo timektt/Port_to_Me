@@ -331,6 +331,9 @@ import Day38_HyperparameterTuning from "./pages/standalone/ai100day/Day16-40/Day
 import Day39_BestPractices from "./pages/standalone/ai100day/Day16-40/Day39_BestPractices";
 import Day40_ModelDeployment from "./pages/standalone/ai100day/Day16-40/Day40_ModelDeployment";
 
+//Deep Learning
+import Day41_IntroCNN from "./pages/standalone/ai100day/Day41-60/Day41_IntroCNN";
+
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
@@ -756,6 +759,8 @@ function App() {
                 {<Day39_BestPractices theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/model-deployment-basics" element=
                 {<Day40_ModelDeployment theme={theme} setTheme={setTheme} />} />
+                 <Route path="/courses/ai/deep-cnn-intro" element=
+                {<Day41_IntroCNN theme={theme} setTheme={setTheme} />} />
                 
       
         </Routes>
