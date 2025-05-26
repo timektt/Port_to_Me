@@ -1,6 +1,13 @@
 [
    {
     "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Introduction to CNNs",
+    "path": "/courses/ai/deep-cnn-intro",
+    "date": "2025-05-26"
+  },
+   {
+    "category": "Ai-Series",
     "level": "Neural Networks",
     "title": "Model Deployment Basics",
     "path": "/courses/ai/model-deployment-basics",
