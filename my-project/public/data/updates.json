@@ -2,6 +2,13 @@
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "CNN Filters & Feature Maps",
+    "path": "/courses/ai/cnn-featuremaps",
+    "date": "2025-05-28"
+  },
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Introduction to CNNs",
     "path": "/courses/ai/deep-cnn-intro",
     "date": "2025-05-26"
