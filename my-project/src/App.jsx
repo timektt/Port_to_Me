@@ -334,6 +334,7 @@ import Day40_ModelDeployment from "./pages/standalone/ai100day/Day16-40/Day40_Mo
 //Deep Learning
 import Day41_IntroCNN from "./pages/standalone/ai100day/Day41-60/Day41_IntroCNN";
 import Day42_CNNFiltersFeatureMaps from "./pages/standalone/ai100day/Day41-60/Day42_CNNFiltersFeatureMaps";
+import Day43_PoolingLayers from "./pages/standalone/ai100day/Day41-60/Day43_PoolingLayers";
 
 
 function App() {
@@ -764,6 +765,8 @@ function App() {
                 {<Day41_IntroCNN theme={theme} setTheme={setTheme} />} />
                  <Route path="/courses/ai/cnn-featuremaps" element=
                 {<Day42_CNNFiltersFeatureMaps theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/cnn-pooling" element=
+                {<Day43_PoolingLayers theme={theme} setTheme={setTheme} />} />
                 
       
         </Routes>
