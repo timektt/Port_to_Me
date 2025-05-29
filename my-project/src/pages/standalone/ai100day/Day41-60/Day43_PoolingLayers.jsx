@@ -198,36 +198,38 @@ Input:
       นิยมใช้ในเลเยอร์สุดท้ายก่อนเชื่อมกับ Fully Connected Layer
     </p>
 
-    <table className="table-auto w-full border border-gray-300 dark:border-gray-600 text-sm">
-      <thead className="bg-gray-200 dark:bg-gray-700">
-        <tr>
-          <th className="border px-4 py-2">ประเภท</th>
-          <th className="border px-4 py-2">ลักษณะ</th>
-          <th className="border px-4 py-2">ข้อดี</th>
-          <th className="border px-4 py-2">ตัวอย่างใช้งาน</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="border px-4 py-2">Max Pooling</td>
-          <td className="border px-4 py-2">เลือกค่ามากที่สุดในแต่ละ window</td>
-          <td className="border px-4 py-2">เน้น feature ที่เด่นชัด</td>
-          <td className="border px-4 py-2">VGGNet, ResNet</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">Average Pooling</td>
-          <td className="border px-4 py-2">คำนวณค่าเฉลี่ยใน window</td>
-          <td className="border px-4 py-2">ให้ representation ที่สมดุล</td>
-          <td className="border px-4 py-2">LeNet, AlexNet</td>
-        </tr>
-        <tr>
-          <td className="border px-4 py-2">Global Average Pooling</td>
-          <td className="border px-4 py-2">ลดภาพลงเป็นค่าหนึ่งต่อ channel</td>
-          <td className="border px-4 py-2">ลดจำนวนพารามิเตอร์อย่างมาก</td>
-          <td className="border px-4 py-2">GoogLeNet, MobileNet</td>
-        </tr>
-      </tbody>
-    </table>
+   <div className="overflow-x-auto rounded-lg border border-gray-300 dark:border-gray-600">
+  <table className="min-w-[600px] table-auto w-full text-sm">
+    <thead className="bg-gray-200 dark:bg-gray-700">
+      <tr>
+        <th className="border px-4 py-2">ประเภท</th>
+        <th className="border px-4 py-2">ลักษณะ</th>
+        <th className="border px-4 py-2">ข้อดี</th>
+        <th className="border px-4 py-2">ตัวอย่างใช้งาน</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="border px-4 py-2">Max Pooling</td>
+        <td className="border px-4 py-2">เลือกค่ามากที่สุดในแต่ละ window</td>
+        <td className="border px-4 py-2">เน้น feature ที่เด่นชัด</td>
+        <td className="border px-4 py-2">VGGNet, ResNet</td>
+      </tr>
+      <tr>
+        <td className="border px-4 py-2">Average Pooling</td>
+        <td className="border px-4 py-2">คำนวณค่าเฉลี่ยใน window</td>
+        <td className="border px-4 py-2">ให้ representation ที่สมดุล</td>
+        <td className="border px-4 py-2">LeNet, AlexNet</td>
+      </tr>
+      <tr>
+        <td className="border px-4 py-2">Global Average Pooling</td>
+        <td className="border px-4 py-2">ลดภาพลงเป็นค่าหนึ่งต่อ channel</td>
+        <td className="border px-4 py-2">ลดจำนวนพารามิเตอร์อย่างมาก</td>
+        <td className="border px-4 py-2">GoogLeNet, MobileNet</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
     <div className="p-4 rounded-lg border border-yellow-400 bg-yellow-600 dark:bg-yellow-800 dark:border-yellow-600">
       <p className="font-semibold text-yellow-900 dark:text-yellow-600">Insight Box:</p>
@@ -561,48 +563,51 @@ tf.nn.max_pool2d(input,
     </p>
 
     <h3 className="text-xl font-semibold">เปรียบเทียบเทคนิคต่าง ๆ</h3>
-    <table className="table-auto w-full border mt-4 text-left">
-      <thead>
-        <tr className="bg-gray-600 dark:bg-gray-800">
-          <th className="px-4 py-2 border">เทคนิค</th>
-          <th className="px-4 py-2 border">มีพารามิเตอร์</th>
-          <th className="px-4 py-2 border">สามารถเรียนรู้ได้</th>
-          <th className="px-4 py-2 border">ความยืดหยุ่น</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="px-4 py-2 border">Max/Average Pooling</td>
-          <td className="px-4 py-2 border">ไม่มี</td>
-          <td className="px-4 py-2 border">ไม่</td>
-          <td className="px-4 py-2 border">ต่ำ</td>
-        </tr>
-        <tr className="bg-gray-50 dark:bg-gray-900">
-          <td className="px-4 py-2 border">Strided Conv</td>
-          <td className="px-4 py-2 border">มี</td>
-          <td className="px-4 py-2 border">ใช่</td>
-          <td className="px-4 py-2 border">กลาง</td>
-        </tr>
-        <tr>
-          <td className="px-4 py-2 border">Global Pooling</td>
-          <td className="px-4 py-2 border">ไม่มี</td>
-          <td className="px-4 py-2 border">ไม่</td>
-          <td className="px-4 py-2 border">กลาง</td>
-        </tr>
-        <tr className="bg-gray-50 dark:bg-gray-900">
-          <td className="px-4 py-2 border">Adaptive Pooling</td>
-          <td className="px-4 py-2 border">ไม่มี</td>
-          <td className="px-4 py-2 border">ไม่</td>
-          <td className="px-4 py-2 border">สูง</td>
-        </tr>
-        <tr>
-          <td className="px-4 py-2 border">Attention-based</td>
-          <td className="px-4 py-2 border">มี</td>
-          <td className="px-4 py-2 border">ใช่</td>
-          <td className="px-4 py-2 border">สูงมาก</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="overflow-x-auto rounded-lg border border-gray-300 dark:border-gray-600 mt-4">
+  <table className="min-w-[600px] table-auto w-full text-left text-sm">
+    <thead className="bg-gray-600 dark:bg-gray-800 text-white">
+      <tr>
+        <th className="px-4 py-2 border">เทคนิค</th>
+        <th className="px-4 py-2 border">มีพารามิเตอร์</th>
+        <th className="px-4 py-2 border">สามารถเรียนรู้ได้</th>
+        <th className="px-4 py-2 border">ความยืดหยุ่น</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="px-4 py-2 border">Max/Average Pooling</td>
+        <td className="px-4 py-2 border">ไม่มี</td>
+        <td className="px-4 py-2 border">ไม่</td>
+        <td className="px-4 py-2 border">ต่ำ</td>
+      </tr>
+      <tr className="bg-gray-50 dark:bg-gray-900">
+        <td className="px-4 py-2 border">Strided Conv</td>
+        <td className="px-4 py-2 border">มี</td>
+        <td className="px-4 py-2 border">ใช่</td>
+        <td className="px-4 py-2 border">กลาง</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-2 border">Global Pooling</td>
+        <td className="px-4 py-2 border">ไม่มี</td>
+        <td className="px-4 py-2 border">ไม่</td>
+        <td className="px-4 py-2 border">กลาง</td>
+      </tr>
+      <tr className="bg-gray-50 dark:bg-gray-900">
+        <td className="px-4 py-2 border">Adaptive Pooling</td>
+        <td className="px-4 py-2 border">ไม่มี</td>
+        <td className="px-4 py-2 border">ไม่</td>
+        <td className="px-4 py-2 border">สูง</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-2 border">Attention-based</td>
+        <td className="px-4 py-2 border">มี</td>
+        <td className="px-4 py-2 border">ใช่</td>
+        <td className="px-4 py-2 border">สูงมาก</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
     <h3 className="text-xl font-semibold">ผลกระทบต่อโมเดลในระยะยาว</h3>
     <ul className="list-disc pl-6">
