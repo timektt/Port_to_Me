@@ -41,6 +41,7 @@ export const aiKeywords = [
     { id: 'Day40', title: 'Model Deployment Basics', path: '/courses/ai/model-deployment-basics', tags: ['Day40', 'Ai', 'beginner', 'Neural Networks'] },
     { id: 'Day41', title: 'Introduction to CNNs', path: '/courses/ai/deep-cnn-intro', tags: ['Day41', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day42', title: 'CNN Filters & Feature Maps', path: '/courses/ai/cnn-featuremaps', tags: ['Day42', 'Ai', 'beginner', 'Deep learning'] },
+    { id: 'Day43', title: 'Pooling Layers & Spatial Reduction', path: '/courses/ai/cnn-pooling', tags: ['Day43', 'Ai', 'beginner', 'Deep learning'] },
 
 ]
 
