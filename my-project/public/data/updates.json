@@ -2,6 +2,13 @@
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "CNN for Image Classification",
+    "path": "/courses/ai/cnn-image-classification",
+    "date": "2025-05-30"
+  },
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Pooling Layers & Spatial Reduction",
     "path": "/courses/ai/cnn-pooling",
     "date": "2025-05-29"
