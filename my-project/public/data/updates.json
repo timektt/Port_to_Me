@@ -1,4 +1,11 @@
 [
+    {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Transfer Learning with Pretrained CNNs",
+    "path": "/courses/ai/cnn-transfer-learning",
+    "date": "2025-05-31"
+  },
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
