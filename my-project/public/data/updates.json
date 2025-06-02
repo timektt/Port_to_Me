@@ -2,6 +2,13 @@
     {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "Introduction to RNNs & Sequence Models",
+    "path": "/courses/ai/rnn-intro-sequence",
+    "date": "2025-06-02"
+  },
+    {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Transfer Learning with Pretrained CNNs",
     "path": "/courses/ai/cnn-transfer-learning",
     "date": "2025-05-31"
