@@ -338,6 +338,7 @@ import Day43_PoolingLayers from "./pages/standalone/ai100day/Day41-60/Day43_Pool
 import Day44_CNNImageClassification from "./pages/standalone/ai100day/Day41-60/Day44_CNNImageClassification";
 import Day45_TransferLearning from "./pages/standalone/ai100day/Day41-60/Day45_TransferLearning";
 import Day46_RNNIntro from "./pages/standalone/ai100day/Day41-60/Day46_RNNIntro";
+import Day47_RNNVariants from "./pages/standalone/ai100day/Day41-60/Day47_RNN_LSTM_GRU";
 
 
 function App() {
@@ -776,6 +777,8 @@ function App() {
                 {<Day45_TransferLearning theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/rnn-intro-sequence" element=
                 {<Day46_RNNIntro theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/rnn-lstm-gru" element=
+                {<Day47_RNNVariants theme={theme} setTheme={setTheme} />} />
                 
                 
       
