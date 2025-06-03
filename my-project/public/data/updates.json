@@ -2,6 +2,13 @@
     {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "RNN Variants: LSTM & GRU",
+    "path": "/courses/ai/rnn-lstm-gru",
+    "date": "2025-06-03"
+  },
+    {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Introduction to RNNs & Sequence Models",
     "path": "/courses/ai/rnn-intro-sequence",
     "date": "2025-06-02"
