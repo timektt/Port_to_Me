@@ -339,6 +339,7 @@ import Day44_CNNImageClassification from "./pages/standalone/ai100day/Day41-60/D
 import Day45_TransferLearning from "./pages/standalone/ai100day/Day41-60/Day45_TransferLearning";
 import Day46_RNNIntro from "./pages/standalone/ai100day/Day41-60/Day46_RNNIntro";
 import Day47_RNNVariants from "./pages/standalone/ai100day/Day41-60/Day47_RNN_LSTM_GRU";
+import Day48_RNNApplications from "./pages/standalone/ai100day/Day41-60/Day48_RNNApplications";
 
 
 function App() {
@@ -779,6 +780,8 @@ function App() {
                 {<Day46_RNNIntro theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/rnn-lstm-gru" element=
                 {<Day47_RNNVariants theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/rnn-usecases" element=
+                {<Day48_RNNApplications theme={theme} setTheme={setTheme} />} />
                 
                 
       

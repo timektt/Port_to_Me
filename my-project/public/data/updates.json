@@ -1,4 +1,11 @@
 [
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Applications of RNNs: Text & Time Series",
+    "path": "/courses/ai/rnn-usecases",
+    "date": "2025-06-04"
+  },
     {
     "category": "Ai-Series",
     "level": "Deep Learning",
