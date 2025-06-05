@@ -340,6 +340,7 @@ import Day45_TransferLearning from "./pages/standalone/ai100day/Day41-60/Day45_T
 import Day46_RNNIntro from "./pages/standalone/ai100day/Day41-60/Day46_RNNIntro";
 import Day47_RNNVariants from "./pages/standalone/ai100day/Day41-60/Day47_RNN_LSTM_GRU";
 import Day48_RNNApplications from "./pages/standalone/ai100day/Day41-60/Day48_RNNApplications";
+import Day49_EncoderDecoder from "./pages/standalone/ai100day/Day41-60/Day49_EncoderDecoder";
 
 
 function App() {
@@ -782,6 +783,8 @@ function App() {
                 {<Day47_RNNVariants theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/rnn-usecases" element=
                 {<Day48_RNNApplications theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/encoder-decoder-architecture" element=
+                {<Day49_EncoderDecoder theme={theme} setTheme={setTheme} />} />
                 
                 
       
