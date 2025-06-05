@@ -1,4 +1,11 @@
 [
+     {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Encoder-Decoder Architecture",
+    "path": "/courses/ai/encoder-decoder-architecture",
+    "date": "2025-06-05"
+  },
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
