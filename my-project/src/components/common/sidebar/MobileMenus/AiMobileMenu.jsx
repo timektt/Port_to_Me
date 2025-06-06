@@ -75,7 +75,7 @@ const sidebarItems = [
       { id: "day47", title: "Day 47: RNN Variants: LSTM & GRU", path: "/courses/ai/rnn-lstm-gru" },
       { id: "day48", title: "Day 48: Applications of RNNs: Text & Time Series", path: "/courses/ai/rnn-usecases" },
       { id: "day49", title: "Day 49: Encoder-Decoder Architecture", path: "/courses/ai/encoder-decoder-architecture" },
-      { id: "day50", title: "Day 50: Attention Mechanism in Deep Learning", path: "/courses/ai/attention-mechanism" },
+      { id: "day50", title: "Day 50: Attention Mechanism in Deep Learning", path: "/courses/ai/attention-in-deep-learning" },
       { id: "day51", title: "Day 51: Introduction to Transformers", path: "/courses/ai/transformers-intro" },
       { id: "day52", title: "Day 52: Self-Attention & Positional Encoding", path: "/courses/ai/self-attention-positional" },
       { id: "day53", title: "Day 53: Transformer-based Architectures (BERT, GPT)", path: "/courses/ai/transformer-bert-gpt" },
