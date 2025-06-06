@@ -47,9 +47,8 @@ export const aiKeywords = [
      { id: 'Day46', title: 'Introduction to RNNs & Sequence Models', path: '/courses/ai/rnn-intro-sequence', tags: ['Day46', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day47', title: 'RNN Variants: LSTM & GRU', path: '/courses/ai/rnn-lstm-gru', tags: ['Day47', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day48', title: 'Applications of RNNs: Text & Time Series', path: '/courses/ai/rnn-usecases', tags: ['Day48', 'Ai', 'beginner', 'Deep learning'] },
-    { id: 'Day49', title: 'Encoder-Decoder Architecture', path: '/courses/ai/encoder-decoder-architectur', tags: ['Day49', 'Ai', 'beginner', 'Deep learning'] },
-
-
+    { id: 'Day49', title: 'Encoder-Decoder Architecture', path: '/courses/ai/encoder-decoder-architecture', tags: ['Day49', 'Ai', 'beginner', 'Deep learning'] },
+     { id: 'Day50', title: 'Attention Mechanism in Deep Learning', path: '/courses/ai/attention-in-deep-learning', tags: ['Day50', 'Ai', 'beginner', 'Deep learning'] },
 ]
 
     
