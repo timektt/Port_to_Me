@@ -2,6 +2,13 @@
   {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "Introduction to Transformers",
+    "path": "/courses/ai/transformers-intro",
+    "date": "2025-06-07"
+  },
+  {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Attention Mechanism in Deep Learning",
     "path": "/courses/ai/attention-in-deep-learning",
     "date": "2025-06-06"
