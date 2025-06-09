@@ -343,6 +343,7 @@ import Day48_RNNApplications from "./pages/standalone/ai100day/Day41-60/Day48_RN
 import Day49_EncoderDecoder from "./pages/standalone/ai100day/Day41-60/Day49_EncoderDecoder";
 import Day50_AttentionMechanism from "./pages/standalone/ai100day/Day41-60/Day50_AttentionMechanism";
 import Day51_IntroductionTransformers from "./pages/standalone/ai100day/Day41-60/Day51_IntroductionTransformers";
+import Day52_SelfAttention_PositionalEncoding from "./pages/standalone/ai100day/Day41-60/Day52_SelfAttention_PositionalEncoding";
 
 
 function App() {
@@ -791,6 +792,8 @@ function App() {
                 {<Day50_AttentionMechanism theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/transformers-intro" element=
                 {<Day51_IntroductionTransformers theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/self-attention-positional" element=
+                {<Day52_SelfAttention_PositionalEncoding theme={theme} setTheme={setTheme} />} />
                 
                 
       
