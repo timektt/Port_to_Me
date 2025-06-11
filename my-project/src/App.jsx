@@ -344,6 +344,7 @@ import Day49_EncoderDecoder from "./pages/standalone/ai100day/Day41-60/Day49_Enc
 import Day50_AttentionMechanism from "./pages/standalone/ai100day/Day41-60/Day50_AttentionMechanism";
 import Day51_IntroductionTransformers from "./pages/standalone/ai100day/Day41-60/Day51_IntroductionTransformers";
 import Day52_SelfAttention_PositionalEncoding from "./pages/standalone/ai100day/Day41-60/Day52_SelfAttention_PositionalEncoding";
+import Day53_TransformerArchitectures from "./pages/standalone/ai100day/Day41-60/Day53_TransformerArchitectures";
 
 
 function App() {
@@ -794,6 +795,8 @@ function App() {
                 {<Day51_IntroductionTransformers theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/self-attention-positional" element=
                 {<Day52_SelfAttention_PositionalEncoding theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/transformer-bert-gpt" element=
+                {<Day53_TransformerArchitectures theme={theme} setTheme={setTheme} />} />
                 
                 
       

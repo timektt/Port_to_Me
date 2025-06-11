@@ -2,6 +2,13 @@
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "Transformer-based Architectures (BERT, GPT)",
+    "path": "/courses/ai/transformer-bert-gpt",
+    "date": "2025-06-10"
+  },
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Self-Attention & Positional Encoding",
     "path": "/courses/ai/self-attention-positional",
     "date": "2025-06-09"
