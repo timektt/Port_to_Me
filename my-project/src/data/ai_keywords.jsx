@@ -50,6 +50,7 @@ export const aiKeywords = [
     { id: 'Day49', title: 'Encoder-Decoder Architecture', path: '/courses/ai/encoder-decoder-architecture', tags: ['Day49', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day50', title: 'Attention Mechanism in Deep Learning', path: '/courses/ai/attention-in-deep-learning', tags: ['Day50', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day51', title: 'Introduction to Transformers', path: '/courses/ai/transformers-intro', tags: ['Day51', 'Ai', 'beginner', 'Deep learning'] },
+    { id: 'Day52', title: 'Self-Attention & Positional Encoding', path: '/courses/ai/self-attention-positional', tags: ['Day52', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day53', title: 'Transformer-based Architectures (BERT, GPT)', path: '/courses/ai/transformer-bert-gpt', tags: ['Day53', 'Ai', 'beginner', 'Deep learning'] },
 
 ]
