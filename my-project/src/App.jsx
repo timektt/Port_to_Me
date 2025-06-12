@@ -345,6 +345,7 @@ import Day50_AttentionMechanism from "./pages/standalone/ai100day/Day41-60/Day50
 import Day51_IntroductionTransformers from "./pages/standalone/ai100day/Day41-60/Day51_IntroductionTransformers";
 import Day52_SelfAttention_PositionalEncoding from "./pages/standalone/ai100day/Day41-60/Day52_SelfAttention_PositionalEncoding";
 import Day53_TransformerArchitectures from "./pages/standalone/ai100day/Day41-60/Day53_TransformerArchitectures";
+import Day54_FineTuningLanguageModels from "./pages/standalone/ai100day/Day41-60/Day54_FineTuningLanguageModels";
 
 
 function App() {
@@ -797,6 +798,8 @@ function App() {
                 {<Day52_SelfAttention_PositionalEncoding theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/transformer-bert-gpt" element=
                 {<Day53_TransformerArchitectures theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/fine-tune-language-models" element=
+                {<Day54_FineTuningLanguageModels theme={theme} setTheme={setTheme} />} />
                 
                 
       
