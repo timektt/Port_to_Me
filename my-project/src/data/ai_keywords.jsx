@@ -53,6 +53,7 @@ export const aiKeywords = [
     { id: 'Day52', title: 'Self-Attention & Positional Encoding', path: '/courses/ai/self-attention-positional', tags: ['Day52', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day53', title: 'Transformer-based Architectures (BERT, GPT)', path: '/courses/ai/transformer-bert-gpt', tags: ['Day53', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day54', title: 'Fine-tuning Language Models', path: '/courses/ai/fine-tune-language-models', tags: ['Day54', 'Ai', 'beginner', 'Deep learning'] },
+     { id: 'Day55', title: 'Sequence-to-Sequence with Transformers', path: '/courses/ai/seq2seq-transformers', tags: ['Day55', 'Ai', 'beginner', 'Deep learning'] },
 
 ]
 
