@@ -1,5 +1,12 @@
 [
-    {
+  {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Sequence-to-Sequence with Transformers",
+    "path": "/courses/ai/seq2seq-transformers",
+    "date": "2025-06-13"
+  },
+  {
     "category": "Ai-Series",
     "level": "Deep Learning",
     "title": "Fine-tuning Language Models",

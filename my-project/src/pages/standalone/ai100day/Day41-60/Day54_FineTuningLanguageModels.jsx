@@ -34,22 +34,23 @@ const img12 = cld.image("Day54_12").format("auto").quality("auto").resize(scale(
         <AiSidebar theme={theme} />
       </div>
 
-      <main className="max-w-3xl mx-auto p-6 pt-20" />
+       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
       <div className="">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold mb-6">Day 54: Fine-tuning Language Models</h1>
           <div className="flex justify-center my-6">
             <AdvancedImage cldImg={img1} />
           </div>
+          
           <div className="w-full flex justify-center my-12">
             <div className="h-1 w-32 bg-gradient-to-r from-yellow-400 via-white to-yellow-400 dark:from-yellow-500 dark:via-gray-900 dark:to-yellow-500 rounded-full shadow-md"></div>
           </div>
 
          <section id="intro" className="mb-16 scroll-mt-32 min-h-[400px]">
-  <h2 className="text-2xl font-semibold mb-6 text-center">1. บทนำ: ทำไม Fine-tuning จึงสำคัญ</h2>
-  <div className="flex justify-center my-6">
-    <AdvancedImage cldImg={img2} />
-  </div>
+      <h2 className="text-2xl font-semibold mb-6 text-center">1. บทนำ: ทำไม Fine-tuning จึงสำคัญ</h2>
+      <div className="flex justify-center my-6">
+        <AdvancedImage cldImg={img2} />
+      </div>
 
   <div className="space-y-6 text-base leading-relaxed">
     <p>
@@ -1291,10 +1292,11 @@ Update: W' = W + ΔW
           <div className="mb-20" />
         </div>
       </div>
+      </main>
 
-      <div className="hidden lg:block fixed right-6 top-[185px] z-50">
+      {/* //<div className="hidden lg:block fixed right-6 top-[185px] z-50">
         <ScrollSpy_Ai_Day54 />
-      </div>
+      </div> */}
 
       <SupportMeButton />
     </div>

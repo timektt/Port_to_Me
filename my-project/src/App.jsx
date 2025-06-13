@@ -346,6 +346,7 @@ import Day51_IntroductionTransformers from "./pages/standalone/ai100day/Day41-60
 import Day52_SelfAttention_PositionalEncoding from "./pages/standalone/ai100day/Day41-60/Day52_SelfAttention_PositionalEncoding";
 import Day53_TransformerArchitectures from "./pages/standalone/ai100day/Day41-60/Day53_TransformerArchitectures";
 import Day54_FineTuningLanguageModels from "./pages/standalone/ai100day/Day41-60/Day54_FineTuningLanguageModels";
+import Day55_Seq2SeqTransformers from "./pages/standalone/ai100day/Day41-60/Day55_Seq2SeqTransformers";
 
 
 function App() {
@@ -800,6 +801,8 @@ function App() {
                 {<Day53_TransformerArchitectures theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/fine-tune-language-models" element=
                 {<Day54_FineTuningLanguageModels theme={theme} setTheme={setTheme} />} />
+                 <Route path="/courses/ai/seq2seq-transformers" element=
+                {<Day55_Seq2SeqTransformers theme={theme} setTheme={setTheme} />} />
                 
                 
       
