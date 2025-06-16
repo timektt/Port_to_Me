@@ -1,4 +1,11 @@
 [
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Image Captioning & Vision-Language Models",
+    "path": "/courses/ai/vision-language-models",
+    "date": "2025-06-16"
+  },
   {
     "category": "Ai-Series",
     "level": "Deep Learning",
