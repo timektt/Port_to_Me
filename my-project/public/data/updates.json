@@ -2,6 +2,13 @@
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "Multi-Modal Models: CLIP, Flamingo",
+    "path": "/courses/ai/multimodal-clip-flamingo",
+    "date": "2025-06-17"
+  },
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Image Captioning & Vision-Language Models",
     "path": "/courses/ai/vision-language-models",
     "date": "2025-06-16"

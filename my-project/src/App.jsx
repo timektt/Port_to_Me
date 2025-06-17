@@ -348,6 +348,7 @@ import Day53_TransformerArchitectures from "./pages/standalone/ai100day/Day41-60
 import Day54_FineTuningLanguageModels from "./pages/standalone/ai100day/Day41-60/Day54_FineTuningLanguageModels";
 import Day55_Seq2SeqTransformers from "./pages/standalone/ai100day/Day41-60/Day55_Seq2SeqTransformers";
 import Day56_ImageCaptioning from "./pages/standalone/ai100day/Day41-60/Day56_ImageCaptioning";
+import Day57_MultiModalModels from "./pages/standalone/ai100day/Day41-60/Day57_MultiModalModels";
 
 
 function App() {
@@ -806,6 +807,8 @@ function App() {
                 {<Day55_Seq2SeqTransformers theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/vision-language-models" element=
                 {<Day56_ImageCaptioning theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/multimodal-clip-flamingo" element=
+                {<Day57_MultiModalModels theme={theme} setTheme={setTheme} />} />
                 
                 
       
