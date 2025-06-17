@@ -1294,9 +1294,9 @@ Update: W' = W + ΔW
       </div>
       </main>
 
-      {/* //<div className="hidden lg:block fixed right-6 top-[185px] z-50">
+      <div className="hidden lg:block fixed right-6 top-[185px] z-50">
         <ScrollSpy_Ai_Day54 />
-      </div> */}
+      </div>
 
       <SupportMeButton />
     </div>
