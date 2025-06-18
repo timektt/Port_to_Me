@@ -55,7 +55,8 @@ export const aiKeywords = [
     { id: 'Day54', title: 'Fine-tuning Language Models', path: '/courses/ai/fine-tune-language-models', tags: ['Day54', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day55', title: 'Sequence-to-Sequence with Transformers', path: '/courses/ai/seq2seq-transformers', tags: ['Day55', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day56', title: 'Image Captioning & Vision-Language Models', path: '/courses/ai/vision-language-models', tags: ['Day56', 'Ai', 'beginner', 'Deep learning'] },
-     { id: 'Day57', title: 'Multi-Modal Models: CLIP, Flamingo', path: '/courses/ai/multimodal-clip-flamingo', tags: ['Day57', 'Ai', 'beginner', 'Deep learning'] },
+    { id: 'Day57', title: 'Multi-Modal Models: CLIP, Flamingo', path: '/courses/ai/multimodal-clip-flamingo', tags: ['Day57', 'Ai', 'beginner', 'Deep learning'] },
+    { id: 'Day58', title: 'Generative Models Overview (GANs, VAEs)', path: '/courses/ai/generative-overview', tags: ['Day58', 'Ai', 'beginner', 'Deep learning'] },
 
 ]
 

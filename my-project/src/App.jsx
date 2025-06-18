@@ -349,6 +349,7 @@ import Day54_FineTuningLanguageModels from "./pages/standalone/ai100day/Day41-60
 import Day55_Seq2SeqTransformers from "./pages/standalone/ai100day/Day41-60/Day55_Seq2SeqTransformers";
 import Day56_ImageCaptioning from "./pages/standalone/ai100day/Day41-60/Day56_ImageCaptioning";
 import Day57_MultiModalModels from "./pages/standalone/ai100day/Day41-60/Day57_MultiModalModels";
+import Day58_GenerativeModels from "./pages/standalone/ai100day/Day41-60/Day58_GenerativeModels";
 
 
 function App() {
@@ -809,6 +810,8 @@ function App() {
                 {<Day56_ImageCaptioning theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/multimodal-clip-flamingo" element=
                 {<Day57_MultiModalModels theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/generative-overview" element=
+                {<Day58_GenerativeModels theme={theme} setTheme={setTheme} />} />
                 
                 
       

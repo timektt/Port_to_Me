@@ -1,4 +1,11 @@
 [
+     {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Generative Models Overview (GANs, VAEs)",
+    "path": "/courses/ai/generative-overview",
+    "date": "2025-06-18"
+  },
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
