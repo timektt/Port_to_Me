@@ -350,6 +350,7 @@ import Day55_Seq2SeqTransformers from "./pages/standalone/ai100day/Day41-60/Day5
 import Day56_ImageCaptioning from "./pages/standalone/ai100day/Day41-60/Day56_ImageCaptioning";
 import Day57_MultiModalModels from "./pages/standalone/ai100day/Day41-60/Day57_MultiModalModels";
 import Day58_GenerativeModels from "./pages/standalone/ai100day/Day41-60/Day58_GenerativeModels";
+import Day59_GANs from "./pages/standalone/ai100day/Day41-60/Day59_GANs";
 
 
 function App() {
@@ -812,6 +813,8 @@ function App() {
                 {<Day57_MultiModalModels theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/generative-overview" element=
                 {<Day58_GenerativeModels theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/gans" element=
+                {<Day59_GANs theme={theme} setTheme={setTheme} />} />
                 
                 
       

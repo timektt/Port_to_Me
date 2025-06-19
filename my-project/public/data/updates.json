@@ -1,5 +1,12 @@
 [
-     {
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
+    "title": "Generative Adversarial Networks (GANs)",
+    "path": "/courses/ai/gans",
+    "date": "2025-06-19"
+  },
+   {
     "category": "Ai-Series",
     "level": "Deep Learning",
     "title": "Generative Models Overview (GANs, VAEs)",

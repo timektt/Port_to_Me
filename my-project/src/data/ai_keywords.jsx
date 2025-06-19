@@ -57,6 +57,7 @@ export const aiKeywords = [
     { id: 'Day56', title: 'Image Captioning & Vision-Language Models', path: '/courses/ai/vision-language-models', tags: ['Day56', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day57', title: 'Multi-Modal Models: CLIP, Flamingo', path: '/courses/ai/multimodal-clip-flamingo', tags: ['Day57', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day58', title: 'Generative Models Overview (GANs, VAEs)', path: '/courses/ai/generative-overview', tags: ['Day58', 'Ai', 'beginner', 'Deep learning'] },
+    { id: 'Day59', title: 'Generative Adversarial Networks (GANs)', path: '/courses/ai/gans', tags: ['Day59', 'Ai', 'beginner', 'Deep learning'] },
 
 ]
 
