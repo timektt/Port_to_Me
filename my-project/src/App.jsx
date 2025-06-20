@@ -351,6 +351,7 @@ import Day56_ImageCaptioning from "./pages/standalone/ai100day/Day41-60/Day56_Im
 import Day57_MultiModalModels from "./pages/standalone/ai100day/Day41-60/Day57_MultiModalModels";
 import Day58_GenerativeModels from "./pages/standalone/ai100day/Day41-60/Day58_GenerativeModels";
 import Day59_GANs from "./pages/standalone/ai100day/Day41-60/Day59_GANs";
+import Day60_StableDiffusion from "./pages/standalone/ai100day/Day41-60/Day60_StableDiffusion";
 
 
 function App() {
@@ -815,6 +816,8 @@ function App() {
                 {<Day58_GenerativeModels theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/gans" element=
                 {<Day59_GANs theme={theme} setTheme={setTheme} />} />
+                <Route path="/courses/ai/stable-diffusion-text2img" element=
+                {<Day60_StableDiffusion  theme={theme} setTheme={setTheme} />} />
                 
                 
       

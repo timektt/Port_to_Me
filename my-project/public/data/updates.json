@@ -2,6 +2,13 @@
    {
     "category": "Ai-Series",
     "level": "Deep Learning",
+    "title": "Stable Diffusion & Text-to-Image Generation",
+    "path": "/courses/ai/stable-diffusion-text2img",
+    "date": "2025-06-20"
+  },
+   {
+    "category": "Ai-Series",
+    "level": "Deep Learning",
     "title": "Generative Adversarial Networks (GANs)",
     "path": "/courses/ai/gans",
     "date": "2025-06-19"
