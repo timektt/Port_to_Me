@@ -8,6 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 .env
 serviceAccountKey.json
+.env
+*.json
+*.yaml
+*.key
+backend/render.yaml
+
 
 
 node_modules
