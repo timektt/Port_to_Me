@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 5000;
 
 console.log("📦 DATABASE_URL:", process.env.DATABASE_URL);
 
+
+
 // ✅ PostgreSQL connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
