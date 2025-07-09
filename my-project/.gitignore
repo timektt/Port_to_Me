@@ -12,7 +12,7 @@ serviceAccountKey.json
 *.json
 *.yaml
 *.key
-backend/render.yaml
+render.yaml
 
 
 
