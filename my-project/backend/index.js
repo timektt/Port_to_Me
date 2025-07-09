@@ -8,6 +8,11 @@ const userRoutes = require("./routes/userRoutes");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// app.listen(PORT, "0.0.0.0", () => {
+//   console.log(`🚀 Server running on http://localhost:${PORT}`);
+// });
+
+
 // ✅ PostgreSQL connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
