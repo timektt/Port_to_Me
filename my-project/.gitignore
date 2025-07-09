@@ -13,6 +13,7 @@ serviceAccountKey.json
 *.yaml
 *.key
 render.yaml
+backend/.env
 
 
 
