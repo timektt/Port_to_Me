@@ -1,7 +1,10 @@
-const express = require("express");
+// userRoutes.js
+import express from "express";
+import admin from "../firebaseAdmin.js";
+import pg from "pg";
+
 const router = express.Router();
-const admin = require("../firebaseAdmin");
-const { Pool } = require("pg");
+const { Pool } = pg;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -22,12 +25,10 @@ router.post("/save-user", async (req, res) => {
     const decoded = await admin.auth().verifyIdToken(token);
     const { uid, email, firebase: { sign_in_provider } } = decoded;
 
-    // ❓ ตรวจว่า uid นี้มีอยู่แล้วใน DB หรือยัง
     const checkQuery = 'SELECT * FROM "users" WHERE uid = $1';
     const checkResult = await pool.query(checkQuery, [uid]);
 
     if (checkResult.rows.length === 0) {
-      // 🧠 ยังไม่มีก็เพิ่มใหม่
       const insertQuery = 'INSERT INTO "users" (uid, email, provider) VALUES ($1, $2, $3)';
       await pool.query(insertQuery, [uid, email, sign_in_provider]);
       console.log("✅ User saved to DB:", email);
@@ -40,4 +41,4 @@ router.post("/save-user", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

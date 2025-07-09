@@ -1,16 +1,14 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const { Pool } = require("pg");
-const verifyFirebaseToken = require("../middlewares/verifyFirebaseToken");
-const userRoutes = require("./routes/userRoutes");
+// backend/index.js
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import { Pool } from 'pg';
+import verifyFirebaseToken from '../middlewares/verifyFirebaseToken.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// app.listen(PORT, "0.0.0.0", () => {
-//   console.log(`🚀 Server running on http://localhost:${PORT}`);
-// });
 console.log("📦 DATABASE_URL:", process.env.DATABASE_URL);
 
 // ✅ PostgreSQL connection

@@ -1,7 +1,9 @@
 // backend/controllers/authController.js
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const { Pool } = require("pg");
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import pg from "pg";
+
+const { Pool } = pg;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -9,7 +11,7 @@ const pool = new Pool({
 });
 
 // ✅ Login Function
-const login = async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -25,7 +27,6 @@ const login = async (req, res) => {
       return res.status(401).json({ success: false, message: "Invalid password" });
     }
 
-    // ✅ สร้าง JWT token พร้อม role
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
@@ -39,8 +40,8 @@ const login = async (req, res) => {
   }
 };
 
-// ✅ Register Function (Optional)
-const register = async (req, res) => {
+// ✅ Register Function
+export const register = async (req, res) => {
   const { email, password, role } = req.body;
 
   try {
@@ -56,9 +57,4 @@ const register = async (req, res) => {
     console.error("❌ Register error:", error);
     res.status(500).json({ success: false, message: "Server error" });
   }
-};
-
-module.exports = {
-  login,
-  register,
 };
