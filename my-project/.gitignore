@@ -9,7 +9,6 @@ lerna-debug.log*
 .env
 serviceAccountKey.json
 .env
-*.json
 *.yaml
 *.key
 render.yaml
