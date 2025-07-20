@@ -353,6 +353,9 @@ import Day58_GenerativeModels from "./pages/standalone/ai100day/Day41-60/Day58_G
 import Day59_GANs from "./pages/standalone/ai100day/Day41-60/Day59_GANs";
 import Day60_StableDiffusion from "./pages/standalone/ai100day/Day41-60/Day60_StableDiffusion";
 
+//Reinforcement Learning
+import Day61_IntroRL from "./pages/standalone/ai100day/Day61-80/Day61_IntroRL";
+
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
@@ -818,7 +821,9 @@ function App() {
                 {<Day59_GANs theme={theme} setTheme={setTheme} />} />
                 <Route path="/courses/ai/stable-diffusion-text2img" element=
                 {<Day60_StableDiffusion  theme={theme} setTheme={setTheme} />} />
-                
+                // Reinforcement Learning
+                <Route path="/courses/ai/rl-intro" element=
+                {<Day61_IntroRL theme={theme} setTheme={setTheme} />} />
                 
       
         </Routes>

@@ -59,6 +59,7 @@ export const aiKeywords = [
     { id: 'Day58', title: 'Generative Models Overview (GANs, VAEs)', path: '/courses/ai/generative-overview', tags: ['Day58', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day59', title: 'Generative Adversarial Networks (GANs)', path: '/courses/ai/gans', tags: ['Day59', 'Ai', 'beginner', 'Deep learning'] },
     { id: 'Day60', title: 'Stable Diffusion & Text-to-Image Generation', path: '/courses/ai/stable-diffusion-text2img', tags: ['Day60', 'Ai', 'beginner', 'Deep learning'] },
+     { id: 'Day61', title: 'Stable Diffusion & Text-to-Image Generation', path: '/courses/ai/rl-intro', tags: ['Day61', 'Ai', 'beginner', 'Reinforcement Learning'] },
 ]
 
     
